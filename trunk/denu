@@ -137,14 +137,19 @@ class denu:
 					v = v + 1
 			prgms.append(tmpstr)
 		import cPickle
+		old_prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
 		string = ''
+		new_prgms = []
 		for prgm in prgms: #create user readable list
 			string = string + prgm + "\n"
+			if old_prgms.count(prgm)==0:
+				new_prgms.append(prgm)
 		file = open('/usr/share/denu/sysprgms.txt','w') #write files
 		file.write(string)
 		file.close()
 		#cPickle list of installed.
 		cPickle.dump(prgms,open('/usr/share/denu/sysprgms.p','w'))
+		cPickle.dump(new_prgms,open('/usr/share/denu/new_sysprgms.p','w'))
 		status.set_text('System data collected.')
 		installedstore.clear()
 		#update installed TreeStore
@@ -455,6 +460,7 @@ class DenuGUI:
     	import cPickle
     	structure = cPickle.load(open(filename,'r'))
         self.gen(structure, menustore, None)
+        
     def installed_programs(self):
     	import cPickle,os
 	home = os.environ['HOME']
@@ -742,12 +748,31 @@ class DenuGUI:
     	
     def populate_installed(self, widget, initial):
     	#Populate installed programs
+    	import cPickle,os
+    	if os.path.exists('/usr/share/denu/new_sysprgms.p'):
+		new_prgms = cPickle.load(open('/usr/share/denu/new_sysprgms.p','r'))
+	else:
+		new_prgms = []
         prgms = self.installed_programs()
+        worldfile = open("/var/lib/portage/world", "r")
+        world = worldfile.readlines()
+        worldfile.close()
+        new_iter=self.installedstore.append(None, ['folder', 'New', '', self.pixbuf_manager('denu_folder.png'), ''])
+        world_iter=self.installedstore.append(None, ['folder', 'World', '', self.pixbuf_manager('denu_folder.png'), ''])
+        other_iter=self.installedstore.append(None, ['folder', 'Other', '', self.pixbuf_manager('denu_folder.png'), ''])
         x = 0
         for prgm in prgms:
         	if len(prgm)==1:
-        		prgm = ['folder', prgm[0], '', self.pixbuf_manager('denu_folder.png'), '']
-        		tmp_iter=self.installedstore.append(None, prgm)
+        		if new_prgms.count(prgm[0])==1:
+        			prgm = ['folder', prgm[0], '', self.pixbuf_manager('denu_folder.png'), '']
+        			tmp_iter=self.installedstore.append(new_iter, prgm)
+        		else:
+        			if world.count(prgm[0]+'\n')==1:
+        				prgm = ['folder', prgm[0], '', self.pixbuf_manager('denu_folder.png'), '']
+        				tmp_iter=self.installedstore.append(world_iter, prgm)
+        			else:
+        				prgm = ['folder', prgm[0], '', self.pixbuf_manager('denu_folder.png'), '']
+        				tmp_iter=self.installedstore.append(other_iter, prgm)
         	else:
         		if prgm[4]!='':
         			prgm[3] = self.pixbuf_manager(prgm[4])
