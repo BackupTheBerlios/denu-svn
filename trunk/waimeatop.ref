@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE waimea SYSTEM "/usr/share/waimea/waimea.dtd">
+
+<waimea version="0.5.0">
+
+  <include ignore_missing="true">~/.waimea/pre-menu.conf</include>
+
+  <menu name="styles"/>
+  <menu name="actions"/>
+
+  <include>|stylecfgmenu.pl</include>
+  <include>|actioncfgmenu.pl</include>
+
+  <menu name="window-info-menu" width_factor="1.5">
+    <item name="title" string="Window Info" image="/usr/share/waimea/menus/icons/info.png"/>
+    <item name="info" string="Title: %t"/>
+    <item name="info" string="Class: %c"/>
+    <item name="info" string="Class Name: %C"/>
+    <item name="info" string="Window ID: %r"/>
+    <item name="info" string="PID: %P"/>
+    <item name="info" string="Host: %s"/>
+    <item name="separator"/>
+    <item name="info" string="Transient: %S" 
+          monitor_window_state="windowstatetransient"/>
+    <item name="info" string="Group Leader: %S"
+          monitor_window_state="windowstategroupleader"/>
+    <item name="info" string="Group Member: %S"
+          monitor_window_state="windowstategroupmember"/>
+    <item name="info" string="Urgent: %S"
+          monitor_window_state="windowstateurgent"/>
+    <item name="info" string="Focusable: %S"
+          monitor_window_state="windowstatefocusable"/>
+    <item name="info" string="In Tasklist: %S"
+          monitor_window_state="windowstatetasklist"/>
+  </menu>
+
+  <menu name="waimea-info-menu" width_factor="2.0">
+    <item name="title" string="Waimea Info"
+          image="/usr/share/waimea/menus/icons/info.png"/>
+    <item name="info" string="Package: %p"/>
+    <item name="info" string="Version: %v"/>
+    <item name="info" string="Built: %D %T"/>
+    <item name="info" string="Features: %F"/>
+    <item name="info" string="Extensions Used: %E"/>
+    <item name="info" string="User: %u"/>
+  </menu>
+
+  <menu name="rootmenu">
+    <item name="title" string="root menu" image="/usr/share/waimea/menus/icons/rootmenu.png"/>

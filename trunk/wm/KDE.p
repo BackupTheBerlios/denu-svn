@@ -1,0 +1,21 @@
+(lp0
+S'KDE'
+p1
+aS'yes'
+p2
+ag2
+aS'no'
+p3
+aS'<denu-home>/.config/menus/denu.menu'
+p4
+aS'<Include>\n<Filename><denu-dt-full></Filename>\n</Include>\n'
+p5
+aS'<Menu>\n<Name><denu-name></Name>\n<Directory><denu-di-full></Directory>\n'
+p6
+aS'</Menu>\n'
+p7
+aS'<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN" "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">\n<Menu>\n<MergeFile>/usr/share/denu/kdemenurev.menu</MergeFile>\n'
+p8
+aS'</Menu>'
+p9
+a.

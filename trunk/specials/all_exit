@@ -1,0 +1,10 @@
+Exit<denu-split-l1>
+[exit] (Exit)<denu-split-l2>
+fluxbox<denu-split-l2>
+<item label="Exit"><action name="Exit" /></item><denu-split-l2>
+openbox<denu-split-l2>
+<item name="item" function="exit" string="Log Out" image="/usr/share/waimea/menus/icons/exit.png"/><denu-split-l2>
+waimea<denu-split-l2>
+<builtin name="Quit" cmd="quit" icon="/usr/share/pixmaps/denu_qm.png"/><denu-split-l2>
+xfce4<denu-split-l1>
+all

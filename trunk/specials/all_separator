@@ -1,0 +1,10 @@
+Separator<denu-split-l1>
+[separator]<denu-split-l2>
+fluxbox<denu-split-l2>
+<separator /><denu-split-l2>
+openbox<denu-split-l2>
+<item name="separator"/><denu-split-l2>
+waimea<denu-split-l2>
+<separator visible="true" /><denu-split-l2>
+xfce4<denu-split-l1>
+all

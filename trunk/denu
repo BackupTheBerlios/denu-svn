@@ -1,0 +1,1167 @@
+#!/usr/bin/env python
+#Copyright (C) 2004  Scott Shawcroft
+#
+#This program is free software; you can redistribute it and/or
+#modify it under the terms of the GNU General Public License
+#as published by the Free Software Foundation; either version 2
+#of the License, or (at your option) any later version.
+#
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#
+#You should have received a copy of the GNU General Public License
+#along with this program; if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+import pygtk
+pygtk.require('2.0')
+import gtk
+#denu class is all generation oriented functions.  All of the gui stuff is in DenuGUI
+class denu:
+	#Programdata updates the 'DB' files from the web
+	def programdata(skip, skip2, stable, gui): #Get the new data on all the programs
+		#print "Opening program data."
+		import urllib2
+		#Get newest version.
+		newest = urllib2.urlopen('http://denu.sourceforge.net/files/newestDB').readline()
+		import string,os
+		home = os.environ['HOME']
+		newest = string.strip(newest)
+		gui.status.set_text(newest)
+		installed = open ('/usr/share/denu/installedDB')
+		install = installed.readline()
+		installed.close()
+		#Compare newest and installed so that the same version isn't downloaded again.
+		if install != newest: #if the DB is not up to date
+			f = urllib2.urlopen ('http://denu.sourceforge.net/files/prgmDB-' + stable + '-' + newest + '.txt')
+			f3 = urllib2.urlopen ('http://denu.sourceforge.net/files/menu_images.txt')
+			icons = f3.readlines()
+			menu_images = {}
+			#Generate menu image dict which will be cPickled.
+			for key in icons:
+				key = string.replace(key, '\n', '')
+				key = string.split(key,':')
+				menu_images[key[0]] = string.split(key[1],'$')
+			data = f.readlines();
+			cusdata = []
+			#Factor in custom adds.
+			if os.path.exists(home + '/.denu/customDB.txt'):
+				g = open(home + '/.denu/customDB.txt','r')
+				cusdata = g.readlines()
+			else:
+				if os.path.exists('/usr/share/denu/customDB.txt'):
+					g = open('/usr/share/denu/customDB.txt','r')
+					cusdata = g.readlines()
+			test = []
+			wfile = ''
+			for line in data:
+				tmp2 = string.split(line,':')
+				test.append(tmp2[0])
+			for tmp in cusdata: #add custom entries into prgmDB var
+				test_tmp = string.split(tmp,':')
+				test_tmp = test_tmp[0]
+				#If the custom program is not in the standard DB now.
+				if test.count(test_tmp)==0:
+					#Add into cPickled data.
+					data.append(tmp)
+					#Rewrite to new version of custom data.
+					wfile = wfile + tmp
+			name_index = {}
+			command_index = {}
+			folder_index = {}
+			v = 0
+			for x in data: #create prgm dicts
+				tmp = string.strip(x)
+				tmp2 = string.split(tmp,':')
+				o = 0
+				p = 1
+				if len(tmp2)>1:
+					tmp2[1] = string.split(tmp2[1],'$')
+					tmp2[2] = string.split(tmp2[2],'$')
+					tmp2[3] = string.split(tmp2[3],'$')
+					name_index[tmp2[0]] = tmp2[1]
+					command_index[tmp2[0]] = tmp2[2]
+					folder_index[tmp2[0]] = tmp2[3]
+				v = v+1
+			import cPickle #write to files
+			#Update installed to current DB version
+			installed = open ('/usr/share/denu/installedDB', 'w')
+			installed.write(newest)
+			installed.close()
+			#Write updated version of customDB.txt
+			custom = open (home + '/.denu/customDB.txt', 'w')
+			custom.write(wfile)
+			custom.close()
+			#cPickle the dictionaries.
+			cPickle.dump(menu_images,open('/usr/share/denu/menu_images.p','w'))
+			cPickle.dump(name_index,open('/usr/share/denu/name_index.p','w'))
+			cPickle.dump(command_index,open('/usr/share/denu/command_index.p','w'))
+			cPickle.dump(folder_index,open('/usr/share/denu/folder_index.p','w'))
+		gui.status.set_text('Updated database.')
+		gui.installedstore.clear()
+		#Update te gui's installed TreeStore.
+		DenuGUI.populate_installed(gui, gui.installedstore, 'no')
+		
+	#Get data on programs installed on the system
+	def systemdata(self, widget, status, installedstore, gui):
+		import os,string,re
+		#Start with 'custom' so anything with custom as the portage-id will be included.
+		prgms = ['custom']
+		tmp = []
+		dirs = os.listdir('/var/db/pkg')
+		for x in dirs: #create installed list by looking in /var/db/pkg
+			path = '/var/db/pkg/' + x
+			tmpprgms = os.listdir(path)
+			for y in tmpprgms:
+				tmp.append(x + '/'+ y)
+		for z in tmp:
+			tmp3 = string.split(z,'-')
+			check = 0
+			v = 1
+			tmpstr = tmp3[0]
+			while check==0: #parse portage ids
+				if re.match('[a-zA-Z]',tmp3[v])==None:
+					check = 1
+				else:
+					tmpstr = tmpstr + '-' + tmp3[v]
+					v = v + 1
+			prgms.append(tmpstr)
+		import cPickle
+		string = ''
+		for prgm in prgms: #create user readable list
+			string = string + prgm + "\n"
+		file = open('/usr/share/denu/sysprgms.txt','w') #write files
+		file.write(string)
+		file.close()
+		#cPickle list of installed.
+		cPickle.dump(prgms,open('/usr/share/denu/sysprgms.p','w'))
+		status.set_text('System data collected.')
+		installedstore.clear()
+		#update installed TreeStore
+		DenuGUI.populate_installed(gui, installedstore, 'no')
+		
+	#Generate structure with everything in it, fuctionality of Denu 1 in Denu 2
+	def fillmein(extra, widget, menustore, self):
+		import cPickle,os
+		home = os.environ['HOME']
+		#Load cPickled dictionaries.
+		name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
+		command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
+		folder_index = cPickle.load(open('/usr/share/denu/folder_index.p','r'))
+		menu_images = cPickle.load(open('/usr/share/denu/menu_images.p','r'))
+		import string
+		#Track folder iters
+		iter_index = {}
+		iter_index[''] = None
+		menustore.clear()
+		prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
+		for prgm in prgms: #per program structure generation
+			if command_index.has_key(prgm): #make sure menu is supported
+				u = 0
+				while u < len(command_index[prgm]):
+					cats = string.split(folder_index[prgm][u], '|')
+					iter = None
+					for folder in cats:
+						if not folder == '':
+							#If folder is not created/indexed.
+							if not iter_index.has_key(folder):
+								iter = menustore.append(iter, ['folder', folder, '', self.pixbuf_manager('denu_folder.png'), ''])
+								iter_index[folder] = iter
+							else:
+								iter = iter_index[folder]
+					#Get folder program is in.	
+					last = cats[len(cats)-1]
+					#Entry depending on whether program has icon.
+					if menu_images.has_key(prgm) and not menu_images[prgm][u]=='':
+						iter = menustore.append(iter_index[last], ['program', name_index[prgm][u], command_index[prgm][u], self.pixbuf_manager(menu_images[prgm][u]), menu_images[prgm][u]]) #new list instead of string, makes substructgen WM blind
+					else:
+						iter = menustore.append(iter_index[last], ['program', name_index[prgm][u], command_index[prgm][u], None, ''])
+					u = u + 1
+		#Update status bar.
+		self.status.set_text('Menu structure generated.')
+		
+	#submenu creates the menu file according to the structure and window manager
+	def submenu(extra, structure,menu,wm,media_images):
+		import string,os,urllib2
+		home = os.environ['HOME']
+		for prgm in structure:
+			#If the entry is a program.
+			if prgm[0] == 'program':
+				if wm[1]=="yes":
+					if not os.path.exists(home + '/.local/share/applications'):
+						os.makedirs(home + '/.local/share/applications')
+					filename = string.replace(string.replace(prgm[1], '&', ''), ' ', '_') + '.desktop'
+					if not os.path.exists(home + '/.local/share/applications/denu_' + filename):
+						file = '[Desktop Entry]\nEncoding=UTF-8\nVersion=1.0\nType=Application\nExec=' + prgm[2] + '\nTryExec=\nX-GNOME-DocPath=\nTerminal=false\nName=' + prgm[1] + '\nComment=\nX-KDE-SubstituteUID=false\nX-KDE-Username='
+						if not prgm[3]=='':
+							if not prgm[3][0:1]=='/':
+								if not os.path.exists(home + '/.denu/pixmaps/' + prgm[3]):
+									image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + prgm[3])
+									file = open(home + '/.denu/pixmaps/' + prgm[3], 'w')
+									file.write(image.read())
+									file.close()
+							file = file + '\nIcon=' + prgm[3]
+						filename = string.replace(string.replace(prgm[1], '&', ''), ' ', '_') + '.desktop'
+						filesrc = open(home + '/.local/share/applications/denu_' + filename,'w')
+						filesrc.write(file)
+						filesrc.close()
+				menu = menu + denu.strng_rep(wm[5], prgm, wm, '')
+			elif prgm[0]=='special':
+				if string.lower(wm[0])==prgm[3]:
+					menu = menu + prgm[2] + '\n'
+				elif prgm[3]=='all':
+					list = prgm[2].split('<denu-split-l2>')
+					if list.count(string.lower(wm[0]))==1:
+						menu = menu + list[list.index(string.lower(wm[0]))-1] + '\n'
+			elif prgm[0]=='folder':
+				if media_images.has_key(prgm[1]) and prgm[3]=='':
+					icon = media_images[prgm[1]][0]
+					if not os.path.exists(home + '/.denu/pixmaps/' + media_images[prgm[1]][0]):
+						image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + media_images[prgm[1]][0])
+						file = open(home + '/.denu/pixmaps/' + media_images[prgm[1]][0], 'w')
+						file.write(image.read())
+						file.close()
+					if wm[1]=='yes':
+						file = '[Desktop Entry]\nName=' + prgm[1] + '\nIcon=' + media_images[prgm[1]][0] + '\nType=Directory'
+				elif not prgm[3]=='':
+					icon = prgm[3]
+					if wm[1]=='yes':
+						file = '[Desktop Entry]\nName=' + prgm[1] + '\nIcon=' + prgm[3] + '\nType=Directory'
+				else:
+					icon = ''
+					if wm[1]=='yes':
+						file = '[Desktop Entry]\nName=' + prgm[1] + '\nIcon=\nType=Directory'
+				if wm[1]=='yes':
+					filename = prgm[1] + '.directory'
+					filesrc = open('/usr/share/denu/directory_files/' + filename,'w')
+					filesrc.write(file)
+					filesrc.close()
+				menu = menu + denu.strng_rep(wm[6], prgm, wm, icon)
+				menu = extra.submenu(prgm[4],menu,wm,media_images) #call submenu to do next level
+				menu = menu + denu.strng_rep(wm[7], prgm, wm, icon)
+		return menu
+		
+	def addprgm(self, id, name, cat, command):
+		strng = id + ":" + name + ":" + command + ":" + cat + "\n"
+		import cPickle #store locally
+		name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
+		command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
+		folder_index = cPickle.load(open('/usr/share/denu/folder_index.p','r'))
+		import string,os
+		home = os.environ['HOME']
+		name1 = string.split(name,'$')
+		command1 = string.split(command,'$')
+		cat1 = string.split(cat,'$')
+		name_index[id] = name1
+		command_index[id] = command1
+		folder_index[id] = cat1
+		cPickle.dump(name_index,open('/usr/share/denu/name_index.p','w'))
+		cPickle.dump(command_index,open('/usr/share/denu/command_index.p','w'))
+		cPickle.dump(folder_index,open('/usr/share/denu/folder_index.p','w'))
+		import urllib2
+		name = string.replace(name, ' ', '%20') #prep for online
+		cat = string.replace(cat, ' ', '%20')
+		command = string.replace(command, ' ', '%20')
+		#print 'http://denu.sourceforge.net/dev/add.php?id=' + id + '&name=' + name + '&cat=' + cat + '&command=' + command + ''
+		if id!="custom" and len(name1)==len(command1) and len(command1)==len(cat1): #submit online
+			test = urllib2.urlopen('http://denu.sourceforge.net/dev/add.php?id=' + id + '&name=' + name + '&cat=' + cat + '&command=' + command + '')
+		if not os.path.exists(home + '/.denu/customDB.txt'):
+			g = open(home + '/.denu/customDB.txt','w')
+			g.write('')
+			g.close()
+		file = open(home + '/.denu/customDB.txt', 'r+')
+		file.write(strng)
+		file.close()
+		
+	def strng_rep(self, text, prgm, wm, tmpicon):
+		import string,os
+		home = os.environ['HOME']
+		if not prgm == '':
+			defilename = "denu_" + string.replace(string.replace(prgm[1], '&', ''), ' ', '_') + '.desktop'
+			full_defilename = home + '/.local/share/applications/' + defilename
+			difilename = filename = prgm[1] + '.directory'
+			full_difilename = '/usr/share/denu/directory_files/' + difilename
+			icon = ''
+			if prgm[0] == 'program':
+				icon = prgm[3]
+			elif prgm[0] == 'folder':
+				icon = tmpicon
+			if icon[0:1]=='/':
+				full_icon = icon
+			else:
+				full_icon = home + '/.denu/pixmaps/' + icon
+			text = string.replace(text, '<denu-dt-full>', full_defilename)
+			text = string.replace(text, '<denu-dt>', defilename)
+			text = string.replace(text, '<denu-name>', prgm[1])
+			text = string.replace(text, '<denu-di-full>', full_difilename)
+			text = string.replace(text, '<denu-di>', difilename)
+			text = string.replace(text, '<denu-command>', prgm[2])
+			if not icon == '' and wm[2]=='yes' and not wm[1]=='yes':
+				text = string.replace(text,'<denu-icon-string>', wm[10])
+			else:
+				text = string.replace(text,'<denu-icon-string>', '')
+			text = string.replace(text, '<denu-icon>', full_icon)
+			text = string.replace(text, '<denu-icon-full>', full_icon)
+		text = string.replace(text, '<denu-home>', home)
+		text = string.replace(text, '<denu-mname>', 'Denu 2.2.3')
+		return text
+denu = denu()
+class DenuGUI:
+
+    TARGETS = [
+        ('MY_TREE_MODEL_ROW', gtk.TARGET_SAME_WIDGET, 0),
+        ('text/plain', 0, 1),
+        ('TEXT', 0, 2),
+        ('STRING', 0, 3),
+        ]
+    def menufromtree(self, widget, tree, self2):
+    	generatew = gtk.Window(gtk.WINDOW_TOPLEVEL)
+    	generatew.connect("delete_event",  lambda w,e: generatew.hide())
+    	generatew.set_border_width(10)
+    	generatew.set_title("Generate")
+    	def menugen_prep(widget, tree, wm, self):
+    		import cPickle
+    		name = wm
+    		wm = cPickle.load(open('/usr/share/denu/wm/' + wm + '.p','r'))
+    		self.menugen(tree, wm)
+    		self.status.set_text(name + ' menu generated.')
+    	import os,string
+    	wms = os.listdir('/usr/share/denu/wm')
+    	generatew.set_size_request(150, -1)
+    	vbox = gtk.VBox(gtk.FALSE, 0)
+    	for wm in wms:
+		wm = string.replace(wm, '.p', '')
+    		button = gtk.Button(wm)
+    		button.show()
+    		button.connect("clicked", menugen_prep, tree, wm, self)
+    		vbox.pack_start(button, False)
+    	#Done
+    	buttondone = gtk.Button('Done')
+    	buttondone.show()
+    	buttondone.connect("clicked",  lambda w: generatew.hide())
+    	vbox.pack_start(buttondone, False)
+    	vbox.show()
+    	generatew.add(vbox)
+    	generatew.show()
+    	
+    def menugen(self, tree, wm):
+    	structure = []
+    	iter = tree.get_iter_root()
+    	structure = self.rec(structure, tree, iter)
+    	import cPickle,string
+    	menu_images = cPickle.load(open('/usr/share/denu/menu_images.p','r'))
+    	if wm[3] == 'yes':
+		menufiles = open('/usr/share/denu/' + string.lower(wm[0]) + 'top.ref', 'r')
+		menufile = menufiles.read()
+	else:
+		menufile = denu.strng_rep(wm[8], '', wm, '')
+	menu = menufile #start menu
+	menu = denu.submenu(structure,menu,wm,menu_images) #generate menu guts
+	if wm[3] == 'yes':
+		menufiles = open('/usr/share/denu/' + string.lower(wm[0]) + 'bottom.ref', 'r')
+		menufile = menufiles.read()
+	else:
+		menufile = denu.strng_rep(wm[9], '', wm, '')
+	menu = menu + menufile #end menu and add non execute commands per WM
+	#print menu
+	import os,string
+	if os.path.exists(denu.strng_rep(wm[4], '', wm, '')):
+		file = open(denu.strng_rep(wm[4], '', wm, ''),'r')
+		oldfile = open(denu.strng_rep(wm[4], '', wm, '') + '.old','w') #create backup
+		contents = file.read()
+		oldfile.write(contents)
+		file.close()
+		oldfile.close()
+	location = string.split(denu.strng_rep(wm[4], '', wm, ''), '/')
+	tmp = 1
+	str = ''
+	while tmp < len(location)-1:
+		str = str + '/' + location[tmp]
+		tmp = tmp + 1
+	str = str + '/'
+	if not os.path.exists(str):
+		os.makedirs(str)
+	file = open(denu.strng_rep(wm[4], '', wm, ''),'w') #write menu file
+	file.write(menu)
+	file.close()
+ 
+    def rec(extra, structure, tree, iter):
+	#print t
+	value = [tree.get_value(iter, 0), tree.get_value(iter, 1), tree.get_value(iter, 2), tree.get_value(iter, 4), []]
+	if tree.iter_has_child(iter) == gtk.FALSE: #Add prgms to structure if in right depth
+		value = [tree.get_value(iter, 0), tree.get_value(iter, 1), tree.get_value(iter, 2), tree.get_value(iter, 4), []]
+		structure.append(value)	
+	else:
+		structure.append([tree.get_value(iter, 0), tree.get_value(iter, 1), tree.get_value(iter, 2), tree.get_value(iter, 4), extra.rec([], tree, tree.iter_children(iter))])
+	tmp_iter = tree.iter_next(iter)
+	if tmp_iter != None:
+		structure = extra.rec(structure, tree, tmp_iter)
+	return structure
+	
+    def store_struct(self, extra2, extra3, tree, filename):
+    	structure = []
+    	iter = tree.get_iter_root()
+    	#print tree
+    	if not iter==None:
+    		structure = self.rec(structure, tree, iter)
+    	else:
+    		structure = []
+    	import cPickle
+    	if filename=='\save/':
+    		import os
+		home = os.environ['HOME']
+		filename = home + '/.denu/lastmenu.p'
+    	cPickle.dump(structure,open(filename,'w'))
+    	if filename=='\save/':
+    		delete_event()
+    		
+    def gen(self, structure, menustore, iter):
+        for entry in structure:
+       		if not entry[3]=='' or entry[0]=='folder':
+       			import os,string
+       			if entry[0]=='special':
+       				image = 'denu_' + string.replace(entry[3], '\n', '') + '.png'
+       			elif entry[0]=='folder':
+       				if entry[3]=='':
+       					image = 'denu_folder.png'
+       				else:
+       					image = entry[3]
+       			else:
+       				image = entry[3]
+       			pixbuf = self.pixbuf_manager(image)
+       			if pixbuf == "Error: no file.":
+       				pixbuf = self.pixbuf_manager("denu_qm.png")
+       		else:
+       			pixbuf = None
+       		new_iter = self.menustore.append(iter, [entry[0], entry[1], entry[2], pixbuf, entry[3]])
+       		if len(entry[4])>0:
+       			self.gen(entry[4], menustore, new_iter)
+
+    def load_struct(self, filename, menustore):
+    	import cPickle
+    	structure = cPickle.load(open(filename,'r'))
+        self.gen(structure, menustore, None)
+        		
+    def installed_programs(self):
+    	import cPickle,os
+	home = os.environ['HOME']
+	name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
+	command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
+	prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
+	menu_images = cPickle.load(open('/usr/share/denu/menu_images.p','r'))
+	import string
+	structure = {}
+	menu_prgms = []
+	info = []
+	cpprgms = prgms 
+	#print folder_value
+	prgms.sort()
+	for prgm in prgms: #per program structure generation
+		if command_index.has_key(prgm): #make sure menu is supported
+			u = 0
+			info.append([prgm])
+			while u < len(command_index[prgm]):
+				if menu_images.has_key(prgm) and len(menu_images[prgm]) > u:
+					prgmlist = ['program', name_index[prgm][u], command_index[prgm][u], None, menu_images[prgm][u]] #new list instead of string, makes substructgen WM blind
+				else:
+					prgmlist = ['program', name_index[prgm][u], command_index[prgm][u], None, '']
+				info.append(prgmlist)
+				u = u + 1
+	#print info
+	return info
+    	
+    # close the window and quit
+    def delete_event(self, widget, event, data=None):
+        gtk.main_quit()
+        return gtk.FALSE
+
+    def move_selected(self, button, source, dest, storesource, storedest, action):
+        selectionsource = source.get_selection()
+        model, path_list = selectionsource.get_selected_rows()
+        iter_list = []
+        for path in path_list:
+        	iter_list.append(storesource.get_iter(path))
+        for iter in iter_list:
+	        if not iter==None:
+        		value = storesource.get_value(iter, 0)
+        		value1 = storesource.get_value(iter, 1)
+        		value2 = storesource.get_value(iter, 2)
+        		value3 = storesource.get_value(iter, 3)
+        		value4 = storesource.get_value(iter, 4)
+        		if action == 'add' and not value=='folder':
+        			storedest.append(None, [value, value1, value2, value3, value4])
+        		if action == 'rem':
+        			storesource.remove(iter)
+        		if action == 'move':
+        			storedest.append(None, [value, value1, value2, value3, value4])
+        			storesource.remove(iter)
+        
+    def newfolder(self, button, treeview, installedstore):
+    	def enter_callback(widget, entry, window, self):
+    		entry_text = entry.get_text()
+    		installedstore.append(None, ['folder', entry_text, '', self.pixbuf_manager('denu_folder.png'), ''])
+    		nfwindow.hide()
+    	nfwindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
+    	nfwindow.connect("delete_event",  lambda w,e: nfwindow.hide())
+    	nfwindow.set_border_width(10)
+    	nfwindow.set_size_request(150, 75)
+    	nfwindow.set_title("New Folder")
+    	entry = gtk.Entry(max=50)
+    	entry.set_editable(gtk.TRUE)
+    	entry.connect("activate", enter_callback, entry, nfwindow, self)
+    	entry.show()
+    	button = gtk.Button('Create')
+    	button.show()
+    	button.connect("clicked", enter_callback, entry, nfwindow, self)
+    	vbox = gtk.VBox(gtk.FALSE, 0)
+    	vbox.pack_start(entry, True)
+    	vbox.pack_start(button, False)
+    	vbox.show()
+    	nfwindow.add(vbox)
+    	nfwindow.show()
+    	
+    def new_special(self, widget, specialstore):
+    	def save_ns(widget, specialstore, name, contents, wm, self):
+    		nameguts = name.get_text()
+    		contentguts = contents.get_text()
+    		wmguts = wm.get_text()
+    		iter = specialstore.iter_nth_child(None, 1)
+    		image = 'denu_' + wmguts + '.png'
+    		import string,os
+       		pixbuf = self.pixbuf_manager(image)
+    		specialstore.append(iter, ['special', nameguts, contentguts, pixbuf, wmguts])
+    		spec_file = nameguts + '<denu-split-l1>\n' + contentguts + '<denu-split-l1>\n' + wmguts
+    		filename = wmguts + '_' + string.replace(nameguts, ' ', '_')
+    		home = os.environ['HOME']
+    		if not os.path.exists(home + '/.denu/specials/'):
+    			os.mkdir(home + '/.denu/specials/')
+    		wfile = open(home + '/.denu/specials/' + filename, 'w')
+    		wfile.write(spec_file)
+    		wfile.close()
+    		window.hide()
+    	window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+    	window.connect("delete_event", lambda w,e: window.hide())
+    	window.set_title("New Special")
+    	window.set_border_width(5)
+    	window.set_size_request(-1,-1)
+    	vbox = gtk.VBox()
+    	hbox1 = gtk.HBox()
+    	hbox2 = gtk.HBox()
+    	#Name
+    	namelabel = gtk.Label('Name:')
+    	name = gtk.Entry()
+    	name.set_max_length(50)
+    	hbox1.pack_start(namelabel)
+    	hbox1.pack_start(name)
+    	name.show()
+    	namelabel.show()
+    	#Contents
+    	contentlabel = gtk.Label('Content:')
+    	contents = gtk.Entry()
+    	contents.set_max_length(1000)
+    	hbox2.pack_start(contentlabel)
+    	hbox2.pack_start(contents)
+    	contents.show()
+    	contentlabel.show()
+    	#Window Manager
+    	wmlabel = gtk.Label("Window Manager(lowercase!):")
+    	wm = gtk.Entry()
+    	contents.set_max_length(300)
+    	hbox3 = gtk.HBox()
+    	hbox3.pack_start(wmlabel)
+    	hbox3.pack_start(wm)
+    	wm.show()
+    	wmlabel.show()
+    	done = gtk.Button('Done')
+    	done.show()
+    	done.connect("clicked", save_ns, specialstore, name, contents, wm, self)
+    	vbox.pack_start(hbox1)
+    	vbox.pack_start(hbox2)
+    	vbox.pack_start(hbox3)
+    	vbox.pack_start(done, True)
+    	hbox1.show()
+    	hbox2.show()
+    	hbox3.show()
+    	vbox.show()
+    	window.add(vbox)
+    	window.show()
+    	
+    def pixbuf_manager(self, filename):
+    	#print 'file: \"' + filename + '\"'
+    	okay = 'yes'
+    	if not self.pixbuf_index.has_key(filename):
+    		import os
+    		home = os.environ['HOME']
+    		if not filename[0:1]=='/':
+    			full_filename = home + '/.denu/pixmaps/' + filename
+        		if not os.path.exists(full_filename):
+       				import urllib2
+       				try:
+					image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + filename)
+					okay = 'yes'
+				except:
+					self.pixbuf_index[filename] = "Error: no file."
+					return "Error: no file."
+					okay = 'no'
+				if okay=='yes':	
+					file = open(full_filename, 'w')
+					file.write(image.read())
+					file.close()
+		else:
+			full_filename = filename
+		if okay=='yes':
+			#print filename
+       			self.pixbuf_index[filename] = gtk.gdk.pixbuf_new_from_file_at_size(full_filename, 16, 16)
+       	return self.pixbuf_index[filename]
+
+    def addprgm(self, widget):
+    	#id = raw_input("Enter portage id:")
+	#name = raw_input("Enter name(s):")
+	#cat = raw_input("Enter categories:")
+	#command = raw_input("Enter command(s):")
+	def inter(widget, id, name, cat, command, self):
+		id = id.get_text()
+		name = name.get_text()
+		cat = cat.get_text()
+		command = command.get_text()
+		denu.addprgm(id, name, cat, command)
+		installed_iter = self.installedstore.append(None, ['folder', id, '', self.pixbuf_manager('denu_folder.png'), ''])
+		menu_iter = self.menustore.append(None, ['folder', id, '', self.pixbuf_manager('denu_folder.png'), ''])
+		import string
+		name1 = string.split(name,'$')
+		command1 = string.split(command,'$')
+		cat1 = string.split(cat,'$')
+		if len(name1) == len(command1) and len(command1) == len(cat1):
+			u = 0
+			while u<len(name1):
+				self.menustore.append(menu_iter, ['program', name1[u], command1[u], None, ''])
+				self.installedstore.append(installed_iter, ['program', name1[u], command1[u], None, ''])
+				u = u+1
+		awindow.hide()	
+	awindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
+	awindow.connect("delete_event", lambda w,e: awindow.hide())
+	awindow.set_title('Add Program')
+	id_label = gtk.Label('Portage id:')
+	id_label.show()
+	id_entry = gtk.Entry()
+	id_entry.set_max_length(255)
+	id_entry.show()
+	id_box = gtk.HBox()
+	id_box.pack_start(id_label)
+	id_box.pack_start(id_entry)
+	id_box.show()
+	name_label = gtk.Label('Names:')
+	name_label.show()
+	name_entry = gtk.Entry()
+	name_entry.set_max_length(500)
+	name_entry.show()
+	name_box = gtk.HBox()
+	name_box.pack_start(name_label)
+	name_box.pack_start(name_entry)
+	name_box.show()
+	cat_label = gtk.Label('Categories:')
+	cat_label.show()
+	cat_entry = gtk.Entry()
+	cat_entry.set_max_length(500)
+	cat_entry.show()
+	cat_box = gtk.HBox()
+	cat_box.pack_start(cat_label)
+	cat_box.pack_start(cat_entry)
+	cat_box.show()
+	command_label = gtk.Label('Commands:')
+	command_label.show()
+	command_entry = gtk.Entry()
+	command_entry.set_max_length(500)
+	command_entry.show()
+	command_box = gtk.HBox()
+	command_box.pack_start(command_label)
+	command_box.pack_start(command_entry)
+	command_box.show()
+	submit = gtk.Button("Submit")
+	submit.connect("clicked", inter, id_entry, name_entry, cat_entry, command_entry, self)
+	submit.show()
+	whole = gtk.VBox()
+	whole.pack_start(id_box)
+	whole.pack_start(name_box)
+	whole.pack_start(cat_box)
+	whole.pack_start(command_box)
+	whole.pack_start(submit)
+	whole.show()
+	awindow.add(whole)
+	awindow.show()
+	
+    def save_dnu(self, widget, menustore):
+    	filesv = gtk.FileSelection("Save File As")
+    	filesv.connect("destroy", lambda w: filesv.destroy())
+    	def interm(widget, menustore, self):
+    		filename = filesv.get_filename()
+    		if not filename[-4:] == '.dnu':
+    			filename =  filename + '.dnu' 
+    		#print filename
+    		self.store_struct('', '', menustore, filename)
+    		self.status.set_text('File saved as ' + filename)
+    		filesv.destroy()
+    	filesv.ok_button.connect("clicked", interm, menustore, self)
+    	filesv.cancel_button.connect("clicked", lambda w: filesv.destroy())
+    	filesv.set_filename("custom_menu.dnu")
+    	filesv.show()
+    	
+    def open_dnu(self, widget, menustore):
+    	fileop = gtk.FileSelection("Open File")
+    	fileop.connect("destroy", lambda w: fileop.destroy())
+    	def interm(widget, menustore, self):
+    		filename = fileop.get_filename()		
+    		#print filename
+    		menustore.clear()
+    		self.load_struct(filename, menustore)
+    		self.status.set_text(filename + ' has been loaded.')
+    		fileop.destroy()
+    	fileop.ok_button.connect("clicked", interm, menustore, self)
+    	fileop.cancel_button.connect("clicked", lambda w: fileop.destroy())
+    	fileop.show()
+    	
+    def clear(self, widget):
+    	self.menustore.clear()
+    	self.status.set_text('Menu cleared.')
+    	
+    def populate_installed(self, widget, initial):
+    	#Populate installed programs
+        prgms = self.installed_programs()
+        x = 0
+        for prgm in prgms:
+        	if len(prgm)==1:
+        		prgm = ['folder', prgm[0], '', self.pixbuf_manager('denu_folder.png'), '']
+        		tmp_iter=self.installedstore.append(None, prgm)
+        	else:
+        		if prgm[4]!='':
+        			prgm[3] = self.pixbuf_manager(prgm[4])
+        		self.installedstore.append(tmp_iter, prgm)
+        if not initial=='yes':
+        	self.status.set_text('Installed programs refreshed.')
+        	
+    def about(self, widget):
+    	about = gtk.Window(gtk.WINDOW_TOPLEVEL)
+    	about.set_title('About Denu')
+    	about.connect('delete_event', lambda s,w: about.destroy())
+    	gpl = gtk.Label('<big><b>Denu Version 2.2.3</b></big>\nReleased 1/22/2005\nWritten by Scott Shawcroft\nhttp://denu.sourceforge.net\nshux_linux@comcast.net\n\n<big>Denu is a menu generation/creation program for fluxbox, openbox, waimea, gnome, Xfce4 and kde.</big>\n\nWarning:This version has only been tested on gnome-light 2.8.0(gnome-panel 2.8.0.1 and gnome-vfs 2.8.1 r1), fluxbox 0.9.11, waimea 0.5.0_pre04050, Xfce4 4.19 something and openbox 3.2 r1.\n\nCopyright (C) 2004  Scott Shawcroft\n\n<small>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</small>')
+    	gpl.set_use_markup(gtk.TRUE)
+    	gpl.set_line_wrap(gtk.TRUE)
+    	gpl.set_selectable(gtk.TRUE)
+	gpl.show()
+    	whole = gtk.VBox()
+    	whole.pack_start(gpl)
+    	whole.show()
+    	about.add(whole)
+    	about.show()
+    	
+    def select_icon(widget):
+    	filesv = gtk.FileSelection("Save File As")
+    	filesv.connect("destroy", lambda w: filesv.destroy())
+    	def interm(widget):
+    		filename = filesv.get_filename()
+    		pixbuf = pixbuf_manager(filename)
+    		return filename, pixbuf
+    		filesv.destroy()
+    	filesv.ok_button.connect("clicked", interm)
+    	filesv.cancel_button.connect("clicked", lambda w: filesv.destroy())
+    	filesv.show()
+    	
+    def entry_edit(self, widget, command, treestore, tree):
+    	if command=="view":
+    		selectionsource = tree.get_selection()
+  	        model, path_list = selectionsource.get_selected_rows()
+        	iter_list = []
+        	for path in path_list:
+        		iter_list.append(treestore.get_iter(path))
+        	for iter in iter_list:
+			awindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
+			awindow.connect("delete_event", lambda w,e: awindow.hide())
+			awindow.set_title('View')
+	       		type, name, command, pixbuf, filename = treestore.get(iter, 0, 1, 2, 3, 4)
+       			whole = gtk.VBox()
+			top = gtk.HBox()
+			label = gtk.Label('Name:')
+			label.set_selectable(gtk.TRUE)
+			label.show()
+			top.pack_start(label)
+			label = gtk.Label(name)
+			label.set_selectable(gtk.TRUE)
+			label.show()
+			top.pack_start(label)
+			whole.pack_start(top)
+			top.show()
+			top = gtk.HBox()
+			label = gtk.Label('Type:')
+			label.set_selectable(gtk.TRUE)
+			label.show()
+			top.pack_start(label)
+			label = gtk.Label(type)
+			label.set_selectable(gtk.TRUE)
+			label.show()
+			top.pack_start(label)
+			whole.pack_start(top)
+			top.show()
+			top = gtk.HBox()
+			label = gtk.Label('Icon:')
+			label.set_selectable(gtk.TRUE)
+			label.show()
+			top.pack_start(label)
+			image = gtk.Image()
+			image.set_from_pixbuf(pixbuf)
+			image.show()
+			top.pack_start(image)
+			whole.pack_start(top)
+			top.show()
+			top = gtk.HBox()
+			frame = gtk.Frame('Command:')
+			frame.show()
+			label = gtk.Label(command)
+			label.set_selectable(gtk.TRUE)
+			label.set_line_wrap(gtk.TRUE)
+			label.show()
+			frame.add(label)
+			top.pack_start(frame)
+			whole.pack_start(top)
+			top.show()
+			whole.show()
+			awindow.add(whole)
+			awindow.show()
+    	elif command=="edit":
+    		selectionsource = tree.get_selection()
+  	        model, path_list = selectionsource.get_selected_rows()
+        	iter_list = []
+        	for path in path_list:
+        		iter_list.append(treestore.get_iter(path))
+        	for iter in iter_list:
+    			awindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
+			awindow.connect("delete_event", lambda w,e: awindow.hide())
+			awindow.set_title('Edit')
+       			type, name, command, pixbuf, filename = treestore.get(iter, 0, 1, 2, 3, 4)
+       			whole = gtk.VBox()
+			top = gtk.HBox()
+			label = gtk.Label('Name:')
+			label.set_selectable(gtk.TRUE)
+			label.show()
+			top.pack_start(label)
+			name_field = gtk.Entry()
+			name_field.set_text(name)
+			name_field.show()
+			top.pack_start(name_field)
+			whole.pack_start(top)
+			top.show()
+			top = gtk.HBox()
+			label = gtk.Label('Type:')
+			label.set_selectable(gtk.TRUE)
+			label.show()
+			top.pack_start(label)
+			label = gtk.Label(type)
+			label.set_selectable(gtk.TRUE)
+			label.show()
+			top.pack_start(label)
+			whole.pack_start(top)
+			top.show()
+			top = gtk.HBox()
+			label = gtk.Label('Icon:')
+			label.set_selectable(gtk.TRUE)
+			label.show()
+			top.pack_start(label)
+			image = gtk.Image()
+			image.set_from_pixbuf(pixbuf)
+			image.show()
+			top.pack_start(image)
+			if not type=="special":
+				def intermediate (widget, pixbuf, filename):
+					filesv = gtk.FileSelection("Save File As")
+    					filesv.connect("destroy", lambda w: filesv.destroy())
+ 				   	def interm(widget, pixbuf, filename):
+ 				   		filename = filesv.get_filename()
+    						filename_field.set_text(filename)
+    						pixbuf = self.pixbuf_manager(filename)
+    						image.set_from_pixbuf(pixbuf)
+  			  			filesv.destroy()
+   				 	filesv.ok_button.connect("clicked", interm, pixbuf, filename)
+ 				   	filesv.cancel_button.connect("clicked", lambda w: filesv.destroy())
+ 				   	filesv.set_filename("/usr/share/pixmaps/")
+  				  	filesv.show()
+				change = gtk.Button('Change')
+				change.show()
+				top.pack_start(change)
+				change.connect("clicked", intermediate, pixbuf, filename)
+			whole.pack_start(top)
+			top.show()
+			top = gtk.HBox()
+			frame = gtk.Frame('Command:')
+			frame.show()
+			command_field = gtk.Entry()
+			command_field.set_text(command)
+			filename_field = gtk.Entry()
+			filename_field.set_text(filename)
+			command_field.show()
+			frame.add(command_field)
+			top.pack_start(frame)
+			whole.pack_start(top)
+			box = gtk.HButtonBox()
+			save = gtk.Button("Save")
+			def save_ts(widget):
+				name = name_field.get_text()
+				command = command_field.get_text()
+				filename = filename_field.get_text()
+				if not filename=='' and not type=='special':
+					treestore.set(iter, 1, name, 2, command, 3, self.pixbuf_manager(filename), 4, filename)
+				else:
+					treestore.set(iter, 1, name, 2, command)
+				awindow.destroy()
+			save.connect("clicked", save_ts)
+			box.add(save)
+			box.show()
+			save.show()
+			whole.pack_start(box)
+			top.show()
+			whole.show()
+			awindow.add(whole)
+			awindow.show()
+
+    def __init__(self):
+        # Create a new window
+        self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        self.window.set_title("Denu")
+        self.window.set_size_request(-1, 450)
+        self.window.connect("delete_event", self.delete_event)
+        #Windows
+        self.scrolledwindow = gtk.ScrolledWindow()
+        self.scrolledwindow2 = gtk.ScrolledWindow()
+        self.scrolledwindow3 = gtk.ScrolledWindow()
+        #Pixbuf dict
+        self.pixbuf_index = {}
+        #Total Widget
+        self.whole = gtk.VBox()
+        #Top section Buttons
+        self.topbuttons = gtk.HButtonBox()
+        self.t0 = gtk.Button('Update')
+        self.t1 = gtk.Button('Sysupdate')
+        self.t2 = gtk.Button('Add Program')
+        self.t3 = gtk.Button('Save')
+        self.t4 = gtk.Button('Open')
+        self.t5 = gtk.Button('AutoFill')
+        self.t6 = gtk.Button('Empty')
+        self.t7 = gtk.Button('About')
+        self.t8 = gtk.Button('Expand All')
+        self.topbuttons.set_layout(gtk.BUTTONBOX_START)
+        self.topbuttons.pack_start(self.t0)
+        self.topbuttons.pack_start(self.t1)
+        self.topbuttons.pack_start(self.t2)
+        self.topbuttons.pack_start(self.t3)
+        self.topbuttons.pack_start(self.t4)
+        self.topbuttons.pack_start(self.t8)
+        self.topbuttons.pack_start(self.t5)
+        self.topbuttons.pack_start(self.t6)
+        self.topbuttons.pack_start(self.t7)
+        #Middle of Middle Buttons
+        #Top
+        self.middlebuttonst = gtk.VButtonBox()
+        self.m0 = gtk.Button('Folder')
+        self.m1 = gtk.Button('Add')
+        self.m2 = gtk.Button('Rem')
+        self.middlebuttonst.pack_start(self.m1)
+        self.middlebuttonst.pack_start(self.m2)
+        self.middlebuttonst.pack_start(self.m0)
+        #Bottom
+        self.middlebuttonsb = gtk.VButtonBox()
+        self.mb0 = gtk.Button('New')
+        self.mb1 = gtk.Button('Add')
+        self.mb2 = gtk.Button('Rem')
+        self.middlebuttonsb.pack_start(self.mb1)
+        self.middlebuttonsb.pack_start(self.mb2)
+        self.middlebuttonsb.pack_start(self.mb0)
+        #Center
+        self.middlebuttonsc = gtk.VButtonBox()
+        self.mc0 = gtk.Button('View')
+        self.mc1 = gtk.Button('Edit')
+        #self.mc2 = gtk.Button('Rem')
+        self.middlebuttonsc.pack_start(self.mc0)
+        self.middlebuttonsc.pack_start(self.mc1)
+        #self.middlebuttonsc.pack_start(self.mc2)
+
+        #Bottom Buttons
+        self.bottombuttons = gtk.HButtonBox()
+        self.b0 = gtk.Button('Generate')
+        self.bottombuttons.pack_start(self.b0)
+        #Set Large Widgets
+        self.middle = gtk.HBox()
+        self.bottom = gtk.HBox()
+        self.leftscrolled = gtk.VBox()
+        self.middlebuttons = gtk.VBox()
+        #Combine Middle Left
+        self.leftscrolled.pack_start(self.scrolledwindow, True)
+        self.leftscrolled.pack_start(self.scrolledwindow3, True)
+        #Combine Middle buttons
+        self.empty = gtk.VBox()
+        self.middletopframe = gtk.Frame('Programs')
+        self.middletopframe.add(self.middlebuttonst)
+        self.middlebuttons.pack_start(self.middletopframe, False)
+        self.middlebuttons.pack_start(self.empty, True)
+        self.middlecenterframe = gtk.Frame('Custom')
+        self.middlecenterframe.add(self.middlebuttonsc)
+        self.middlebuttons.pack_start(self.middlecenterframe, False)
+        self.empty = gtk.VBox()
+        self.middlebuttons.pack_start(self.empty, True)
+        self.middlebottomframe = gtk.Frame('Specials')
+        self.middlebottomframe.add(self.middlebuttonsb)
+        self.middlebuttons.pack_start(self.middlebottomframe, False)
+        #Combine Middle
+        self.middle.pack_start(self.leftscrolled, True)
+        self.middle.pack_start(self.middlebuttons, False)
+        self.middle.pack_start(self.scrolledwindow2, True)
+        #Status label
+        self.status = gtk.Label('Welcome to Denu 2.2.3  Status Messages will display here.')
+        self.status.set_justify(gtk.JUSTIFY_LEFT)
+        self.status.show()
+        self.statusframe = gtk.Frame('Denu Status')
+        self.statusframe.add(self.status)
+        self.statusframe.show()
+        #Pack the whole thing together
+        self.whole.pack_start(self.topbuttons, False)
+        self.whole.pack_start(self.middle, True)
+        self.whole.pack_start(self.bottombuttons, False)
+        self.whole.pack_start(self.statusframe, False)
+        
+        # create a liststore with one string column to use as the model
+        self.installedstore = gtk.TreeStore(str, str, str, gtk.gdk.Pixbuf, str) # (type, name, command, pixbuf, imagefilename) type can be folder, special or program
+        self.menustore = gtk.TreeStore(str, str, str, gtk.gdk.Pixbuf, str)
+        self.specialstore = gtk.TreeStore(str, str, str, gtk.gdk.Pixbuf, str)
+        self.installed = gtk.TreeView(self.installedstore)
+        self.menu = gtk.TreeView(self.menustore)
+        self.specials = gtk.TreeView(self.specialstore)
+        
+        #Loads menu structure from previous run
+        import os,cPickle
+        home = os.environ['HOME']
+        filename = home + '/.denu/lastmenu.p'
+        if not os.path.exists(home + '/.denu'):
+			os.mkdir(home + '/.denu')
+	if not os.path.exists(home + '/.denu/lastmenu.p'):
+			mt = []
+			cPickle.dump(mt,open(filename,'w'))
+        if not os.path.exists(home + '/.denu/pixmaps'):
+        			os.mkdir(home + '/.denu/pixmaps')
+        self.load_struct(filename, self.menustore)
+        # Populate installed
+        self.populate_installed('', 'yes')
+        		
+        # Populate specials
+        import os,string
+        home = os.environ['HOME']
+        standard_specials = os.listdir('/usr/share/denu/specials')
+        if not os.path.exists(home + '/.denu/specials'):
+        	os.mkdir(home + '/.denu/specials')
+        user_specials = os.listdir(home + '/.denu/specials')
+        self.specialstore.append(None, ['label', 'Standard', '', self.pixbuf_manager('denu_folder.png'), ''])
+        first_iter = self.specialstore.get_iter_first()
+        for spec_file in standard_specials:
+        	file = open('/usr/share/denu/specials/' + spec_file, 'r')
+        	contents = file.read()
+        	file.close()
+        	contents = contents.split('<denu-split-l1>')
+		imagefilename = 'denu_' + string.replace(contents[2], '\n', '') + '.png'
+       		pixbuf = self.pixbuf_manager(imagefilename)
+       		if pixbuf == "Error: no file.":
+       			pixbuf = self.pixbuf_manager("denu_qm.png")
+        	self.specialstore.append(first_iter, ['special', string.replace(contents[0], '\n', ''), string.replace(contents[1], '\n', ''), pixbuf, string.replace(contents[2], '\n', '')])
+        self.specialstore.append(None, ['label', 'Custom', '', self.pixbuf_manager('denu_folder.png'), ''])
+        sec_iter = self.specialstore.iter_next(first_iter)
+        for spec_file in user_specials:
+        	file = open(home + '/.denu/specials/' + spec_file, 'r')
+        	contents = file.read()
+        	file.close()
+        	contents = contents.split('<denu-split-l1>')
+		imagefilename = 'denu_' + string.replace(contents[2], '\n', '') + '.png'
+       		pixbuf = self.pixbuf_manager(imagefilename)
+       		if pixbuf == "Error: no file.":
+       			pixbuf = self.pixbuf_manager("denu_qm.png")
+        	self.specialstore.append(sec_iter, ['special', string.replace(contents[0], '\n', ''), string.replace(contents[1], '\n', ''), pixbuf, string.replace(contents[2], '\n', '')])
+        # Reorderable?
+        self.installed.set_reorderable(False)
+        self.menu.set_reorderable(True)
+        self.specials.set_reorderable(False)                                  
+       # create a CellRenderer to render the data
+        self.cell = gtk.CellRendererText()
+        self.pix = gtk.CellRendererPixbuf()
+        self.pix2 = gtk.CellRendererPixbuf()
+        self.cell2 = gtk.CellRendererText()
+        self.pix3 = gtk.CellRendererPixbuf()
+        self.cell3 = gtk.CellRendererText()
+
+        # create the TreeViewColumns to display the data
+        self.installedcolumn = gtk.TreeViewColumn('Installed')
+        self.installedcolumn.pack_start(self.pix, False)
+        self.installedcolumn.pack_start(self.cell, True)
+        self.menucolumn = gtk.TreeViewColumn('Menu')
+        self.menucolumn.pack_start(self.pix2, False)
+        self.menucolumn.pack_start(self.cell2, True)
+        self.speccolumn = gtk.TreeViewColumn('Specials')
+        self.speccolumn.pack_start(self.pix3, False)
+        self.speccolumn.pack_start(self.cell3, True)
+        self.installedcolumn.set_attributes(self.pix, pixbuf=3)
+        self.installedcolumn.set_attributes(self.cell, text=1)
+        self.menucolumn.set_attributes(self.pix2, pixbuf=3)
+        self.menucolumn.set_attributes(self.cell2, text=1)
+        self.speccolumn.set_attributes(self.pix3, pixbuf=3)
+        self.speccolumn.set_attributes(self.cell3, text=1)
+        
+        # add columns to treeview
+        self.installed.append_column(self.installedcolumn)
+        self.menu.append_column(self.menucolumn)
+        self.specials.append_column(self.speccolumn)
+        
+        self.selection = self.installed.get_selection()
+        self.selection.set_mode(gtk.SELECTION_MULTIPLE)
+        self.selection = self.menu.get_selection()
+        self.selection.set_mode(gtk.SELECTION_MULTIPLE)
+        self.selection = self.specials.get_selection()
+        self.selection.set_mode(gtk.SELECTION_MULTIPLE)
+        
+        self.accel_group = gtk.AccelGroup()
+        self.window.add_accel_group(self.accel_group)
+        self.key, self.modifier = gtk.accelerator_parse('d')
+        self.m2.add_accelerator("clicked", self.accel_group, self.key, self.modifier, gtk.ACCEL_VISIBLE)
+        
+        #Buttons Connects
+        #                      move_selected(self, button, source,      dest,         storesource,      storedest    )
+        self.m1.connect('clicked', self.move_selected, self.installed, self.menu, self.installedstore, self.menustore, 'add')
+        self.m2.connect('clicked', self.move_selected, self.menu, self.installed, self.menustore, self.installedstore, 'rem')
+        #self.accel_group.connect_group(self.key, self.modifier, gtk.ACCEL_VISIBLE, self.move_selected(self, self.menu, self.installed, self.menustore, self.installedstore, 'rem'))
+        self.m0.connect('clicked', self.newfolder, self.menu, self.menustore)
+        self.mb1.connect('clicked', self.move_selected, self.specials, self.menu, self.specialstore, self.menustore, 'add')
+        self.mb2.connect('clicked', self.move_selected, self.menu, self.installed, self.menustore, self.specialstore, 'rem')
+        self.mb0.connect('clicked', self.new_special, self.specialstore)
+        self.mc0.connect('clicked', self.entry_edit, 'view', self.menustore, self.menu)
+        self.mc1.connect('clicked', self.entry_edit, 'edit', self.menustore, self.menu)
+        self.t0.connect('clicked', denu.programdata, 'S', self)
+        self.t1.connect('clicked', denu.systemdata, self.status, self.installedstore, self)
+        self.t2.connect('clicked', self.addprgm)
+        self.t3.connect('clicked', self.save_dnu, self.menustore)
+        self.t4.connect('clicked', self.open_dnu, self.menustore)
+        self.t5.connect('clicked', denu.fillmein, self.menustore, self)
+        self.t6.connect('clicked', self.clear)
+        self.t7.connect('clicked', self.about)
+        self.t8.connect('clicked', lambda w,self: self.installed.expand_all(), self)
+        self.b0.connect('clicked', self.menufromtree, self.menustore, self)
+        #Window Connects
+        self.window.connect("delete_event", self.store_struct, self.menustore, '\save/')
+        # make treeview searchable
+        self.installed.set_search_column(0)
+        self.menu.set_search_column(0)
+        self.scrolledwindow.add(self.installed)
+        self.scrolledwindow2.add(self.menu)
+        self.scrolledwindow3.add(self.specials)
+        self.window.add(self.whole)
+        self.window.show_all()
+
+def main():
+    gtk.main()
+
+if __name__ == "__main__":
+    treeviewdndex = DenuGUI()
+    main()

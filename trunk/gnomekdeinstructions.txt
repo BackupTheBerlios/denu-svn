@@ -1,0 +1,10 @@
+Gnome and KDE Instructions.
+	Gnome:
+		1) Install Gnome.
+		2) [code]denu menugen gnome[/code]
+	KDE:
+		1)Install KDE.
+		2) Add [code]<MergeFile>denu.menu</MergeFile>[/code] 
+		in ~/.config/menus/applications-kmenuedit.menu 
+		before the last [code]</Menu>[/code]
+		3) [code]denu menugen kde[/code]

@@ -1,0 +1,6 @@
+Reconfigure<denu-split-l1>
+[reconfigure] (Reconfigure)<denu-split-l2>
+fluxbox<denu-split-l2>
+<item label="Reconfigure"><action name="Reconfigure" /></item><denu-split-l2>
+openbox<denu-split-l1>
+all

@@ -1,0 +1,6 @@
+Restart<denu-split-l1>
+[restart] (Restart)<denu-split-l2>
+fluxbox<denu-split-l2>
+<item name="item" function="restart" string="Restart" image="/usr/share/waimea/menus/icons/restart.png"/><denu-split-l2>
+waimea<denu-split-l1>
+all

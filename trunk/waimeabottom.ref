@@ -1,0 +1,110 @@
+  </menu>
+
+  <menu name="desktops" width_factor="1.2">
+    <item name="title" string="Go To Desktop..." image="/usr/share/waimea/menus/icons/desktops.png"/>
+    <item name="item" function="gotodesktop" parameter="0" string="Desktop 1"/>
+    <item name="item" function="gotodesktop" parameter="1" string="Desktop 2"/>
+    <item name="item" function="gotodesktop" parameter="2" string="Desktop 3"/>
+    <item name="item" function="gotodesktop" parameter="3" string="Desktop 4"/>
+  </menu>
+
+  <menu name="window" width_factor="1.3">
+    <item name="title" string="%t" image="/usr/share/waimea/menus/icons/window.png"/>
+    <item name="sub" image="/usr/share/waimea/menus/icons/settings.png" string="settings">
+      <menu width_factor="1.3">
+        <item name="title" string="Settings" image="/usr/share/waimea/menus/icons/settings.png"/>
+        <item name="checkbox" function="windowtogglemaximize"
+              string="Maximized" monitor_window_state="windowstatemaximized"/>
+        <item name="checkbox" function="windowtoggleshade" string="Shaded" 
+              monitor_window_state="windowstateshaded"/>
+        <item name="checkbox" function="windowtogglesticky" string="Sticky" 
+              monitor_window_state="windowstatesticky"/>
+        <item name="checkbox" function="windowalwaysontoptoggle" 
+              string="Always On Top" 
+              monitor_window_state="windowstatealwaysontop"/>
+        <item name="checkbox" function="windowalwaysatbottomtoggle" 
+              string="Always At Bottom" 
+              monitor_window_state="windowstatealwaysatbottom"/>
+        <item name="checkbox" function="windowdecortitletoggle"
+              string="Titlebar" monitor_window_state="windowstatedecortitle"/>
+        <item name="checkbox" function="windowdecorbordertoggle"
+              string="Border" monitor_window_state="windowstatedecorborder"/>
+      </menu>
+    </item>
+    <item name="sub" image="/usr/share/waimea/menus/icons/desktops.png" string="Desktop Functions">
+      <menu width_factor="1.3">
+        <item name="title" string="Desktop Functions" 
+              image="/usr/share/waimea/menus/icons/desktops.png"/>
+        <item name="sub" string="Join Desktop">
+          <menu>
+            <item name="item" function="windowjoindesktop" parameter="0"
+                  string="Desktop 1"/>
+            <item name="item" function="windowjoindesktop" parameter="1"
+                  string="Desktop 2"/>
+            <item name="item" function="windowjoindesktop" parameter="2"
+                  string="Desktop 3"/>
+            <item name="item" function="windowjoindesktop" parameter="3"
+                  string="Desktop 4"/>
+          </menu>
+        </item>
+        <item name="sub" string="Part Desktop">
+	       <menu>
+            <item name="item" function="windowpartdesktop" parameter="0"
+                  string="Desktop 1"/>
+            <item name="item" function="windowpartdesktop" parameter="1"
+                  string="Desktop 2"/>
+            <item name="item" function="windowpartdesktop" parameter="2"
+                  string="Desktop 3"/>
+            <item name="item" function="windowpartdesktop" parameter="3"
+                  string="Desktop 4"/>
+          </menu>
+        </item>
+        <item name="sub" string="Dend To Desktop">
+          <menu>
+            <item name="item" function="windowpartcurrentjoindesktop"
+                  parameter="0" string="Desktop 1"/>
+            <item name="item" function="windowpartcurrentjoindesktop"
+                  parameter="1" string="Desktop 2"/>
+            <item name="item" function="windowpartcurrentjoindesktop"
+                  parameter="2" string="Desktop 3"/>
+            <item name="item" function="windowpartcurrentjoindesktop"
+                  parameter="3" string="Desktop 4"/>
+          </menu>
+        </item>
+        <item name="item" function="windowjoinalldesktops" string="Join All"/>
+        <item name="item" function="windowpartalldesktopsexceptcurrent"
+              string="Part All"/>
+        <item name="item" function="windowpartcurrentdesktop"
+              string="Part Current"/>
+      </menu>
+    </item>
+    <item name="sub" submenu="window-info-menu" string="Window Info"
+          image="/usr/share/waimea/menus/icons/info.png"/>
+    <item name="item" function="windowraise" string="Raise"/>
+    <item name="item" function="windowlower" string="Lower"/>
+    <item name="item" function="windowkill" string="Kill Client"/>
+    <item name="item" function="windowclose" string="Close"/>
+  </menu>
+
+  <menu name="windowlist" width_factor="3.0">
+    <item name="title" string="Window List" image="/usr/share/waimea/menus/icons/window-list.png"/>
+  </menu>
+
+  <menu name="clonemergelist" width_factor="3.0">
+    <item name="title" string="Clone Merge With..." 
+          image="/usr/share/waimea/menus/icons/window-list.png"/>
+  </menu>
+
+  <menu name="vertmergelist" width_factor="3.0">
+    <item name="title" string="Vertically Merge With..."
+          image="/usr/share/waimea/menus/icons/window-list.png"/>
+  </menu>
+
+  <menu name="horizmergelist" width_factor="3.0">
+    <item name="title" string="Horizontally Merge With..."
+          image="/usr/share/waimea/menus/icons/window-list.png"/>
+  </menu>
+
+  <include ignore_missing="true">~/.waimea/post-menu.conf</include>
+
+</waimea>
