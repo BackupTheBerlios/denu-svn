@@ -15,7 +15,7 @@
 #along with this program; if not, write to the Free Software
 #Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-import pygtk
+import pygtk,string,os,cPickle,urllib2,re
 pygtk.require('2.0')
 import gtk
 #denu class is all generation oriented functions.  All of the gui stuff is in DenuGUI
@@ -23,13 +23,11 @@ class denu:
 	#Programdata updates the 'DB' files from the web
 	def programdata(skip, skip2, stable, gui): #Get the new data on all the programs
 		#print "Opening program data."
-		import urllib2
 		#Get newest version.
 		try:
 			newest = urllib2.urlopen('http://denu.sourceforge.net/files/newestDB').readline()
 		except:
 			gui.status.set_text('Could not find denu server.')
-		import string,os
 		home = os.environ['HOME']
 		newest = string.strip(newest)
 		gui.status.set_text(newest)
@@ -91,7 +89,7 @@ class denu:
 					for bin in tmp2[2]:
 						exec_index[bin] = tmp2[0]
 				v = v+1
-			import cPickle #write to files
+			#write to files
 			#Update installed to current DB version
 			installed = open ('/usr/share/denu/installedDB', 'w')
 			installed.write(newest)
@@ -101,7 +99,7 @@ class denu:
 			custom.write(wfile)
 			custom.close()
 			#cPickle the dictionaries.
-			print exec_index
+			#print exec_index
 			cPickle.dump(menu_images,open('/usr/share/denu/menu_images.p','w'))
 			cPickle.dump(name_index,open('/usr/share/denu/name_index.p','w'))
 			cPickle.dump(command_index,open('/usr/share/denu/command_index.p','w'))
@@ -114,7 +112,6 @@ class denu:
 		
 	#Get data on programs installed on the system
 	def systemdata(self, widget, status, installedstore, gui):
-		import os,string,re
 		#Start with 'custom' so anything with custom as the portage-id will be included.
 		prgms = ['custom']
 		tmp = []
@@ -136,16 +133,15 @@ class denu:
 					tmpstr = tmpstr + '-' + tmp3[v]
 					v = v + 1
 			prgms.append(tmpstr)
-		import cPickle
 		old_prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
-		string = ''
+		strng = ''
 		new_prgms = []
 		for prgm in prgms: #create user readable list
-			string = string + prgm + "\n"
+			strng = strng + prgm + "\n"
 			if old_prgms.count(prgm)==0:
 				new_prgms.append(prgm)
 		file = open('/usr/share/denu/sysprgms.txt','w') #write files
-		file.write(string)
+		file.write(strng)
 		file.close()
 		#cPickle list of installed.
 		cPickle.dump(prgms,open('/usr/share/denu/sysprgms.p','w'))
@@ -157,14 +153,12 @@ class denu:
 		
 	#Generate structure with everything in it, fuctionality of Denu 1.x in Denu 2.x
 	def fillmein(extra, widget, menustore, self):
-		import cPickle,os
 		home = os.environ['HOME']
 		#Load cPickled dictionaries.
 		name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
 		command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
 		folder_index = cPickle.load(open('/usr/share/denu/folder_index.p','r'))
 		menu_images = cPickle.load(open('/usr/share/denu/menu_images.p','r'))
-		import string
 		#Track folder iters
 		iter_index = {}
 		iter_index[''] = None
@@ -197,7 +191,6 @@ class denu:
 		
 	#submenu creates the menu file according to the structure and window manager
 	def submenu(extra, structure,menu,wm,media_images,level):
-		import string,os,urllib2
 		home = os.environ['HOME']
 		tab=6 #number of spaces
 		for prgm in structure:
@@ -207,21 +200,20 @@ class denu:
 					if not os.path.exists(home + '/.local/share/applications'):
 						os.makedirs(home + '/.local/share/applications')
 					filename = string.replace(string.replace(prgm[1], '&', ''), ' ', '_') + '.desktop'
-					if not os.path.exists(home + '/.local/share/applications/denu_' + filename):
-						file = '[Desktop Entry]\nEncoding=UTF-8\nVersion=1.0\nType=Application\nExec=' + prgm[2] + '\nTryExec=\nX-GNOME-DocPath=\nTerminal=false\nName=' + prgm[1] + '\nComment=\nX-KDE-SubstituteUID=false\nX-KDE-Username='
-						if not prgm[3]=='':
-							if not prgm[3][0:1]=='/':
-								if not os.path.exists(home + '/.denu/pixmaps/' + prgm[3]):
-									image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + prgm[3])
-									file = open(home + '/.denu/pixmaps/' + prgm[3], 'w')
-									file.write(image.read())
-									file.close()
-							file = file + '\nIcon=' + prgm[3]
-						filename = string.replace(string.replace(prgm[1], '&', ''), ' ', '_') + '.desktop'
-						filesrc = open(home + '/.local/share/applications/denu_' + filename,'w')
-						filesrc.write(file)
-						filesrc.close()
-				menu = menu + level*tab*" " + denu.strng_rep(wm[5], prgm, wm, '')
+					file = '[Desktop Entry]\nEncoding=UTF-8\nVersion=1.0\nCategories=Application\nType=Application\nExec=' + prgm[2] + '\nX-GNOME-DocPath=\nTerminal=false\nName=' + prgm[1] + '\nComment=\nX-KDE-SubstituteUID=false\nX-KDE-Username='
+					if not prgm[3]=='':
+						if not prgm[3][0:1]=='/':
+							if not os.path.exists(home + '/.denu/pixmaps/' + prgm[3]):
+								image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + prgm[3])
+								file = open(home + '/.denu/pixmaps/' + prgm[3], 'w')
+								file.write(image.read())
+								file.close()
+						file = file + '\nIcon=' + prgm[3]
+					filename = string.replace(string.replace(prgm[1], '&', ''), ' ', '_') + '.desktop'
+					filesrc = open(home + '/.local/share/applications/denu_' + filename,'w')
+					filesrc.write(file)
+					filesrc.close()
+				menu = menu + level*tab*" " + denu.strng_rep(wm[5], prgm, wm, '', level)
 			elif prgm[0]=='special':
 				if string.lower(wm[0])==prgm[3]:
 					menu = menu + level*tab*" " + prgm[2] + '\n'
@@ -238,32 +230,31 @@ class denu:
 						file.write(image.read())
 						file.close()
 					if wm[1]=='yes':
-						file = '[Desktop Entry]\nName=' + prgm[1] + '\nIcon=' + media_images[prgm[1]][0] + '\nType=Directory'
+						file = '[Desktop Entry]\nEncoding=UTF-8\nName=' + prgm[1] + '\nIcon=' + media_images[prgm[1]][0] + '\nType=Directory'
 				elif not prgm[3]=='':
 					icon = prgm[3]
 					if wm[1]=='yes':
-						file = '[Desktop Entry]\nName=' + prgm[1] + '\nIcon=' + prgm[3] + '\nType=Directory'
+						file = '[Desktop Entry]\nEncoding=UTF-8\nName=' + prgm[1] + '\nIcon=' + prgm[3] + '\nType=Directory'
 				else:
 					icon = ''
 					if wm[1]=='yes':
-						file = '[Desktop Entry]\nName=' + prgm[1] + '\nIcon=\nType=Directory'
+						file = '[Desktop Entry]\nEncoding=UTF-8\nName=' + prgm[1] + '\nIcon=\nType=Directory'
 				if wm[1]=='yes':
 					filename = prgm[1] + '.directory'
-					filesrc = open('/usr/share/denu/directory_files/' + filename,'w')
+					filesrc = open(home + '/.local/share/desktop-directories/denu_' + filename,'w')
 					filesrc.write(file)
 					filesrc.close()
-				menu = menu + level*tab*" " + denu.strng_rep(wm[6], prgm, wm, icon)
+				menu = menu + level*tab*" " + denu.strng_rep(wm[6], prgm, wm, icon, level)
 				menu = extra.submenu(prgm[4],menu,wm,media_images,  level+1) #call submenu to do next level
-				menu = menu + level*tab*" " + denu.strng_rep(wm[7], prgm, wm, icon)
+				menu = menu + level*tab*" " + denu.strng_rep(wm[7], prgm, wm, icon, level)
 		return menu
 		
 	def addprgm(self, id, name, cat, command):
 		strng = id + ":" + name + ":" + command + ":" + cat + "\n"
-		import cPickle #store locally
+		#load local store
 		name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
 		command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
 		folder_index = cPickle.load(open('/usr/share/denu/folder_index.p','r'))
-		import string,os
 		home = os.environ['HOME']
 		name1 = string.split(name,'$')
 		command1 = string.split(command,'$')
@@ -274,7 +265,6 @@ class denu:
 		cPickle.dump(name_index,open('/usr/share/denu/name_index.p','w'))
 		cPickle.dump(command_index,open('/usr/share/denu/command_index.p','w'))
 		cPickle.dump(folder_index,open('/usr/share/denu/folder_index.p','w'))
-		import urllib2
 		name = string.replace(name, ' ', '%20') #prep for online
 		cat = string.replace(cat, ' ', '%20')
 		command = string.replace(command, ' ', '%20')
@@ -289,14 +279,14 @@ class denu:
 		file.write(strng)
 		file.close()
 		
-	def strng_rep(self, text, prgm, wm, tmpicon):
-		import string,os
+	def strng_rep(self, text, prgm, wm, tmpicon, level):
 		home = os.environ['HOME']
+		tab=6
 		if not prgm == '':
 			defilename = "denu_" + string.replace(string.replace(prgm[1], '&', ''), ' ', '_') + '.desktop'
 			full_defilename = home + '/.local/share/applications/' + defilename
 			difilename = filename = prgm[1] + '.directory'
-			full_difilename = '/usr/share/denu/directory_files/' + difilename
+			full_difilename = home + '/.local/share/desktop-directories/denu_' + difilename
 			icon = ''
 			if prgm[0] == 'program':
 				icon = prgm[3]
@@ -320,6 +310,7 @@ class denu:
 			text = string.replace(text, '<denu-icon-full>', full_icon)
 		text = string.replace(text, '<denu-home>', home)
 		text = string.replace(text, '<denu-mname>', 'Denu 2.2.3')
+		text = string.replace(text, '<denu-tab>', ' '*level*tab)
 		return text
 denu = denu()
 class DenuGUI:
@@ -337,12 +328,10 @@ class DenuGUI:
     	generatew.set_border_width(10)
     	generatew.set_title("Generate")
     	def menugen_prep(widget, tree, wm, self):
-    		import cPickle
     		name = wm
     		wm = cPickle.load(open('/usr/share/denu/wm/' + wm + '.p','r'))
     		self.menugen(tree, wm)
     		self.status.set_text(name + ' menu generated.')
-    	import os,string
     	wms = os.listdir('/usr/share/denu/wm')
     	generatew.set_size_request(150, -1)
     	vbox = gtk.VBox(gtk.FALSE, 0)
@@ -366,31 +355,28 @@ class DenuGUI:
     	structure = []
     	iter = tree.get_iter_root()
     	structure = self.rec(structure, tree, iter)
-    	import cPickle,string
     	menu_images = cPickle.load(open('/usr/share/denu/menu_images.p','r'))
     	if wm[3] == 'yes':
 		menufiles = open('/usr/share/denu/' + string.lower(wm[0]) + 'top.ref', 'r')
 		menufile = menufiles.read()
 	else:
-		menufile = denu.strng_rep(wm[8], '', wm, '')
+		menufile = denu.strng_rep(wm[8], '', wm, '', 0)
 	menu = menufile #start menu
-	menu = denu.submenu(structure,menu,wm,menu_images,1) #generate menu guts
+	menu = denu.submenu(structure,menu,wm,menu_images,0) #generate menu guts
 	if wm[3] == 'yes':
 		menufiles = open('/usr/share/denu/' + string.lower(wm[0]) + 'bottom.ref', 'r')
 		menufile = menufiles.read()
 	else:
-		menufile = denu.strng_rep(wm[9], '', wm, '')
+		menufile = denu.strng_rep(wm[9], '', wm, '', 0)
 	menu = menu + menufile #end menu and add non execute commands per WM
-	#print menu
-	import os,string
-	if os.path.exists(denu.strng_rep(wm[4], '', wm, '')):
-		file = open(denu.strng_rep(wm[4], '', wm, ''),'r')
-		oldfile = open(denu.strng_rep(wm[4], '', wm, '') + '.old','w') #create backup
+	if os.path.exists(denu.strng_rep(wm[4], '', wm, '', 0)):
+		file = open(denu.strng_rep(wm[4], '', wm, '', 0),'r')
+		oldfile = open(denu.strng_rep(wm[4], '', wm, '', 0) + '.old','w') #create backup
 		contents = file.read()
 		oldfile.write(contents)
 		file.close()
 		oldfile.close()
-	location = string.split(denu.strng_rep(wm[4], '', wm, ''), '/')
+	location = string.split(denu.strng_rep(wm[4], '', wm, '', 0), '/')
 	tmp = 1
 	str = ''
 	while tmp < len(location)-1:
@@ -399,7 +385,7 @@ class DenuGUI:
 	str = str + '/'
 	if not os.path.exists(str):
 		os.makedirs(str)
-	file = open(denu.strng_rep(wm[4], '', wm, ''),'w') #write menu file
+	file = open(denu.strng_rep(wm[4], '', wm, '', 0),'w') #write menu file
 	file.write(menu)
 	file.close()
  
@@ -425,7 +411,6 @@ class DenuGUI:
     		structure = self.rec(structure, tree, iter)
     	else:
     		structure = []
-    	import cPickle
     	if filename=='\save/':
     		import os
 		home = os.environ['HOME']
@@ -437,7 +422,6 @@ class DenuGUI:
     def gen(self, structure, menustore, iter):
         for entry in structure:
        		if not entry[3]=='' or entry[0]=='folder':
-       			import os,string
        			if entry[0]=='special':
        				image = 'denu_' + string.replace(entry[3], '\n', '') + '.png'
        			elif entry[0]=='folder':
@@ -457,18 +441,15 @@ class DenuGUI:
        			self.gen(entry[4], menustore, new_iter)
 
     def load_struct(self, filename, menustore):
-    	import cPickle
     	structure = cPickle.load(open(filename,'r'))
         self.gen(structure, menustore, None)
         
     def installed_programs(self):
-    	import cPickle,os
 	home = os.environ['HOME']
 	name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
 	command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
 	prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
 	menu_images = cPickle.load(open('/usr/share/denu/menu_images.p','r'))
-	import string
 	structure = {}
 	menu_prgms = []
 	info = []
@@ -546,7 +527,6 @@ class DenuGUI:
     		wmguts = wm.get_text()
     		iter = specialstore.iter_nth_child(None, 1)
     		image = 'denu_' + wmguts + '.png'
-    		import string,os
        		pixbuf = self.pixbuf_manager(image)
     		specialstore.append(iter, ['special', nameguts, contentguts, pixbuf, wmguts])
     		spec_file = nameguts + '<denu-split-l1>\n' + contentguts + '<denu-split-l1>\n' + wmguts
@@ -609,12 +589,10 @@ class DenuGUI:
         #print 'file: \"' + filename + '\"'
     	okay = 'yes'
     	if not self.pixbuf_index.has_key(filename):
-    		import os
     		home = os.environ['HOME']
     		if not filename[0:1]=='/':
     			full_filename = home + '/.denu/pixmaps/' + filename
         		if not os.path.exists(full_filename):
-       				import urllib2
        				try:
 					image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + filename)
 					okay = 'yes'
@@ -649,7 +627,6 @@ class DenuGUI:
 		denu.addprgm(id, name, cat, command)
 		installed_iter = self.installedstore.append(None, ['folder', id, '', self.pixbuf_manager('denu_folder.png'), ''])
 		menu_iter = self.menustore.append(None, ['folder', id, '', self.pixbuf_manager('denu_folder.png'), ''])
-		import string
 		name1 = string.split(name,'$')
 		command1 = string.split(command,'$')
 		cat1 = string.split(cat,'$')
@@ -748,7 +725,6 @@ class DenuGUI:
     	
     def populate_installed(self, widget, initial):
     	#Populate installed programs
-    	import cPickle,os
     	if os.path.exists('/usr/share/denu/new_sysprgms.p'):
 		new_prgms = cPickle.load(open('/usr/share/denu/new_sysprgms.p','r'))
 	else:
@@ -1082,7 +1058,6 @@ class DenuGUI:
         self.specials = gtk.TreeView(self.specialstore)
         
         #Loads menu structure from previous run
-        import os,cPickle
         home = os.environ['HOME']
         filename = home + '/.denu/lastmenu.p'
         if not os.path.exists(home + '/.denu'):
@@ -1097,7 +1072,6 @@ class DenuGUI:
         self.populate_installed('', 'yes')
         		
         # Populate specials
-        import os,string
         home = os.environ['HOME']
         standard_specials = os.listdir('/usr/share/denu/specials')
         if not os.path.exists(home + '/.denu/specials'):

@@ -1,0 +1,21 @@
+(lp0
+S'Gnome'
+p1
+aS'yes'
+p2
+ag2
+aS'no'
+p3
+aS'<denu-home>/.config/menus/applications.menu'
+p4
+aS'<Include><Filename><denu-dt></Filename></Include>\n'
+p5
+aS'<Menu>\n<denu-tab><Name><denu-name></Name>\n<denu-tab><Directory><denu-di></Directory>\n'
+p6
+aS'</Menu>\n'
+p7
+aS'<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN" "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">\n<Menu>\n<Name>Applications</Name>\n<Directory>Applications.directory</Directory>\n<DefaultAppDirs/>\n<DefaultDirectoryDirs/>\n'
+p8
+aS'</Menu>'
+p9
+a.
