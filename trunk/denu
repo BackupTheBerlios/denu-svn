@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#Copyright (C) 2004  Scott Shawcroft
+#Copyright (C) 2005  Scott Shawcroft
 #
 #This program is free software; you can redistribute it and/or
 #modify it under the terms of the GNU General Public License
@@ -24,7 +24,12 @@ if os.path.exists('/var/lib/portage/world'):
 	config["portage"] = 'yes'
 else:
 	config["portage"] = 'no'
+#config['portage'] = 'no'
 config['tab'] = 4
+config['title'] = 'Denu 2.3.1'
+#File locations.
+config['static'] = '/usr/share/denu/'
+config['dynamic'] = '/var/cache/denu/'
 #denu class is all generation oriented functions.  All of the gui stuff is in DenuGUI
 class denu:
 	#Programdata updates the 'DB' files from the web
@@ -37,7 +42,7 @@ class denu:
 			gui.status.set_text('Could not find denu server.')
 		newest = string.strip(newest)
 		gui.status.set_text(newest)
-		installed = open ('/usr/share/denu/installedDB')
+		installed = open (config['dynamic'] + 'installedDB')
 		install = installed.readline()
 		installed.close()
 		#Compare newest and installed so that the same version isn't downloaded again.
@@ -58,8 +63,8 @@ class denu:
 				g = open(home + '/.denu/customDB.txt','r')
 				cusdata = g.readlines()
 			else:
-				if os.path.exists('/usr/share/denu/customDB.txt'):
-					g = open('/usr/share/denu/customDB.txt','r')
+				if os.path.exists(config['dynamic'] + 'customDB.txt'):
+					g = open(config['dynamic'] + 'customDB.txt','r')
 					cusdata = g.readlines()
 			test = []
 			wfile = ''
@@ -97,7 +102,7 @@ class denu:
 				v = v+1
 			#write to files
 			#Update installed to current DB version
-			installed = open ('/usr/share/denu/installedDB', 'w')
+			installed = open (config['dynamic'] + 'installedDB', 'w')
 			installed.write(newest)
 			installed.close()
 			#Write updated version of customDB.txt
@@ -106,11 +111,11 @@ class denu:
 			custom.close()
 			#cPickle the dictionaries.
 			#print exec_index
-			cPickle.dump(menu_images,open('/usr/share/denu/menu_images.p','w'))
-			cPickle.dump(name_index,open('/usr/share/denu/name_index.p','w'))
-			cPickle.dump(command_index,open('/usr/share/denu/command_index.p','w'))
-			cPickle.dump(folder_index,open('/usr/share/denu/folder_index.p','w'))
-			cPickle.dump(exec_index,open('/usr/share/denu/exec_index.p','w'))
+			cPickle.dump(menu_images,open(config['dynamic'] + 'menu_images.p','w'))
+			cPickle.dump(name_index,open(config['dynamic'] + 'name_index.p','w'))
+			cPickle.dump(command_index,open(config['dynamic'] + 'command_index.p','w'))
+			cPickle.dump(folder_index,open(config['dynamic'] + 'folder_index.p','w'))
+			cPickle.dump(exec_index,open(config['dynamic'] + 'exec_index.p','w'))
 		gui.status.set_text('Updated database.')
 		gui.installedstore.clear()
 		#Update te gui's installed TreeStore.
@@ -143,7 +148,7 @@ class denu:
 		else:
 			path = os.environ['PATH']
 			path = string.split(path,':')
-			exec_index = cPickle.load(open('/usr/share/denu/exec_index.p','r'))
+			exec_index = cPickle.load(open(config['dynamic'] + 'exec_index.p','r'))
 			bins = []
 			for spath in path:
 				if os.path.exists(spath):
@@ -154,19 +159,19 @@ class denu:
 				if exec_index.has_key(bin):
 					if prgms.count(exec_index[bin])==0:
 						prgms.append(exec_index[bin])
-		old_prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
+		old_prgms = cPickle.load(open(config['dynamic'] + 'sysprgms.p','r'))
 		strng = ''
 		new_prgms = []
 		for prgm in prgms: #create user readable list
 			strng = strng + prgm + "\n"
 			if old_prgms.count(prgm)==0:
 				new_prgms.append(prgm)
-		file = open('/usr/share/denu/sysprgms.txt','w') #write files
+		file = open(config['dynamic'] + 'sysprgms.txt','w') #write files
 		file.write(strng)
 		file.close()
 		#cPickle list of installed.
-		cPickle.dump(prgms,open('/usr/share/denu/sysprgms.p','w'))
-		cPickle.dump(new_prgms,open('/usr/share/denu/new_sysprgms.p','w'))
+		cPickle.dump(prgms,open(config['dynamic'] + 'sysprgms.p','w'))
+		cPickle.dump(new_prgms,open(config['dynamic'] + 'new_sysprgms.p','w'))
 		status.set_text('System data collected.')
 		installedstore.clear()
 		#update installed TreeStore
@@ -175,15 +180,15 @@ class denu:
 	#Generate structure with everything in it, fuctionality of Denu 1.x in Denu 2.x
 	def fillmein(extra, widget, menustore, self):
 		#Load cPickled dictionaries.
-		name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
-		command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
-		folder_index = cPickle.load(open('/usr/share/denu/folder_index.p','r'))
-		menu_images = cPickle.load(open('/usr/share/denu/menu_images.p','r'))
+		name_index = cPickle.load(open(config['dynamic'] + 'name_index.p','r'))
+		command_index = cPickle.load(open(config['dynamic'] + 'command_index.p','r'))
+		folder_index = cPickle.load(open(config['dynamic'] + 'folder_index.p','r'))
+		menu_images = cPickle.load(open(config['dynamic'] + 'menu_images.p','r'))
 		#Track folder iters
 		iter_index = {}
 		iter_index[''] = None
 		menustore.clear()
-		prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
+		prgms = cPickle.load(open(config['dynamic'] + 'sysprgms.p','r'))
 		for prgm in prgms: #per program structure generation
 			if command_index.has_key(prgm): #make sure menu is supported
 				u = 0
@@ -228,17 +233,19 @@ class denu:
 								file.close()
 						file = file + '\nIcon=' + prgm[3]
 					filename = string.replace(string.replace(prgm[1], '&', ''), ' ', '_') + '.desktop'
+					if not os.path.exists(home + '/.local/share/applications'):
+						os.makedirs(home + '/.local/share/applications')
 					filesrc = open(home + '/.local/share/applications/denu_' + filename,'w')
 					filesrc.write(file)
 					filesrc.close()
-				menu = menu + level*custom["tab"]*" " + denu.strng_rep(wm[5], prgm, wm, '', level)
+				menu = menu + level*config["tab"]*" " + denu.strng_rep(wm[5], prgm, wm, '', level)
 			elif prgm[0]=='special':
 				if string.lower(wm[0])==prgm[3]:
-					menu = menu + level*custom["tab"]*" " + prgm[2] + '\n'
+					menu = menu + level*config["tab"]*" " + prgm[2] + '\n'
 				elif prgm[3]=='all':
 					list = prgm[2].split('<denu-split-l2>')
 					if list.count(string.lower(wm[0]))==1:
-						menu = menu + level*custom["tab"]*" " + list[list.index(string.lower(wm[0]))-1] + '\n'
+						menu = menu + level*config["tab"]*" " + list[list.index(string.lower(wm[0]))-1] + '\n'
 			elif prgm[0]=='folder':
 				if media_images.has_key(prgm[1]) and prgm[3]=='':
 					icon = media_images[prgm[1]][0]
@@ -259,29 +266,31 @@ class denu:
 						file = '[Desktop Entry]\nEncoding=UTF-8\nName=' + prgm[1] + '\nIcon=\nType=Directory'
 				if wm[1]=='yes':
 					filename = prgm[1] + '.directory'
+					if not os.path.exists(home + '/.local/share/desktop-directories'):
+						os.makedirs(home + '/.local/share/desktop-directories')
 					filesrc = open(home + '/.local/share/desktop-directories/denu_' + filename,'w')
 					filesrc.write(file)
 					filesrc.close()
-				menu = menu + level*custom["tab"]*" " + denu.strng_rep(wm[6], prgm, wm, icon, level)
+				menu = menu + level*config["tab"]*" " + denu.strng_rep(wm[6], prgm, wm, icon, level)
 				menu = extra.submenu(prgm[4],menu,wm,media_images,  level+1) #call submenu to do next level
-				menu = menu + level*custom["tab"]*" " + denu.strng_rep(wm[7], prgm, wm, icon, level)
+				menu = menu + level*config["tab"]*" " + denu.strng_rep(wm[7], prgm, wm, icon, level)
 		return menu
 		
 	def addprgm(self, id, name, cat, command):
 		strng = id + ":" + name + ":" + command + ":" + cat + "\n"
 		#load local store
-		name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
-		command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
-		folder_index = cPickle.load(open('/usr/share/denu/folder_index.p','r'))
+		name_index = cPickle.load(open(config['dynamic'] + 'name_index.p','r'))
+		command_index = cPickle.load(open(config['dynamic'] + 'command_index.p','r'))
+		folder_index = cPickle.load(open(config['dynamic'] + 'folder_index.p','r'))
 		name1 = string.split(name,'$')
 		command1 = string.split(command,'$')
 		cat1 = string.split(cat,'$')
 		name_index[id] = name1
 		command_index[id] = command1
 		folder_index[id] = cat1
-		cPickle.dump(name_index,open('/usr/share/denu/name_index.p','w'))
-		cPickle.dump(command_index,open('/usr/share/denu/command_index.p','w'))
-		cPickle.dump(folder_index,open('/usr/share/denu/folder_index.p','w'))
+		cPickle.dump(name_index,open(config['dynamic'] + 'name_index.p','w'))
+		cPickle.dump(command_index,open(config['dynamic'] + 'command_index.p','w'))
+		cPickle.dump(folder_index,open(config['dynamic'] + 'folder_index.p','w'))
 		name = string.replace(name, ' ', '%20') #prep for online
 		cat = string.replace(cat, ' ', '%20')
 		command = string.replace(command, ' ', '%20')
@@ -324,8 +333,8 @@ class denu:
 			text = string.replace(text, '<denu-icon>', full_icon)
 			text = string.replace(text, '<denu-icon-full>', full_icon)
 		text = string.replace(text, '<denu-home>', home)
-		text = string.replace(text, '<denu-mname>', 'Denu 2.2.3')
-		text = string.replace(text, '<denu-tab>', ' '*level*custom["tab"])
+		text = string.replace(text, '<denu-mname>', config['title'])
+		text = string.replace(text, '<denu-tab>', ' '*level*config['tab'])
 		return text
 denu = denu()
 class DenuGUI:
@@ -339,15 +348,15 @@ class DenuGUI:
     # Generate window which calls menugen to create the menu.
     def menufromtree(self, widget, tree, self2):
     	generatew = gtk.Window(gtk.WINDOW_TOPLEVEL)
-    	generatew.connect("delete_event",  lambda w,e: generatew.hide())
+    	generatew.connect("delete_event",  lambda w,e: generatew.destroy())
     	generatew.set_border_width(10)
     	generatew.set_title("Generate")
     	def menugen_prep(widget, tree, wm, self):
     		name = wm
-    		wm = cPickle.load(open('/usr/share/denu/wm/' + wm + '.p','r'))
+    		wm = cPickle.load(open(config['static'] + 'wm/' + wm + '.p','r'))
     		self.menugen(tree, wm)
     		self.status.set_text(name + ' menu generated.')
-    	wms = os.listdir('/usr/share/denu/wm')
+    	wms = os.listdir(config['static'] + 'wm')
     	generatew.set_size_request(150, -1)
     	vbox = gtk.VBox(gtk.FALSE, 0)
     	for wm in wms:
@@ -359,7 +368,7 @@ class DenuGUI:
     	#Done
     	buttondone = gtk.Button('Done')
     	buttondone.show()
-    	buttondone.connect("clicked",  lambda w: generatew.hide())
+    	buttondone.connect("clicked",  lambda w: generatew.destroy())
     	vbox.pack_start(buttondone, False)
     	vbox.show()
     	generatew.add(vbox)
@@ -370,16 +379,16 @@ class DenuGUI:
     	structure = []
     	iter = tree.get_iter_root()
     	structure = self.rec(structure, tree, iter)
-    	menu_images = cPickle.load(open('/usr/share/denu/menu_images.p','r'))
+    	menu_images = cPickle.load(open(config['dynamic'] + 'menu_images.p','r'))
     	if wm[3] == 'yes':
-		menufiles = open('/usr/share/denu/' + string.lower(wm[0]) + 'top.ref', 'r')
+		menufiles = open(config['static'] + '' + string.lower(wm[0]) + 'top.ref', 'r')
 		menufile = menufiles.read()
 	else:
 		menufile = denu.strng_rep(wm[8], '', wm, '', 0)
 	menu = menufile #start menu
 	menu = denu.submenu(structure,menu,wm,menu_images,0) #generate menu guts
 	if wm[3] == 'yes':
-		menufiles = open('/usr/share/denu/' + string.lower(wm[0]) + 'bottom.ref', 'r')
+		menufiles = open(config['static'] + '' + string.lower(wm[0]) + 'bottom.ref', 'r')
 		menufile = menufiles.read()
 	else:
 		menufile = denu.strng_rep(wm[9], '', wm, '', 0)
@@ -458,10 +467,10 @@ class DenuGUI:
         self.gen(structure, menustore, None)
         
     def installed_programs(self):
-	name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
-	command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
-	prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
-	menu_images = cPickle.load(open('/usr/share/denu/menu_images.p','r'))
+	name_index = cPickle.load(open(config['dynamic'] + 'name_index.p','r'))
+	command_index = cPickle.load(open(config['dynamic'] + 'command_index.p','r'))
+	prgms = cPickle.load(open(config['dynamic'] + 'sysprgms.p','r'))
+	menu_images = cPickle.load(open(config['dynamic'] + 'menu_images.p','r'))
 	structure = {}
 	menu_prgms = []
 	info = []
@@ -512,9 +521,9 @@ class DenuGUI:
     	def enter_callback(widget, entry, window, self):
     		entry_text = entry.get_text()
     		installedstore.append(None, ['folder', entry_text, '', self.pixbuf_manager('denu_folder.png'), ''])
-    		nfwindow.hide()
+    		nfwindow.destroy()
     	nfwindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
-    	nfwindow.connect("delete_event",  lambda w,e: nfwindow.hide())
+    	nfwindow.connect("delete_event",  lambda w,e: nfwindow.destroy())
     	nfwindow.set_border_width(10)
     	nfwindow.set_size_request(150, 75)
     	nfwindow.set_title("New Folder")
@@ -548,9 +557,9 @@ class DenuGUI:
     		wfile = open(home + '/.denu/specials/' + filename, 'w')
     		wfile.write(spec_file)
     		wfile.close()
-    		window.hide()
+    		window.destroy()
     	window = gtk.Window(gtk.WINDOW_TOPLEVEL)
-    	window.connect("delete_event", lambda w,e: window.hide())
+    	window.connect("delete_event", lambda w,e: window.destroy())
     	window.set_title("New Special")
     	window.set_border_width(5)
     	window.set_size_request(-1,-1)
@@ -646,9 +655,9 @@ class DenuGUI:
 				self.menustore.append(menu_iter, ['program', name1[u], command1[u], None, ''])
 				self.installedstore.append(installed_iter, ['program', name1[u], command1[u], None, ''])
 				u = u+1
-		awindow.hide()	
+		awindow.destroy()	
 	awindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
-	awindow.connect("delete_event", lambda w,e: awindow.hide())
+	awindow.connect("delete_event", lambda w,e: awindow.destroy())
 	awindow.set_title('Add Program')
 	id_label = gtk.Label('Portage id:')
 	id_label.show()
@@ -735,28 +744,29 @@ class DenuGUI:
     	
     def populate_installed(self, widget, initial):
     	#Populate installed programs
-    	if os.path.exists('/usr/share/denu/new_sysprgms.p'):
-		new_prgms = cPickle.load(open('/usr/share/denu/new_sysprgms.p','r'))
+    	if os.path.exists(config['dynamic'] + 'new_sysprgms.p'):
+		new_prgms = cPickle.load(open(config['dynamic'] + 'new_sysprgms.p','r'))
 	else:
 		new_prgms = []
         prgms = self.installed_programs()
+        new_iter=self.installedstore.append(None, ['folder', 'New', '', self.pixbuf_manager('denu_folder.png'), ''])
         if config["portage"] == 'yes':
         	worldfile = open("/var/lib/portage/world", "r")
         	world = worldfile.readlines()
         	worldfile.close()
+        	world_iter=self.installedstore.append(None, ['folder', 'World', '', self.pixbuf_manager('denu_folder.png'), ''])
+        	other_iter=self.installedstore.append(None, ['folder', 'Other', '', self.pixbuf_manager('denu_folder.png'), ''])
         else:
         	world = []
-        new_iter=self.installedstore.append(None, ['folder', 'New', '', self.pixbuf_manager('denu_folder.png'), ''])
-        world_iter=self.installedstore.append(None, ['folder', 'World', '', self.pixbuf_manager('denu_folder.png'), ''])
-        other_iter=self.installedstore.append(None, ['folder', 'Other', '', self.pixbuf_manager('denu_folder.png'), ''])
-        x = 0
+        	other_iter=self.installedstore.append(None, ['folder', 'Programs', '', self.pixbuf_manager('denu_folder.png'), ''])
+	x = 0
         for prgm in prgms:
         	if len(prgm)==1:
         		if new_prgms.count(prgm[0])==1:
         			prgm = ['folder', prgm[0], '', self.pixbuf_manager('denu_folder.png'), '']
         			tmp_iter=self.installedstore.append(new_iter, prgm)
         		else:
-        			if world.count(prgm[0]+'\n')==1:
+        			if world.count(prgm[0]+'\n')==1 and config['portage']=='yes':
         				prgm = ['folder', prgm[0], '', self.pixbuf_manager('denu_folder.png'), '']
         				tmp_iter=self.installedstore.append(world_iter, prgm)
         			else:
@@ -773,7 +783,7 @@ class DenuGUI:
     	about = gtk.Window(gtk.WINDOW_TOPLEVEL)
     	about.set_title('About Denu')
     	about.connect('delete_event', lambda s,w: about.destroy())
-    	gpl = gtk.Label('<big><b>Denu Version 2.2.3</b></big>\nReleased 1/22/2005\nWritten by Scott Shawcroft\nhttp://denu.sourceforge.net\nshux_linux@comcast.net\n\n<big>Denu is a menu generation/creation program for fluxbox, openbox, waimea, gnome, Xfce4 and kde.</big>\n\nWarning:This version has only been tested on gnome-light 2.8.0(gnome-panel 2.8.0.1 and gnome-vfs 2.8.1 r1), fluxbox 0.9.11, waimea 0.5.0_pre04050, Xfce4 4.19 something and openbox 3.2 r1.\n\nCopyright (C) 2004  Scott Shawcroft\n\n<small>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</small>')
+    	gpl = gtk.Label('<big><b>Denu Version 2.3.1</b></big>\nReleased 3/10/2005\nWritten by Scott Shawcroft\nhttp://denu.sourceforge.net\nshux_linux@comcast.net\n\n<big>Denu is a menu generation/creation program for fluxbox, openbox, waimea, gnome, IceWM, Xfce4 and kde.</big>\n\nWarning:This version has only been tested on gnome 2.10 , fluxbox 0.9.12, waimea 0.5.0_pre04050, Xfce4 4.19 something and openbox 3.2 r1.\n\nCopyright (C) 2005  Scott Shawcroft\n\n<small>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</small>')
     	gpl.set_use_markup(gtk.TRUE)
     	gpl.set_line_wrap(gtk.TRUE)
     	gpl.set_selectable(gtk.TRUE)
@@ -805,7 +815,7 @@ class DenuGUI:
         		iter_list.append(treestore.get_iter(path))
         	for iter in iter_list:
 			awindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
-			awindow.connect("delete_event", lambda w,e: awindow.hide())
+			awindow.connect("delete_event", lambda w,e: awindow.destroy())
 			awindow.set_title('View')
 	       		type, name, command, pixbuf, filename = treestore.get(iter, 0, 1, 2, 3, 4)
        			whole = gtk.VBox()
@@ -864,7 +874,7 @@ class DenuGUI:
         		iter_list.append(treestore.get_iter(path))
         	for iter in iter_list:
     			awindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
-			awindow.connect("delete_event", lambda w,e: awindow.hide())
+			awindow.connect("delete_event", lambda w,e: awindow.destroy())
 			awindow.set_title('Edit')
        			type, name, command, pixbuf, filename = treestore.get(iter, 0, 1, 2, 3, 4)
        			whole = gtk.VBox()
@@ -957,10 +967,10 @@ class DenuGUI:
         self.window.set_title("Denu")
         #Load icons
         self.icons = []
-        self.icons.append(gtk.gdk.pixbuf_new_from_file('/usr/share/denu/denu_icon_16.png'))
-        self.icons.append(gtk.gdk.pixbuf_new_from_file('/usr/share/denu/denu_icon_32.png'))
-        self.icons.append(gtk.gdk.pixbuf_new_from_file('/usr/share/denu/denu_icon_48.png'))
-        self.icons.append(gtk.gdk.pixbuf_new_from_file('/usr/share/denu/denu_icon_64.png'))
+        self.icons.append(gtk.gdk.pixbuf_new_from_file(config['static'] + 'denu_icon_16.png'))
+        self.icons.append(gtk.gdk.pixbuf_new_from_file(config['static'] + 'denu_icon_32.png'))
+        self.icons.append(gtk.gdk.pixbuf_new_from_file(config['static'] + 'denu_icon_48.png'))
+        self.icons.append(gtk.gdk.pixbuf_new_from_file(config['static'] + 'denu_icon_64.png'))
         gtk.window_set_default_icon_list(self.icons[0],self.icons[1],self.icons[2],self.icons[3])
         self.window.set_size_request(-1, 450)
         self.window.connect("delete_event", self.delete_event)
@@ -1050,7 +1060,7 @@ class DenuGUI:
         self.middle.pack_start(self.middlebuttons, False)
         self.middle.pack_start(self.scrolledwindow2, True)
         #Status label
-        self.status = gtk.Label('Welcome to Denu 2.2.3  Status Messages will display here.')
+        self.status = gtk.Label('Welcome to Denu 2.3.1  Status Messages will display here.')
         self.status.set_justify(gtk.JUSTIFY_LEFT)
         self.status.show()
         self.statusframe = gtk.Frame('Denu Status')
@@ -1084,14 +1094,14 @@ class DenuGUI:
         self.populate_installed('', 'yes')
         		
         # Populate specials
-        standard_specials = os.listdir('/usr/share/denu/specials')
+        standard_specials = os.listdir(config['static'] + 'specials')
         if not os.path.exists(home + '/.denu/specials'):
         	os.mkdir(home + '/.denu/specials')
         user_specials = os.listdir(home + '/.denu/specials')
         self.specialstore.append(None, ['label', 'Standard', '', self.pixbuf_manager('denu_folder.png'), ''])
         first_iter = self.specialstore.get_iter_first()
         for spec_file in standard_specials:
-        	file = open('/usr/share/denu/specials/' + spec_file, 'r')
+        	file = open(config['static'] + 'specials/' + spec_file, 'r')
         	contents = file.read()
         	file.close()
         	contents = contents.split('<denu-split-l1>')
