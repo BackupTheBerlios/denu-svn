@@ -26,7 +26,7 @@ else:
 	config["portage"] = 'no'
 #config['portage'] = 'no'
 config['tab'] = 4
-config['title'] = 'Denu 2.3.1'
+config['title'] = 'Denu 2.3.2'
 #File locations.
 config['static'] = '/usr/share/denu/'
 config['dynamic'] = '/var/cache/denu/'
@@ -783,7 +783,7 @@ class DenuGUI:
     	about = gtk.Window(gtk.WINDOW_TOPLEVEL)
     	about.set_title('About Denu')
     	about.connect('delete_event', lambda s,w: about.destroy())
-    	gpl = gtk.Label('<big><b>Denu Version 2.3.1</b></big>\nReleased 3/10/2005\nWritten by Scott Shawcroft\nhttp://denu.sourceforge.net\nshux_linux@comcast.net\n\n<big>Denu is a menu generation/creation program for fluxbox, openbox, waimea, gnome, IceWM, Xfce4 and kde.</big>\n\nWarning:This version has only been tested on gnome 2.10 , fluxbox 0.9.12, waimea 0.5.0_pre04050, Xfce4 4.19 something and openbox 3.2 r1.\n\nCopyright (C) 2005  Scott Shawcroft\n\n<small>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</small>')
+    	gpl = gtk.Label('<big><b>Denu Version 2.3.2</b></big>\nReleased 3/19/2005\nWritten by Scott Shawcroft\nhttp://denu.sourceforge.net\nshux_linux@comcast.net\n\n<big>Denu is a menu generation/creation program for fluxbox, openbox, waimea, gnome, IceWM, Xfce4 and kde.</big>\n\nWarning:This version has only been tested on gnome 2.10 , fluxbox 0.9.12, waimea 0.5.0_pre04050, Xfce4 4.19 something and openbox 3.2 r1.\n\nCopyright (C) 2005  Scott Shawcroft\n\n<small>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</small>')
     	gpl.set_use_markup(gtk.TRUE)
     	gpl.set_line_wrap(gtk.TRUE)
     	gpl.set_selectable(gtk.TRUE)
@@ -1060,7 +1060,7 @@ class DenuGUI:
         self.middle.pack_start(self.middlebuttons, False)
         self.middle.pack_start(self.scrolledwindow2, True)
         #Status label
-        self.status = gtk.Label('Welcome to Denu 2.3.1  Status Messages will display here.')
+        self.status = gtk.Label('Welcome to Denu 2.3.2  Status Messages will display here.')
         self.status.set_justify(gtk.JUSTIFY_LEFT)
         self.status.show()
         self.statusframe = gtk.Frame('Denu Status')
