@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+#This is a new file to provide a way around the dependancy on portage.
+#Like the rest of denu it is released under the GPL.
+import os,cPickle,string
+def installed ():
+	path = os.environ['PATH']
+	path = string.split(path,':')
+	exec_index = cPickle.load(open('/usr/share/denu/exec_index.p','r'))
+	bins = []
+	installed = []
+	for spath in path:
+		if os.path.exists(spath):
+			tmp = os.listdir(spath)
+			for entry in tmp:
+				bins.append(entry)
+	#print bins
+	for bin in bins:
+		if exec_index.has_key(bin):
+			if installed.count(exec_index[bin])==0:
+				installed.append(exec_index[bin])
+				#print exec_index[bin]
+	strng = ''
+	for prgm in installed: #create user readable list
+		strng = strng + prgm + "\n"
+	file = open('/usr/share/denu/sysprgms.txt','w') #write files
+	file.write(strng)
+	file.close()
+	#cPickle list of installed.
+	cPickle.dump(installed,open('/usr/share/denu/sysprgms.p','w'))
+installed()

@@ -71,6 +71,7 @@ class denu:
 			name_index = {}
 			command_index = {}
 			folder_index = {}
+			exec_index = {}
 			v = 0
 			for x in data: #create prgm dicts
 				tmp = string.strip(x)
@@ -84,6 +85,8 @@ class denu:
 					name_index[tmp2[0]] = tmp2[1]
 					command_index[tmp2[0]] = tmp2[2]
 					folder_index[tmp2[0]] = tmp2[3]
+					for bin in tmp2[2]:
+						exec_index[bin] = tmp2[0]
 				v = v+1
 			import cPickle #write to files
 			#Update installed to current DB version
@@ -95,10 +98,12 @@ class denu:
 			custom.write(wfile)
 			custom.close()
 			#cPickle the dictionaries.
+			print exec_index
 			cPickle.dump(menu_images,open('/usr/share/denu/menu_images.p','w'))
 			cPickle.dump(name_index,open('/usr/share/denu/name_index.p','w'))
 			cPickle.dump(command_index,open('/usr/share/denu/command_index.p','w'))
 			cPickle.dump(folder_index,open('/usr/share/denu/folder_index.p','w'))
+			cPickle.dump(exec_index,open('/usr/share/denu/exec_index.p','w'))
 		gui.status.set_text('Updated database.')
 		gui.installedstore.clear()
 		#Update te gui's installed TreeStore.
