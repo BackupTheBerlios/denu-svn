@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-3.5.dtd">
+<!-- Project file for project Denu -->
+<!-- Saved: 2005-02-22, 20:52:46 -->
+<!-- Copyright (C) 2005 Scott Shawcroft, shux_linux@comcast.net -->
+<Project version="3.5">
+  <Description>Menu manager.</Description>
+  <Version>2.3</Version>
+  <Author>Scott Shawcroft</Author>
+  <Email>shux_linux@comcast.net</Email>
+  <Sources>
+  </Sources>
+  <Forms>
+  </Forms>
+  <Translations>
+  </Translations>
+  <Interfaces>
+  </Interfaces>
+  <Others>
+    <Other>
+      <Name>denu</Name>
+    </Other>
+  </Others>
+  <MainScript>
+    <Name>denu</Name>
+  </MainScript>
+  <Vcs>
+    <VcsType>Subversion</VcsType>
+    <VcsOptions>{'status': [''], 'log': [''], 'global': [''], 'update': [''], 'remove': [''], 'add': [''], 'tag': [''], 'export': [''], 'diff': [''], 'commit': [''], 'checkout': [''], 'history': ['']}</VcsOptions>
+    <VcsOtherData>{'standardLayout': 1}</VcsOtherData>
+  </Vcs>
+</Project>

@@ -25,7 +25,10 @@ class denu:
 		#print "Opening program data."
 		import urllib2
 		#Get newest version.
-		newest = urllib2.urlopen('http://denu.sourceforge.net/files/newestDB').readline()
+		try:
+			newest = urllib2.urlopen('http://denu.sourceforge.net/files/newestDB').readline()
+		except:
+			gui.status.set_text('Could not find denu server.')
 		import string,os
 		home = os.environ['HOME']
 		newest = string.strip(newest)
@@ -147,7 +150,7 @@ class denu:
 		#update installed TreeStore
 		DenuGUI.populate_installed(gui, installedstore, 'no')
 		
-	#Generate structure with everything in it, fuctionality of Denu 1 in Denu 2
+	#Generate structure with everything in it, fuctionality of Denu 1.x in Denu 2.x
 	def fillmein(extra, widget, menustore, self):
 		import cPickle,os
 		home = os.environ['HOME']
@@ -321,6 +324,7 @@ class DenuGUI:
         ('TEXT', 0, 2),
         ('STRING', 0, 3),
         ]
+    # Generate window which calls menugen to create the menu.
     def menufromtree(self, widget, tree, self2):
     	generatew = gtk.Window(gtk.WINDOW_TOPLEVEL)
     	generatew.connect("delete_event",  lambda w,e: generatew.hide())
@@ -351,6 +355,7 @@ class DenuGUI:
     	generatew.add(vbox)
     	generatew.show()
     	
+    # Generates the menu file.
     def menugen(self, tree, wm):
     	structure = []
     	iter = tree.get_iter_root()
@@ -405,6 +410,7 @@ class DenuGUI:
 		structure = extra.rec(structure, tree, tmp_iter)
 	return structure
 	
+    # Stores menu in a pickle file.
     def store_struct(self, extra2, extra3, tree, filename):
     	structure = []
     	iter = tree.get_iter_root()
@@ -448,7 +454,6 @@ class DenuGUI:
     	import cPickle
     	structure = cPickle.load(open(filename,'r'))
         self.gen(structure, menustore, None)
-        		
     def installed_programs(self):
     	import cPickle,os
 	home = os.environ['HOME']
@@ -594,7 +599,7 @@ class DenuGUI:
     	window.show()
     	
     def pixbuf_manager(self, filename):
-    	#print 'file: \"' + filename + '\"'
+        #print 'file: \"' + filename + '\"'
     	okay = 'yes'
     	if not self.pixbuf_index.has_key(filename):
     		import os
@@ -618,7 +623,10 @@ class DenuGUI:
 			full_filename = filename
 		if okay=='yes':
 			#print filename
-       			self.pixbuf_index[filename] = gtk.gdk.pixbuf_new_from_file_at_size(full_filename, 16, 16)
+            		try:
+            			self.pixbuf_index[filename] = gtk.gdk.pixbuf_new_from_file_at_size(full_filename, 16, 16)
+            		except:
+            			return "Error: no file."
        	return self.pixbuf_index[filename]
 
     def addprgm(self, widget):
