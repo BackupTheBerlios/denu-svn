@@ -191,9 +191,10 @@ class denu:
 		self.status.set_text('Menu structure generated.')
 		
 	#submenu creates the menu file according to the structure and window manager
-	def submenu(extra, structure,menu,wm,media_images):
+	def submenu(extra, structure,menu,wm,media_images,level):
 		import string,os,urllib2
 		home = os.environ['HOME']
+		tab=6 #number of spaces
 		for prgm in structure:
 			#If the entry is a program.
 			if prgm[0] == 'program':
@@ -215,14 +216,14 @@ class denu:
 						filesrc = open(home + '/.local/share/applications/denu_' + filename,'w')
 						filesrc.write(file)
 						filesrc.close()
-				menu = menu + denu.strng_rep(wm[5], prgm, wm, '')
+				menu = menu + level*tab*" " + denu.strng_rep(wm[5], prgm, wm, '')
 			elif prgm[0]=='special':
 				if string.lower(wm[0])==prgm[3]:
-					menu = menu + prgm[2] + '\n'
+					menu = menu + level*tab*" " + prgm[2] + '\n'
 				elif prgm[3]=='all':
 					list = prgm[2].split('<denu-split-l2>')
 					if list.count(string.lower(wm[0]))==1:
-						menu = menu + list[list.index(string.lower(wm[0]))-1] + '\n'
+						menu = menu + level*tab*" " + list[list.index(string.lower(wm[0]))-1] + '\n'
 			elif prgm[0]=='folder':
 				if media_images.has_key(prgm[1]) and prgm[3]=='':
 					icon = media_images[prgm[1]][0]
@@ -246,9 +247,9 @@ class denu:
 					filesrc = open('/usr/share/denu/directory_files/' + filename,'w')
 					filesrc.write(file)
 					filesrc.close()
-				menu = menu + denu.strng_rep(wm[6], prgm, wm, icon)
-				menu = extra.submenu(prgm[4],menu,wm,media_images) #call submenu to do next level
-				menu = menu + denu.strng_rep(wm[7], prgm, wm, icon)
+				menu = menu + level*tab*" " + denu.strng_rep(wm[6], prgm, wm, icon)
+				menu = extra.submenu(prgm[4],menu,wm,media_images,  level+1) #call submenu to do next level
+				menu = menu + level*tab*" " + denu.strng_rep(wm[7], prgm, wm, icon)
 		return menu
 		
 	def addprgm(self, id, name, cat, command):
@@ -368,7 +369,7 @@ class DenuGUI:
 	else:
 		menufile = denu.strng_rep(wm[8], '', wm, '')
 	menu = menufile #start menu
-	menu = denu.submenu(structure,menu,wm,menu_images) #generate menu guts
+	menu = denu.submenu(structure,menu,wm,menu_images,1) #generate menu guts
 	if wm[3] == 'yes':
 		menufiles = open('/usr/share/denu/' + string.lower(wm[0]) + 'bottom.ref', 'r')
 		menufile = menufiles.read()
@@ -940,6 +941,13 @@ class DenuGUI:
         # Create a new window
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.set_title("Denu")
+        #Load icons
+        self.icons = []
+        self.icons.append(gtk.gdk.pixbuf_new_from_file('/usr/share/denu/denu_icon_16.png'))
+        self.icons.append(gtk.gdk.pixbuf_new_from_file('/usr/share/denu/denu_icon_32.png'))
+        self.icons.append(gtk.gdk.pixbuf_new_from_file('/usr/share/denu/denu_icon_48.png'))
+        self.icons.append(gtk.gdk.pixbuf_new_from_file('/usr/share/denu/denu_icon_64.png'))
+        gtk.window_set_default_icon_list(self.icons[0],self.icons[1],self.icons[2],self.icons[3])
         self.window.set_size_request(-1, 450)
         self.window.connect("delete_event", self.delete_event)
         #Windows
