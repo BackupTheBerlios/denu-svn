@@ -17,7 +17,14 @@
 
 import pygtk,string,os,cPickle,urllib2,re
 pygtk.require('2.0')
+home = os.environ['HOME']
 import gtk
+config = {}
+if os.path.exists('/var/lib/portage/world'):
+	config["portage"] = 'yes'
+else:
+	config["portage"] = 'no'
+config['tab'] = 4
 #denu class is all generation oriented functions.  All of the gui stuff is in DenuGUI
 class denu:
 	#Programdata updates the 'DB' files from the web
@@ -28,7 +35,6 @@ class denu:
 			newest = urllib2.urlopen('http://denu.sourceforge.net/files/newestDB').readline()
 		except:
 			gui.status.set_text('Could not find denu server.')
-		home = os.environ['HOME']
 		newest = string.strip(newest)
 		gui.status.set_text(newest)
 		installed = open ('/usr/share/denu/installedDB')
@@ -115,24 +121,39 @@ class denu:
 		#Start with 'custom' so anything with custom as the portage-id will be included.
 		prgms = ['custom']
 		tmp = []
-		dirs = os.listdir('/var/db/pkg')
-		for x in dirs: #create installed list by looking in /var/db/pkg
-			path = '/var/db/pkg/' + x
-			tmpprgms = os.listdir(path)
-			for y in tmpprgms:
-				tmp.append(x + '/'+ y)
-		for z in tmp:
-			tmp3 = string.split(z,'-')
-			check = 0
-			v = 1
-			tmpstr = tmp3[0]
-			while check==0: #parse portage ids
-				if re.match('[a-zA-Z]',tmp3[v])==None:
-					check = 1
-				else:
-					tmpstr = tmpstr + '-' + tmp3[v]
-					v = v + 1
-			prgms.append(tmpstr)
+		if config["portage"]=='yes':
+			dirs = os.listdir('/var/db/pkg')
+			for x in dirs: #create installed list by looking in /var/db/pkg
+				path = '/var/db/pkg/' + x
+				tmpprgms = os.listdir(path)
+				for y in tmpprgms:
+					tmp.append(x + '/'+ y)
+			for z in tmp:
+				tmp3 = string.split(z,'-')
+				check = 0
+				v = 1
+				tmpstr = tmp3[0]
+				while check==0: #parse portage ids
+					if re.match('[a-zA-Z]',tmp3[v])==None:
+						check = 1
+					else:
+						tmpstr = tmpstr + '-' + tmp3[v]
+						v = v + 1
+				prgms.append(tmpstr)
+		else:
+			path = os.environ['PATH']
+			path = string.split(path,':')
+			exec_index = cPickle.load(open('/usr/share/denu/exec_index.p','r'))
+			bins = []
+			for spath in path:
+				if os.path.exists(spath):
+					tmp = os.listdir(spath)
+					for entry in tmp:
+						bins.append(entry)
+			for bin in bins:
+				if exec_index.has_key(bin):
+					if prgms.count(exec_index[bin])==0:
+						prgms.append(exec_index[bin])
 		old_prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
 		strng = ''
 		new_prgms = []
@@ -153,7 +174,6 @@ class denu:
 		
 	#Generate structure with everything in it, fuctionality of Denu 1.x in Denu 2.x
 	def fillmein(extra, widget, menustore, self):
-		home = os.environ['HOME']
 		#Load cPickled dictionaries.
 		name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
 		command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
@@ -191,8 +211,6 @@ class denu:
 		
 	#submenu creates the menu file according to the structure and window manager
 	def submenu(extra, structure,menu,wm,media_images,level):
-		home = os.environ['HOME']
-		tab=6 #number of spaces
 		for prgm in structure:
 			#If the entry is a program.
 			if prgm[0] == 'program':
@@ -213,14 +231,14 @@ class denu:
 					filesrc = open(home + '/.local/share/applications/denu_' + filename,'w')
 					filesrc.write(file)
 					filesrc.close()
-				menu = menu + level*tab*" " + denu.strng_rep(wm[5], prgm, wm, '', level)
+				menu = menu + level*custom["tab"]*" " + denu.strng_rep(wm[5], prgm, wm, '', level)
 			elif prgm[0]=='special':
 				if string.lower(wm[0])==prgm[3]:
-					menu = menu + level*tab*" " + prgm[2] + '\n'
+					menu = menu + level*custom["tab"]*" " + prgm[2] + '\n'
 				elif prgm[3]=='all':
 					list = prgm[2].split('<denu-split-l2>')
 					if list.count(string.lower(wm[0]))==1:
-						menu = menu + level*tab*" " + list[list.index(string.lower(wm[0]))-1] + '\n'
+						menu = menu + level*custom["tab"]*" " + list[list.index(string.lower(wm[0]))-1] + '\n'
 			elif prgm[0]=='folder':
 				if media_images.has_key(prgm[1]) and prgm[3]=='':
 					icon = media_images[prgm[1]][0]
@@ -244,9 +262,9 @@ class denu:
 					filesrc = open(home + '/.local/share/desktop-directories/denu_' + filename,'w')
 					filesrc.write(file)
 					filesrc.close()
-				menu = menu + level*tab*" " + denu.strng_rep(wm[6], prgm, wm, icon, level)
+				menu = menu + level*custom["tab"]*" " + denu.strng_rep(wm[6], prgm, wm, icon, level)
 				menu = extra.submenu(prgm[4],menu,wm,media_images,  level+1) #call submenu to do next level
-				menu = menu + level*tab*" " + denu.strng_rep(wm[7], prgm, wm, icon, level)
+				menu = menu + level*custom["tab"]*" " + denu.strng_rep(wm[7], prgm, wm, icon, level)
 		return menu
 		
 	def addprgm(self, id, name, cat, command):
@@ -255,7 +273,6 @@ class denu:
 		name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
 		command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
 		folder_index = cPickle.load(open('/usr/share/denu/folder_index.p','r'))
-		home = os.environ['HOME']
 		name1 = string.split(name,'$')
 		command1 = string.split(command,'$')
 		cat1 = string.split(cat,'$')
@@ -280,8 +297,6 @@ class denu:
 		file.close()
 		
 	def strng_rep(self, text, prgm, wm, tmpicon, level):
-		home = os.environ['HOME']
-		tab=6
 		if not prgm == '':
 			defilename = "denu_" + string.replace(string.replace(prgm[1], '&', ''), ' ', '_') + '.desktop'
 			full_defilename = home + '/.local/share/applications/' + defilename
@@ -310,7 +325,7 @@ class denu:
 			text = string.replace(text, '<denu-icon-full>', full_icon)
 		text = string.replace(text, '<denu-home>', home)
 		text = string.replace(text, '<denu-mname>', 'Denu 2.2.3')
-		text = string.replace(text, '<denu-tab>', ' '*level*tab)
+		text = string.replace(text, '<denu-tab>', ' '*level*custom["tab"])
 		return text
 denu = denu()
 class DenuGUI:
@@ -412,8 +427,6 @@ class DenuGUI:
     	else:
     		structure = []
     	if filename=='\save/':
-    		import os
-		home = os.environ['HOME']
 		filename = home + '/.denu/lastmenu.p'
     	cPickle.dump(structure,open(filename,'w'))
     	if filename=='\save/':
@@ -445,7 +458,6 @@ class DenuGUI:
         self.gen(structure, menustore, None)
         
     def installed_programs(self):
-	home = os.environ['HOME']
 	name_index = cPickle.load(open('/usr/share/denu/name_index.p','r'))
 	command_index = cPickle.load(open('/usr/share/denu/command_index.p','r'))
 	prgms = cPickle.load(open('/usr/share/denu/sysprgms.p','r'))
@@ -531,7 +543,6 @@ class DenuGUI:
     		specialstore.append(iter, ['special', nameguts, contentguts, pixbuf, wmguts])
     		spec_file = nameguts + '<denu-split-l1>\n' + contentguts + '<denu-split-l1>\n' + wmguts
     		filename = wmguts + '_' + string.replace(nameguts, ' ', '_')
-    		home = os.environ['HOME']
     		if not os.path.exists(home + '/.denu/specials/'):
     			os.mkdir(home + '/.denu/specials/')
     		wfile = open(home + '/.denu/specials/' + filename, 'w')
@@ -589,7 +600,6 @@ class DenuGUI:
         #print 'file: \"' + filename + '\"'
     	okay = 'yes'
     	if not self.pixbuf_index.has_key(filename):
-    		home = os.environ['HOME']
     		if not filename[0:1]=='/':
     			full_filename = home + '/.denu/pixmaps/' + filename
         		if not os.path.exists(full_filename):
@@ -730,9 +740,12 @@ class DenuGUI:
 	else:
 		new_prgms = []
         prgms = self.installed_programs()
-        worldfile = open("/var/lib/portage/world", "r")
-        world = worldfile.readlines()
-        worldfile.close()
+        if config["portage"] == 'yes':
+        	worldfile = open("/var/lib/portage/world", "r")
+        	world = worldfile.readlines()
+        	worldfile.close()
+        else:
+        	world = []
         new_iter=self.installedstore.append(None, ['folder', 'New', '', self.pixbuf_manager('denu_folder.png'), ''])
         world_iter=self.installedstore.append(None, ['folder', 'World', '', self.pixbuf_manager('denu_folder.png'), ''])
         other_iter=self.installedstore.append(None, ['folder', 'Other', '', self.pixbuf_manager('denu_folder.png'), ''])
@@ -1058,7 +1071,6 @@ class DenuGUI:
         self.specials = gtk.TreeView(self.specialstore)
         
         #Loads menu structure from previous run
-        home = os.environ['HOME']
         filename = home + '/.denu/lastmenu.p'
         if not os.path.exists(home + '/.denu'):
 			os.mkdir(home + '/.denu')
@@ -1072,7 +1084,6 @@ class DenuGUI:
         self.populate_installed('', 'yes')
         		
         # Populate specials
-        home = os.environ['HOME']
         standard_specials = os.listdir('/usr/share/denu/specials')
         if not os.path.exists(home + '/.denu/specials'):
         	os.mkdir(home + '/.denu/specials')
