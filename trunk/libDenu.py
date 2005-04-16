@@ -17,16 +17,19 @@
 
 # This is the start of libDenu 3.x
 # It is released under the GPLv2
+
 import xml.dom.minidom as xml
+
 #Works together with the denu wm module to import the wm menu to denu xml format.
-def wm_import(file, wm):
+wmConfig = {"fluxbox" : ["fluxbox", "startfluxbox"], "gnome" : ["gnome-panel", "gnome-panel"]}
+def wm_import(wm, file="default"):
 	global menu
 	exec 'import ' + "denuWM_" + wm + ' as wm'
 	menu = wm.wm_import(file)
 	return menu
 	
 #Works together with the denu wm module to export the denu xml format to the proprietary format of the specified wm.
-def wm_export (file, wm):
+def wm_export (wm, file="default"):
 	global menu
 	exec 'import ' + "denuWM_" + wm + ' as wm'
 	wm.wm_export(menu)
@@ -47,23 +50,32 @@ def d_open (file):
 	
 #Duplicates the current file(s) for the specified wm, for restoration from denu using libDenu.restore().  Works in combination with denu wm module.
 def backup (wm):
+	exec 'import ' + "denuWM_" + wm + ' as wm'
+	wm.backup()
 	return "Successful."
 	
 #Restores the menu to a specific file.  Restores from files created with libDenu.backup().  Works in combination with denu wm module.
 def restore (wm):
-	print menu
+	global menu
+	exec 'import ' + "denuWM_" + wm + ' as wm'
+	wm.restore()
 	return "Successful."
 	
 #Gets current running wm.
 def getCurrentWM ():
-	print "yup"
-	#return wm
+	import os
+	keys = wmConfig.keys()
+	running = []
+	for key in keys:
+		if len(os.popen("ps -C " + wmConfig[key][0], "r").readlines()) > 1:
+			running.append(key)
+	return running
 	
 #Gets installed wms.
 def getInstalledWMs ():
 	return wms
 	
-#Updates wm configs in wm_config variable.
+#Updates wm configs in wmConfig variable.
 def update_wm_modules():
 	return "Successful."
 	
@@ -112,3 +124,24 @@ def addSpecial():
 	
 def saveSpecial():
 	return "Successful."
+	
+def printMenu(root, locale="en", level=0):
+	tab="   "
+	for node in root.childNodes:
+		if node.nodeName == "program":
+			name = node.getElementsByTagName("name")
+			local_name = name[0].getElementsByTagName(locale)
+			if not local_name == []:
+				print tab*level + local_name[0].firstChild.nodeValue
+			else:
+				local_name = name[0].getElementsByTagName("en")
+				print tab*level + local_name[0].firstChild.nodeValue
+		elif node.nodeName == "folder":
+			name = node.getElementsByTagName("name")
+			local_name = name[0].getElementsByTagName(locale)
+			if not local_name == []:
+				print tab*level + local_name[0].firstChild.nodeValue
+			else:
+				local_name = name[0].getElementsByTagName("en")
+				print tab*level + local_name[0].firstChild.nodeValue
+			printMenu(node, locale, level + 1)
