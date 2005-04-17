@@ -1,0 +1,26 @@
+<data type="db">
+	<program portage-id="x11-terms/aterm" command="aterm">
+		<name>
+			<en>Aterm</en>
+		</name>
+		<blurb>A terminal.</blurb>
+		<icon>term.png</icon>
+		<location>|Terms</location>
+	</program>
+	<program portage-id="x11-misc/denu" command="denu:denusvn">
+		<name>
+			<en>Aterm</en>
+		</name>
+		<blurb>A menu swiss army knife.</blurb>
+		<icon>denu.png</icon>
+		<location>|Utilities</location>
+	</program>
+	<program portage-id="x11-terms/eterm" command="eterm">
+		<name>
+			<en>Eterm</en>
+		</name>
+		<blurb>A terminal.</blurb>
+		<icon>term.png</icon>
+		<location>|Terms</location>
+	</program>
+</data>

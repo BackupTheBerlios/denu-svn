@@ -1,0 +1,31 @@
+<data type="menu">
+	<program>
+		<name>
+			<en>Aterm</en>
+		</name>
+		<command>aterm</command>
+		<blurb>A terminal.</blurb>
+		<icon>term.png</icon>
+	</program>
+	<special>
+		<name>
+			<en>Separator</en>
+		</name>
+		<content>
+			<fluxbox>[separator]</fluxbox>
+		</content>
+	</special>
+	<folder>
+		<name>
+			<en>Audio</en>
+		</name>
+		<blurb>Audio programs included.</blurb>
+		<icon>audio.png</icon>
+		<program>
+			<name><en>XMMS</en></name>
+			<command>xmms</command>
+			<blurb>An audio player.</blurb>
+			<icon>xmms.png</icon>
+		</program>
+	</folder>
+</data>

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<data type="menu">
+	<entry type="program">
+		<name lang="en">Aterm</name>
+		<command>aterm</command>
+		<blurb>A terminal.</blurb>
+		<icon>term.png</icon>
+		<portage-id>x11-terms/aterm</portage-id>
+		<id>0</id>
+	</entry>
+	<entry type="special">
+		<name lang="en">Separator</name>
+		<content wm="fluxbox">[separator]</content>
+		<id>0</id>
+	</entry>
+	<entry type="special">
+		<name lang="en">Audio</name>
+		<blurb>Audio programs included.</blurb>
+		<icon>audio.png</icon>
+		<id>0</id>
+		<entry type="program">
+			<name lang="en">XMMS</name>
+			<command>xmms</command>
+			<blurb>An audio player.</blurb>
+			<icon>xmms.png</icon>
+			<portage-id>media-sound/xmms</portage-id>
+			<id>0</id>
+		</entry>
+	</entry>
+</data>

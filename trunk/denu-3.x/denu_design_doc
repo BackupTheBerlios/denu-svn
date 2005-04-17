@@ -1,0 +1,60 @@
+libDenu - Deals with XML manipulation and import export.
+	Functions:
+		addFolder
+		d_save(file) file - filename to load.  Needs to be full path.
+		d_open(file) file - filename to load.  Needs to be full path.
+		autoGen
+		update
+		sysupdate
+		wm_import(wm, [file]) wm is required.  file is optional file import.
+		wm_export(wm, [file]) wm is required.  file is optional file import.
+		getCurrentWM
+		getInstalledWMs
+		backup
+		restore
+		editEntry
+		viewEntry
+		addEntry
+		deleteEntry
+		saveEntry
+		moveEntry
+		addSpecial
+		saveSpecial
+		printMenu(root, [locale]) Prints structure to terminal.
+	Variables:
+		menu - XML structure holding menu.
+		data - XML structure holding 'database' information. *Consider this.
+		installed - List or XML structure of installed programs.
+
+denuGUI - One of many possible interfaces.
+	Functions:
+		pixmap-manager
+		initialize
+		closeWindow
+		closeDenu
+		about
+		loadConfig
+		saveConfig
+		openWindow
+		(More needed in here)
+	Variables:
+		config - array or XML structure which holds configurations.
+			Keys:
+				mode
+				portage
+				icons
+				iconsize
+				title
+				static
+				dynamic
+				locale
+		menu_treestore - treestore which holds menu data.
+		installed_treestore - treestore which holds installed program data.
+		special_treestore - treestore which holds 'specials' data.
+
+denu-wm - wm replaced with name of window manager name.
+	wm_import(file) imports menu and optionally a specific file. Will recieve value of 'default' from libDenu if not set.- Imports menu relavent file(s) to standard denu XML structure.
+	wm_export(file) imports menu and optionally a specific file. Will recieve value of 'default' from libDenu if not set. - Exports denu XML to relavent menu files and check for duplications of files.  ie. use of .desktop files.
+	backup - Backs up the current menu.  For use at first run.
+	restore - Restores backed up menus.
+	getVersion - returns the version number of installed wm.

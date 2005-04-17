@@ -1,0 +1,61 @@
+#Denu menu mock-up.
+<data type="menu">
+	<program>
+		<name lang="en">Aterm</name>
+		<command>aterm</command>
+		<blurb>A terminal.</blurb>
+		<icon>term.png</icon>
+		<portage-id>x11-terms/aterm</portage-id>
+		<id>0</id>
+	</program>
+	<special>
+		<name lang="en">Separator</name>
+		<content wm="fluxbox">[separator]</content>
+		<id>0</id>
+	</special>
+	<folder>
+		<name lang="en">Audio</name>
+		<blurb>Audio programs included.</blurb>
+		<icon>audio.png</icon>
+		<id>0</id>
+		<program>
+			<name lang="en">XMMS</name>
+			<command>xmms</command>
+			<blurb>An audio player.</blurb>
+			<icon>xmms.png</icon>
+			<portage-id>media-sound/xmms</portage-id>
+			<id>0</id>
+		</program>
+	</folder>
+</data>
+
+#Denu database mock-up.
+<data type="db">
+	<package id="media-sound/xmms">
+		<program>
+			<name lang="en">XMMS</name>
+			<command>xmms</command>
+			<blurb>An audio player.</blurb>
+			<icon>xmms.png</icon>
+			<portage-id>media-sound/xmms</portage-id>
+		</program>
+	</package>
+	<package id="x11-terms/aterm">
+		<program>
+			<name lang="en">Aterm</name>
+			<command>aterm</command>
+			<blurb>A terminal.</blurb>
+			<icon>term.png</icon>
+			<portage-id>x11-terms/aterm</portage-id>
+		</program>
+	</package>
+</data>
+
+#Denu custom entry xml file.
+<data type="program">
+	<name lang="en">XMMS</name>
+	<command>xmms</command>
+	<blurb>An audio player.</blurb>
+	<icon>xmms.png</icon>
+	<portage-id>media-sound/xmms</portage-id>
+</data>
