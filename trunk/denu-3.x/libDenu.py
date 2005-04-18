@@ -20,10 +20,14 @@
 
 import xml.dom.minidom as xml
 import sys,os
-home = os.environ['HOME']
-sys.path.append("/usr/share/denu/wms", home + "/.denu/wms")
-#wmConfig = {"fluxbox" : ["fluxbox", "Fluxbox"], "gnome" : ["gnome-panel", "Gnome"]}
+from xml.sax import saxlib, saxexts
 
+home = os.environ['HOME']
+sys.path.extend(["/usr/share/denu/wms", home + "/.denu/wms", home + "/denu/svn/trunk/denu-3.x/wms"])
+config = {}
+config['static'] = '/usr/share/denu/'
+config['dynamic'] = '/var/cache/denu/'
+config['testdir'] = '/home/scott/denu/svn/trunk/denu-3.x/'
 #Works together with the denu wm module to import the wm menu to denu xml format.
 def wm_import(wm, file="default"):
 	global menu
@@ -47,13 +51,16 @@ def d_save (file):
 
 #Opens a denu xml file into the program.
 def d_open (file, var='menu'):
-	if var == 'menu':
-		global menu
-		menu = xml.parse(file)
-		return menu
-	elif var == 'installed':
-		installed = xml.parse(file)
-		return installed
+	if os.path.exists(file):
+		if var == 'menu':
+			global menu
+			menu = xml.parse(file)
+			return menu
+		elif var == 'installed':
+			installed = xml.parse(file)
+			return installed
+	else:
+		return "Failed: Does not exist."
 	
 #Duplicates the current file(s) for the specified wm, for restoration from denu using libDenu.restore().  Works in combination with denu wm module.
 def backup (wm):
@@ -95,7 +102,6 @@ def getInstalledWMs ():
 				bins.append(entry)
 			for bin in bins:
 				if wms.has_key(bin):
-					print spath
 					wm.append(wms[bin])
 			bins = []
 	return wm
@@ -104,11 +110,17 @@ def getInstalledWMs ():
 def update_wmConfig():
 	global wmConfig
 	import string
-	default_files = os.listdir("/usr/share/denu/wms")
-	user_files = os.listdir(home + "/.denu/wms")
+	if os.path.exists("/home/scott/denu/svn/trunk/denu-3.x/wms"):
+		default_files = os.listdir("/home/scott/denu/svn/trunk/denu-3.x/wms")
+	else:
+		default_files = []
+	if os.path.exists(home + "/.denu/wms"):
+		user_files = os.listdir(home + "/.denu/wms")
+	else:
+		user_files = []
 	wmConfig = {}
 	for fn in default_files:
-		if not fn.find("denuWM_") == "-1":
+		if not fn.find("denuWM_") == -1 and user_files.count(fn)==0:
 			name = fn.replace(".py", "")
 			exec "import " + name + " as wm"
 			name = name.replace("denuWM_", "")
@@ -117,18 +129,112 @@ def update_wmConfig():
 	
 #Updates denu database of programs.Variable:data.
 def update ():
+	import urllib2,string
+	try:
+		newestDB = urllib2.urlopen('http://denu.sourceforge.net/files/newestDB').readline()
+	except:
+		return 'Could not find denu server.'
+	newestDB = string.strip(newestDB)
+	installedDB = open (config['testdir'] + 'installedDB')
+	installDB = installedDB.readline()
+	installedDB.close()
+	#Compare newest and installed so that the same version isn't downloaded again.
+	if installDB != newestDB:
+		file = urllib2.urlopen('http://denu.sourceforge.net/files/prgmDB.xml')
+		tmp = open(config['testdir'] + 'prgmDB.xml', 'w')
+		tmp.writelines(file.readlines())
+		tmp.close()
+		file.close()
 	return "Successful."
-	
+
+#Class for handling the raw xml database to installed xml records.
+#Modeled after tutorial here: http://www.rexx.com/~dkuhlman/pyxmlfaq.html#howsaxhandler
+class installedHandler (ContentHandler):
+	def __init__ (self):
+		import string
+		self.level = 0
+		self.entry = {}
+		self.keep = 1
+		self.location = []
+		path = os.environ['PATH']
+		path = string.split(path,':')
+		self.bins = []
+		for spath in path:
+			if os.path.exists(spath):
+				tmp = os.listdir(spath)
+				for entry in tmp:
+					self.bins.append(entry)
+					
+	def startDocument(self):
+		self.domImp = xml.getDOMImplementation()
+		self.dom = self.domImp.createDocument(None, None, None)
+		self.parent = self.dom.createElement("data")
+		self.parent.setAttribute("type", "installed")
+		self.dom.appendChild(self.parent)
+		
+	def startElement(self, name, attributes):
+		if not name == "data":
+			self.location.append(name)
+		if name == "program":
+			commands = attributes.get("command")
+			commands = commands.split(":")
+			exists = "no"
+			for command in commands:
+				if self.bins.count(command)>0:
+					exists = "yes"
+			if exists == "yes":
+				self.entry = {"program" : {"portage-id": attributes.get("portage-id")}}
+				self.keep = 1
+			else:
+				self.keep = 0
+		
+	def endElement(self, name):
+		if not name == "data":
+			self.location.pop()
+		if name == "program" and self.keep == 1:
+			buildDOM(self.entry, self.parent, self.dom)
+		
+	def endDocument(self):
+		file = open("/home/scott/denu/svn/trunk/denu-3.x/installed.xml", 'w')
+		strng = self.dom.toprettyxml()
+		file.write(strng)
+		file.close()
+		
+	def characters(self, chars, offset, length):
+		if self.keep == 1:
+			if not chars.strip() == "":
+				variable = "self.entry"
+				for place in self.location:
+					exec "result = " + variable + ".has_key(place)"
+					if not result:
+						exec variable + "[place] = {}"
+					variable += "['" + place + "']"
+				exec variable + " = chars"
+		
 #Updates denu database of installed programs. Variable:installed.
-def sysupdate ():
+def sysupdate():
+	handler = installedHandler()
+	parser = saxexts.make_parser()
+	parser.setDocumentHandler(handler)
+	prgmDB = open("/home/scott/denu/svn/trunk/denu-3.x/prgmDB.xml", 'r')
+	parser.parseFile(prgmDB)
+	prgmDB.close()
 	return "Successful."
 	
 #Returns a denu xml structure with all installed programs in them.
 def autoGen ():
-	return menu
-	
-#Adds a folder entry into the denu xml structure.
-def addFolder():
+	import string
+	installed = xml.parse("/home/scott/denu/svn/trunk/denu-3.x/installed.xml")
+	for child in installed.firstChild.childNodes:
+		location = child.getElementsByTagName("location")[0].nodeValue
+		split_location = location.split("|")
+		split_location.pop(0)
+		domImp = xml.getDOMImplementation()
+		dom = domImp.createDocument(None, None, None)
+		parent = dom.createElement("data")
+		parent.setAttribute("type", "menu")
+		dom.appendChild(parent)
+		
 	return menu
 	
 #Modifies an entry in the xml.
@@ -140,27 +246,30 @@ def viewEntry(entryId):
 	
 	return list
 	
+def buildDOM(dict, element, root):
+	type = ""
+	for key in dict.keys():
+		tmp = root.createElement(key)
+		element.appendChild(tmp)
+		try:
+			dict[key].keys()
+		except:
+			type = "string"
+		if type=="string":
+			strng = root.createTextNode(dict[key])
+			tmp.appendChild(strng)
+		else:
+			buildDOM(dict[key], tmp, root)
+		type = ""
+			
 #Inserts an entry into the denu xml structure.		
 def addEntry(entry, parent, sibling=None):
-	def fill(dict, element, menu):
-		for key in dict.keys():
-			tmp = menu.createElement(key)
-			element.appendChild(tmp)
-			try:
-				dict[key].keys()
-			except:
-				type = "string"
-			if type=="string":
-				strng = menu.createTextNode(dict[key])
-				tmp.appendChild(strng)
-			else:
-				fill(dict[key], tmp, menu)
-			type = ""
 	global idIndex
+	global menu
 	newId = []
 	for key in entry.keys():
 		tmp = menu.createElement(key)
-		fill(entry[key], tmp, menu)
+		buildDOM(entry[key], tmp, menu)
 		if sibling == None:
 			idIndex[parent].appendChild(tmp)
 		else:
@@ -187,12 +296,6 @@ def moveEntry(entryId, parent, sibling=None):
 		idIndex[parent].appendChild(child)
 	else:
 		idIndex[parent].insertBefore(child, idIndex[sibling])
-	return "Successful."
-	
-def addSpecial():
-	return "Successful."
-	
-def saveSpecial():
 	return "Successful."
 	
 def printMenu(root, locale="en", level=0):

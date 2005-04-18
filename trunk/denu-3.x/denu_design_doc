@@ -1,8 +1,7 @@
 libDenu - Deals with XML manipulation and import export.
 	Functions:
-		addFolder
 		d_save(file) file - filename to load.  Needs to be full path.
-		d_open(file) file - filename to load.  Needs to be full path.
+		d_open(file, var) file - filename to load.  Needs to be full path. var defaults to menu can also load installed but only returns xml.
 		autoGen
 		update
 		sysupdate
@@ -18,8 +17,6 @@ libDenu - Deals with XML manipulation and import export.
 		deleteEntry
 		saveEntry
 		moveEntry
-		addSpecial
-		saveSpecial
 		printMenu(root, [locale]) Prints structure to terminal.
 	Variables:
 		menu - XML structure holding menu.
@@ -55,6 +52,7 @@ denuGUI - One of many possible interfaces.
 denu-wm - wm replaced with name of window manager name.
 	wm_import(file) imports menu and optionally a specific file. Will recieve value of 'default' from libDenu if not set.- Imports menu relavent file(s) to standard denu XML structure.
 	wm_export(file) imports menu and optionally a specific file. Will recieve value of 'default' from libDenu if not set. - Exports denu XML to relavent menu files and check for duplications of files.  ie. use of .desktop files.
-	backup - Backs up the current menu.  For use at first run.
+	backup - Backs up the current menu.  For use at first run.  Backs up to the users home/.denu/backup folder inside another folder corresponding to the name of the module after the denuWM_ .
 	restore - Restores backed up menus.
+	refresh - kills and restart entity if necessary.  this refreshes menu, only kills if necessary.
 	getVersion - returns the version number of installed wm.
