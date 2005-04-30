@@ -56,3 +56,5 @@ denu-wm - wm replaced with name of window manager name.
 	restore - Restores backed up menus.
 	refresh - kills and restart entity if necessary.  this refreshes menu, only kills if necessary.
 	getVersion - returns the version number of installed wm.
+
+A denu WM module will also be able to add elements to the UI via the UI manager.

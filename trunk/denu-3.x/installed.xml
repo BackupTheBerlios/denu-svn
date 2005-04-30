@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<data type="installed">
+	<program>
+		<location>
+			|Terms
+		</location>
+		<name>
+			<en>
+				Aterm
+			</en>
+		</name>
+		<blurb>
+			A terminal.
+		</blurb>
+		<icon>
+			term.png
+		</icon>
+	</program>
+	<program>
+		<location>
+			|Utilities
+		</location>
+		<name>
+			<en>
+				Denu
+			</en>
+		</name>
+		<blurb>
+			A menu swiss army knife.
+		</blurb>
+		<icon>
+			denu.png
+		</icon>
+	</program>
+</data>

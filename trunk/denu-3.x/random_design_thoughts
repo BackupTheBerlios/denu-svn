@@ -1,0 +1,5 @@
+With denu 3.x in full use 3 trees will exist.  One will be the menu, another the
+installed programs and the third a container for all custom entries.  The third 
+container will hold custom program entries in addition to 'specials'.  In the 
+file system these custom entries will reside as individual files.  This is for 
+the purpose of trading/transferring entries from one system to another.

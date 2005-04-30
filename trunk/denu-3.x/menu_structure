@@ -1,0 +1,21 @@
+Potential menu structure, () level novice, [] level intermediate, {} level advanced.
+
+File-
+	[Generate>wms list]
+	[Save]
+	[Open]
+	[Import>wms list]
+	[Quit]
+Edit-
+	(Insert Folder) ["] {"}
+View- 
+	Editor Mode
+	Generator Mode
+	
+	Installed Window
+	Custom Window
+Help-
+	Restore
+	Tips
+	Contents
+	About
