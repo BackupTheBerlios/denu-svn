@@ -13,7 +13,7 @@
 			A terminal.
 		</blurb>
 		<icon>
-			term.png
+			/usr/share/icons/hicolor/32x32/apps/gnome-terminal.png
 		</icon>
 	</program>
 	<program>
@@ -29,7 +29,7 @@
 			A menu swiss army knife.
 		</blurb>
 		<icon>
-			denu.png
+			/home/scott/denu_icon.png
 		</icon>
 	</program>
 </data>

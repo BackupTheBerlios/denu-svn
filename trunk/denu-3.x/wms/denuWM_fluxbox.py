@@ -31,6 +31,7 @@ home = os.environ['HOME']
 sys.path.extend(["/usr/share/denu/wms", home + "/.denu/wms", home + "/denu/svn/trunk/denu-3.x/wms", home + "/denu/svn/trunk/denu-3.x"])
 import libDenuShared as denu_shared
 config = ['fluxbox', 'Fluxbox']
+locale = "en"
 
 def getVersion ():
 	global version
@@ -104,9 +105,73 @@ def wm_import(file):
 				denu_shared.buildDOM(entry, location[-1], dom)
 		elif not string.find(line, "[begin]") == -1: #start
 			parent.setAttribute("title", string.strip(re.findall("\({1}[^)^(]+\){1}", line)[0], "()"))
-		elif not string.find(line, "[end]") == -1 and not x == len(menu_file_list)-1: #end
-			location.pop()
+		elif not string.find(line, "[end]") == -1: #end
+			if not x == len(menu_file_list)-1:
+				location.pop()
+			else:
+				pass
 		elif not len(re.findall("\[{1}[a-zA-z]+\]{1}", line)) == 0: #special
-			pass
+			entry = {"special" : {"name" : {}, "content" : {}}}
+			name_array = re.findall("\({1}[^(^)]+\){1}", line)
+			if not len(name_array)==0:
+				entry['special']['name']['en'] = string.strip(name_array[0], "()")
+			else:
+				entry['special']['name']['en'] = string.strip(line)[:17] + "..."
+			entry['special']['content']['fluxbox'] = string.strip(line)
+			denu_shared.buildDOM(entry, location[-1], dom)
 		x = x + 1
-	print dom.toprettyxml()
+	return dom
+
+def wm_export(menu, file):
+	level = 0
+	if menu.firstChild.hasAttribute("title"):
+		title = menu.firstChild.getAttribute("title")
+	else:
+		title = "Denu 3.x"
+	global menu_file
+	menu_file = "[begin] (" + title + ")\n"
+	def internal(node, level):
+		global menu_file
+		for child in node.childNodes:
+			if child.nodeName == "program":
+				try:
+					name = child.getElementsByTagName('name')[0].getElementsByTagName(locale)[0].firstChild.nodeValue
+				except:
+					name = child.getElementsByTagName('name')[0].getElementsByTagName('en')[0].firstChild.nodeValue
+				command = child.getElementsByTagName('command')[0].firstChild.nodeValue
+				menu_file += level*"\t" + "[exec] (" + name + ") {" + command + "}"
+				if len(child.getElementsByTagName('icon')) > 0:
+					if child.getElementsByTagName("icon")[0].parentNode == child:
+						icon = child.getElementsByTagName('icon')[0].firstChild.nodeValue
+						menu_file += " <" + icon + ">\n"
+					else:
+						menu_file += "\n"
+				else:
+					menu_file += "\n"
+			elif child.nodeName == "special":
+				if len(child.getElementsByTagName('content')[0].getElementsByTagName("fluxbox")) > 0:
+					menu_file += level*"\t" + child.getElementsByTagName('content')[0].getElementsByTagName("fluxbox")[0].firstChild.nodeValue + "\n"
+			elif child.nodeName == "folder":
+				try:
+					name = child.getElementsByTagName('name')[0].getElementsByTagName(locale)[0].firstChild.nodeValue
+				except:
+					name = child.getElementsByTagName('name')[0].getElementsByTagName('en')[0].firstChild.nodeValue
+				menu_file += level*"\t" + "[submenu] (" + name + ")"
+				if len(child.getElementsByTagName('icon')) > 0:
+					if child.getElementsByTagName("icon")[0].parentNode == child:
+						icon = child.getElementsByTagName('icon')[0].firstChild.nodeValue
+						menu_file += " <" + icon + ">\n"
+					else:
+						menu_file += "\n"
+				else:
+					menu_file += "\n"
+				internal (child, level+1)
+				menu_file += level*"\t" + "[end]\n"
+	internal (menu.firstChild, level)
+	menu_file += "[end]"
+	if file == "default":
+		file = home + "/.fluxbox/menu"
+	dest = open(file, "w")
+	dest.write(menu_file)
+	dest.close()
+	return "Successful."

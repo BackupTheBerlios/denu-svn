@@ -41,17 +41,17 @@ config['testdir'] = '/home/scott/denu/svn/trunk/denu-3.x/'
 #######################
 
 #Works together with the denu wm module to import the wm menu to denu xml format.
-def wm_import(wm, file="default"):
+def wm_import(widget, wm, file="default"):
 	global menu
 	exec 'import ' + "denuWM_" + wm + ' as wm'
 	menu = wm.wm_import(file)
 	return menu
 	
 #Works together with the denu wm module to export the denu xml format to the proprietary format of the specified wm.
-def wm_export (wm, file="default"):
+def wm_export (widget, wm, file="default"):
 	global menu
 	exec 'import ' + "denuWM_" + wm + ' as wm'
-	wm.wm_export(menu)
+	wm.wm_export(menu, file)
 	return "Successful."
 	
 #Duplicates the current file(s) for the specified wm, for restoration from denu using libDenu.restore().  Works in combination with denu wm module.
@@ -75,7 +75,8 @@ def restore (wm):
 def d_save (file):
 	global menu
 	file = open(file, 'w')
-	menu.writexml(file)
+	strng = menu.toprettyxml()
+	file.write(strng)
 	return "Successful."
 
 #Opens a denu xml file into the program.
@@ -84,9 +85,12 @@ def d_open (file, var='menu'):
 		if var == 'menu':
 			global menu
 			menu = xml.parse(file)
+			cleanXML(menu.firstChild)
 			return menu
 		elif var == 'installed':
+			global installed
 			installed = xml.parse(file)
+			cleanXML(installed.firstChild)
 			return installed
 	else:
 		return "Failed: Does not exist."
@@ -138,7 +142,7 @@ def update_wmConfig():
 		user_files = []
 	wmConfig = {}
 	for fn in default_files:
-		if not fn.find("denuWM_") == -1 and user_files.count(fn)==0:
+		if not fn.find("denuWM_") == -1 and user_files.count(fn)==0 and fn.find(".pyc") == -1 and fn.find(".py~") == -1:
 			name = fn.replace(".py", "")
 			exec "import " + name + " as wm"
 			name = name.replace("denuWM_", "")
@@ -255,11 +259,15 @@ def autoGen ():
 		parent.setAttribute("type", "menu")
 		dom.appendChild(parent)
 	return menu
-	
+
+###################
+# Entry Functions #
+###################
+
 #Modifies an entry in the xml.
 def editEntry(entry, entryId):
 	global menu
-	element = idIndex[entryId]
+	element = idIndex['menu'][entryId]
 	for tag in element.childNodes:
 		element.removeChild(tag)
 	denu_shared.buildDOM(entry['program'], element, menu)
@@ -268,7 +276,7 @@ def editEntry(entry, entryId):
 #Returns information on entries in the xml.  May be a list or object.
 def viewEntry(entryId):
 	global idIndex
-	entry = idIndex[entryId]
+	entry = idIndex['menu'][entryId]
 	dict = {}
 	dict[entry.nodeName] = {}
 	location = []
@@ -284,56 +292,56 @@ def addEntry(entry, parent, sibling=None):
 		tmp = menu.createElement(key)
 		denu_shared.buildDOM(entry[key], tmp, menu)
 		if sibling == None:
-			idIndex[parent].appendChild(tmp)
+			idIndex['menu'][parent].appendChild(tmp)
 		else:
-			idIndex[parent].insertBefore(tmp, idIndex[sibling])
-		tmpId = len(idIndex)/2
+			idIndex['menu'][parent].insertBefore(tmp, idIndex['menu'][sibling])
+		tmpId = len(idIndex['menu'])/2
 		newId.append(tmpId)
-		idIndex[tmpId] = tmp
-		idIndex[tmp] = tmpId
+		idIndex['menu'][tmpId] = tmp
+		idIndex['menu'][tmp] = tmpId
 	return newId
 	
 #Deletes an entry from the denu xml structure.
 def deleteEntry(entryId):
-	idIndex[entryId].parentNode.removeChild(idIndex[entryId])
+	idIndex['menu'][entryId].parentNode.removeChild(idIndex['menu'][entryId])
 	return "Successful."
 	
 #Stores the entry for later use.
 def saveEntry(entryId, overwrite=0):
 	global idIndex
 	import random
-	type = idIndex[entryId].nodeName
-	filename = idIndex[entryId].getElementsByTagName("command")
+	type = idIndex['menu'][entryId].nodeName
+	filename = idIndex['menu'][entryId].getElementsByTagName("command")
 	filename = filename + ".xml"
 	if os.path.exists(config['testdir'] + type + "/" + filename) and overwrite == 0:
 		filename = filename.replace(".xml", random.random(0,500,1) + ".xml")
 	file = open(config['testdir'] + type + "/" + filename, 'w')
-	strng = idIndex[entryId].toprettyxml()
+	strng = idIndex['menu'][entryId].toprettyxml()
 	file.write(strng)
 	file.close()
 	return "Successful."
 	
 def loadEntry(file, parent, sibling=None):
 	global idIndex
-	tmp = = xml.parse(file)
+	tmp = xml.parse(file)
 	newId = []
 	if sibling == None:
-		idIndex[parent].appendChild(tmp)
+		idIndex['menu'][parent].appendChild(tmp)
 	else:
-		idIndex[parent].insertBefore(tmp, idIndex[sibling])
-	tmpId = len(idIndex)/2
+		idIndex['menu'][parent].insertBefore(tmp, idIndex['menu'][sibling])
+	tmpId = len(idIndex['menu'])/2
 	newId.append(tmpId)
-	idIndex[tmpId] = tmp
-	idIndex[tmp] = tmpId
+	idIndex['menu'][tmpId] = tmp
+	idIndex['menu'][tmp] = tmpId
 	return newId
 	
 #Moves entries within the denu xml structure.
 def moveEntry(entryId, parent, sibling=None):
-	child = idIndex[entryId].parentNode.removeChild(idIndex[entryId])
+	child = idIndex['menu'][entryId].parentNode.removeChild(idIndex['menu'][entryId])
 	if sibling == None:
-		idIndex[parent].appendChild(child)
+		idIndex['menu'][parent].appendChild(child)
 	else:
-		idIndex[parent].insertBefore(child, idIndex[sibling])
+		idIndex['menu'][parent].insertBefore(child, idIndex['menu'][sibling])
 	return "Successful."
 	
 #############################	
@@ -347,37 +355,58 @@ def printMenu(root, locale="en", level=0):
 			name = node.getElementsByTagName("name")
 			local_name = name[0].getElementsByTagName(locale)
 			if not local_name == []:
-				print tab*level + local_name[0].firstChild.nodeValue
+				print tab*level + string.strip(local_name[0].firstChild.nodeValue)
 			else:
 				local_name = name[0].getElementsByTagName("en")
-				print tab*level + local_name[0].firstChild.nodeValue
+				print tab*level + string.strip(local_name[0].firstChild.nodeValue)
 		elif node.nodeName == "folder":
 			name = node.getElementsByTagName("name")
 			local_name = name[0].getElementsByTagName(locale)
 			if not local_name == []:
-				print tab*level + local_name[0].firstChild.nodeValue
+				print tab*level + string.strip(local_name[0].firstChild.nodeValue)
 			else:
 				local_name = name[0].getElementsByTagName("en")
-				print tab*level + local_name[0].firstChild.nodeValue
+				print tab*level + string.strip(local_name[0].firstChild.nodeValue)
 			printMenu(node, locale, level + 1)
 
 def buildIdChildRelations ():
 	global menu,idIndex
-	idIndex = {}
-	def internal(node, idIndex, x=0):
+	global installed
+	trees = ['installed', 'menu']
+	idIndex = {'menu' : {}, 'installed' : {}, 'custom' : {}}
+	def internal(node, tree, idIndex, x=0):
 		for child in node.childNodes:
 			if child.nodeName == "data" or child.nodeName == "folder" or child.nodeName == "program" or child.nodeName == "special":
-				idIndex[child] = x
-				idIndex[x] = child
+				idIndex[tree][child] = x
+				idIndex[tree][x] = child
 				x = x + 1
 			if child.nodeName == "data" or child.nodeName == "folder":
-				x, idIndex = internal(child, idIndex, x)
+				x, idIndex = internal(child, tree, idIndex, x)
 			
 		return x, idIndex
-	x, idIndex = internal(menu, idIndex)
+	for tree in trees:
+		if tree == "menu":
+			x, idIndex = internal(menu, tree, idIndex)
+		elif tree == "installed":
+			x, idIndex = internal(installed, tree, idIndex)
 			
 def printIdIndex():
 	global idIndex
-	for key in idIndex.keys():
-		print "id: " + str(key) + " value: "
-		print idIndex[key]
+	indexes = ['menu', 'installed', 'custom']
+	for index in indexes:
+		print "----------- " + index + " -----------"
+		for key in idIndex[index].keys():
+			print "id: " + str(key) + " value: "
+			print idIndex[index][key]
+
+#################
+# XML Functions #
+#################
+def cleanXML(XMLdom):
+	for child in XMLdom.childNodes:
+		if child.nodeName == "#text" and string.strip(child.nodeValue)=="":
+			XMLdom.removeChild(child)
+		if child.nodeName == "#text":
+			child.nodeValue = string.strip(child.nodeValue)
+	for child in XMLdom.childNodes:
+		cleanXML(child)
