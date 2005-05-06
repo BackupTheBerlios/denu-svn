@@ -31,57 +31,71 @@ config['pixbuf_size'] = 32
 pixbuf_index = {}
 menustore_connects = []
 menustore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
+
+## denu.py Functions.
 def pixbuf_manager(filename, size):
-	#print 'file: \"' + filename + '\"'
 	global pixbuf_index
     	okay = 'yes'
+    	if filename.has_key("file"):
+    		if os.path.exists(filename["file"]):
+    			filename = filename["file"]
+    		elif filename.has_key("url"):
+    			filename = filename["url"]
+    		else:
+    			filename = filename["file"]
+    	elif filename.has_key("url"):
+    		filename = filename["url"]
+    		
     	if pixbuf_index.has_key(filename):
-    		if not pixbuf_index[filename].has_key(size):
-    			if not filename[0:1]=='/':
-    				full_filename = home + '/.denu/pixmaps/' + filename
-        			if not os.path.exists(full_filename):
-       					try:
-						image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + filename)
-						okay = 'yes'
-					except:
-						pixbuf_index[filename] = "Error: no file."
-						return "Error: no file."
-						okay = 'no'
-					if okay=='yes':	
-						file = open(full_filename, 'w')
-						file.write(image.read())
-						file.close()
-			else:
-				full_filename = filename
-			if okay=='yes':
-				#print filename
-            			try:
-            				pixbuf_index[filename][size] = gtk.gdk.pixbuf_new_from_file_at_size(full_filename, size, size)
-            			except:
-            				return "Error: no file."
-        else:
-        	if not filename[0:1]=='/':
-    			full_filename = home + '/.denu/pixmaps/' + filename
-        		if not os.path.exists(full_filename):
-       				try:
-					image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + filename)
-					okay = 'yes'
-				except:
-					pixbuf_index[filename] = "Error: no file."
-					return "Error: no file."
-					okay = 'no'
-				if okay=='yes':	
-					file = open(full_filename, 'w')
-					file.write(image.read())
-					file.close()
-		else:
-			full_filename = filename
-			if okay=='yes':
-				pixbuf_index[filename] = {}
-            			try:
-            				pixbuf_index[filename][size] = gtk.gdk.pixbuf_new_from_file_at_size(full_filename, size, size)
-            			except:
-            				return "Error: no file."
+    		file_key = "yes"
+    		if pixbuf_index[filename].has_key(size):
+    			size_key = "yes"
+    		else:
+    			size_key = "no"
+    	else:
+    		file_key = "no"
+    		size_key = "no"
+    		
+    	if not filename[0:1]=='/' and not filename[:7]=='http://' and not size_key=="yes":
+    		full_filename = home + '/.denu/pixmaps/' + filename
+        	if not os.path.exists(full_filename):
+       			try:
+				image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + filename)
+				okay = 'yes'
+			except:
+				pixbuf_index[filename] = "Error: no file."
+				return "Error: no file."
+				okay = 'no'
+			if okay=='yes':	
+				file = open(full_filename, 'w')
+				file.write(image.read())
+				file.close()
+	elif filename[:7]=='http://' and not os.path.exists(home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key=="yes":
+		full_filename = home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]
+		try:
+			image = urllib2.urlopen(filename)
+			okay = 'yes'
+		except:
+			pixbuf_index[filename] = "Error: no file."
+			return "Error: no file."
+			okay = 'no'
+		if okay=='yes':
+			file = open(full_filename, 'w')
+			file.write(image.read())
+			file.close()
+	elif os.path.exists(home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key=="yes":
+		full_filename = home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]
+	else:
+		full_filename = filename
+		
+	if okay=='yes' and size_key=="no":
+		if file_key == "no":
+			pixbuf_index[filename] = {}
+        	try:
+        		pixbuf_index[filename][size] = gtk.gdk.pixbuf_new_from_file_at_size(full_filename, size, size)
+        	except:
+        		return "Error: no file."
+        		
         if not pixbuf_index[filename] == "Error: no file.":
        		return pixbuf_index[filename][size]
        	else:
@@ -92,7 +106,11 @@ def domToTreestore(menu_dom, treestore, parent, location=None, size=config['pixb
 		if child.nodeName == "folder" or child.nodeName == "program" or child.nodeName == "special":
 			name = string.strip(child.getElementsByTagName("name")[0].getElementsByTagName(config['locale'])[0].firstChild.nodeValue)
 			if len(child.getElementsByTagName("icon")) == 1 and child.getElementsByTagName("icon")[0].parentNode == child:
-				icon = string.strip(child.getElementsByTagName("icon")[0].firstChild.nodeValue)
+				icon = {}
+				if len(child.getElementsByTagName("icon")[0].getElementsByTagName("url")) == 1:
+					icon['url'] = string.strip(child.getElementsByTagName("icon")[0].getElementsByTagName("url")[0].firstChild.nodeValue)
+				if len(child.getElementsByTagName("icon")[0].getElementsByTagName("file")) == 1:
+					icon['file'] = string.strip(child.getElementsByTagName("icon")[0].getElementsByTagName("file")[0].firstChild.nodeValue)
 			else:
 				icon = None
 			id = libDenu.idIndex[type][child]
@@ -109,7 +127,11 @@ def domToListstore(liststore, parent, size=config['pixbuf_size'], xml_dom_type="
 		if child.nodeName == "folder" or child.nodeName == "program" or child.nodeName == "special":
 			name = string.strip(child.getElementsByTagName("name")[0].getElementsByTagName(config['locale'])[0].firstChild.nodeValue)
 			if len(child.getElementsByTagName("icon")) == 1 and child.getElementsByTagName("icon")[0].parentNode == child:
-				icon = string.strip(child.getElementsByTagName("icon")[0].firstChild.nodeValue)
+				icon = {}
+				if len(child.getElementsByTagName("icon")[0].getElementsByTagName("url")) == 1:
+					icon['url'] = string.strip(child.getElementsByTagName("icon")[0].getElementsByTagName("url")[0].firstChild.nodeValue)
+				if len(child.getElementsByTagName("icon")[0].getElementsByTagName("file")) == 1:
+					icon['file'] = string.strip(child.getElementsByTagName("icon")[0].getElementsByTagName("file")[0].firstChild.nodeValue)
 			else:
 				icon = None
 			id = libDenu.idIndex[xml_dom_type][child]
@@ -118,7 +140,10 @@ def domToListstore(liststore, parent, size=config['pixbuf_size'], xml_dom_type="
 			else:
 				liststore.append([None, name, id])
 	return liststore
-	
+
+###############################
+## libDenu.py api functions. ##
+###############################
 def d_open(widget):
 	global menustore, menustore_connects
 	window = xml.get_widget("open_denu")
@@ -166,32 +191,143 @@ def reorder (treemodel, path, iter):
 def print_menu(widget):
 	print libDenu.menu.toprettyxml()
 	
+def show_add_new (widget):
+	xml.get_widget("add_window").show()
+
+def wm_import(widget, wm):
+	libDenu.wm_import(wm)
+
+def wm_export(widget, wm):
+	libDenu.wm_export(wm)
+
+def deleteEntry(widget):
+	iterList = []
+	def createList(model, path, iter):
+		iterList.append(iter)
+	treeselection = menuview.get_selection()
+	treeselection.selected_foreach(createList)	
+	for handler in menustore_connects:
+		menustore.handler_block(handler)
+	for iter in iterList:
+		id = menustore.get_value(iter, 2)
+		libDenu.deleteEntry(id)
+		menustore.remove(iter)
+	for handler in menustore_connects:
+		menustore.handler_unblock(handler)
+
+##################
+## DND Functions #
+##################
+def drag_data_received_data(treeview, context, x, y, selection, info, etime):
+	model = treeview.get_model()
+	data = selection.data
+	print data[:4]
+	temp_dict = {}
+	for handler in menustore_connects:
+		menustore.handler_block(handler)
+	if data[:4]=="http":
+		data = string.split(data, "?")
+		data[1] = string.split(data[1], "&")
+		for row in data[1]:
+			key, content = string.split(row, "=")
+			if not string.find(key, ".") == -1:
+				location = string.split(key, ".")
+				dict_key = ""
+				tmp = temp_dict
+				for place in location:
+					if not tmp.has_key(place):
+						tmp[place] = {}
+					tmp = tmp[place]
+					dict_key += "[\"" + place + "\"]"
+				exec "temp_dict" + dict_key + " = content"
+			else:
+				temp_dict[key] = content
+		entry = {}
+		root = temp_dict["root"]
+		del temp_dict["root"]
+		entry[root] = temp_dict
+		entry[root]["URL"] = data[0]
+		drop_info = treeview.get_dest_row_at_pos(x, y)
+		if drop_info:
+			path, position = drop_info
+			iter = model.get_iter(path)
+			if position == gtk.TREE_VIEW_DROP_BEFORE:
+				if not model.iter_parent(iter) == None:
+					parent = model.get_value(model.iter_parent(iter), 2)
+				else:
+					parent = 0
+				sibling = model.get_value(iter, 2)
+			elif position == gtk.TREE_VIEW_DROP_AFTER:
+				if not model.iter_parent(iter) == None:
+					parent = model.get_value(model.iter_parent(iter), 2)
+				else:
+					parent = 0
+				sibling = model.get_value(model.iter_next(iter), 2)
+			elif position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER or position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
+				parent = model.get_value(iter, 2)
+				sibling = None
+			id = libDenu.addEntry(entry, parent, sibling)[0]
+			if entry[entry.keys()[0]]['name'].has_key(config['locale']):
+				name = entry[entry.keys()[0]]['name'][config['locale']]
+			else:
+				name = entry[entry.keys()[0]]['name']["en"]
+			if position == gtk.TREE_VIEW_DROP_BEFORE:
+				parent_iter = model.iter_parent(iter)
+				if entry[entry.keys()[0]].has_key('icon'):
+					if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']) == "Error: no file.":
+						model.insert_before(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']), name, id])
+					else:
+						model.insert_before(parent_iter, iter, [None, name, id])
+				else:
+					model.insert_before(parent_iter, iter, [None, name, id])
+			elif position == gtk.TREE_VIEW_DROP_AFTER:
+				parent_iter = model.iter_parent(iter)
+				if entry[entry.keys()[0]].has_key('icon'):
+					if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']) == "Error: no file.":
+						model.insert_after(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']), name, id])
+					else:
+						model.insert_after(parent_iter, iter, [None, name, id])
+				else:
+					model.insert_after(parent_iter, iter, [None, name, id])
+			elif position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER or position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
+				if entry[entry.keys()[0]].has_key('icon'):
+					if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']) == "Error: no file.":
+						model.append(iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']), name, id])
+					else:
+						model.append(iter, [None, name, id])
+				else:
+					model.append(iter, [None, name, id])
+	for handler in menustore_connects:
+		menustore.handler_unblock(handler)
+
 xml.signal_autoconnect({
 	'd_open' : d_open,
 	'destroy' : destroy,
 	'show_open_denu' : show_open_denu,
 	'save_denu' : d_save,
 	'show_save_denu' : show_save_denu,
-	'print_menu' : print_menu
+	'print_menu' : print_menu,
+	'show_add_new' : show_add_new,
+	'delete' : deleteEntry
 })
+
+libDenu.update_wmConfig()
 xml.get_widget("export_button").set_menu(xml.get_widget("export_menu"))
 xml.get_widget("import_button").set_menu(xml.get_widget("import_menu"))
-libDenu.update_wmConfig()
 wms = libDenu.getInstalledWMs()
 for wm in wms:
 	import_button = gtk.MenuItem(libDenu.wmConfig[wm][1])
 	xml.get_widget("import_menu").append(import_button)
-	import_button.connect("activate", libDenu.wm_import, wm)
+	import_button.connect("activate", wm_import, wm)
 	import_button.show()
 	export_button = gtk.MenuItem(libDenu.wmConfig[wm][1])
 	xml.get_widget("export_menu").append(export_button)
-	export_button.connect("activate", libDenu.wm_export, wm)
+	export_button.connect("activate", wm_export, wm)
 	export_button.show()
 running = libDenu.getCurrentWM ()
 libDenu.d_open("/home/scott/denu/svn/trunk/denu-3.x/installed.xml", "installed")
 if len(running) == 1:
-	libDenu.wm_import("", running[0])
-	#libDenu.d_open("/home/scott/denu/svn/trunk/denu-3.x/test.xml")
+	libDenu.wm_import(running[0])
 	libDenu.buildIdChildRelations()
 	menustore = domToTreestore(libDenu.menu, menustore, libDenu.menu.firstChild)
 menuview = xml.get_widget("menu")
@@ -204,6 +340,9 @@ tvcolumn.set_attributes(cell, pixbuf=0)
 tvcolumn.set_attributes(text_render, text=1)
 menuview.append_column(tvcolumn)
 menuview.set_model(menustore)
+menuview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
+menuview.enable_model_drag_dest([('text/plain', 0, 0)], gtk.gdk.ACTION_DEFAULT)
+menuview.connect("drag-data-received", drag_data_received_data)
 
 # Installed.
 # Iconic view.
@@ -231,6 +370,5 @@ installedview.show()
 
 # Non-glade connects.
 menustore_connects.append(menustore.connect("row-changed", reorder))
-#menustore.connect(
 xml.get_widget("root").show()
 gtk.main()

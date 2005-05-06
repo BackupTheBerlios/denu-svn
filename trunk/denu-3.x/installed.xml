@@ -13,7 +13,9 @@
 			A terminal.
 		</blurb>
 		<icon>
-			/usr/share/icons/hicolor/32x32/apps/gnome-terminal.png
+			<file>
+				/usr/share/icons/hicolor/32x32/apps/gnome-terminal.png
+			</file>
 		</icon>
 	</program>
 	<program>
@@ -29,7 +31,9 @@
 			A menu swiss army knife.
 		</blurb>
 		<icon>
-			/home/scott/denu_icon.png
+			<file>
+				/home/scott/denu_icon.png
+			</file>
 		</icon>
 	</program>
 </data>

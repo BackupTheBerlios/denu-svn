@@ -90,7 +90,8 @@ def wm_import(file):
 			entry = {"folder" : {'name':{}}}
 			entry['folder']['name']['en'] = string.strip(re.findall("\({1}[^(^)]+\){1}", line)[0], "()")
 			if len(re.findall("\<{1}[^<^>]+\>{1}", line)) > 0:
-					entry['folder']['icon'] = string.strip(re.findall("\<{1}[^<^>]+\>{1}", line)[0], "<>")
+				entry['folder']['icon'] = {}
+				entry['folder']['icon']['file'] = string.strip(re.findall("\<{1}[^<^>]+\>{1}", line)[0], "<>")
 			location.append(denu_shared.buildDOM(entry, location[-1], dom))
 		elif line[0] == "#": #comment
 			name = line[:17] + "..."
@@ -101,7 +102,8 @@ def wm_import(file):
 				entry['program']['name']['en'] = string.strip(name_array[0], "()")
 				entry['program']['command'] = string.strip(re.findall("\{{1}[^{^}]+\}{1}", line)[0], "{}")
 				if len(re.findall("\<{1}[^<^>]+\>{1}", line)) > 0:
-					entry['program']['icon'] = string.strip(re.findall("\<{1}[^<^>]+\>{1}", line)[0], "<>")
+					entry['program']['icon'] = {}
+					entry['program']['icon']['file'] = string.strip(re.findall("\<{1}[^<^>]+\>{1}", line)[0], "<>")
 				denu_shared.buildDOM(entry, location[-1], dom)
 		elif not string.find(line, "[begin]") == -1: #start
 			parent.setAttribute("title", string.strip(re.findall("\({1}[^)^(]+\){1}", line)[0], "()"))
@@ -142,7 +144,7 @@ def wm_export(menu, file):
 				menu_file += level*"\t" + "[exec] (" + name + ") {" + command + "}"
 				if len(child.getElementsByTagName('icon')) > 0:
 					if child.getElementsByTagName("icon")[0].parentNode == child:
-						icon = child.getElementsByTagName('icon')[0].firstChild.nodeValue
+						icon = child.getElementsByTagName('icon')[0].getElementsByTagName("file")[0].firstChild.nodeValue
 						menu_file += " <" + icon + ">\n"
 					else:
 						menu_file += "\n"
@@ -159,7 +161,7 @@ def wm_export(menu, file):
 				menu_file += level*"\t" + "[submenu] (" + name + ")"
 				if len(child.getElementsByTagName('icon')) > 0:
 					if child.getElementsByTagName("icon")[0].parentNode == child:
-						icon = child.getElementsByTagName('icon')[0].firstChild.nodeValue
+						icon = child.getElementsByTagName('icon')[0].getElementsByTagName("file")[0].firstChild.nodeValue
 						menu_file += " <" + icon + ">\n"
 					else:
 						menu_file += "\n"

@@ -41,14 +41,14 @@ config['testdir'] = '/home/scott/denu/svn/trunk/denu-3.x/'
 #######################
 
 #Works together with the denu wm module to import the wm menu to denu xml format.
-def wm_import(widget, wm, file="default"):
+def wm_import(wm, file="default"):
 	global menu
 	exec 'import ' + "denuWM_" + wm + ' as wm'
 	menu = wm.wm_import(file)
 	return menu
 	
 #Works together with the denu wm module to export the denu xml format to the proprietary format of the specified wm.
-def wm_export (widget, wm, file="default"):
+def wm_export (wm, file="default"):
 	global menu
 	exec 'import ' + "denuWM_" + wm + ' as wm'
 	wm.wm_export(menu, file)
