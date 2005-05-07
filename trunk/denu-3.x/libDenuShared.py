@@ -20,7 +20,6 @@
 
 def DOMtoDict (dict, entry, location):
 	for child in entry.childNodes:
-		print child.nodeName
 		if not child.nodeName == "#text":
 			location.append(child.nodeName)
 			DOMtoDict (dict, child, location)

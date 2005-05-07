@@ -29,7 +29,6 @@ config = {}
 config['locale'] = 'en'
 config['pixbuf_size'] = 32
 pixbuf_index = {}
-menustore_connects = []
 menustore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
 
 ## denu.py Functions.
@@ -105,7 +104,7 @@ def domToTreestore(menu_dom, treestore, parent, location=None, size=config['pixb
 	for child in parent.childNodes:
 		if child.nodeName == "folder" or child.nodeName == "program" or child.nodeName == "special":
 			name = string.strip(child.getElementsByTagName("name")[0].getElementsByTagName(config['locale'])[0].firstChild.nodeValue)
-			if len(child.getElementsByTagName("icon")) == 1 and child.getElementsByTagName("icon")[0].parentNode == child:
+			if len(child.getElementsByTagName("icon")) >= 1 and child.getElementsByTagName("icon")[0].parentNode == child:
 				icon = {}
 				if len(child.getElementsByTagName("icon")[0].getElementsByTagName("url")) == 1:
 					icon['url'] = string.strip(child.getElementsByTagName("icon")[0].getElementsByTagName("url")[0].firstChild.nodeValue)
@@ -145,18 +144,14 @@ def domToListstore(liststore, parent, size=config['pixbuf_size'], xml_dom_type="
 ## libDenu.py api functions. ##
 ###############################
 def d_open(widget):
-	global menustore, menustore_connects
+	global menustore
 	window = xml.get_widget("open_denu")
 	filename = window.get_filename()
 	libDenu.d_open(filename)
 	window.hide()
 	libDenu.buildIdChildRelations()
-	for handler in menustore_connects:
-		menustore.handler_block(handler)
 	menustore.clear()
 	domToTreestore(libDenu.menu, menustore, libDenu.menu.firstChild)
-	for handler in menustore_connects:
-		menustore.handler_unblock(handler)
 
 def d_save(widget):
 	window = xml.get_widget("save_denu")
@@ -189,7 +184,7 @@ def reorder (treemodel, path, iter):
 	libDenu.moveEntry(childId, parent, sibling)
 
 def print_menu(widget):
-	print libDenu.menu.toprettyxml()
+	print libDenu.printMenu(libDenu.menu.firstChild)
 	
 def show_add_new (widget):
 	xml.get_widget("add_window").show()
@@ -205,31 +200,43 @@ def deleteEntry(widget):
 	def createList(model, path, iter):
 		iterList.append(iter)
 	treeselection = menuview.get_selection()
-	treeselection.selected_foreach(createList)	
-	for handler in menustore_connects:
-		menustore.handler_block(handler)
+	treeselection.selected_foreach(createList)
 	for iter in iterList:
 		id = menustore.get_value(iter, 2)
 		libDenu.deleteEntry(id)
 		menustore.remove(iter)
-	for handler in menustore_connects:
-		menustore.handler_unblock(handler)
 
 ##################
 ## DND Functions #
 ##################
+def drag_data_get_data(treeview, context, selection, target_id, etime):
+	treeselection = treeview.get_selection()
+	model = treeview.get_model()
+	iterList = []
+	def createList(model, path, iter):
+		iterList.append([iter, path])
+	treeselection.selected_foreach(createList)
+	data = model.get_value(iterList[0][0], 2)
+	if treeview == menuview:
+		source = "menu"
+	elif treeview == installedview:
+		source = "installed"
+	selection.set(selection.target, 8, "internal>" + source + "|" + str(data))
+	global src_iter
+	src_iter = iterList[0][0]
+	return
+   
 def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 	model = treeview.get_model()
 	data = selection.data
-	print data[:4]
+	global src_iter
 	temp_dict = {}
-	for handler in menustore_connects:
-		menustore.handler_block(handler)
 	if data[:4]=="http":
 		data = string.split(data, "?")
 		data[1] = string.split(data[1], "&")
 		for row in data[1]:
 			key, content = string.split(row, "=")
+			content = string.replace(content, "%20", " ")
 			if not string.find(key, ".") == -1:
 				location = string.split(key, ".")
 				dict_key = ""
@@ -297,9 +304,75 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 						model.append(iter, [None, name, id])
 				else:
 					model.append(iter, [None, name, id])
-	for handler in menustore_connects:
-		menustore.handler_unblock(handler)
-
+	elif data[:9] == "internal>":
+		path, position = treeview.get_dest_row_at_pos(x, y)
+		data = string.replace(data, "internal>", "")
+		data = string.split(data, "|")
+		iter = model.get_iter(path)
+		if position == gtk.TREE_VIEW_DROP_BEFORE:
+			if not model.iter_parent(iter) == None:
+				parent = model.get_value(model.iter_parent(iter), 2)
+			else:
+				parent = 0
+			sibling = model.get_value(iter, 2)
+		elif position == gtk.TREE_VIEW_DROP_AFTER:
+			if not model.iter_parent(iter) == None:
+				parent = model.get_value(model.iter_parent(iter), 2)
+			else:
+				parent = 0
+			sibling = model.get_value(model.iter_next(iter), 2)
+		elif position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER or position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
+			parent = model.get_value(iter, 2)
+			sibling = None
+		if model==menustore:
+			dest = "menu"
+		elif model==installedstore:
+			dest = "installed"
+		id = libDenu.moveEntry(data[1], parent, sibling, data[0], dest)
+		entry = libDenu.viewEntry(id, dest)
+		if entry[entry.keys()[0]]['name'].has_key(config['locale']):
+			name = entry[entry.keys()[0]]['name'][config['locale']]
+		else:
+			name = entry[entry.keys()[0]]['name']["en"]
+		if position == gtk.TREE_VIEW_DROP_BEFORE:
+			parent_iter = model.iter_parent(iter)
+			if entry[entry.keys()[0]].has_key('icon'):
+				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']) == "Error: no file.":
+					new_iter = model.insert_before(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']), name, id])
+				else:
+					new_iter = model.insert_before(parent_iter, iter, [None, name, id])
+			else:
+				new_iter = model.insert_before(parent_iter, iter, [None, name, id])
+		elif position == gtk.TREE_VIEW_DROP_AFTER:
+			parent_iter = model.iter_parent(iter)
+			if entry[entry.keys()[0]].has_key('icon'):
+				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']) == "Error: no file.":
+					new_iter = model.insert_after(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']), name, id])
+				else:
+					new_iter = model.insert_after(parent_iter, iter, [None, name, id])
+			else:
+				new_iter = model.insert_after(parent_iter, iter, [None, name, id])
+		elif position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER or position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
+			if entry[entry.keys()[0]].has_key('icon'):
+				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']) == "Error: no file.":
+					new_iter = model.append(iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config['pixbuf_size']), name, id])
+				else:
+					new_iter = model.append(iter, [None, name, id])
+			else:
+				new_iter = model.append(iter, [None, name, id])
+		if data[0] == "menu":
+			if menustore.iter_has_child(src_iter):
+				copy_rows(new_iter, src_iter)
+			menustore.remove(src_iter)
+			
+def copy_rows(parent_iter, src_iter):
+	iter = menustore.iter_children(src_iter)
+	while iter != None:
+		icon, name, id = menustore.get(iter, 0, 1, 2)
+		parent = menustore.append(parent_iter, [icon, name, id])
+		if menustore.iter_has_child(iter):
+			copy_rows(parent, iter)
+		iter = menustore.iter_next(iter)
 xml.signal_autoconnect({
 	'd_open' : d_open,
 	'destroy' : destroy,
@@ -342,7 +415,9 @@ menuview.append_column(tvcolumn)
 menuview.set_model(menustore)
 menuview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
 menuview.enable_model_drag_dest([('text/plain', 0, 0)], gtk.gdk.ACTION_DEFAULT)
+menuview.enable_model_drag_source( gtk.gdk.BUTTON1_MASK, [('text/plain', 0, 0)], gtk.gdk.ACTION_DEFAULT | gtk.gdk.ACTION_MOVE)
 menuview.connect("drag-data-received", drag_data_received_data)
+menuview.connect("drag_data_get", drag_data_get_data)
 
 # Installed.
 # Iconic view.
@@ -352,6 +427,8 @@ iconview = xml.get_widget("icon_installed")
 iconview.set_model(installed_icon_store)
 iconview.set_pixbuf_column(0)
 iconview.set_text_column(1)
+#iconview.connect("drag_data_get", drag_data_get_data)
+#iconview.enable_model_drag_source( gtk.gdk.BUTTON1_MASK, [('text/plain', 0, 0)], gtk.gdk.ACTION_DEFAULT | gtk.gdk.ACTION_MOVE)
 
 #TreeView
 installedstore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
@@ -366,9 +443,9 @@ tvcolumn2.set_attributes(cell2, pixbuf=0)
 tvcolumn2.set_attributes(text_render2, text=1)
 installedview.append_column(tvcolumn2)
 installedview.set_model(installedstore)
+installedview.connect("drag_data_get", drag_data_get_data)
+installedview.enable_model_drag_source( gtk.gdk.BUTTON1_MASK, [('text/plain', 0, 0)], gtk.gdk.ACTION_DEFAULT | gtk.gdk.ACTION_MOVE)
 installedview.show()
 
-# Non-glade connects.
-menustore_connects.append(menustore.connect("row-changed", reorder))
 xml.get_widget("root").show()
 gtk.main()

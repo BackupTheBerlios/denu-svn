@@ -274,9 +274,9 @@ def editEntry(entry, entryId):
 	return "Successful."
 				
 #Returns information on entries in the xml.  May be a list or object.
-def viewEntry(entryId):
+def viewEntry(entryId, dom="menu"):
 	global idIndex
-	entry = idIndex['menu'][entryId]
+	entry = idIndex[dom][entryId]
 	dict = {}
 	dict[entry.nodeName] = {}
 	location = []
@@ -336,13 +336,22 @@ def loadEntry(file, parent, sibling=None):
 	return newId
 	
 #Moves entries within the denu xml structure.
-def moveEntry(entryId, parent, sibling=None):
-	child = idIndex['menu'][entryId].parentNode.removeChild(idIndex['menu'][entryId])
+def moveEntry(entryId, parent, sibling=None, source="menu", dest="menu"):
+	entryId = int(entryId)
+	child = idIndex[source][entryId].parentNode.removeChild(idIndex[source][entryId])
 	if sibling == None:
-		idIndex['menu'][parent].appendChild(child)
+		idIndex[dest][parent].appendChild(child)
 	else:
-		idIndex['menu'][parent].insertBefore(child, idIndex['menu'][sibling])
-	return "Successful."
+		idIndex[dest][parent].insertBefore(child, idIndex[dest][sibling])
+	if not source == dest:
+		del idIndex[source][idIndex[source][entryId]]
+		del idIndex[source][entryId]
+		tmpId = len(idIndex[dest])/2
+		idIndex[dest][tmpId] = child
+		idIndex[dest][child] = tmpId
+		return tmpId
+	else:
+		return entryId
 	
 #############################	
 # Troubleshooting Functions #
