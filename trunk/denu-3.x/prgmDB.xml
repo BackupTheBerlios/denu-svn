@@ -1,26 +1,7634 @@
+<?xml version="1.0" ?>
 <data type="db">
-	<program portage-id="x11-terms/aterm" command="aterm">
-		<name>
-			<en>Aterm</en>
-		</name>
-		<blurb>A terminal.</blurb>
-		<location>|Terms</location>
-		<command>aterm</command>
-	</program>
-	<program portage-id="x11-misc/denu" command="denu:denusvn">
-		<name>
-			<en>Denu</en>
-		</name>
-		<blurb>A menu swiss army knife.</blurb>
-		<location>|Utilities</location>
-		<command>denu</command>
-	</program>
-	<program portage-id="x11-terms/eterm" command="eterm">
-		<name>
-			<en>Eterm</en>
-		</name>
-		<blurb>A terminal.</blurb>
-		<location>|Terms</location>
-		<command>eterm</command>
-	</program>
+<program portage-id="media-gfx/gimp" command="gimp-2.0:gimp-2.2">
+<name>
+<en>Gimp 2.0</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gimp-2.0</command>
+<icon><file>gimp.png</file></icon>
+</program>
+<program portage-id="media-gfx/gimp" command="gimp-2.0:gimp-2.2">
+<name>
+<en>Gimp-2.2</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gimp-2.2</command>
+<icon><file>gimp.png</file></icon>
+</program>
+<program portage-id="media-sound/xmms" command="xmms">
+<name>
+<en>XMMS</en>
+</name>
+<location>|Media|Audio</location>
+<command>xmms</command>
+</program>
+<program portage-id="x11-terms/aterm" command="aterm">
+<name>
+<en>ATerm</en>
+</name>
+<location>|Terms</location>
+<command>aterm</command>
+</program>
+<program portage-id="x11-wm/fluxbox" command="fbrun">
+<name>
+<en>Run</en>
+</name>
+<location>|Fluxbox</location>
+<command>fbrun</command>
+</program>
+<program portage-id="www-client/mozilla-firefox" command="firefox">
+<name>
+<en>Firefox</en>
+</name>
+<location>|Net|Browsers</location>
+<command>firefox</command>
+<icon><file>firefox-icon.png</file></icon>
+</program>
+<program portage-id="mail-client/mozilla-thunderbird" command="thunderbird">
+<name>
+<en>Thunderbird</en>
+</name>
+<location>|Net|Mail</location>
+<command>thunderbird</command>
+<icon><file>thunderbird-icon.png</file></icon>
+</program>
+<program portage-id="net-im/gaim" command="gaim">
+<name>
+<en>Gaim</en>
+</name>
+<location>|Net|IM</location>
+<command>gaim</command>
+<icon><file>gaim.png</file></icon>
+</program>
+<program portage-id="x11-misc/xfe" command="xfe">
+<name>
+<en>XFE</en>
+</name>
+<location>|System</location>
+<command>xfe</command>
+<icon><file>xfe.png</file></icon>
+</program>
+<program portage-id="media-tv/tvtime" command="tvtime">
+<name>
+<en>tvtime</en>
+</name>
+<location>|Media|TV</location>
+<command>tvtime</command>
+</program>
+<program portage-id="app-editors/bluefish" command="bluefish">
+<name>
+<en>Bluefish</en>
+</name>
+<location>|Editors</location>
+<command>bluefish</command>
+<icon><file>bluefish-icon.png</file></icon>
+</program>
+<program portage-id="media-gfx/blender" command="blender">
+<name>
+<en>Blender</en>
+</name>
+<location>|Media|3D Graphics</location>
+<command>blender</command>
+<icon><file>blender-48.png</file></icon>
+</program>
+<program portage-id="app-office/openoffice-bin" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Calc</en>
+</name>
+<location>|Office</location>
+<command>oocalc</command>
+</program>
+<program portage-id="app-office/openoffice-bin" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Draw</en>
+</name>
+<location>|Office</location>
+<command>oodraw</command>
+</program>
+<program portage-id="app-office/openoffice-bin" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Impress</en>
+</name>
+<location>|Office</location>
+<command>ooimpress</command>
+</program>
+<program portage-id="app-office/openoffice-bin" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Math</en>
+</name>
+<location>|Office</location>
+<command>oomath</command>
+</program>
+<program portage-id="app-office/openoffice-bin" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Writer</en>
+</name>
+<location>|Office</location>
+<command>oowriter</command>
+</program>
+<program portage-id="app-office/openoffice-bin" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Web</en>
+</name>
+<location>|Office</location>
+<command>ooweb</command>
+</program>
+<program portage-id="app-office/openoffice-bin" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OpenOffice</en>
+</name>
+<location>|Office</location>
+<command>ooffice</command>
+</program>
+<program portage-id="app-admin/gkrellm" command="gkrellm2:gkrellm2 -w">
+<name>
+<en>gkrellm</en>
+</name>
+<location>|System|Monitors</location>
+<command>gkrellm2</command>
+</program>
+<program portage-id="app-admin/gkrellm" command="gkrellm2:gkrellm2 -w">
+<name>
+<en>gkrellm(slit\)</en>
+</name>
+<location>|System|Monitors</location>
+<command>gkrellm2 -w</command>
+</program>
+<program portage-id="app-editors/nedit" command="nedit">
+<name>
+<en>NEdit</en>
+</name>
+<location>|Editors</location>
+<command>nedit</command>
+<icon><file>nedit.png</file></icon>
+</program>
+<program portage-id="media-video/mplayer" command="gmplayer">
+<name>
+<en>MPlayer</en>
+</name>
+<location>|Media|Video</location>
+<command>gmplayer</command>
+</program>
+<program portage-id="x11-misc/fluxconf" command="fluxkeys:fluxmenu:fluxconf">
+<name>
+<en>fluxkeys</en>
+</name>
+<location>|Fluxbox</location>
+<command>fluxkeys</command>
+</program>
+<program portage-id="x11-misc/fluxconf" command="fluxkeys:fluxmenu:fluxconf">
+<name>
+<en>fluxmenu</en>
+</name>
+<location>|Fluxbox</location>
+<command>fluxmenu</command>
+</program>
+<program portage-id="x11-misc/fluxconf" command="fluxkeys:fluxmenu:fluxconf">
+<name>
+<en>fluxconf</en>
+</name>
+<location>|Fluxbox</location>
+<command>fluxconf</command>
+</program>
+<program portage-id="x11-terms/xterm" command="xterm">
+<name>
+<en>XTerm</en>
+</name>
+<location>|Terms</location>
+<command>xterm</command>
+</program>
+<program portage-id="media-gfx/gqview" command="gqview">
+<name>
+<en>GQView</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gqview</command>
+<icon><file>gqview.png</file></icon>
+</program>
+<program portage-id="net-ftp/gftp" command="gftp">
+<name>
+<en>gftp</en>
+</name>
+<location>|Net|FTP</location>
+<command>gftp</command>
+<icon><file>gftp.png</file></icon>
+</program>
+<program portage-id="net-irc/xchat" command="xchat-2">
+<name>
+<en>XChat</en>
+</name>
+<location>|Net|IRC</location>
+<command>xchat-2</command>
+<icon><file>xchat.png</file></icon>
+</program>
+<program portage-id="games-arcade/supertux" command="supertux">
+<name>
+<en>Supertux</en>
+</name>
+<location>|Games|Arcade</location>
+<command>supertux</command>
+<icon><file>supertux.xpm</file></icon>
+</program>
+<program portage-id="games-fps/cube" command="cube_client:cube_server">
+<name>
+<en>Cube Client</en>
+</name>
+<location>|Games|FPS</location>
+<command>cube_client</command>
+</program>
+<program portage-id="games-fps/cube" command="cube_client:cube_server">
+<name>
+<en>Cube Server</en>
+</name>
+<location>|Games|FPS</location>
+<command>cube_server</command>
+</program>
+<program portage-id="games-simulation/lincity" command="xlincity">
+<name>
+<en>Lincity</en>
+</name>
+<location>|Games|Strategy</location>
+<command>xlincity</command>
+</program>
+<program portage-id="games-strategy/freeciv" command="civclient:civserver">
+<name>
+<en>Freeciv</en>
+</name>
+<location>|Games|Strategy</location>
+<command>civclient</command>
+</program>
+<program portage-id="games-strategy/freeciv" command="civclient:civserver">
+<name>
+<en>Freeciv Server</en>
+</name>
+<location>|Games|Strategy</location>
+<command>civserver</command>
+</program>
+<program portage-id="games-strategy/liquidwar" command="liquidwar:liquidwar-server:liquidwar-mapgen">
+<name>
+<en>LiquidWar</en>
+</name>
+<location>|Games|Strategy</location>
+<command>liquidwar</command>
+</program>
+<program portage-id="games-strategy/liquidwar" command="liquidwar:liquidwar-server:liquidwar-mapgen">
+<name>
+<en>LiquidWar Server</en>
+</name>
+<location>|Games|Strategy</location>
+<command>liquidwar-server</command>
+</program>
+<program portage-id="games-strategy/liquidwar" command="liquidwar:liquidwar-server:liquidwar-mapgen">
+<name>
+<en>LiquidWar MapGen</en>
+</name>
+<location>|Games|Strategy</location>
+<command>liquidwar-mapgen</command>
+</program>
+<program portage-id="app-cdr/k3b" command="k3b">
+<name>
+<en>K3b</en>
+</name>
+<location>|System|Burn</location>
+<command>k3b</command>
+<icon><file>k3b.png</file></icon>
+</program>
+<program portage-id="media-sound/spiralmodular" command="spiralsynthmodular">
+<name>
+<en>SpiralSynth</en>
+</name>
+<location>|Media|Audio|Mixing</location>
+<command>spiralsynthmodular</command>
+</program>
+<program portage-id="x11-base/xorg-x11" command="xcalc">
+<name>
+<en>xcalc</en>
+</name>
+<location>|Utilities|Calculator</location>
+<command>xcalc</command>
+</program>
+<program portage-id="app-office/dia" command="dia">
+<name>
+<en>Dia</en>
+</name>
+<location>|Office</location>
+<command>dia</command>
+</program>
+<program portage-id="net-misc/LinNeighborhood" command="LinNeighborhood">
+<name>
+<en>LinNeighborhood</en>
+</name>
+<location>|Utilities</location>
+<command>LinNeighborhood</command>
+</program>
+<program portage-id="net-p2p/xmule" command="xmule">
+<name>
+<en>xMule</en>
+</name>
+<location>|Net|P2P</location>
+<command>xmule</command>
+</program>
+<program portage-id="app-misc/gentoo" command="gentoo">
+<name>
+<en>Gentoo</en>
+</name>
+<location>|System</location>
+<command>gentoo</command>
+</program>
+<program portage-id="x11-themes/gtk-chtheme" command="gtk-chtheme">
+<name>
+<en>Gtk  2.0 Change Theme</en>
+</name>
+<location>|Utilities|X11</location>
+<command>gtk-chtheme</command>
+</program>
+<program portage-id="app-editors/cssed" command="cssed">
+<name>
+<en>CSSed</en>
+</name>
+<location>|Editors</location>
+<command>cssed</command>
+<icon><file>cssed-icon.png</file></icon>
+</program>
+<program portage-id="dev-util/glade" command="glade-2">
+<name>
+<en>Glade</en>
+</name>
+<location>|Development</location>
+<command>glade-2</command>
+<icon><file>glade.png</file></icon>
+</program>
+<program portage-id="dev-util/anjuta" command="anjuta">
+<name>
+<en>Anjuta</en>
+</name>
+<location>|Development</location>
+<command>anjuta</command>
+<icon><file>anjuta_icon.png</file></icon>
+</program>
+<program portage-id="media-sound/rhythmbox" command="rhythmbox">
+<name>
+<en>Rhythmbox</en>
+</name>
+<location>|Media|Audio</location>
+<command>rhythmbox</command>
+</program>
+<program portage-id="app-pda/gtkpod" command="gtkpod">
+<name>
+<en>GTKpod</en>
+</name>
+<location>|System|PDA</location>
+<command>gtkpod</command>
+</program>
+<program portage-id="app-cdr/xcdroast" command="xcdroast">
+<name>
+<en>Xcdroast</en>
+</name>
+<location>|System|Burn</location>
+<command>xcdroast</command>
+</program>
+<program portage-id="media-gfx/flphoto" command="flphoto">
+<name>
+<en>flPhoto</en>
+</name>
+<location>|Media|Graphics</location>
+<command>flphoto</command>
+</program>
+<program portage-id="media-video/ogle" command="ogle">
+<name>
+<en>Ogle</en>
+</name>
+<location>|Media|Video</location>
+<command>ogle</command>
+</program>
+<program portage-id="games-action/armagetron" command="armagetron">
+<name>
+<en>Armagetron</en>
+</name>
+<location>|Games|Action</location>
+<command>armagetron</command>
+</program>
+<program portage-id="games-puzzle/gweled" command="gweled">
+<name>
+<en>Gweled</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>gweled</command>
+</program>
+<program portage-id="games-puzzle/kiki" command="kiki">
+<name>
+<en>Kiki</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>kiki</command>
+</program>
+<program portage-id="games-rpg/freedroidrpg" command="freedroidRPG">
+<name>
+<en>FreedroidRPG</en>
+</name>
+<location>|Games|RPG</location>
+<command>freedroidRPG</command>
+</program>
+<program portage-id="games-arcade/project-starfighter" command="starfighter">
+<name>
+<en>Project Starfighter</en>
+</name>
+<location>|Games|Arcade</location>
+<command>starfighter</command>
+</program>
+<program portage-id="app-office/openoffice" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Calc</en>
+</name>
+<location>|Office</location>
+<command>oocalc</command>
+</program>
+<program portage-id="app-office/openoffice" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Draw</en>
+</name>
+<location>|Office</location>
+<command>oodraw</command>
+</program>
+<program portage-id="app-office/openoffice" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Impress</en>
+</name>
+<location>|Office</location>
+<command>ooimpress</command>
+</program>
+<program portage-id="app-office/openoffice" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Math</en>
+</name>
+<location>|Office</location>
+<command>oomath</command>
+</program>
+<program portage-id="app-office/openoffice" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Writer</en>
+</name>
+<location>|Office</location>
+<command>oowriter</command>
+</program>
+<program portage-id="app-office/openoffice" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Web</en>
+</name>
+<location>|Office</location>
+<command>ooweb</command>
+</program>
+<program portage-id="app-office/openoffice" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OpenOffice</en>
+</name>
+<location>|Office</location>
+<command>ooffice</command>
+</program>
+<program portage-id="games-puzzle/neverball" command="neverball:neverputt">
+<name>
+<en>Neverball</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>neverball</command>
+</program>
+<program portage-id="games-puzzle/neverball" command="neverball:neverputt">
+<name>
+<en>Neverputt</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>neverputt</command>
+</program>
+<program portage-id="games-roguelike/falconseye" command="falconseye">
+<name>
+<en>Falcon's Eye</en>
+</name>
+<location>|Games|Rogue-Like|NetHack</location>
+<command>falconseye</command>
+</program>
+<program portage-id="games-fps/legends" command="legends">
+<name>
+<en>Legends</en>
+</name>
+<location>|Games|FPS</location>
+<command>legends</command>
+</program>
+<program portage-id="games-roguelike/nethack" command="nethack">
+<name>
+<en>NetHack</en>
+</name>
+<location>|Games|Rogue-Like|NetHack</location>
+<command>nethack</command>
+</program>
+<program portage-id="games-rpg/aklabeth" command="aklabeth">
+<name>
+<en>Aklabeth</en>
+</name>
+<location>|Games|RPG</location>
+<command>aklabeth</command>
+</program>
+<program portage-id="games-strategy/crimson" command="crimson">
+<name>
+<en>Crimson</en>
+</name>
+<location>|Games|Strategy</location>
+<command>crimson</command>
+</program>
+<program portage-id="games-strategy/wesnoth" command="wesnoth">
+<name>
+<en>Battle for Wesnoth</en>
+</name>
+<location>|Games|Strategy</location>
+<command>wesnoth</command>
+</program>
+<program portage-id="games-strategy/castle-combat" command="castle-combat">
+<name>
+<en>Castle Combat</en>
+</name>
+<location>|Games|Strategy</location>
+<command>castle-combat</command>
+</program>
+<program portage-id="media-video/gxine" command="gxine">
+<name>
+<en>gXine</en>
+</name>
+<location>|Media|Video</location>
+<command>gxine</command>
+</program>
+<program portage-id="games-puzzle/toppler" command="toppler">
+<name>
+<en>Toppler</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>toppler</command>
+</program>
+<program portage-id="media-video/xine-ui" command="xine">
+<name>
+<en>Xine</en>
+</name>
+<location>|Media|Video</location>
+<command>xine</command>
+</program>
+<program portage-id="media-sound/alsaplayer" command="alsaplayer">
+<name>
+<en>Alsaplayer</en>
+</name>
+<location>|Media|Audio</location>
+<command>alsaplayer</command>
+</program>
+<program portage-id="app-sci/tilp" command="tilp">
+<name>
+<en>tilp</en>
+</name>
+<location>|Science</location>
+<command>tilp</command>
+</program>
+<program portage-id="games-fps/ut2004" command="ut2004">
+<name>
+<en>UT2004</en>
+</name>
+<location>|Games|FPS</location>
+<command>ut2004</command>
+</program>
+<program portage-id="net-p2p/apollon" command="apollon">
+<name>
+<en>Apollon</en>
+</name>
+<location>|Net|P2P</location>
+<command>apollon</command>
+</program>
+<program portage-id="app-office/openoffice-ximian" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Calc</en>
+</name>
+<location>|Office</location>
+<command>oocalc</command>
+</program>
+<program portage-id="app-office/openoffice-ximian" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Draw</en>
+</name>
+<location>|Office</location>
+<command>oodraw</command>
+</program>
+<program portage-id="app-office/openoffice-ximian" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Impress</en>
+</name>
+<location>|Office</location>
+<command>ooimpress</command>
+</program>
+<program portage-id="app-office/openoffice-ximian" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Math</en>
+</name>
+<location>|Office</location>
+<command>oomath</command>
+</program>
+<program portage-id="app-office/openoffice-ximian" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Writer</en>
+</name>
+<location>|Office</location>
+<command>oowriter</command>
+</program>
+<program portage-id="app-office/openoffice-ximian" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OO Web</en>
+</name>
+<location>|Office</location>
+<command>ooweb</command>
+</program>
+<program portage-id="app-office/openoffice-ximian" command="oocalc:oodraw:ooimpress:oomath:oowriter:ooweb:ooffice">
+<name>
+<en>OpenOffice</en>
+</name>
+<location>|Office</location>
+<command>ooffice</command>
+</program>
+<program portage-id="www-client/mozilla-firefox-bin" command="firefox">
+<name>
+<en>Firefox</en>
+</name>
+<location>|Net|Browsers</location>
+<command>firefox</command>
+<icon><file>firefox-icon.png</file></icon>
+</program>
+<program portage-id="media-video/kdenlive" command="kdenlive">
+<name>
+<en>KDEnLive</en>
+</name>
+<location>|Media|Video</location>
+<command>kdenlive</command>
+</program>
+<program portage-id="media-video/kino" command="kino">
+<name>
+<en>Kino</en>
+</name>
+<location>|Media|Video</location>
+<command>kino</command>
+</program>
+<program portage-id="net-p2p/amule" command="amule">
+<name>
+<en>aMule</en>
+</name>
+<location>|Net|P2P</location>
+<command>amule</command>
+</program>
+<program portage-id="games-action/chromium" command="chromium">
+<name>
+<en>Chromium</en>
+</name>
+<location>|Games|Action</location>
+<command>chromium</command>
+</program>
+<program portage-id="games-action/powermanga" command="powermanga">
+<name>
+<en>Powermanga</en>
+</name>
+<location>|Games|Action</location>
+<command>powermanga</command>
+</program>
+<program portage-id="games-action/heroes" command="heroes">
+<name>
+<en>Heroes</en>
+</name>
+<location>|Games|Action</location>
+<command>heroes</command>
+</program>
+<program portage-id="games-action/slune" command="slune">
+<name>
+<en>Slune</en>
+</name>
+<location>|Games|Action</location>
+<command>slune</command>
+</program>
+<program portage-id="games-action/battalion" command="battalion">
+<name>
+<en>Battalion</en>
+</name>
+<location>|Games|Action</location>
+<command>battalion</command>
+</program>
+<program portage-id="games-action/barrage" command="barrage">
+<name>
+<en>Barrage</en>
+</name>
+<location>|Games|Action</location>
+<command>barrage</command>
+</program>
+<program portage-id="games-action/bomberclone" command="bomberclone">
+<name>
+<en>BomberClone</en>
+</name>
+<location>|Games|Action</location>
+<command>bomberclone</command>
+</program>
+<program portage-id="games-action/gltron" command="gltron">
+<name>
+<en>glTron</en>
+</name>
+<location>|Games|Action</location>
+<command>gltron</command>
+</program>
+<program portage-id="games-action/nighthawk" command="nighthawk">
+<name>
+<en>Nighthawk</en>
+</name>
+<location>|Games|Action</location>
+<command>nighthawk</command>
+</program>
+<program portage-id="games-action/trackballs" command="trackballs">
+<name>
+<en>Trackballs</en>
+</name>
+<location>|Games|Action</location>
+<command>trackballs</command>
+</program>
+<program portage-id="media-sound/zinf" command="zinf">
+<name>
+<en>Zinf</en>
+</name>
+<location>|Media|Audio</location>
+<command>zinf</command>
+</program>
+<program portage-id="media-sound/muine" command="muine">
+<name>
+<en>Muine</en>
+</name>
+<location>|Media|Audio</location>
+<command>muine</command>
+</program>
+<program portage-id="games-action/xbomber" command="bomber">
+<name>
+<en>xBomber</en>
+</name>
+<location>|Games|Action</location>
+<command>bomber</command>
+</program>
+<program portage-id="games-action/tuxkart" command="tuxkart">
+<name>
+<en>Tuxkart</en>
+</name>
+<location>|Games|Action</location>
+<command>tuxkart</command>
+</program>
+<program portage-id="games-action/maelstrom" command="maelstrom">
+<name>
+<en>Maelstrom</en>
+</name>
+<location>|Games|Action</location>
+<command>maelstrom</command>
+</program>
+<program portage-id="games-action/koth" command="koth">
+<name>
+<en>Koth</en>
+</name>
+<location>|Games|Action</location>
+<command>koth</command>
+</program>
+<program portage-id="games-action/xpilot" command="xpilot">
+<name>
+<en>xPilot</en>
+</name>
+<location>|Games|Action</location>
+<command>xpilot</command>
+</program>
+<program portage-id="games-action/glaxium" command="glaxium">
+<name>
+<en>Glaxium</en>
+</name>
+<location>|Games|Action</location>
+<command>glaxium</command>
+</program>
+<program portage-id="games-action/shootingstar" command="shootingstar">
+<name>
+<en>Shooting Star</en>
+</name>
+<location>|Games|Action</location>
+<command>shootingstar</command>
+</program>
+<program portage-id="games-action/xshipwars" command="xsw">
+<name>
+<en>xShipWars</en>
+</name>
+<location>|Games|Action</location>
+<command>xsw</command>
+</program>
+<program portage-id="games-rpg/planeshift" command="planeshift">
+<name>
+<en>Planeshift</en>
+</name>
+<location>|Games|RPG</location>
+<command>planeshift</command>
+</program>
+<program portage-id="games-rpg/vegastrike" command="vegastrike">
+<name>
+<en>Vega Strike</en>
+</name>
+<location>|Games|RPG</location>
+<command>vegastrike</command>
+</program>
+<program portage-id="games-simulation/gl117" command="gl117">
+<name>
+<en>gl117</en>
+</name>
+<location>|Games|Simulation</location>
+<command>gl117</command>
+</program>
+<program portage-id="games-rpg/gwiz" command="gwiz">
+<name>
+<en>gwiz</en>
+</name>
+<location>|Games|RPG</location>
+<command>gwiz</command>
+</program>
+<program portage-id="games-action/raptor2" command="raptor">
+<name>
+<en>Raptor</en>
+</name>
+<location>|Games|Action</location>
+<command>raptor</command>
+</program>
+<program portage-id="games-rpg/wastesedge" command="adonthell-wastesedge">
+<name>
+<en>Waste's Edge</en>
+</name>
+<location>|Games|RPG</location>
+<command>adonthell-wastesedge</command>
+</program>
+<program portage-id="games-sports/billardgl" command="BillardGL">
+<name>
+<en>BillardGL</en>
+</name>
+<location>|Games|Sports</location>
+<command>BillardGL</command>
+</program>
+<program portage-id="games-sports/foobillard" command="foobillard">
+<name>
+<en>FooBillard</en>
+</name>
+<location>|Games|Sports</location>
+<command>foobillard</command>
+</program>
+<program portage-id="games-sports/foosball" command="foosball">
+<name>
+<en>Foosball</en>
+</name>
+<location>|Games|Sports</location>
+<command>foosball</command>
+</program>
+<program portage-id="games-sports/gracer" command="gracer">
+<name>
+<en>GRacer</en>
+</name>
+<location>|Games|Sports</location>
+<command>gracer</command>
+</program>
+<program portage-id="games-sports/race" command="race">
+<name>
+<en>Race</en>
+</name>
+<location>|Games|Sports</location>
+<command>race</command>
+</program>
+<program portage-id="games-sports/racer-bin" command="racer">
+<name>
+<en>Racer</en>
+</name>
+<location>|Games|Sports</location>
+<command>racer</command>
+</program>
+<program portage-id="games-arcade/tuxracer" command="tuxracer">
+<name>
+<en>Tuxracer</en>
+</name>
+<location>|Games|Arcade</location>
+<command>tuxracer</command>
+</program>
+<program portage-id="games-arcade/abe" command="abe">
+<name>
+<en>Abe's Amazing Adventure</en>
+</name>
+<location>|Games|Arcade</location>
+<command>abe</command>
+</program>
+<program portage-id="games-strategy/attal" command="attal">
+<name>
+<en>Attal Lords of Doom</en>
+</name>
+<location>|Games|Strategy</location>
+<command>attal</command>
+</program>
+<program portage-id="games-sports/trophy" command="trophy">
+<name>
+<en>Trophy</en>
+</name>
+<location>|Games|Sports</location>
+<command>trophy</command>
+</program>
+<program portage-id="games-sports/torcs" command="torcs">
+<name>
+<en>TORCS</en>
+</name>
+<location>|Games|Sports</location>
+<command>torcs</command>
+</program>
+<program portage-id="games-roguelike/ivan" command="ivan">
+<name>
+<en>Ivan</en>
+</name>
+<location>|Games|Rogue-Like</location>
+<command>ivan</command>
+</program>
+<program portage-id="x11-terms/eterm" command="Eterm">
+<name>
+<en>ETerm</en>
+</name>
+<location>|Terms</location>
+<command>Eterm</command>
+</program>
+<program portage-id="net-im/aim" command="aim">
+<name>
+<en>AIM</en>
+</name>
+<location>|Net|IM</location>
+<command>aim</command>
+</program>
+<program portage-id="net-im/licq" command="licq">
+<name>
+<en>lICQ</en>
+</name>
+<location>|Net|IM</location>
+<command>licq</command>
+</program>
+<program portage-id="x11-terms/gnome-terminal" command="gnome-terminal">
+<name>
+<en>Gnome-Terminal</en>
+</name>
+<location>|Terms</location>
+<command>gnome-terminal</command>
+</program>
+<program portage-id="x11-terms/kterm" command="kterm">
+<name>
+<en>KTerm</en>
+</name>
+<location>|Terms</location>
+<command>kterm</command>
+</program>
+<program portage-id="net-news/blam" command="blam">
+<name>
+<en>Blam</en>
+</name>
+<location>|Net|News</location>
+<command>blam</command>
+</program>
+<program portage-id="net-nntp/bnr2" command="bnr2">
+<name>
+<en>Binary News Reaper</en>
+</name>
+<location>|Net|News</location>
+<command>bnr2</command>
+</program>
+<program portage-id="games-rpg/bass" command="bass">
+<name>
+<en>Beneath A Steel Sky</en>
+</name>
+<location>|Games|RPG</location>
+<command>bass</command>
+</program>
+<program portage-id="net-news/erss" command="erss">
+<name>
+<en>eRSS</en>
+</name>
+<location>|Net|News</location>
+<command>erss</command>
+</program>
+<program portage-id="net-nntp/glitter" command="glitter">
+<name>
+<en>Glitter</en>
+</name>
+<location>|Net|News</location>
+<command>glitter</command>
+</program>
+<program portage-id="games-action/cylindrix" command="cylindrix">
+<name>
+<en>Cylindrix</en>
+</name>
+<location>|Games|Action</location>
+<command>cylindrix</command>
+</program>
+<program portage-id="games-action/dungeon" command="dungeon">
+<name>
+<en>Dungeon</en>
+</name>
+<location>|Games|Action</location>
+<command>dungeon</command>
+</program>
+<program portage-id="games-action/formido" command="formido">
+<name>
+<en>Formido</en>
+</name>
+<location>|Games|Action</location>
+<command>formido</command>
+</program>
+<program portage-id="app-office/openoffice-ximian-bin" command="xoocalc:xoodraw:xooimpress:xoomath:xoowriter:xooweb:xooffice">
+<name>
+<en>OO Calc</en>
+</name>
+<location>|Office</location>
+<command>xoocalc</command>
+</program>
+<program portage-id="app-office/openoffice-ximian-bin" command="xoocalc:xoodraw:xooimpress:xoomath:xoowriter:xooweb:xooffice">
+<name>
+<en>OO Draw</en>
+</name>
+<location>|Office</location>
+<command>xoodraw</command>
+</program>
+<program portage-id="app-office/openoffice-ximian-bin" command="xoocalc:xoodraw:xooimpress:xoomath:xoowriter:xooweb:xooffice">
+<name>
+<en>OO Impress</en>
+</name>
+<location>|Office</location>
+<command>xooimpress</command>
+</program>
+<program portage-id="app-office/openoffice-ximian-bin" command="xoocalc:xoodraw:xooimpress:xoomath:xoowriter:xooweb:xooffice">
+<name>
+<en>OO Math</en>
+</name>
+<location>|Office</location>
+<command>xoomath</command>
+</program>
+<program portage-id="app-office/openoffice-ximian-bin" command="xoocalc:xoodraw:xooimpress:xoomath:xoowriter:xooweb:xooffice">
+<name>
+<en>OO Writer</en>
+</name>
+<location>|Office</location>
+<command>xoowriter</command>
+</program>
+<program portage-id="app-office/openoffice-ximian-bin" command="xoocalc:xoodraw:xooimpress:xoomath:xoowriter:xooweb:xooffice">
+<name>
+<en>OO Web</en>
+</name>
+<location>|Office</location>
+<command>xooweb</command>
+</program>
+<program portage-id="app-office/openoffice-ximian-bin" command="xoocalc:xoodraw:xooimpress:xoomath:xoowriter:xooweb:xooffice">
+<name>
+<en>OpenOffice</en>
+</name>
+<location>|Office</location>
+<command>xooffice</command>
+</program>
+<program portage-id="app-sci/pariguide" command="paraguide">
+<name>
+<en>PariGUIde</en>
+</name>
+<location>|Science</location>
+<command>paraguide</command>
+</program>
+<program portage-id="app-admin/partgui" command="partgui">
+<name>
+<en>PartGUI</en>
+</name>
+<location>|System|Admin</location>
+<command>partgui</command>
+</program>
+<program portage-id="games-arcade/penguin-command" command="penguin-command">
+<name>
+<en>Penguin Command</en>
+</name>
+<location>|Games|Arcade</location>
+<command>penguin-command</command>
+</program>
+<program portage-id="x11-terms/clusterssh" command="cssh">
+<name>
+<en>Cluster SSH</en>
+</name>
+<location>|Terms</location>
+<command>cssh</command>
+</program>
+<program portage-id="x11-terms/wterm" command="wterm">
+<name>
+<en>WTerm</en>
+</name>
+<location>|Terms</location>
+<command>wterm</command>
+</program>
+<program portage-id="x11-terms/hanterm" command="hanterm">
+<name>
+<en>HanTerm</en>
+</name>
+<location>|Terms</location>
+<command>hanterm</command>
+</program>
+<program portage-id="x11-terms/kuake" command="kuake">
+<name>
+<en>Kuake</en>
+</name>
+<location>|Terms</location>
+<command>kuake</command>
+</program>
+<program portage-id="app-i18n/fcitx" command="fcitx">
+<name>
+<en>fcitx</en>
+</name>
+<location>|System|Input</location>
+<command>fcitx</command>
+</program>
+<program portage-id="x11-terms/pssh" command="pssh">
+<name>
+<en>PSSH</en>
+</name>
+<location>|Terms</location>
+<command>pssh</command>
+</program>
+<program portage-id="x11-terms/rxvt" command="rxvt">
+<name>
+<en>rxvt</en>
+</name>
+<location>|Terms</location>
+<command>rxvt</command>
+</program>
+<program portage-id="x11-terms/xvt" command="xvt">
+<name>
+<en>xvt</en>
+</name>
+<location>|Terms</location>
+<command>xvt</command>
+</program>
+<program portage-id="x11-terms/rxvt-unicode" command="urxvt">
+<name>
+<en>rxvt Unicode</en>
+</name>
+<location>|Terms</location>
+<command>urxvt</command>
+</program>
+<program portage-id="x11-terms/mlterm" command="mlterm">
+<name>
+<en>MLTerm</en>
+</name>
+<location>|Terms</location>
+<command>mlterm</command>
+</program>
+<program portage-id="games-strategy/glob2" command="glob2">
+<name>
+<en>Glob2</en>
+</name>
+<location>|Games|Strategy</location>
+<command>glob2</command>
+</program>
+<program portage-id="games-strategy/spacehulk" command="spacehulk">
+<name>
+<en>Space Hulk</en>
+</name>
+<location>|Games|Strategy</location>
+<command>spacehulk</command>
+</program>
+<program portage-id="media-sound/alsamixergui" command="alsamixergui">
+<name>
+<en>AlsaMixer GUI</en>
+</name>
+<location>|Media|Audio</location>
+<command>alsamixergui</command>
+</program>
+<program portage-id="media-gfx/xwgui2" command="xwgui2">
+<name>
+<en>xwGUI II</en>
+</name>
+<location>|Media|Graphics</location>
+<command>xwgui2</command>
+</program>
+<program portage-id="games-puzzle/arrows" command="arrows">
+<name>
+<en>Arrows</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>arrows</command>
+</program>
+<program portage-id="games-puzzle/drod-bin" command="drod">
+<name>
+<en>Deadly Rooms Of Death</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>drod</command>
+</program>
+<program portage-id="games-puzzle/gemdropx" command="gemdropx">
+<name>
+<en>Gem Drop X</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>gemdropx</command>
+</program>
+<program portage-id="games-puzzle/hangman" command="hangman">
+<name>
+<en>Hangman</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>hangman</command>
+</program>
+<program portage-id="games-puzzle/xbomb" command="xbomb">
+<name>
+<en>XBomb</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>xbomb</command>
+</program>
+<program portage-id="games-puzzle/xpired" command="xpired">
+<name>
+<en>X-Pired</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>xpired</command>
+</program>
+<program portage-id="games-puzzle/xblockout" command="xbl">
+<name>
+<en>XBlockout</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>xbl</command>
+</program>
+<program portage-id="media-sound/gtkguitune" command="gtkguitune">
+<name>
+<en>gtkGuitune</en>
+</name>
+<location>|Media|Audio</location>
+<command>gtkguitune</command>
+</program>
+<program portage-id="games-puzzle/gtkballs" command="gtkballs">
+<name>
+<en>GtkBalls</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>gtkballs</command>
+</program>
+<program portage-id="games-puzzle/xtris" command="xtris">
+<name>
+<en>XTris</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>xtris</command>
+</program>
+<program portage-id="games-puzzle/xwelltris" command="xwelltris">
+<name>
+<en>XWellTris</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>xwelltris</command>
+</program>
+<program portage-id="games-simulation/stoned-bin" command="stoned">
+<name>
+<en>Stoned</en>
+</name>
+<location>|Games|Simulation</location>
+<command>stoned</command>
+</program>
+<program portage-id="games-simulation/cannonsmash" command="csmash">
+<name>
+<en>Cannon Smash</en>
+</name>
+<location>|Games|Simulation</location>
+<command>csmash</command>
+</program>
+<program portage-id="games-simulation/senken" command="senken">
+<name>
+<en>Senken</en>
+</name>
+<location>|Games|Simulation</location>
+<command>senken</command>
+</program>
+<program portage-id="games-simulation/planets" command="planets">
+<name>
+<en>Planets</en>
+</name>
+<location>|Games|Simulation</location>
+<command>planets</command>
+</program>
+<program portage-id="games-simulation/searchandrescue" command="SearchAndRescue">
+<name>
+<en>Search and Rescue</en>
+</name>
+<location>|Games|Simulation</location>
+<command>SearchAndRescue</command>
+</program>
+<program portage-id="games-simulation/corewars" command="corewars">
+<name>
+<en>Core Wars</en>
+</name>
+<location>|Games|Simulation</location>
+<command>corewars</command>
+</program>
+<program portage-id="app-office/mozilla-sunbird-bin" command="sunbird">
+<name>
+<en>Sunbird</en>
+</name>
+<location>|Office</location>
+<command>sunbird</command>
+</program>
+<program portage-id="app-office/ical" command="ical">
+<name>
+<en>iCal</en>
+</name>
+<location>|Office</location>
+<command>ical</command>
+</program>
+<program portage-id="net-irc/jircii" command="jircii">
+<name>
+<en>jircii</en>
+</name>
+<location>|Net|IRC</location>
+<command>jircii</command>
+</program>
+<program portage-id="app-office/gnotime" command="gnotime">
+<name>
+<en>gnoTime</en>
+</name>
+<location>|Office</location>
+<command>gnotime</command>
+</program>
+<program portage-id="app-office/glabels" command="glabels">
+<name>
+<en>GLabels</en>
+</name>
+<location>|Office</location>
+<command>glabels</command>
+</program>
+<program portage-id="app-office/abiword" command="abiword-2.0:abiword-2.2">
+<name>
+<en>Abiword 2.0</en>
+</name>
+<location>|Office</location>
+<command>abiword-2.0</command>
+<icon><file>gnome-application-x-abiword.png</file></icon>
+</program>
+<program portage-id="app-office/abiword" command="abiword-2.0:abiword-2.2">
+<name>
+<en>Abiword 2.2</en>
+</name>
+<location>|Office</location>
+<command>abiword-2.2</command>
+<icon><file>gnome-application-x-abiword.png</file></icon>
+</program>
+<program portage-id="net-p2p/g2gui" command="g2gui">
+<name>
+<en>G2GUI</en>
+</name>
+<location>|Net|P2P</location>
+<command>g2gui</command>
+</program>
+<program portage-id="dev-util/wxglade" command="wxglade">
+<name>
+<en>wxGlade</en>
+</name>
+<location>|Development</location>
+<command>wxglade</command>
+</program>
+<program portage-id="games-arcade/frozen-bubble" command="frozen-bubble">
+<name>
+<en>Frozen Bubble</en>
+</name>
+<location>|Games|Arcade</location>
+<command>frozen-bubble</command>
+</program>
+<program portage-id="media-video/yanc" command="yanc">
+<name>
+<en>YANC</en>
+</name>
+<location>|Media|Video</location>
+<command>yanc</command>
+</program>
+<program portage-id="media-video/linuxvideostudio" command="studio">
+<name>
+<en>Linux Video Studio</en>
+</name>
+<location>|Media|Video</location>
+<command>studio</command>
+</program>
+<program portage-id="net-p2p/ed2k-gtk-gui" command="ed2k_gui">
+<name>
+<en>ed2k</en>
+</name>
+<location>|Net|P2P</location>
+<command>ed2k_gui</command>
+</program>
+<program portage-id="app-cdr/cdw" command="cdw -g">
+<name>
+<en>CDW</en>
+</name>
+<location>|System|Burn</location>
+<command>cdw -g</command>
+</program>
+<program portage-id="games-arcade/balloonchase" command="balloonchase">
+<name>
+<en>Balloon Chase</en>
+</name>
+<location>|Games|Arcade</location>
+<command>balloonchase</command>
+</program>
+<program portage-id="x11-misc/denu" command="denu">
+<name>
+<en>Denu</en>
+</name>
+<location>|</location>
+<command>denu</command>
+</program>
+<program portage-id="media-sound/beep-media-player" command="beep-media-player">
+<name>
+<en>BMP</en>
+</name>
+<location>|Media|Audio</location>
+<command>beep-media-player</command>
+</program>
+<program portage-id="net-print/foomatic-gui" command="foomatic-gui">
+<name>
+<en>Foomatic</en>
+</name>
+<location>|Net|Printing</location>
+<command>foomatic-gui</command>
+</program>
+<program portage-id="net-p2p/dc-gui" command="dc_gui2">
+<name>
+<en>DC GUI</en>
+</name>
+<location>|Net|P2P</location>
+<command>dc_gui2</command>
+</program>
+<program portage-id="dev-db/xpg" command="xpg">
+<name>
+<en>XPg</en>
+</name>
+<location>|Development|Database</location>
+<command>xpg</command>
+</program>
+<program portage-id="media-sound/sbconf" command="sbconf">
+<name>
+<en>SBConf</en>
+</name>
+<location>|Media|Audio</location>
+<command>sbconf</command>
+</program>
+<program portage-id="net-irc/lostirc" command="lostirc">
+<name>
+<en>LostIRC</en>
+</name>
+<location>|Net|IRC</location>
+<command>lostirc</command>
+</program>
+<program portage-id="net-firewall/firestarter" command="firestarter">
+<name>
+<en>Firestarter</en>
+</name>
+<location>|Net|Firewall</location>
+<command>firestarter</command>
+<icon><file>firestarter.png</file></icon>
+</program>
+<program portage-id="net-misc/aria" command="aria">
+<name>
+<en>Aria</en>
+</name>
+<location>|Net|Download Managers</location>
+<command>aria</command>
+</program>
+<program portage-id="net-misc/xfsamba" command="xfsamba">
+<name>
+<en>Xfsamba</en>
+</name>
+<location>|Net|Browsers</location>
+<command>xfsamba</command>
+</program>
+<program portage-id="dev-db/xmysqladmin" command="xmysqladmin">
+<name>
+<en>XMySQLadmin</en>
+</name>
+<location>|Development|Database</location>
+<command>xmysqladmin</command>
+</program>
+<program portage-id="games-arcade/bumprace" command="bumprace">
+<name>
+<en>Bumprace</en>
+</name>
+<location>|Games|Arcade</location>
+<command>bumprace</command>
+</program>
+<program portage-id="games-arcade/cavezofphear" command="phear">
+<name>
+<en>Cavez of Phear</en>
+</name>
+<location>|Games|Arcade</location>
+<command>phear</command>
+</program>
+<program portage-id="games-arcade/betna" command="betna">
+<name>
+<en>Betna</en>
+</name>
+<location>|Games|Arcade</location>
+<command>betna</command>
+</program>
+<program portage-id="games-arcade/blobwars" command="blobwars">
+<name>
+<en>Blob Wars</en>
+</name>
+<location>|Games|Arcade</location>
+<command>blobwars</command>
+</program>
+<program portage-id="games-arcade/bub-n-bros" command="bubnbros-x">
+<name>
+<en>Bub-N-Bros</en>
+</name>
+<location>|Games|Arcade</location>
+<command>bubnbros-x</command>
+</program>
+<program portage-id="games-arcade/insaneodyssey" command="insaneodyssey">
+<name>
+<en>Insane Odyssey</en>
+</name>
+<location>|Games|Arcade</location>
+<command>insaneodyssey</command>
+</program>
+<program portage-id="games-arcade/emilia-pinball" command="emilia-pinball">
+<name>
+<en>Emilia Pinball</en>
+</name>
+<location>|Games|Arcade</location>
+<command>emilia-pinball</command>
+</program>
+<program portage-id="games-arcade/gunocide2ex" command="gunocide2ex">
+<name>
+<en>Gunocide II EX</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gunocide2ex</command>
+</program>
+<program portage-id="games-arcade/circuslinux" command="circuslinux">
+<name>
+<en>Circus Linux</en>
+</name>
+<location>|Games|Arcade</location>
+<command>circuslinux</command>
+</program>
+<program portage-id="games-arcade/crack-attack" command="crack-attack --solo">
+<name>
+<en>Crack Attack</en>
+</name>
+<location>|Games|Arcade</location>
+<command>crack-attack --solo</command>
+</program>
+<program portage-id="games-arcade/excido" command="excido">
+<name>
+<en>Excido</en>
+</name>
+<location>|Games|Arcade</location>
+<command>excido</command>
+</program>
+<program portage-id="games-arcade/gav" command="gav">
+<name>
+<en>Arcade Volleyball</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gav</command>
+</program>
+<program portage-id="games-arcade/digger" command="digger">
+<name>
+<en>Digger</en>
+</name>
+<location>|Games|Arcade</location>
+<command>digger</command>
+</program>
+<program portage-id="games-arcade/epiar" command="epiar">
+<name>
+<en>Epiar</en>
+</name>
+<location>|Games|Arcade</location>
+<command>epiar</command>
+</program>
+<program portage-id="games-arcade/grande-KXL" command="grande">
+<name>
+<en>Grande</en>
+</name>
+<location>|Games|Arcade</location>
+<command>grande</command>
+</program>
+<program portage-id="games-arcade/jumpnbump" command="jumpnbump">
+<name>
+<en>Jump 'n Bump</en>
+</name>
+<location>|Games|Arcade</location>
+<command>jumpnbump</command>
+</program>
+<program portage-id="games-arcade/kamikaze" command="kamikaze">
+<name>
+<en>Kamikaze</en>
+</name>
+<location>|Games|Arcade</location>
+<command>kamikaze</command>
+</program>
+<program portage-id="games-arcade/koules" command="koules">
+<name>
+<en>Koules</en>
+</name>
+<location>|Games|Arcade</location>
+<command>koules</command>
+</program>
+<program portage-id="games-arcade/methane" command="methane">
+<name>
+<en>Methane</en>
+</name>
+<location>|Games|Arcade</location>
+<command>methane</command>
+</program>
+<program portage-id="games-arcade/late" command="late">
+<name>
+<en>Late</en>
+</name>
+<location>|Games|Arcade</location>
+<command>late</command>
+</program>
+<program portage-id="games-arcade/missile" command="missile">
+<name>
+<en>Missile Command</en>
+</name>
+<location>|Games|Arcade</location>
+<command>missile</command>
+</program>
+<program portage-id="games-arcade/lbreakout" command="lbreakout">
+<name>
+<en>LBreakout</en>
+</name>
+<location>|Games|Arcade</location>
+<command>lbreakout</command>
+</program>
+<program portage-id="games-arcade/lbreakout2" command="lbreakout2">
+<name>
+<en>LBreakout2</en>
+</name>
+<location>|Games|Arcade</location>
+<command>lbreakout2</command>
+</program>
+<program portage-id="games-arcade/monster-masher" command="monster-masher">
+<name>
+<en>Monster Masher</en>
+</name>
+<location>|Games|Arcade</location>
+<command>monster-masher</command>
+</program>
+<program portage-id="games-arcade/marbleblastdemo" command="marbleblastdemo">
+<name>
+<en>Marble Blast Demo</en>
+</name>
+<location>|Games|Arcade</location>
+<command>marbleblastdemo</command>
+</program>
+<program portage-id="games-arcade/marbleblastgolddemo" command="marbleblastgolddemo">
+<name>
+<en>Marble Blast Gold Demo</en>
+</name>
+<location>|Games|Arcade</location>
+<command>marbleblastgolddemo</command>
+</program>
+<program portage-id="games-arcade/kobodeluxe" command="kobodl">
+<name>
+<en>Kobo Deluxe</en>
+</name>
+<location>|Games|Arcade</location>
+<command>kobodl</command>
+</program>
+<program portage-id="games-arcade/pycadia" command="pycadia">
+<name>
+<en>pyCadia</en>
+</name>
+<location>|Games|Arcade</location>
+<command>pycadia</command>
+</program>
+<program portage-id="games-arcade/njam" command="njam">
+<name>
+<en>Njam</en>
+</name>
+<location>|Games|Arcade</location>
+<command>njam</command>
+</program>
+<program portage-id="games-arcade/openmortal" command="openmortal">
+<name>
+<en>Mortal Szombat</en>
+</name>
+<location>|Games|Arcade</location>
+<command>openmortal</command>
+</program>
+<program portage-id="games-arcade/pachi" command="pachi">
+<name>
+<en>Pachi el marciano</en>
+</name>
+<location>|Games|Arcade</location>
+<command>pachi</command>
+</program>
+<program portage-id="games-arcade/pacmanarena" command="pacmanarena">
+<name>
+<en>Pacman Arena</en>
+</name>
+<location>|Games|Arcade</location>
+<command>pacmanarena</command>
+</program>
+<program portage-id="games-arcade/pydance" command="pydance">
+<name>
+<en>pydance</en>
+</name>
+<location>|Games|Arcade</location>
+<command>pydance</command>
+</program>
+<program portage-id="games-arcade/rockdodger" command="rockdodger">
+<name>
+<en>Rock Dodger</en>
+</name>
+<location>|Games|Arcade</location>
+<command>rockdodger</command>
+</program>
+<program portage-id="games-arcade/rocksndiamonds" command="rocksndiamonds.x11">
+<name>
+<en>Rocks 'n' Diamonds</en>
+</name>
+<location>|Games|Arcade</location>
+<command>rocksndiamonds.x11</command>
+</program>
+<program portage-id="games-arcade/sdl-sopwith" command="sopwith">
+<name>
+<en>Sopwith</en>
+</name>
+<location>|Games|Arcade</location>
+<command>sopwith</command>
+</program>
+<program portage-id="games-arcade/sdlroids" command="sdlroids">
+<name>
+<en>SDLroids</en>
+</name>
+<location>|Games|Arcade</location>
+<command>sdlroids</command>
+</program>
+<program portage-id="games-arcade/sdlsasteroids" command="sdlasteroids">
+<name>
+<en>SDLAsteroids</en>
+</name>
+<location>|Games|Arcade</location>
+<command>sdlasteroids</command>
+</program>
+<program portage-id="games-arcade/skystreets" command="skystreets">
+<name>
+<en>Sky Streets</en>
+</name>
+<location>|Games|Arcade</location>
+<command>skystreets</command>
+</program>
+<program portage-id="games-arcade/solarwolf" command="solarwolf">
+<name>
+<en>Solarwolf</en>
+</name>
+<location>|Games|Arcade</location>
+<command>solarwolf</command>
+</program>
+<program portage-id="games-arcade/spout" command="spout">
+<name>
+<en>Spout</en>
+</name>
+<location>|Games|Arcade</location>
+<command>spout</command>
+</program>
+<program portage-id="games-arcade/xtux" command="xtux">
+<name>
+<en>XTux Arena</en>
+</name>
+<location>|Games|Arcade</location>
+<command>xtux</command>
+</program>
+<program portage-id="games-arcade/yarsrevenge" command="yar">
+<name>
+<en>Yar's Revenge</en>
+</name>
+<location>|Games|Arcade</location>
+<command>yar</command>
+</program>
+<program portage-id="games-arcade/xscavenger" command="scavenger">
+<name>
+<en>Scavenger</en>
+</name>
+<location>|Games|Arcade</location>
+<command>scavenger</command>
+</program>
+<program portage-id="games-arcade/xrick" command="xrick">
+<name>
+<en>Rick Dangerous</en>
+</name>
+<location>|Games|Arcade</location>
+<command>xrick</command>
+</program>
+<program portage-id="games-arcade/xkobo" command="xkobo">
+<name>
+<en>XKobo</en>
+</name>
+<location>|Games|Arcade</location>
+<command>xkobo</command>
+</program>
+<program portage-id="games-arcade/xbill" command="xbill">
+<name>
+<en>XBill</en>
+</name>
+<location>|Games|Arcade</location>
+<command>xbill</command>
+</program>
+<program portage-id="games-arcade/xevil" command="xevil">
+<name>
+<en>XEvil</en>
+</name>
+<location>|Games|Arcade</location>
+<command>xevil</command>
+</program>
+<program portage-id="games-arcade/xboing" command="xboing">
+<name>
+<en>XBoing II</en>
+</name>
+<location>|Games|Arcade</location>
+<command>xboing</command>
+</program>
+<program portage-id="games-arcade/xgalaga" command="xgalaga">
+<name>
+<en>XGalaga</en>
+</name>
+<location>|Games|Arcade</location>
+<command>xgalaga</command>
+</program>
+<program portage-id="games-arcade/tuxpuck" command="tuxpuck">
+<name>
+<en>Tux Puck</en>
+</name>
+<location>|Games|Arcade</location>
+<command>tuxpuck</command>
+</program>
+<program portage-id="games-arcade/thinktanksdemo" command="thinktanksdemo">
+<name>
+<en>Think Tanks Demo</en>
+</name>
+<location>|Games|Arcade</location>
+<command>thinktanksdemo</command>
+</program>
+<program portage-id="games-action/geki3-KXL" command="geki3">
+<name>
+<en>Geki 3</en>
+</name>
+<location>|Games|Action</location>
+<command>geki3</command>
+</program>
+<program portage-id="games-action/geki2-KXL" command="geki2">
+<name>
+<en>Geki 2</en>
+</name>
+<location>|Games|Action</location>
+<command>geki2</command>
+</program>
+<program portage-id="games-action/abuse_sdl" command="abuse.sdl">
+<name>
+<en>Abuse</en>
+</name>
+<location>|Games|Action</location>
+<command>abuse.sdl</command>
+</program>
+<program portage-id="games-action/mutantstorm-demo" command="mutantstorm-demo">
+<name>
+<en>Mutant Storm Demo</en>
+</name>
+<location>|Games|Action</location>
+<command>mutantstorm-demo</command>
+</program>
+<program portage-id="games-action/d2x" command="d2x-gl">
+<name>
+<en>D2X</en>
+</name>
+<location>|Games|Action</location>
+<command>d2x-gl</command>
+</program>
+<program portage-id="games-action/chickens" command="chickens">
+<name>
+<en>Chickens</en>
+</name>
+<location>|Games|Action</location>
+<command>chickens</command>
+</program>
+<program portage-id="games-action/bzflag" command="bzflag">
+<name>
+<en>BZFlag</en>
+</name>
+<location>|Games|Action</location>
+<command>bzflag</command>
+</program>
+<program portage-id="games-action/spacearyarya-kxl" command="spacearyarya">
+<name>
+<en>SpaceAryarya</en>
+</name>
+<location>|Games|Action</location>
+<command>spacearyarya</command>
+</program>
+<program portage-id="games-action/poopmup" command="poopmup">
+<name>
+<en>PoopmUp</en>
+</name>
+<location>|Games|Action</location>
+<command>poopmup</command>
+</program>
+<program portage-id="games-board/cgoban" command="cgoban">
+<name>
+<en>CGoban</en>
+</name>
+<location>|Games|Board</location>
+<command>cgoban</command>
+</program>
+<program portage-id="games-board/daemonshogi" command="daemonshogi">
+<name>
+<en>Daemonshogi</en>
+</name>
+<location>|Games|Board</location>
+<command>daemonshogi</command>
+</program>
+<program portage-id="games-board/atakks" command="atakks">
+<name>
+<en>Atakks</en>
+</name>
+<location>|Games|Board</location>
+<command>atakks</command>
+</program>
+<program portage-id="games-action/towbowl-tactics" command="tbt">
+<name>
+<en>Tow Bowl Tactics</en>
+</name>
+<location>|Games|Action</location>
+<command>tbt</command>
+</program>
+<program portage-id="games-board/cgoban2" command="cgoban2">
+<name>
+<en>CGoban 2</en>
+</name>
+<location>|Games|Board</location>
+<command>cgoban2</command>
+</program>
+<program portage-id="games-board/eboard" command="eboard">
+<name>
+<en>eBoard</en>
+</name>
+<location>|Games|Board</location>
+<command>eboard</command>
+</program>
+<program portage-id="games-action/parsec" command="parsec">
+<name>
+<en>Parsec</en>
+</name>
+<location>|Games|Action</location>
+<command>parsec</command>
+</program>
+<program portage-id="games-action/orbital-eunuchs-sniper" command="snipe2d">
+<name>
+<en>Orbital Eunuchs Sniper</en>
+</name>
+<location>|Games|Action</location>
+<command>snipe2d</command>
+</program>
+<program portage-id="games-action/phobiaii" command="phobiaII">
+<name>
+<en>Phobia II</en>
+</name>
+<location>|Games|Action</location>
+<command>phobiaII</command>
+</program>
+<program portage-id="games-action/spacetripper-demo" command="spacetripper-demo">
+<name>
+<en>Space Tripper Demo</en>
+</name>
+<location>|Games|Action</location>
+<command>spacetripper-demo</command>
+</program>
+<program portage-id="net-im/ymessenger" command="ymessenger">
+<name>
+<en>Yahoo! Messenger</en>
+</name>
+<location>|Net|IM</location>
+<command>ymessenger</command>
+</program>
+<program portage-id="games-action/phobiaiii" command="phobiaIII">
+<name>
+<en>Phobia III</en>
+</name>
+<location>|Games|Action</location>
+<command>phobiaIII</command>
+</program>
+<program portage-id="games-roguelike/moria" command="moria">
+<name>
+<en>Moria</en>
+</name>
+<location>|Games|Rogue-Like</location>
+<command>moria</command>
+</program>
+<program portage-id="games-roguelike/fargoal" command="fargoal">
+<name>
+<en>Fargoal</en>
+</name>
+<location>|Games|Rogue-Like</location>
+<command>fargoal</command>
+</program>
+<program portage-id="games-roguelike/crossfire-client" command="gcfclient">
+<name>
+<en>Crossfire</en>
+</name>
+<location>|Games|Rogue-Like</location>
+<command>gcfclient</command>
+</program>
+<program portage-id="games-roguelike/hengband" command="hengband">
+<name>
+<en>Hengband</en>
+</name>
+<location>|Games|Rogue-Like</location>
+<command>hengband</command>
+</program>
+<program portage-id="games-roguelike/tome" command="tome">
+<name>
+<en>ToME</en>
+</name>
+<location>|Games|Rogue-Like</location>
+<command>tome</command>
+</program>
+<program portage-id="games-roguelike/angband" command="angband">
+<name>
+<en>The Pits of Angband</en>
+</name>
+<location>|Games|Rogue-Like</location>
+<command>angband</command>
+</program>
+<program portage-id="games-roguelike/slashem" command="slashem">
+<name>
+<en>SlashEM</en>
+</name>
+<location>|Games|Rogue-Like|SlashEM</location>
+<command>slashem</command>
+</program>
+<program portage-id="games-roguelike/noegnud-slashem" command="noegnud-slashem">
+<name>
+<en>noegnud-SlashEM</en>
+</name>
+<location>|Games|Rogue-Like|SlashEM</location>
+<command>noegnud-slashem</command>
+</program>
+<program portage-id="games-roguelike/zangband" command="zangband">
+<name>
+<en>ZAngband</en>
+</name>
+<location>|Games|Rogue-Like</location>
+<command>zangband</command>
+</program>
+<program portage-id="games-strategy/asc" command="asc">
+<name>
+<en>Advanced Strategic Command</en>
+</name>
+<location>|Games|Strategy</location>
+<command>asc</command>
+</program>
+<program portage-id="games-rpg/freedroid" command="freedroid">
+<name>
+<en>Freedroid</en>
+</name>
+<location>|Games|RPG</location>
+<command>freedroid</command>
+</program>
+<program portage-id="games-rpg/pcgen" command="pcgen">
+<name>
+<en>PCgen</en>
+</name>
+<location>|Games|RPG</location>
+<command>pcgen</command>
+</program>
+<program portage-id="games-rpg/openrpg" command="openrpg:openrpg-server-gui">
+<name>
+<en>OpenRPG</en>
+</name>
+<location>|Games|RPG</location>
+<command>openrpg</command>
+</program>
+<program portage-id="games-rpg/openrpg" command="openrpg:openrpg-server-gui">
+<name>
+<en>OpenRPG Server</en>
+</name>
+<location>|Games|RPG</location>
+<command>openrpg-server-gui</command>
+</program>
+<program portage-id="games-rpg/xu4" command="u4">
+<name>
+<en>Ultima IV</en>
+</name>
+<location>|Games|RPG</location>
+<command>u4</command>
+</program>
+<program portage-id="games-rpg/daimonin-client" command="daimonin">
+<name>
+<en>Daimonin</en>
+</name>
+<location>|Games|RPG</location>
+<command>daimonin</command>
+</program>
+<program portage-id="games-rpg/egoboo" command="egoboo">
+<name>
+<en>Egoboo</en>
+</name>
+<location>|Games|RPG</location>
+<command>egoboo</command>
+</program>
+<program portage-id="games-rpg/eternal-lands" command="el">
+<name>
+<en>Eternal Lands</en>
+</name>
+<location>|Games|RPG</location>
+<command>el</command>
+</program>
+<program portage-id="games-rpg/openglad" command="openglad">
+<name>
+<en>OpenGlad</en>
+</name>
+<location>|Games|RPG</location>
+<command>openglad</command>
+</program>
+<program portage-id="games-rpg/queen" command="queen">
+<name>
+<en>Flight of the Amazon Queen</en>
+</name>
+<location>|Games|RPG</location>
+<command>queen</command>
+</program>
+<program portage-id="games-simulation/qct" command="qct">
+<name>
+<en>Quiet Console Town</en>
+</name>
+<location>|Games|Simulation</location>
+<command>qct</command>
+</program>
+<program portage-id="games-simulation/simutrans" command="simutrans">
+<name>
+<en>SimuTrans</en>
+</name>
+<location>|Games|Simulation</location>
+<command>simutrans</command>
+</program>
+<program portage-id="games-simulation/openttd" command="openttd">
+<name>
+<en>Transport Tycoon Deluxe</en>
+</name>
+<location>|Games|Simulation</location>
+<command>openttd</command>
+</program>
+<program portage-id="games-simulation/bcsdemo" command="bcsdemo">
+<name>
+<en>Bridge Construction Demo</en>
+</name>
+<location>|Games|Simulation</location>
+<command>bcsdemo</command>
+</program>
+<program portage-id="app-office/gnumeric" command="gnumeric">
+<name>
+<en>Gnumeric</en>
+</name>
+<location>|Office</location>
+<command>gnumeric</command>
+<icon><file>gnome-gnumeric.png</file></icon>
+</program>
+<program portage-id="app-portage/porthole" command="porthole">
+<name>
+<en>Porthole</en>
+</name>
+<location>|System|Portage</location>
+<command>porthole</command>
+<icon><file>porthole-icon.png</file></icon>
+</program>
+<program portage-id="app-cdr/arson" command="arson">
+<name>
+<en>Arson</en>
+</name>
+<location>|System|Burn</location>
+<command>arson</command>
+</program>
+<program portage-id="app-cdr/gtoaster" command="gtoaster">
+<name>
+<en>GnomeToaster</en>
+</name>
+<location>|System|Burn</location>
+<command>gtoaster</command>
+</program>
+<program portage-id="games-strategy/boson" command="boson">
+<name>
+<en>Boson</en>
+</name>
+<location>|Games|Strategy</location>
+<command>boson</command>
+</program>
+<program portage-id="games-strategy/freecnc" command="freecnc">
+<name>
+<en>Free Command and Conquer</en>
+</name>
+<location>|Games|Strategy</location>
+<command>freecnc</command>
+</program>
+<program portage-id="games-strategy/lgeneral" command="lgeneral">
+<name>
+<en>LGeneral</en>
+</name>
+<location>|Games|Strategy</location>
+<command>lgeneral</command>
+</program>
+<program portage-id="games-strategy/ufo2000" command="ufo2000">
+<name>
+<en>UFO 2000</en>
+</name>
+<location>|Games|Strategy</location>
+<command>ufo2000</command>
+</program>
+<program portage-id="games-strategy/kpictorial" command="kpictorial">
+<name>
+<en>KPictorial</en>
+</name>
+<location>|Games|Strategy</location>
+<command>kpictorial</command>
+</program>
+<program portage-id="games-strategy/scorched3d" command="scorched3d">
+<name>
+<en>Scorched 3D</en>
+</name>
+<location>|Games|Strategy</location>
+<command>scorched3d</command>
+</program>
+<program portage-id="games-strategy/dopewars" command="dopewars">
+<name>
+<en>DopeWars</en>
+</name>
+<location>|Games|Strategy</location>
+<command>dopewars</command>
+</program>
+<program portage-id="games-strategy/uqm" command="uqm">
+<name>
+<en>The Ur-Quan Masters</en>
+</name>
+<location>|Games|Strategy</location>
+<command>uqm</command>
+</program>
+<program portage-id="games-strategy/triplea" command="triplea">
+<name>
+<en>Triplea</en>
+</name>
+<location>|Games|Strategy</location>
+<command>triplea</command>
+</program>
+<program portage-id="games-strategy/dominions2-demo-bin" command="domion2-demo">
+<name>
+<en>Dominions II</en>
+</name>
+<location>|Games|Strategy</location>
+<command>domion2-demo</command>
+</program>
+<program portage-id="games-strategy/xscorch" command="xscorch">
+<name>
+<en>XScorch</en>
+</name>
+<location>|Games|Strategy</location>
+<command>xscorch</command>
+</program>
+<program portage-id="games-strategy/ufo-ai" command="ufo-ai">
+<name>
+<en>UFO Alien Invasion</en>
+</name>
+<location>|Games|Strategy</location>
+<command>ufo-ai</command>
+</program>
+<program portage-id="games-strategy/mylink" command="MyLinkTk">
+<name>
+<en>MyLink</en>
+</name>
+<location>|Games|Strategy</location>
+<command>MyLinkTk</command>
+</program>
+<program portage-id="app-text/gpdf" command="gpdf">
+<name>
+<en>GPDF</en>
+</name>
+<location>|Utilities|PDF</location>
+<command>gpdf</command>
+<icon><file>gpdf-48.png</file></icon>
+</program>
+<program portage-id="app-office/kbudget" command="kbudget">
+<name>
+<en>KBudget</en>
+</name>
+<location>|Office</location>
+<command>kbudget</command>
+</program>
+<program portage-id="app-office/ganttproject" command="ganttproject">
+<name>
+<en>GanttProject</en>
+</name>
+<location>|Office</location>
+<command>ganttproject</command>
+</program>
+<program portage-id="app-office/imposter" command="imposter">
+<name>
+<en>Imposter</en>
+</name>
+<location>|Office</location>
+<command>imposter</command>
+</program>
+<program portage-id="app-office/lxbank" command="LxBank">
+<name>
+<en>LxBank</en>
+</name>
+<location>|Office</location>
+<command>LxBank</command>
+</program>
+<program portage-id="games-board/gtkboard" command="gtkboard">
+<name>
+<en>Gtkboard</en>
+</name>
+<location>|Games|Board</location>
+<command>gtkboard</command>
+</program>
+<program portage-id="games-board/xmille" command="xmille">
+<name>
+<en>XMILLE</en>
+</name>
+<location>|Games|Board</location>
+<command>xmille</command>
+</program>
+<program portage-id="games-board/xfreecell" command="xfreecell">
+<name>
+<en>xfreecell</en>
+</name>
+<location>|Games|Board</location>
+<command>xfreecell</command>
+</program>
+<program portage-id="games-board/xscrabble" command="xscrabble">
+<name>
+<en>XScrabble</en>
+</name>
+<location>|Games|Board</location>
+<command>xscrabble</command>
+</program>
+<program portage-id="games-board/six" command="six">
+<name>
+<en>Six</en>
+</name>
+<location>|Games|Board</location>
+<command>six</command>
+</program>
+<program portage-id="games-board/mahjongg3d" command="mahjongg3d">
+<name>
+<en>Mahjongg Solitaire 3D</en>
+</name>
+<location>|Games|Board</location>
+<command>mahjongg3d</command>
+</program>
+<program portage-id="games-board/xskat" command="xskat">
+<name>
+<en>XSKAT</en>
+</name>
+<location>|Games|Board</location>
+<command>xskat</command>
+</program>
+<program portage-id="games-board/hexxagon" command="hexxagon">
+<name>
+<en>Hexxagon</en>
+</name>
+<location>|Games|Board</location>
+<command>hexxagon</command>
+</program>
+<program portage-id="games-board/sirius" command="sirius">
+<name>
+<en>Sirius</en>
+</name>
+<location>|Games|Board</location>
+<command>sirius</command>
+</program>
+<program portage-id="games-board/xmahjongg" command="xmahjongg">
+<name>
+<en>XMahjongg</en>
+</name>
+<location>|Games|Board</location>
+<command>xmahjongg</command>
+</program>
+<program portage-id="games-board/teg" command="tegclient">
+<name>
+<en>Tenes Empanadas Graciela</en>
+</name>
+<location>|Games|Board</location>
+<command>tegclient</command>
+</program>
+<program portage-id="games-board/xgammon" command="xgammon">
+<name>
+<en>XGammon</en>
+</name>
+<location>|Games|Board</location>
+<command>xgammon</command>
+</program>
+<program portage-id="games-board/gnocatan" command="gnocatan">
+<name>
+<en>Gnocatan</en>
+</name>
+<location>|Games|Board</location>
+<command>gnocatan</command>
+</program>
+<program portage-id="games-board/gnono" command="gnono">
+<name>
+<en>Gnono</en>
+</name>
+<location>|Games|Board</location>
+<command>gnono</command>
+</program>
+<program portage-id="games-board/scid" command="scid">
+<name>
+<en>Shane's Chess Information Database</en>
+</name>
+<location>|Games|Board</location>
+<command>scid</command>
+</program>
+<program portage-id="games-board/kwappen" command="kwappen">
+<name>
+<en>KWappen</en>
+</name>
+<location>|Games|Board</location>
+<command>kwappen</command>
+</program>
+<program portage-id="games-board/pysol" command="pysol">
+<name>
+<en>PySol</en>
+</name>
+<location>|Games|Board</location>
+<command>pysol</command>
+</program>
+<program portage-id="games-board/r-katro" command="r-katro">
+<name>
+<en>r-Katro</en>
+</name>
+<location>|Games|Board</location>
+<command>r-katro</command>
+</program>
+<program portage-id="games-board/qgo" command="qgo">
+<name>
+<en>QGo Client</en>
+</name>
+<location>|Games|Board</location>
+<command>qgo</command>
+</program>
+<program portage-id="games-board/gtkatlantic" command="gtkatlantic">
+<name>
+<en>GtkAtlantic</en>
+</name>
+<location>|Games|Board</location>
+<command>gtkatlantic</command>
+</program>
+<program portage-id="games-board/gnubg" command="gnubg">
+<name>
+<en>GNU Backgammon</en>
+</name>
+<location>|Games|Board</location>
+<command>gnubg</command>
+</program>
+<program portage-id="games-board/mt_gtk_client" command="mt_gtk_client">
+<name>
+<en>Maitre Tarot</en>
+</name>
+<location>|Games|Board</location>
+<command>mt_gtk_client</command>
+</program>
+<program portage-id="app-office/kletterwizard" command="kletterwizard">
+<name>
+<en>KLetterWizard</en>
+</name>
+<location>|Office</location>
+<command>kletterwizard</command>
+</program>
+<program portage-id="www-misc/gurlchecker" command="gurlchecker">
+<name>
+<en>GURLChecker</en>
+</name>
+<location>|Net|Misc</location>
+<command>gurlchecker</command>
+</program>
+<program portage-id="mail-client/mozilla-thunderbird-bin" command="thunderbird">
+<name>
+<en>Thunderbird</en>
+</name>
+<location>|Net|Mail</location>
+<command>thunderbird</command>
+<icon><file>thunderbird-icon.png</file></icon>
+</program>
+<program portage-id="mail-client/spruce" command="spruce">
+<name>
+<en>Spruce</en>
+</name>
+<location>|Net|Mail</location>
+<command>spruce</command>
+</program>
+<program portage-id="mail-client/kbiff" command="kbiff">
+<name>
+<en>KBiff</en>
+</name>
+<location>|Net|Mail</location>
+<command>kbiff</command>
+</program>
+<program portage-id="net-im/gnugadu" command="gg2">
+<name>
+<en>GNU Gadu</en>
+</name>
+<location>|Net|IM</location>
+<command>gg2</command>
+</program>
+<program portage-id="net-im/cpop" command="cpclient">
+<name>
+<en>CPop</en>
+</name>
+<location>|Net|IM</location>
+<command>cpclient</command>
+</program>
+<program portage-id="net-im/ickle" command="ickle">
+<name>
+<en>Ickle</en>
+</name>
+<location>|Net|IM</location>
+<command>ickle</command>
+</program>
+<program portage-id="net-im/everybuddy" command="everybuddy">
+<name>
+<en>EveryBuddy</en>
+</name>
+<location>|Net|IM</location>
+<command>everybuddy</command>
+</program>
+<program portage-id="net-im/gyach" command="gyach">
+<name>
+<en>Gyach</en>
+</name>
+<location>|Net|IM</location>
+<command>gyach</command>
+</program>
+<program portage-id="net-im/openc6" command="c6">
+<name>
+<en>OpenC6</en>
+</name>
+<location>|Net|IM</location>
+<command>c6</command>
+</program>
+<program portage-id="net-im/gnome-jabber" command="gnome-jabber">
+<name>
+<en>Gnome-Jabber</en>
+</name>
+<location>|Net|IM</location>
+<command>gnome-jabber</command>
+</program>
+<program portage-id="net-im/gnomemeeting" command="gnomemeeting">
+<name>
+<en>Gnome Meeting</en>
+</name>
+<location>|Net|IM</location>
+<command>gnomemeeting</command>
+</program>
+<program portage-id="net-im/ccmsn" command="ccmsn">
+<name>
+<en>Compu's Messenger</en>
+</name>
+<location>|Net|IM</location>
+<command>ccmsn</command>
+</program>
+<program portage-id="net-im/amsn" command="amsn">
+<name>
+<en>aMSN</en>
+</name>
+<location>|Net|IM</location>
+<command>amsn</command>
+</program>
+<program portage-id="net-im/ayttm" command="ayttm">
+<name>
+<en>Ayttm</en>
+</name>
+<location>|Net|IM</location>
+<command>ayttm</command>
+<icon><file>ayttm.png</file></icon>
+</program>
+<program portage-id="kde-base/kopete" command="kopete">
+<name>
+<en>Kopete</en>
+</name>
+<location>|Net|IM</location>
+<command>kopete</command>
+</program>
+<program portage-id="net-im/gnomeicu" command="gnomeicu">
+<name>
+<en>Gnome ICU</en>
+</name>
+<location>|Net|IM</location>
+<command>gnomeicu</command>
+</program>
+<program portage-id="net-im/kpopup" command="kpopup">
+<name>
+<en>KPopup</en>
+</name>
+<location>|Net|IM</location>
+<command>kpopup</command>
+</program>
+<program portage-id="net-im/linpopup" command="linpopup">
+<name>
+<en>LinPopUp</en>
+</name>
+<location>|Net|IM</location>
+<command>linpopup</command>
+</program>
+<program portage-id="www-client/mozilla" command="mozilla">
+<name>
+<en>Mozilla</en>
+</name>
+<location>|Net|Browsers</location>
+<command>mozilla</command>
+<icon><file>mozilla.png</file></icon>
+</program>
+<program portage-id="www-client/mozilla-bin" command="mozilla">
+<name>
+<en>Mozilla</en>
+</name>
+<location>|Net|Browsers</location>
+<command>mozilla</command>
+<icon><file>mozilla.png</file></icon>
+</program>
+<program portage-id="net-ftp/deadftp" command="deadftp">
+<name>
+<en>DeadFTP</en>
+</name>
+<location>|Net|FTP</location>
+<command>deadftp</command>
+</program>
+<program portage-id="net-ftp/ftpcube" command="ftpcube">
+<name>
+<en>FtpCube</en>
+</name>
+<location>|Net|FTP</location>
+<command>ftpcube</command>
+</program>
+<program portage-id="net-ftp/axyftp" command="axyftp">
+<name>
+<en>AxY FTP</en>
+</name>
+<location>|Net|FTP</location>
+<command>axyftp</command>
+</program>
+<program portage-id="net-ftp/pureadmin" command="pureadmin">
+<name>
+<en>Pure Admin</en>
+</name>
+<location>|Net|FTP</location>
+<command>pureadmin</command>
+</program>
+<program portage-id="net-ftp/kasablanca" command="kasablanca">
+<name>
+<en>kasablanca</en>
+</name>
+<location>|Net|FTP</location>
+<command>kasablanca</command>
+</program>
+<program portage-id="net-ftp/junkie" command="junkie">
+<name>
+<en>junkie</en>
+</name>
+<location>|Net|FTP</location>
+<command>junkie</command>
+</program>
+<program portage-id="net-ftp/easyftp" command="easyFTP">
+<name>
+<en>easyFTP</en>
+</name>
+<location>|Net|FTP</location>
+<command>easyFTP</command>
+</program>
+<program portage-id="net-ftp/kbear" command="kbear">
+<name>
+<en>KBear</en>
+</name>
+<location>|Net|FTP</location>
+<command>kbear</command>
+<icon><file>kbear.png</file></icon>
+</program>
+<program portage-id="www-client/amaya" command="amaya">
+<name>
+<en>Amaya</en>
+</name>
+<location>|Net|Browsers</location>
+<command>amaya</command>
+</program>
+<program portage-id="www-client/dillo" command="dillo">
+<name>
+<en>Dillo</en>
+</name>
+<location>|Net|Browsers</location>
+<command>dillo</command>
+</program>
+<program portage-id="app-pda/plucker" command="plucker">
+<name>
+<en>Plucker</en>
+</name>
+<location>|System|PDA</location>
+<command>plucker</command>
+</program>
+<program portage-id="app-pda/multisync" command="multisync">
+<name>
+<en>Multisync</en>
+</name>
+<location>|System|PDA</location>
+<command>multisync</command>
+</program>
+<program portage-id="app-pda/gnome-pilot" command="gpilotd-control-applet">
+<name>
+<en>Gnome Pilot</en>
+</name>
+<location>|System|PDA</location>
+<command>gpilotd-control-applet</command>
+</program>
+<program portage-id="games-simulation/flightgear" command="fgrun">
+<name>
+<en>Flight Gear Flight Simulator</en>
+</name>
+<location>|Games|Simulation</location>
+<command>fgrun</command>
+</program>
+<program portage-id="x11-terms/multi-aterm" command="multi-aterm">
+<name>
+<en>Multi-ATerm</en>
+</name>
+<location>|Terms</location>
+<command>multi-aterm</command>
+</program>
+<program portage-id="x11-terms/multi-gnome-terminal" command="multi-gnome-terminal">
+<name>
+<en>Multi Gnome Terminal</en>
+</name>
+<location>|Terms</location>
+<command>multi-gnome-terminal</command>
+</program>
+<program portage-id="x11-terms/cxterm" command="cxterm">
+<name>
+<en>CXTerm</en>
+</name>
+<location>|Terms</location>
+<command>cxterm</command>
+</program>
+<program portage-id="app-accessibility/dasher" command="dasher">
+<name>
+<en>Dasher</en>
+</name>
+<location>|Accessibility</location>
+<command>dasher</command>
+</program>
+<program portage-id="app-accessibility/at-poke" command="at-poke">
+<name>
+<en>at-poke</en>
+</name>
+<location>|Accessibility</location>
+<command>at-poke</command>
+</program>
+<program portage-id="app-accessibility/gok" command="gok">
+<name>
+<en>GOK</en>
+</name>
+<location>|Accessibility</location>
+<command>gok</command>
+</program>
+<program portage-id="app-accessibility/gnopernicus" command="gnopernicus">
+<name>
+<en>Gnopernicus</en>
+</name>
+<location>|Accessibility</location>
+<command>gnopernicus</command>
+</program>
+<program portage-id="app-admin/analog" command="analog">
+<name>
+<en>AnaLOG</en>
+</name>
+<location>|System|Admin</location>
+<command>analog</command>
+</program>
+<program portage-id="app-admin/gpsui" command="psui">
+<name>
+<en>GPSUI</en>
+</name>
+<location>|System|Admin</location>
+<command>psui</command>
+</program>
+<program portage-id="app-admin/fpm" command="fpm">
+<name>
+<en>Figaro's Password Manager</en>
+</name>
+<location>|System|Admin</location>
+<command>fpm</command>
+</program>
+<program portage-id="app-admin/gnome-system-tools" command="boot-admin:network-admin:services-admin:time-admin:users-admin">
+<name>
+<en>Boot Manager Settings</en>
+</name>
+<location>|System|Admin</location>
+<command>boot-admin</command>
+</program>
+<program portage-id="app-admin/gnome-system-tools" command="boot-admin:network-admin:services-admin:time-admin:users-admin">
+<name>
+<en>Network Settings</en>
+</name>
+<location>|System|Admin</location>
+<command>network-admin</command>
+</program>
+<program portage-id="app-admin/gnome-system-tools" command="boot-admin:network-admin:services-admin:time-admin:users-admin">
+<name>
+<en>Services Settings</en>
+</name>
+<location>|System|Admin</location>
+<command>services-admin</command>
+</program>
+<program portage-id="app-admin/gnome-system-tools" command="boot-admin:network-admin:services-admin:time-admin:users-admin">
+<name>
+<en>Time and Date Settings</en>
+</name>
+<location>|System|Admin</location>
+<command>time-admin</command>
+</program>
+<program portage-id="app-admin/gnome-system-tools" command="boot-admin:network-admin:services-admin:time-admin:users-admin">
+<name>
+<en>Users and Groups Settings</en>
+</name>
+<location>|System|Admin</location>
+<command>users-admin</command>
+</program>
+<program portage-id="app-admin/gnomesu" command="gnomesu">
+<name>
+<en>Gnome Superuser</en>
+</name>
+<location>|System|Admin</location>
+<command>gnomesu</command>
+</program>
+<program portage-id="app-admin/gps" command="gps">
+<name>
+<en>gPS</en>
+</name>
+<location>|System|Admin</location>
+<command>gps</command>
+</program>
+<program portage-id="app-admin/grubconf" command="grubconf">
+<name>
+<en>Grub Configurator</en>
+</name>
+<location>|System|Admin</location>
+<command>grubconf</command>
+</program>
+<program portage-id="app-admin/gtkdiskfree" command="gtkdiskfree">
+<name>
+<en>gtkdiskfree</en>
+</name>
+<location>|System|Admin</location>
+<command>gtkdiskfree</command>
+</program>
+<program portage-id="app-admin/kedpm" command="kedpm">
+<name>
+<en>Ked Password Manager</en>
+</name>
+<location>|System|Admin</location>
+<command>kedpm</command>
+</program>
+<program portage-id="app-admin/kiosktool" command="kiosktool">
+<name>
+<en>KIOSK Admin Tool</en>
+</name>
+<location>|System|Admin</location>
+<command>kiosktool</command>
+</program>
+<program portage-id="app-admin/moodss" command="moodss">
+<name>
+<en>Moodss</en>
+</name>
+<location>|System|Admin</location>
+<command>moodss</command>
+</program>
+<program portage-id="app-admin/otpcalc" command="otpCalc">
+<name>
+<en>otpCalc</en>
+</name>
+<location>|System|Admin</location>
+<command>otpCalc</command>
+</program>
+<program portage-id="app-admin/powertweak" command="gpowertweak">
+<name>
+<en>Powertweak</en>
+</name>
+<location>|System|Admin</location>
+<command>gpowertweak</command>
+</program>
+<program portage-id="app-admin/profiler" command="profiler">
+<name>
+<en>3D FileSystem Profiler</en>
+</name>
+<location>|System|Admin</location>
+<command>profiler</command>
+</program>
+<program portage-id="app-admin/setools" command="apol:seaudit:sepcut">
+<name>
+<en>SE Linux Policy Analysis</en>
+</name>
+<location>|System|Admin</location>
+<command>apol</command>
+</program>
+<program portage-id="app-admin/setools" command="apol:seaudit:sepcut">
+<name>
+<en>seAudit</en>
+</name>
+<location>|System|Admin</location>
+<command>seaudit</command>
+</program>
+<program portage-id="app-admin/setools" command="apol:seaudit:sepcut">
+<name>
+<en>SE Linux Policy Customization Tool</en>
+</name>
+<location>|System|Admin</location>
+<command>sepcut</command>
+</program>
+<program portage-id="app-admin/torsmo" command="torsmo">
+<name>
+<en>Torsmo</en>
+</name>
+<location>|System|Admin</location>
+<command>torsmo</command>
+</program>
+<program portage-id="app-admin/usbview" command="usbview">
+<name>
+<en>USB Viewer</en>
+</name>
+<location>|System|Admin</location>
+<command>usbview</command>
+</program>
+<program portage-id="app-admin/xsu" command="xsu">
+<name>
+<en>xsu</en>
+</name>
+<location>|System|Admin</location>
+<command>xsu</command>
+</program>
+<program portage-id="app-emulation/XWine" command="xwine">
+<name>
+<en>XWine</en>
+</name>
+<location>|Emulation</location>
+<command>xwine</command>
+</program>
+<program portage-id="net-firewall/guarddog" command="guarddog">
+<name>
+<en>Guard Dog</en>
+</name>
+<location>|Net|Firewall</location>
+<command>guarddog</command>
+</program>
+<program portage-id="net-firewall/kmyfirewall" command="kmyfirewall">
+<name>
+<en>KMyFirewall</en>
+</name>
+<location>|Net|Firewall</location>
+<command>kmyfirewall</command>
+<icon><file>kmyfirewall.png</file></icon>
+</program>
+<program portage-id="net-firewall/knetfilter" command="knetfilter">
+<name>
+<en>KNetFilter</en>
+</name>
+<location>|Net|Firewall</location>
+<command>knetfilter</command>
+</program>
+<program portage-id="games-strategy/freecraft" command="playfreecraft">
+<name>
+<en>Freecraft</en>
+</name>
+<location>|Games|Strategy</location>
+<command>playfreecraft</command>
+</program>
+<program portage-id="games-roguelike/noegnud-nethack" command="noegnud-nethack">
+<name>
+<en>noegnud-NetHack</en>
+</name>
+<location>|Games|Rogue-Like|NetHack</location>
+<command>noegnud-nethack</command>
+</program>
+<program portage-id="net-misc/tightvnc" command="vncviewer">
+<name>
+<en>VNC Viewer</en>
+</name>
+<location>|Net|VNC</location>
+<command>vncviewer</command>
+</program>
+<program portage-id="net-misc/putty" command="putty:puttytel">
+<name>
+<en>Putty</en>
+</name>
+<location>|Net|SSH-Telnet</location>
+<command>putty</command>
+</program>
+<program portage-id="net-misc/putty" command="putty:puttytel">
+<name>
+<en>Puttytel</en>
+</name>
+<location>|Net|SSH-Telnet</location>
+<command>puttytel</command>
+</program>
+<program portage-id="games-roguelike/scourge" command="scourge">
+<name>
+<en>S.C.O.U.R.G.E.</en>
+</name>
+<location>|Games|Rogue-Like</location>
+<command>scourge</command>
+</program>
+<program portage-id="games-strategy/xarchon" command="xarchon">
+<name>
+<en>XArchon</en>
+</name>
+<location>|Games|Strategy</location>
+<command>xarchon</command>
+</program>
+<program portage-id="games-rpg/tux_aqfh" command="tux_aqfh">
+<name>
+<en>Tuxedo T. Penguin</en>
+</name>
+<location>|Games|RPG</location>
+<command>tux_aqfh</command>
+</program>
+<program portage-id="games-rpg/nwn" command="nwn">
+<name>
+<en>Neverwinter Nights</en>
+</name>
+<location>|Games|RPG</location>
+<command>nwn</command>
+</program>
+<program portage-id="media-radio/xconvers" command="xconvers">
+<name>
+<en>Xconvers</en>
+</name>
+<location>|Media|Radio</location>
+<command>xconvers</command>
+</program>
+<program portage-id="media-radio/xdx" command="xdx">
+<name>
+<en>xdx</en>
+</name>
+<location>|Media|Radio</location>
+<command>xdx</command>
+</program>
+<program portage-id="media-radio/xastir" command="xastir">
+<name>
+<en>XASTIR</en>
+</name>
+<location>|Media|Radio</location>
+<command>xastir</command>
+</program>
+<program portage-id="media-radio/xlog" command="xlog">
+<name>
+<en>xlog</en>
+</name>
+<location>|Media|Radio</location>
+<command>xlog</command>
+</program>
+<program portage-id="app-sci/balsa" command="balsa">
+<name>
+<en>Balsa</en>
+</name>
+<location>|Science</location>
+<command>balsa</command>
+</program>
+<program portage-id="app-sci/calcoo" command="calcoo">
+<name>
+<en>Calcoo</en>
+</name>
+<location>|Science</location>
+<command>calcoo</command>
+</program>
+<program portage-id="app-sci/celestia" command="celestia">
+<name>
+<en>Celestia</en>
+</name>
+<location>|Science</location>
+<command>celestia</command>
+</program>
+<program portage-id="app-sci/chemtool" command="chemtool">
+<name>
+<en>Chemtool</en>
+</name>
+<location>|Science</location>
+<command>chemtool</command>
+</program>
+<program portage-id="app-sci/drgeo" command="drgeo">
+<name>
+<en>Dr. Geo</en>
+</name>
+<location>|Science</location>
+<command>drgeo</command>
+</program>
+<program portage-id="app-sci/electric" command="electric">
+<name>
+<en>The Electric Design System</en>
+</name>
+<location>|Science</location>
+<command>electric</command>
+</program>
+<program portage-id="app-sci/equate" command="equate">
+<name>
+<en>Equate</en>
+</name>
+<location>|Science</location>
+<command>equate</command>
+</program>
+<program portage-id="app-sci/euler" command="euler">
+<name>
+<en>Euler</en>
+</name>
+<location>|Science</location>
+<command>euler</command>
+</program>
+<program portage-id="app-sci/galculator" command="galculator">
+<name>
+<en>galculator</en>
+</name>
+<location>|Science</location>
+<command>galculator</command>
+</program>
+<program portage-id="app-sci/gato" command="gato">
+<name>
+<en>Graph Animation Toolbox</en>
+</name>
+<location>|Science</location>
+<command>gato</command>
+</program>
+<program portage-id="app-sci/geomview" command="geomview">
+<name>
+<en>Geomview</en>
+</name>
+<location>|Science</location>
+<command>geomview</command>
+</program>
+<program portage-id="app-sci/gerbv" command="gerbv">
+<name>
+<en>Gerber Viewer</en>
+</name>
+<location>|Science</location>
+<command>gerbv</command>
+</program>
+<program portage-id="app-sci/gperiodic" command="gperiodic">
+<name>
+<en>GPeriodic</en>
+</name>
+<location>|Science</location>
+<command>gperiodic</command>
+</program>
+<program portage-id="app-sci/gturing" command="gturing">
+<name>
+<en>A Turing Machine</en>
+</name>
+<location>|Science</location>
+<command>gturing</command>
+</program>
+<program portage-id="app-sci/gwave" command="gwave">
+<name>
+<en>gwave</en>
+</name>
+<location>|Science</location>
+<command>gwave</command>
+</program>
+<program portage-id="app-sci/hcalc" command="hcalc">
+<name>
+<en>hcalc</en>
+</name>
+<location>|Science</location>
+<command>hcalc</command>
+</program>
+<program portage-id="app-sci/hexcalc" command="hexcalc">
+<name>
+<en>HexCalc</en>
+</name>
+<location>|Science</location>
+<command>hexcalc</command>
+</program>
+<program portage-id="app-sci/kconvert" command="kconvert">
+<name>
+<en>KConvert</en>
+</name>
+<location>|Science</location>
+<command>kconvert</command>
+</program>
+<program portage-id="app-sci/kemistry" command="kdrawchem:kembabel:kmolcalc">
+<name>
+<en>KDrawChem</en>
+</name>
+<location>|Science</location>
+<command>kdrawchem</command>
+</program>
+<program portage-id="app-sci/kemistry" command="kdrawchem:kembabel:kmolcalc">
+<name>
+<en>KemBabel</en>
+</name>
+<location>|Science</location>
+<command>kembabel</command>
+</program>
+<program portage-id="app-sci/kemistry" command="kdrawchem:kembabel:kmolcalc">
+<name>
+<en>KMolCalc</en>
+</name>
+<location>|Science</location>
+<command>kmolcalc</command>
+</program>
+<program portage-id="app-sci/klogic" command="klogic">
+<name>
+<en>klogic</en>
+</name>
+<location>|Science</location>
+<command>klogic</command>
+</program>
+<program portage-id="app-sci/ksetispy" command="ksetispy">
+<name>
+<en>KSetiSpy</en>
+</name>
+<location>|Science</location>
+<command>ksetispy</command>
+</program>
+<program portage-id="app-sci/ksetiwatch" command="ksetiwatch">
+<name>
+<en>KSetiWatch</en>
+</name>
+<location>|Science</location>
+<command>ksetiwatch</command>
+</program>
+<program portage-id="app-sci/kst" command="kst:kstplugineditor">
+<name>
+<en>kst</en>
+</name>
+<location>|Science</location>
+<command>kst</command>
+</program>
+<program portage-id="app-sci/kst" command="kst:kstplugineditor">
+<name>
+<en>kst Plugin Editor</en>
+</name>
+<location>|Science</location>
+<command>kstplugineditor</command>
+</program>
+<program portage-id="app-sci/kunit" command="kunit">
+<name>
+<en>KUnit</en>
+</name>
+<location>|Science</location>
+<command>kunit</command>
+</program>
+<program portage-id="app-sci/lightspeed" command="lightspeed">
+<name>
+<en>LightSpeed</en>
+</name>
+<location>|Science</location>
+<command>lightspeed</command>
+</program>
+<program portage-id="games-action/xpilot-ng" command="xpilot-ng-sdl:xpilot-ng-x11">
+<name>
+<en>xPilot NG SDL</en>
+</name>
+<location>|Games|Action</location>
+<command>xpilot-ng-sdl</command>
+</program>
+<program portage-id="games-action/xpilot-ng" command="xpilot-ng-sdl:xpilot-ng-x11">
+<name>
+<en>xPilot NG X11</en>
+</name>
+<location>|Games|Action</location>
+<command>xpilot-ng-x11</command>
+</program>
+<program portage-id="app-sci/maestro" command="maestro">
+<name>
+<en>Maestro</en>
+</name>
+<location>|Science</location>
+<command>maestro</command>
+</program>
+<program portage-id="app-sci/mupad" command="xmupad">
+<name>
+<en>MuPAD</en>
+</name>
+<location>|Science</location>
+<command>xmupad</command>
+</program>
+<program portage-id="app-sci/oregano" command="oregano">
+<name>
+<en>Oregano</en>
+</name>
+<location>|Science</location>
+<command>oregano</command>
+</program>
+<program portage-id="app-sci/otter" command="formed">
+<name>
+<en>FormEd</en>
+</name>
+<location>|Science</location>
+<command>formed</command>
+</program>
+<program portage-id="app-sci/oww" command="oww">
+<name>
+<en>oww</en>
+</name>
+<location>|Science</location>
+<command>oww</command>
+</program>
+<program portage-id="app-sci/pcb" command="pcb">
+<name>
+<en>pcb</en>
+</name>
+<location>|Science</location>
+<command>pcb</command>
+</program>
+<program portage-id="app-sci/pgcalc2" command="pgcalc2">
+<name>
+<en>PG Digital</en>
+</name>
+<location>|Science</location>
+<command>pgcalc2</command>
+</program>
+<program portage-id="app-sci/pymol" command="pymol">
+<name>
+<en>PyMOL</en>
+</name>
+<location>|Science</location>
+<command>pymol</command>
+</program>
+<program portage-id="games-kids/gmult" command="gmult">
+<name>
+<en>gmult</en>
+</name>
+<location>|Games|Kids</location>
+<command>gmult</command>
+</program>
+<program portage-id="app-sci/rasmol" command="rasmol">
+<name>
+<en>RasMol</en>
+</name>
+<location>|Science</location>
+<command>rasmol</command>
+</program>
+<program portage-id="app-sci/seaview" command="seaview">
+<name>
+<en>seaview</en>
+</name>
+<location>|Science</location>
+<command>seaview</command>
+</program>
+<program portage-id="app-sci/snac" command="snac">
+<name>
+<en>SNAC</en>
+</name>
+<location>|Science</location>
+<command>snac</command>
+</program>
+<program portage-id="app-sci/snns" command="snns">
+<name>
+<en>SNNS</en>
+</name>
+<location>|Science</location>
+<command>snns</command>
+</program>
+<program portage-id="app-sci/transcalc" command="transcalc">
+<name>
+<en>transcalc</en>
+</name>
+<location>|Science</location>
+<command>transcalc</command>
+</program>
+<program portage-id="app-sci/vstgl" command="vstgl">
+<name>
+<en>vstgl</en>
+</name>
+<location>|Science</location>
+<command>vstgl</command>
+</program>
+<program portage-id="app-sci/xcircuit" command="xcircuit">
+<name>
+<en>xcircuit</en>
+</name>
+<location>|Science</location>
+<command>xcircuit</command>
+</program>
+<program portage-id="dev-java/bluej-bin" command="bluej">
+<name>
+<en>BlueJ</en>
+</name>
+<location>|Development|Java</location>
+<command>bluej</command>
+<icon><file>bluej.png</file></icon>
+</program>
+<program portage-id="net-nds/jxplorer" command="jxplorer">
+<name>
+<en>JXplorer</en>
+</name>
+<location>|Net|NDS</location>
+<command>jxplorer</command>
+</program>
+<program portage-id="net-nds/directoryadministrator" command="directory_administrator">
+<name>
+<en>Directory Administrator</en>
+</name>
+<location>|Net|NDS</location>
+<command>directory_administrator</command>
+</program>
+<program portage-id="net-nds/luma" command="luma">
+<name>
+<en>Luma</en>
+</name>
+<location>|Net|NDS</location>
+<command>luma</command>
+</program>
+<program portage-id="net-nds/gq" command="gq">
+<name>
+<en>GQ</en>
+</name>
+<location>|Net|NDS</location>
+<command>gq</command>
+</program>
+<program portage-id="mail-client/balsa" command="balsa">
+<name>
+<en>Balsa</en>
+</name>
+<location>|Net|Mail</location>
+<command>balsa</command>
+</program>
+<program portage-id="media-tv/xawdecode" command="xawdecode">
+<name>
+<en>Xawdecode</en>
+</name>
+<location>|Media|TV</location>
+<command>xawdecode</command>
+</program>
+<program portage-id="media-tv/nxtvepg" command="nxtvepg">
+<name>
+<en>NextView EPG</en>
+</name>
+<location>|Media|TV</location>
+<command>nxtvepg</command>
+</program>
+<program portage-id="media-tv/freevo" command="freevo">
+<name>
+<en>Freevo</en>
+</name>
+<location>|Media|TV</location>
+<command>freevo</command>
+</program>
+<program portage-id="net-im/gossip" command="gossip">
+<name>
+<en>Gossip</en>
+</name>
+<location>|Net|IM</location>
+<command>gossip</command>
+</program>
+<program portage-id="x11-themes/gtk-theme-switch" command="switch2">
+<name>
+<en>GTK Theme Switch</en>
+</name>
+<location>|Utilities|X11</location>
+<command>switch2</command>
+</program>
+<program portage-id="kde-misc/ksmoothdock" command="ksmoothdock">
+<name>
+<en>KSmoothDock</en>
+</name>
+<location>|Utilities|X11</location>
+<command>ksmoothdock</command>
+</program>
+<program portage-id="games-strategy/xconq" command="xconq">
+<name>
+<en>XConq</en>
+</name>
+<location>|Games|Strategy</location>
+<command>xconq</command>
+</program>
+<program portage-id="games-strategy/freelords" command="freelords">
+<name>
+<en>FreeLords</en>
+</name>
+<location>|Games|Strategy</location>
+<command>freelords</command>
+</program>
+<program portage-id="games-strategy/netpanzer" command="netpanzer">
+<name>
+<en>NetPanzer</en>
+</name>
+<location>|Games|Strategy</location>
+<command>netpanzer</command>
+</program>
+<program portage-id="app-emulation/vmware-workstation" command="vmware">
+<name>
+<en>Vmware-Workstation</en>
+</name>
+<location>|Emulation</location>
+<command>vmware</command>
+</program>
+<program portage-id="net-irc/konversation" command="koversation">
+<name>
+<en>Konversation</en>
+</name>
+<location>|Net|IRC</location>
+<command>koversation</command>
+</program>
+<program portage-id="net-irc/kvirc" command="kvirc">
+<name>
+<en>KVIrc</en>
+</name>
+<location>|Net|IRC</location>
+<command>kvirc</command>
+</program>
+<program portage-id="net-irc/loqui" command="loqui">
+<name>
+<en>Loqui</en>
+</name>
+<location>|Net|IRC</location>
+<command>loqui</command>
+</program>
+<program portage-id="net-irc/vyqchat" command="vyqchat">
+<name>
+<en>VyQchat</en>
+</name>
+<location>|Net|IRC</location>
+<command>vyqchat</command>
+</program>
+<program portage-id="net-irc/weechat" command="weechat-gtk">
+<name>
+<en>WeeChat</en>
+</name>
+<location>|Net|IRC</location>
+<command>weechat-gtk</command>
+</program>
+<program portage-id="games-action/atanks" command="atanks">
+<name>
+<en>ATanks</en>
+</name>
+<location>|Games|Action</location>
+<command>atanks</command>
+</program>
+<program portage-id="games-action/bombermaze" command="bombermaze">
+<name>
+<en>BomberMaze</en>
+</name>
+<location>|Games|Action</location>
+<command>bombermaze</command>
+</program>
+<program portage-id="games-action/d1x" command="d1x">
+<name>
+<en>D1X</en>
+</name>
+<location>|Games|Action</location>
+<command>d1x</command>
+</program>
+<program portage-id="games-action/descent3" command="descent3">
+<name>
+<en>Descent 3</en>
+</name>
+<location>|Games|Action</location>
+<command>descent3</command>
+</program>
+<program portage-id="games-action/fakk2" command="fakk2">
+<name>
+<en>Heavy Metal FAKK 2</en>
+</name>
+<location>|Games|Action</location>
+<command>fakk2</command>
+</program>
+<program portage-id="games-action/heavygear2" command="hg2">
+<name>
+<en>Heavy Gear 2</en>
+</name>
+<location>|Games|Action</location>
+<command>hg2</command>
+</program>
+<program portage-id="games-action/clanbomber" command="clanbomber">
+<name>
+<en>ClanBomber</en>
+</name>
+<location>|Games|Action</location>
+<command>clanbomber</command>
+</program>
+<program portage-id="media-gfx/digikam" command="digikam">
+<name>
+<en>Digikam</en>
+</name>
+<location>|Media|Graphics</location>
+<command>digikam</command>
+</program>
+<program portage-id="media-gfx/ee" command="ee">
+<name>
+<en>Electric Eye's</en>
+</name>
+<location>|Media|Graphics</location>
+<command>ee</command>
+</program>
+<program portage-id="media-gfx/elicit" command="elicit">
+<name>
+<en>Elicit</en>
+</name>
+<location>|Media|Graphics</location>
+<command>elicit</command>
+</program>
+<program portage-id="media-gfx/entice" command="entice">
+<name>
+<en>Entice</en>
+</name>
+<location>|Media|Graphics</location>
+<command>entice</command>
+</program>
+<program portage-id="media-gfx/eog" command="eog">
+<name>
+<en>Eye Of Gnome</en>
+</name>
+<location>|Media|Graphics</location>
+<command>eog</command>
+</program>
+<program portage-id="media-gfx/figurine" command="figurine">
+<name>
+<en>Figurine</en>
+</name>
+<location>|Media|Graphics</location>
+<command>figurine</command>
+</program>
+<program portage-id="media-gfx/fontforge" command="fontforge">
+<name>
+<en>FontForge</en>
+</name>
+<location>|Media|Graphics</location>
+<command>fontforge</command>
+</program>
+<program portage-id="media-gfx/frontline" command="frontline">
+<name>
+<en>frontline</en>
+</name>
+<location>|Media|Graphics</location>
+<command>frontline</command>
+</program>
+<program portage-id="media-gfx/gimageview" command="gimv">
+<name>
+<en>GImageView</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gimv</command>
+</program>
+<program portage-id="media-gfx/gnome-iconedit" command="gnome-iconedit">
+<name>
+<en>GNOME-IconEdit</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gnome-iconedit</command>
+</program>
+<program portage-id="media-gfx/gpp" command="gnome-photo-printer">
+<name>
+<en>Gnome Photo Printer</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gnome-photo-printer</command>
+</program>
+<program portage-id="media-gfx/gthumb" command="gthumb">
+<name>
+<en>gThumb</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gthumb</command>
+</program>
+<program portage-id="media-gfx/gtkam" command="gtkam">
+<name>
+<en>gtkam</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gtkam</command>
+</program>
+<program portage-id="media-gfx/gtksee" command="gtksee">
+<name>
+<en>GTK See</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gtksee</command>
+</program>
+<program portage-id="media-gfx/gwenview" command="gwenview">
+<name>
+<en>Gwenview</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gwenview</command>
+</program>
+<program portage-id="media-gfx/imgseek" command="imgSeek">
+<name>
+<en>imgSeek</en>
+</name>
+<location>|Media|Graphics</location>
+<command>imgSeek</command>
+</program>
+<program portage-id="media-gfx/inkscape" command="inkscape">
+<name>
+<en>Inkscape</en>
+</name>
+<location>|Media|Graphics</location>
+<command>inkscape</command>
+<icon><file>inkscape.png</file></icon>
+</program>
+<program portage-id="media-gfx/iv" command="iv">
+<name>
+<en>Image Viewer</en>
+</name>
+<location>|Media|Graphics</location>
+<command>iv</command>
+</program>
+<program portage-id="media-gfx/kimdaba" command="kimdaba">
+<name>
+<en>KimDaBa</en>
+</name>
+<location>|Media|Graphics</location>
+<command>kimdaba</command>
+</program>
+<program portage-id="media-gfx/opendx" command="dx">
+<name>
+<en>OpenDX</en>
+</name>
+<location>|Media|Graphics</location>
+<command>dx</command>
+</program>
+<program portage-id="media-gfx/pornview" command="pornview">
+<name>
+<en>PornView</en>
+</name>
+<location>|Media|Graphics</location>
+<command>pornview</command>
+</program>
+<program portage-id="media-gfx/povtree" command="povtree">
+<name>
+<en>POV-tree</en>
+</name>
+<location>|Media|Graphics</location>
+<command>povtree</command>
+</program>
+<program portage-id="media-gfx/quat" command="quat">
+<name>
+<en>Quat</en>
+</name>
+<location>|Media|3D Graphics</location>
+<command>quat</command>
+</program>
+<program portage-id="media-gfx/showimg" command="showimg">
+<name>
+<en>showimg</en>
+</name>
+<location>|Media|Graphics</location>
+<command>showimg</command>
+</program>
+<program portage-id="media-gfx/skencil" command="skencil">
+<name>
+<en>Skencil</en>
+</name>
+<location>|Media|Graphics</location>
+<command>skencil</command>
+</program>
+<program portage-id="media-gfx/sodipodi" command="sodipodi">
+<name>
+<en>sodipodi</en>
+</name>
+<location>|Media|Graphics</location>
+<command>sodipodi</command>
+<icon><file>sodipodi.png</file></icon>
+</program>
+<program portage-id="media-gfx/tuxpaint" command="tuxpaint">
+<name>
+<en>Tux Paint</en>
+</name>
+<location>|Media|Graphics</location>
+<command>tuxpaint</command>
+</program>
+<program portage-id="media-gfx/xfig" command="xfig">
+<name>
+<en>Xfig</en>
+</name>
+<location>|Media|Graphics</location>
+<command>xfig</command>
+</program>
+<program portage-id="media-gfx/xpaint" command="xpaint">
+<name>
+<en>XPaint</en>
+</name>
+<location>|Media|Graphics</location>
+<command>xpaint</command>
+</program>
+<program portage-id="media-gfx/xv" command="xv">
+<name>
+<en>XV</en>
+</name>
+<location>|Media|Graphics</location>
+<command>xv</command>
+</program>
+<program portage-id="media-gfx/xzgv" command="xzgv">
+<name>
+<en>xzgv</en>
+</name>
+<location>|Media|Graphics</location>
+<command>xzgv</command>
+</program>
+<program portage-id="net-p2p/bittornado" command="btdownloadgui.py">
+<name>
+<en>Bittornado</en>
+</name>
+<location>|Net|P2P</location>
+<command>btdownloadgui.py</command>
+</program>
+<program portage-id="net-p2p/dc-qt" command="dc_qt">
+<name>
+<en>DC QT</en>
+</name>
+<location>|Net|P2P</location>
+<command>dc_qt</command>
+</program>
+<program portage-id="net-p2p/fidelio" command="fidelio">
+<name>
+<en>Fidelio</en>
+</name>
+<location>|Net|P2P</location>
+<command>fidelio</command>
+</program>
+<program portage-id="net-p2p/giftoxic" command="giFToxic">
+<name>
+<en>giFToxic</en>
+</name>
+<location>|Net|P2P</location>
+<command>giFToxic</command>
+</program>
+<program portage-id="net-p2p/giftui" command="giftui">
+<name>
+<en>GiftUI</en>
+</name>
+<location>|Net|P2P</location>
+<command>giftui</command>
+</program>
+<program portage-id="net-p2p/gtk-gnutella" command="gtk-gnutella">
+<name>
+<en>GTK Gnutella</en>
+</name>
+<location>|Net|P2P</location>
+<command>gtk-gnutella</command>
+</program>
+<program portage-id="net-p2p/gtkhx" command="gtkhx">
+<name>
+<en>GtkHx</en>
+</name>
+<location>|Net|P2P</location>
+<command>gtkhx</command>
+</program>
+<program portage-id="net-p2p/kmldonkey" command="kmldonkey">
+<name>
+<en>KMlDonkey</en>
+</name>
+<location>|Net|P2P</location>
+<command>kmldonkey</command>
+</program>
+<program portage-id="net-p2p/knapster2" command="knapster2">
+<name>
+<en>Knapster2</en>
+</name>
+<location>|Net|P2P</location>
+<command>knapster2</command>
+</program>
+<program portage-id="net-p2p/limewire" command="limewire">
+<name>
+<en>Limewire</en>
+</name>
+<location>|Net|P2P</location>
+<command>limewire</command>
+</program>
+<program portage-id="net-p2p/lopster" command="lopster">
+<name>
+<en>Lopster</en>
+</name>
+<location>|Net|P2P</location>
+<command>lopster</command>
+</program>
+<program portage-id="net-p2p/myster" command="myster">
+<name>
+<en>Myster</en>
+</name>
+<location>|Net|P2P</location>
+<command>myster</command>
+</program>
+<program portage-id="net-p2p/napshare" command="napshare">
+<name>
+<en>NapShare</en>
+</name>
+<location>|Net|P2P</location>
+<command>napshare</command>
+</program>
+<program portage-id="net-p2p/nicotine" command="nicotine">
+<name>
+<en>Nicotine</en>
+</name>
+<location>|Net|P2P</location>
+<command>nicotine</command>
+</program>
+<program portage-id="net-p2p/phex" command="phex">
+<name>
+<en>Phex</en>
+</name>
+<location>|Net|P2P</location>
+<command>phex</command>
+</program>
+<program portage-id="net-p2p/pysoulseek" command="pyslsk">
+<name>
+<en>PySoulSeek</en>
+</name>
+<location>|Net|P2P</location>
+<command>pyslsk</command>
+</program>
+<program portage-id="net-p2p/qtorrent" command="qtorrent">
+<name>
+<en>QTorrent</en>
+</name>
+<location>|Net|P2P</location>
+<command>qtorrent</command>
+</program>
+<program portage-id="net-p2p/sancho-bin" command="sancho">
+<name>
+<en>Sancho</en>
+</name>
+<location>|Net|P2P</location>
+<command>sancho</command>
+</program>
+<program portage-id="net-p2p/valknut" command="valknut">
+<name>
+<en>Valknut</en>
+</name>
+<location>|Net|P2P</location>
+<command>valknut</command>
+</program>
+<program portage-id="net-p2p/xnap" command="xnap">
+<name>
+<en>XNap</en>
+</name>
+<location>|Net|P2P</location>
+<command>xnap</command>
+</program>
+<program portage-id="net-p2p/yaggui" command="yaggui">
+<name>
+<en>Yag GUI</en>
+</name>
+<location>|Net|P2P</location>
+<command>yaggui</command>
+</program>
+<program portage-id="media-video/avidemux" command="avidemux2">
+<name>
+<en>Avidemux</en>
+</name>
+<location>|Media|Video</location>
+<command>avidemux2</command>
+</program>
+<program portage-id="games-emulation/atari800" command="atari800">
+<name>
+<en>Atari 800</en>
+</name>
+<location>|Games|Emulators</location>
+<command>atari800</command>
+</program>
+<program portage-id="games-emulation/dosbox" command="dosbox">
+<name>
+<en>DOSBOX</en>
+</name>
+<location>|Games|Emulators</location>
+<command>dosbox</command>
+</program>
+<program portage-id="games-emulation/dosbox-cvs" command="dosbox">
+<name>
+<en>DOSBOX</en>
+</name>
+<location>|Games|Emulators</location>
+<command>dosbox</command>
+</program>
+<program portage-id="games-emulation/epsxe" command="epsxe">
+<name>
+<en>ePSXe</en>
+</name>
+<location>|Games|Emulators</location>
+<command>epsxe</command>
+</program>
+<program portage-id="games-emulation/fakenes" command="fakenes">
+<name>
+<en>FakeNES</en>
+</name>
+<location>|Games|Emulators</location>
+<command>fakenes</command>
+</program>
+<program portage-id="games-emulation/fbzx" command="fbzx">
+<name>
+<en>FBZX</en>
+</name>
+<location>|Games|Emulators</location>
+<command>fbzx</command>
+</program>
+<program portage-id="games-emulation/gens" command="gens">
+<name>
+<en>Gens</en>
+</name>
+<location>|Games|Emulators</location>
+<command>gens</command>
+</program>
+<program portage-id="games-emulation/gnomame" command="gnomame">
+<name>
+<en>GnoMAME</en>
+</name>
+<location>|Games|Emulators</location>
+<command>gnomame</command>
+</program>
+<program portage-id="games-emulation/gnomeboyadvance" command="gnomeboyadvance">
+<name>
+<en>gnomeBoyAdvance</en>
+</name>
+<location>|Games|Emulators</location>
+<command>gnomeboyadvance</command>
+</program>
+<program portage-id="games-emulation/goosnes" command="goosnes">
+<name>
+<en>Goosnes</en>
+</name>
+<location>|Games|Emulators</location>
+<command>goosnes</command>
+</program>
+<program portage-id="games-emulation/grustibus" command="grustibus">
+<name>
+<en>gRustibus</en>
+</name>
+<location>|Games|Emulators</location>
+<command>grustibus</command>
+</program>
+<program portage-id="games-emulation/gxmame" command="gxmame">
+<name>
+<en>GXMame</en>
+</name>
+<location>|Games|Emulators</location>
+<command>gxmame</command>
+</program>
+<program portage-id="games-emulation/hatari" command="hatari">
+<name>
+<en>HAtari</en>
+</name>
+<location>|Games|Emulators</location>
+<command>hatari</command>
+</program>
+<program portage-id="games-emulation/hugo" command="hugo">
+<name>
+<en>Hu-Go</en>
+</name>
+<location>|Games|Emulators</location>
+<command>hugo</command>
+</program>
+<program portage-id="games-emulation/infones" command="InfoNES">
+<name>
+<en>InfoNES</en>
+</name>
+<location>|Games|Emulators</location>
+<command>InfoNES</command>
+</program>
+<program portage-id="games-emulation/kigb" command="kigb">
+<name>
+<en>KiGB</en>
+</name>
+<location>|Games|Emulators</location>
+<command>kigb</command>
+</program>
+<program portage-id="games-emulation/kvisualboyadvance" command="kvisualboyadvance">
+<name>
+<en>KVisualBoyAdvance</en>
+</name>
+<location>|Games|Emulators</location>
+<command>kvisualboyadvance</command>
+</program>
+<program portage-id="games-emulation/mupen64" command="mupen64">
+<name>
+<en>Mupen 64</en>
+</name>
+<location>|Games|Emulators</location>
+<command>mupen64</command>
+</program>
+<program portage-id="games-emulation/openmsx" command="openmsx">
+<name>
+<en>openMSX</en>
+</name>
+<location>|Games|Emulators</location>
+<command>openmsx</command>
+</program>
+<program portage-id="games-emulation/pcsx" command="pcsx">
+<name>
+<en>PCSX</en>
+</name>
+<location>|Games|Emulators</location>
+<command>pcsx</command>
+</program>
+<program portage-id="games-emulation/pcsx2" command="pcsx2">
+<name>
+<en>PCSX2</en>
+</name>
+<location>|Games|Emulators</location>
+<command>pcsx2</command>
+</program>
+<program portage-id="games-emulation/qmamecat" command="qmamecat">
+<name>
+<en>Qmamecat</en>
+</name>
+<location>|Games|Emulators</location>
+<command>qmamecat</command>
+</program>
+<program portage-id="games-emulation/raine" command="raine">
+<name>
+<en>Raine</en>
+</name>
+<location>|Games|Emulators</location>
+<command>raine</command>
+</program>
+<program portage-id="games-fps/americas-army" command="armyops">
+<name>
+<en>Americas Army</en>
+</name>
+<location>|Games|FPS</location>
+<command>armyops</command>
+</program>
+<program portage-id="dev-db/dbdesigner" command="startdbd">
+<name>
+<en>DB Designer</en>
+</name>
+<location>|Development|Database</location>
+<command>startdbd</command>
+</program>
+<program portage-id="dev-db/edb" command="edb_gtk_ed">
+<name>
+<en>E DB Editor</en>
+</name>
+<location>|Development|Database</location>
+<command>edb_gtk_ed</command>
+</program>
+<program portage-id="dev-db/kpogre" command="kpogre">
+<name>
+<en>KPoGre</en>
+</name>
+<location>|Development|Database</location>
+<command>kpogre</command>
+</program>
+<program portage-id="dev-db/pgaccess" command="pgaccess">
+<name>
+<en>PostgreSQL Access</en>
+</name>
+<location>|Development|Database</location>
+<command>pgaccess</command>
+</program>
+<program portage-id="dev-db/rekall" command="rekall">
+<name>
+<en>Rekall</en>
+</name>
+<location>|Development|Database</location>
+<command>rekall</command>
+</program>
+<program portage-id="app-cdr/gcombust" command="gcombust">
+<name>
+<en>gcombust</en>
+</name>
+<location>|System|Burn</location>
+<command>gcombust</command>
+</program>
+<program portage-id="app-cdr/gtkcdlabel" command="gtkcdlabel">
+<name>
+<en>GTKcdlabel</en>
+</name>
+<location>|System|Burn</location>
+<command>gtkcdlabel</command>
+</program>
+<program portage-id="app-cdr/kcdlabel" command="kcdlabel">
+<name>
+<en>KCD-Label</en>
+</name>
+<location>|System|Burn</location>
+<command>kcdlabel</command>
+</program>
+<program portage-id="app-cdr/kover" command="kover">
+<name>
+<en>Kover</en>
+</name>
+<location>|System|Burn</location>
+<command>kover</command>
+</program>
+<program portage-id="app-benchmarks/xfbsuite" command="xfbsuite.tk">
+<name>
+<en>Xfbsuite</en>
+</name>
+<location>|System|Benchmark</location>
+<command>xfbsuite.tk</command>
+</program>
+<program portage-id="app-benchmarks/jmeter" command="jmeter">
+<name>
+<en>Apache JMeter</en>
+</name>
+<location>|System|Benchmark</location>
+<command>jmeter</command>
+</program>
+<program portage-id="app-arch/dczip" command="dczip">
+<name>
+<en>dcZip</en>
+</name>
+<location>|Archive</location>
+<command>dczip</command>
+</program>
+<program portage-id="app-arch/file-roller" command="file-roller">
+<name>
+<en>File Roller</en>
+</name>
+<location>|Archive</location>
+<command>file-roller</command>
+<icon><file>file-roller.png</file></icon>
+</program>
+<program portage-id="app-arch/gtk-splitter" command="gtk-splitter">
+<name>
+<en>gtk-splitter</en>
+</name>
+<location>|Archive</location>
+<command>gtk-splitter</command>
+</program>
+<program portage-id="app-arch/guitar" command="guitar">
+<name>
+<en>guiTAR</en>
+</name>
+<location>|Archive</location>
+<command>guitar</command>
+</program>
+<program portage-id="app-arch/karchiver" command="karchiver">
+<name>
+<en>KArchiver</en>
+</name>
+<location>|Archive</location>
+<command>karchiver</command>
+</program>
+<program portage-id="app-arch/konserve" command="konserve">
+<name>
+<en>Konserve</en>
+</name>
+<location>|Archive</location>
+<command>konserve</command>
+</program>
+<program portage-id="app-crypt/calcchecksum" command="calcchecksum">
+<name>
+<en>CalcChecksum</en>
+</name>
+<location>|Encryption</location>
+<command>calcchecksum</command>
+</program>
+<program portage-id="app-crypt/gpa" command="gpa">
+<name>
+<en>GNU Privacy Assistant</en>
+</name>
+<location>|Encryption</location>
+<command>gpa</command>
+</program>
+<program portage-id="app-crypt/gringotts" command="gringotts">
+<name>
+<en>Gringotts</en>
+</name>
+<location>|Encryption</location>
+<command>gringotts</command>
+</program>
+<program portage-id="media-video/acidrip" command="acidrip">
+<name>
+<en>acidrip</en>
+</name>
+<location>|Media|Video</location>
+<command>acidrip</command>
+</program>
+<program portage-id="media-video/camstream" command="camstream">
+<name>
+<en>Camstreams</en>
+</name>
+<location>|Media|Video</location>
+<command>camstream</command>
+</program>
+<program portage-id="media-video/dpencoder" command="dpencoder">
+<name>
+<en>Da Patator Encoder</en>
+</name>
+<location>|Media|Video</location>
+<command>dpencoder</command>
+</program>
+<program portage-id="media-video/dvdrip" command="dvdrip">
+<name>
+<en>dvdrip</en>
+</name>
+<location>|Media|Video</location>
+<command>dvdrip</command>
+</program>
+<program portage-id="media-video/elation" command="elation">
+<name>
+<en>Elation Media Manager</en>
+</name>
+<location>|Media|Video</location>
+<command>elation</command>
+</program>
+<program portage-id="media-video/goggles" command="goggles">
+<name>
+<en>Goggles</en>
+</name>
+<location>|Media|Video</location>
+<command>goggles</command>
+</program>
+<program portage-id="media-video/gsubedit" command="gsubedit">
+<name>
+<en>GSubEdit</en>
+</name>
+<location>|Media|Video</location>
+<command>gsubedit</command>
+</program>
+<program portage-id="media-video/gv4l" command="gv4l">
+<name>
+<en>Gv4l</en>
+</name>
+<location>|Media|Video</location>
+<command>gv4l</command>
+</program>
+<program portage-id="media-video/kaffeine" command="kaffeine">
+<name>
+<en>Kaffeine</en>
+</name>
+<location>|Media|Video</location>
+<command>kaffeine</command>
+</program>
+<program portage-id="media-video/kavi2svcd" command="kavi2svcd">
+<name>
+<en>Kavi2svcd</en>
+</name>
+<location>|Media|Video</location>
+<command>kavi2svcd</command>
+</program>
+<program portage-id="media-video/klvemkdvd" command="klvemkdvd">
+<name>
+<en>KLvemkdvd</en>
+</name>
+<location>|Media|Video</location>
+<command>klvemkdvd</command>
+</program>
+<program portage-id="media-video/kmplayer" command="kmplayer">
+<name>
+<en>KMplayer</en>
+</name>
+<location>|Media|Video</location>
+<command>kmplayer</command>
+</program>
+<program portage-id="media-video/konverter" command="konverter">
+<name>
+<en>Konverter</en>
+</name>
+<location>|Media|Video</location>
+<command>konverter</command>
+</program>
+<program portage-id="media-video/kplayer" command="kplayer">
+<name>
+<en>KPlayer</en>
+</name>
+<location>|Media|Video</location>
+<command>kplayer</command>
+</program>
+<program portage-id="media-video/lve" command="lve">
+<name>
+<en>Linux Video Editor</en>
+</name>
+<location>|Media|Video</location>
+<command>lve</command>
+</program>
+<program portage-id="media-video/nvoption" command="nvoption">
+<name>
+<en>NVOption</en>
+</name>
+<location>|Media|Video</location>
+<command>nvoption</command>
+</program>
+<program portage-id="media-video/okle" command="okle_gui">
+<name>
+<en>Okle</en>
+</name>
+<location>|Media|Video</location>
+<command>okle_gui</command>
+</program>
+<program portage-id="media-video/oxine" command="oxine">
+<name>
+<en>osd Xine</en>
+</name>
+<location>|Media|Video</location>
+<command>oxine</command>
+</program>
+<program portage-id="media-video/projectx" command="ProjectX">
+<name>
+<en>ProjectXx</en>
+</name>
+<location>|Media|Video</location>
+<command>ProjectX</command>
+</program>
+<program portage-id="media-video/quickrip" command="quickrip">
+<name>
+<en>QuickRip</en>
+</name>
+<location>|Media|Video</location>
+<command>quickrip</command>
+</program>
+<program portage-id="media-video/totem" command="totem">
+<name>
+<en>Totem</en>
+</name>
+<location>|Media|Video</location>
+<command>totem</command>
+</program>
+<program portage-id="media-video/vlc" command="vlc">
+<name>
+<en>VLC Media Player</en>
+</name>
+<location>|Media|Video</location>
+<command>vlc</command>
+</program>
+<program portage-id="media-video/xiron" command="xiron">
+<name>
+<en>Xiron</en>
+</name>
+<location>|Media|Video</location>
+<command>xiron</command>
+</program>
+<program portage-id="media-video/xvid4conf" command="xvid4conf">
+<name>
+<en>xvid4conf</en>
+</name>
+<location>|Media|Video</location>
+<command>xvid4conf</command>
+</program>
+<program portage-id="app-dicts/kasumi" command="kasumi">
+<name>
+<en>Kasumi</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>kasumi</command>
+</program>
+<program portage-id="kde-base/quanta" command="quanta">
+<name>
+<en>Quanta</en>
+</name>
+<location>|Editors</location>
+<command>quanta</command>
+</program>
+<program portage-id="x11-plugins/allin1" command="allin1">
+<name>
+<en>All In One</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>allin1</command>
+</program>
+<program portage-id="x11-plugins/asapm" command="asapm">
+<name>
+<en>asapm</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>asapm</command>
+</program>
+<program portage-id="x11-plugins/asclock" command="asclock">
+<name>
+<en>asclock</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>asclock</command>
+</program>
+<program portage-id="x11-plugins/ascpu" command="ascpu">
+<name>
+<en>ascpu</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>ascpu</command>
+</program>
+<program portage-id="x11-plugins/asmem" command="asmem">
+<name>
+<en>asmem</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>asmem</command>
+</program>
+<program portage-id="x11-plugins/asmon" command="asmon">
+<name>
+<en>asmon</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>asmon</command>
+</program>
+<program portage-id="x11-plugins/astime" command="astime">
+<name>
+<en>astime</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>astime</command>
+</program>
+<program portage-id="x11-plugins/cputnik" command="cputnik">
+<name>
+<en>cputnik</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>cputnik</command>
+</program>
+<program portage-id="x11-plugins/mountapp" command="mount.app:mount.conf">
+<name>
+<en>Mountapp</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>mount.app</command>
+</program>
+<program portage-id="x11-plugins/mountapp" command="mount.app:mount.conf">
+<name>
+<en>Mountapp Configurator</en>
+</name>
+<location>|Utilities|X11|Plugins</location>
+<command>mount.conf</command>
+</program>
+<program portage-id="x11-plugins/wmCalClock" command="wmCalClock">
+<name>
+<en>wmCalClock</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmCalClock</command>
+</program>
+<program portage-id="x11-plugins/wmDownload" command="wmDownload">
+<name>
+<en>wmDownload</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmDownload</command>
+</program>
+<program portage-id="x11-plugins/wmMatrix" command="wmMatrix">
+<name>
+<en>wmMatrix</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmMatrix</command>
+</program>
+<program portage-id="x11-plugins/wmMoonClock" command="wmMoonClock">
+<name>
+<en>wmMoonClock</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmMoonClock</command>
+</program>
+<program portage-id="x11-plugins/wmSMPmon" command="wmSMPmon">
+<name>
+<en>wmSMPmon</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmSMPmon</command>
+</program>
+<program portage-id="x11-plugins/wmSpaceWeather" command="wmSpaceWeather">
+<name>
+<en>wmSpaceWeather</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmSpaceWeather</command>
+</program>
+<program portage-id="x11-plugins/wmSun" command="wmSun">
+<name>
+<en>wmSun</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmSun</command>
+</program>
+<program portage-id="x11-plugins/wmacpi" command="wmacpi">
+<name>
+<en>wmacpi</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmacpi</command>
+</program>
+<program portage-id="x11-plugins/wmacpiload-ac" command="wmacpiload-ac">
+<name>
+<en>wmacpiload-ac</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmacpiload-ac</command>
+</program>
+<program portage-id="x11-plugins/wmacpimon" command="wmacpimon">
+<name>
+<en>wmacpimon</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmacpimon</command>
+</program>
+<program portage-id="x11-plugins/wmail" command="wmail">
+<name>
+<en>wmail</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmail</command>
+</program>
+<program portage-id="x11-plugins/wmalbum" command="wmalbum">
+<name>
+<en>wmalbum</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmalbum</command>
+</program>
+<program portage-id="x11-plugins/wmapm" command="wmapm">
+<name>
+<en>wmapm</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmapm</command>
+</program>
+<program portage-id="x11-plugins/wmapmload" command="wmapmload">
+<name>
+<en>wmapmload</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmapmload</command>
+</program>
+<program portage-id="x11-plugins/wmbattery" command="wmbattery">
+<name>
+<en>wmbattery</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmbattery</command>
+</program>
+<program portage-id="x11-plugins/wmbluecpu" command="wmbluecpu">
+<name>
+<en>wmbluecpu</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmbluecpu</command>
+</program>
+<program portage-id="x11-plugins/wmcalendar" command="wmcalendar">
+<name>
+<en>wmcalendar</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmcalendar</command>
+</program>
+<program portage-id="x11-plugins/wmcdplay" command="wmcdplay">
+<name>
+<en>wmcdplay</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmcdplay</command>
+</program>
+<program portage-id="x11-plugins/wmcliphist" command="wmcliphist">
+<name>
+<en>wmcliphist</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmcliphist</command>
+</program>
+<program portage-id="x11-plugins/wmclock" command="wmclock">
+<name>
+<en>wmclock</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmclock</command>
+</program>
+<program portage-id="x11-plugins/wmclockmon" command="wmclockmon">
+<name>
+<en>wmclockmon</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmclockmon</command>
+</program>
+<program portage-id="x11-plugins/wmcms" command="wmcms">
+<name>
+<en>wmcms</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmcms</command>
+</program>
+<program portage-id="x11-plugins/wmcp" command="wmcp">
+<name>
+<en>wmcp</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmcp</command>
+</program>
+<program portage-id="x11-plugins/wmcpuload" command="wmcpuload">
+<name>
+<en>wmcpuload</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmcpuload</command>
+</program>
+<program portage-id="x11-plugins/wmcube" command="wmcube">
+<name>
+<en>wmcube</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmcube</command>
+</program>
+<program portage-id="x11-plugins/wmdate" command="wmdate">
+<name>
+<en>wmdate</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmdate</command>
+</program>
+<program portage-id="x11-plugins/wmdf" command="wmdf">
+<name>
+<en>wmdf</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmdf</command>
+</program>
+<program portage-id="x11-plugins/wmdiskmon" command="wmdiskmon">
+<name>
+<en>wmdiskmon</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmdiskmon</command>
+</program>
+<program portage-id="x11-plugins/wmdl" command="wmdl">
+<name>
+<en>wmdl</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmdl</command>
+</program>
+<program portage-id="x11-plugins/wmdrawer" command="wmdrawer">
+<name>
+<en>wmdrawer</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmdrawer</command>
+</program>
+<program portage-id="x11-plugins/wmfire" command="wmfire">
+<name>
+<en>wmfire</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmfire</command>
+</program>
+<program portage-id="x11-plugins/wmfishtime" command="wmfishtime">
+<name>
+<en>wmfishtime</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmfishtime</command>
+</program>
+<program portage-id="x11-plugins/wmfortune" command="wmfortune">
+<name>
+<en>wmfortune</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmfortune</command>
+</program>
+<program portage-id="x11-plugins/wmfsm" command="wmfsm">
+<name>
+<en>wmfsm</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmfsm</command>
+</program>
+<program portage-id="x11-plugins/wmget" command="wmget dock">
+<name>
+<en>wmget</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmget dock</command>
+</program>
+<program portage-id="x11-plugins/wmgtemp" command="wmgtemp">
+<name>
+<en>wmgtemp</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmgtemp</command>
+</program>
+<program portage-id="x11-plugins/wmhdplop" command="wmhdplop">
+<name>
+<en>wmhdplop</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmhdplop</command>
+</program>
+<program portage-id="x11-plugins/wmifs" command="wmifs">
+<name>
+<en>wmifs</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmifs</command>
+</program>
+<program portage-id="x11-plugins/wmitime" command="wmitime">
+<name>
+<en>wmitime</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmitime</command>
+</program>
+<program portage-id="x11-plugins/wmium" command="wmium">
+<name>
+<en>wmium</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmium</command>
+</program>
+<program portage-id="x11-plugins/wmix" command="wmix">
+<name>
+<en>wmix</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmix</command>
+</program>
+<program portage-id="x11-plugins/wmlaptop" command="wmlaptop">
+<name>
+<en>wmlaptop</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmlaptop</command>
+</program>
+<program portage-id="x11-plugins/wmload" command="wmload">
+<name>
+<en>wmload</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmload</command>
+</program>
+<program portage-id="x11-plugins/wmlongrun" command="wmlongrun">
+<name>
+<en>wmlongrun</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmlongrun</command>
+</program>
+<program portage-id="x11-plugins/wmlpq" command="wmlpq">
+<name>
+<en>wmlpq</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmlpq</command>
+</program>
+<program portage-id="x11-plugins/wmmail" command="wmmail">
+<name>
+<en>wmmail</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmmail</command>
+</program>
+<program portage-id="x11-plugins/wmmaiload" command="wmmaiload:wmmaiload-config">
+<name>
+<en>wmmaiload</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmmaiload</command>
+</program>
+<program portage-id="x11-plugins/wmmaiload" command="wmmaiload:wmmaiload-config">
+<name>
+<en>wmmaiload Configuration</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmmaiload-config</command>
+</program>
+<program portage-id="x11-plugins/wmmemfree" command="wmmemfree">
+<name>
+<en>wmmemfree</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmmemfree</command>
+</program>
+<program portage-id="x11-plugins/wmmemmon" command="wmmemmon">
+<name>
+<en>wmmemmon</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmmemmon</command>
+</program>
+<program portage-id="x11-plugins/wmmixer" command="wmmixer">
+<name>
+<en>wmmixer</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmmixer</command>
+</program>
+<program portage-id="x11-plugins/wmmp3" command="wmmp3">
+<name>
+<en>wmmp3</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmmp3</command>
+</program>
+<program portage-id="x11-plugins/wmmsens" command="wmmsens">
+<name>
+<en>wmmsens</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmmsens</command>
+</program>
+<program portage-id="x11-plugins/wmmsg" command="wmmsg">
+<name>
+<en>wmmsg</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmmsg</command>
+</program>
+<program portage-id="x11-plugins/wmnd" command="wmnd">
+<name>
+<en>wmnd</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmnd</command>
+</program>
+<program portage-id="x11-plugins/wmnet" command="wmnet">
+<name>
+<en>wmnet</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmnet</command>
+</program>
+<program portage-id="x11-plugins/wmnetload" command="wmnetload">
+<name>
+<en>wmnetload</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmnetload</command>
+</program>
+<program portage-id="x11-plugins/wmnetmon" command="wmnetmon">
+<name>
+<en>wmnetmon</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmnetmon</command>
+</program>
+<program portage-id="x11-plugins/wmnetselect" command="wmnetselect">
+<name>
+<en>wmnetselect</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmnetselect</command>
+</program>
+<program portage-id="x11-plugins/wmpager" command="wmpager">
+<name>
+<en>wmpager</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmpager</command>
+</program>
+<program portage-id="x11-plugins/wmpeople" command="wmpeople">
+<name>
+<en>wmpeople</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmpeople</command>
+</program>
+<program portage-id="x11-plugins/wmpiki" command="wmpiki">
+<name>
+<en>wmpiki</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmpiki</command>
+</program>
+<program portage-id="x11-plugins/wmpinboard" command="wmpinboard">
+<name>
+<en>wmpinboard</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmpinboard</command>
+</program>
+<program portage-id="x11-plugins/wmpower" command="wmpower">
+<name>
+<en>wmpower</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmpower</command>
+</program>
+<program portage-id="x11-plugins/wmrack" command="wmrack">
+<name>
+<en>wmrack</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmrack</command>
+</program>
+<program portage-id="x11-plugins/wmsensormon" command="wmsensormon">
+<name>
+<en>wmsensormon</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmsensormon</command>
+</program>
+<program portage-id="x11-plugins/wmseti" command="wmseti">
+<name>
+<en>wmseti</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmseti</command>
+</program>
+<program portage-id="x11-plugins/wmsmixer" command="wmsmixer">
+<name>
+<en>wmsmixer</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmsmixer</command>
+</program>
+<program portage-id="x11-plugins/wmsound" command="wmsound">
+<name>
+<en>wmsound</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmsound</command>
+</program>
+<program portage-id="x11-plugins/wmsvencd" command="wmsvencd">
+<name>
+<en>wmsvencd</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmsvencd</command>
+</program>
+<program portage-id="x11-plugins/wmsysmon" command="wmsysmon">
+<name>
+<en>wmsysmon</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmsysmon</command>
+</program>
+<program portage-id="x11-plugins/wmsystray" command="wmsystray">
+<name>
+<en>wmsystray</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmsystray</command>
+</program>
+<program portage-id="x11-plugins/wmtimer" command="wmtimer">
+<name>
+<en>wmtimer</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmtimer</command>
+</program>
+<program portage-id="x11-plugins/wmtz" command="wmtz">
+<name>
+<en>wmtz</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmtz</command>
+</program>
+<program portage-id="x11-plugins/wmufo" command="wmufo">
+<name>
+<en>wmufo</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmufo</command>
+</program>
+<program portage-id="x11-plugins/wmupmon" command="wmupmon">
+<name>
+<en>wmupmon</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmupmon</command>
+</program>
+<program portage-id="x11-plugins/wmusic" command="wmusic">
+<name>
+<en>wmusic</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmusic</command>
+</program>
+<program portage-id="x11-plugins/wmweather" command="wmweather">
+<name>
+<en>wmweather</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmweather</command>
+</program>
+<program portage-id="x11-plugins/wmwifi" command="wmwifi">
+<name>
+<en>wmwifi</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmwifi</command>
+</program>
+<program portage-id="x11-plugins/wmxkb" command="wmxkb">
+<name>
+<en>wmxkb</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmxkb</command>
+</program>
+<program portage-id="x11-plugins/wmxmms" command="wmxmms">
+<name>
+<en>wmxmms</en>
+</name>
+<location>|Utilities|X11|Plugins|wm</location>
+<command>wmxmms</command>
+</program>
+<program portage-id="games-util/aabrowse" command="aabrowse">
+<name>
+<en>America's Army Server Browser</en>
+</name>
+<location>|Games|Utilities</location>
+<command>aabrowse</command>
+</program>
+<program portage-id="games-util/mattricks" command="mattricks.py">
+<name>
+<en>Mattricks</en>
+</name>
+<location>|Games|Utilities</location>
+<command>mattricks.py</command>
+</program>
+<program portage-id="games-util/xqf" command="xqf">
+<name>
+<en>XQF</en>
+</name>
+<location>|Games|Utilities</location>
+<command>xqf</command>
+</program>
+<program portage-id="games-kids/childsplay" command="childsplay">
+<name>
+<en>Child's Play</en>
+</name>
+<location>|Games|Kids</location>
+<command>childsplay</command>
+</program>
+<program portage-id="games-kids/gcompris" command="gcompris">
+<name>
+<en>gCompris</en>
+</name>
+<location>|Games|Kids</location>
+<command>gcompris</command>
+</program>
+<program portage-id="games-kids/gtans" command="gtans">
+<name>
+<en>Gtans</en>
+</name>
+<location>|Games|Kids</location>
+<command>gtans</command>
+</program>
+<program portage-id="games-kids/lletters" command="lletters">
+<name>
+<en>Linux Letters and Numbers</en>
+</name>
+<location>|Games|Kids</location>
+<command>lletters</command>
+</program>
+<program portage-id="games-kids/matritsa" command="matritsa">
+<name>
+<en>Matritsa</en>
+</name>
+<location>|Games|Kids</location>
+<command>matritsa</command>
+</program>
+<program portage-id="games-kids/stickers" command="stickers">
+<name>
+<en>Stickers</en>
+</name>
+<location>|Games|Kids</location>
+<command>stickers</command>
+</program>
+<program portage-id="games-kids/tuxmath" command="tuxmath">
+<name>
+<en>Tux of Math Command</en>
+</name>
+<location>|Games|Kids</location>
+<command>tuxmath</command>
+</program>
+<program portage-id="games-kids/tuxmathscrabble" command="tuxmathscrabble">
+<name>
+<en>Tux Math Scrabble</en>
+</name>
+<location>|Games|Kids</location>
+<command>tuxmathscrabble</command>
+</program>
+<program portage-id="games-kids/tuxtype" command="tuxtype">
+<name>
+<en>Tux Typing</en>
+</name>
+<location>|Games|Kids</location>
+<command>tuxtype</command>
+</program>
+<program portage-id="dev-perl/perl-tk" command="ptked:ptksh:widget">
+<name>
+<en>Ptked</en>
+</name>
+<location>|Development|Perl</location>
+<command>ptked</command>
+</program>
+<program portage-id="dev-perl/perl-tk" command="ptked:ptksh:widget">
+<name>
+<en>Ptksh</en>
+</name>
+<location>|Development|Perl</location>
+<command>ptksh</command>
+</program>
+<program portage-id="dev-perl/perl-tk" command="ptked:ptksh:widget">
+<name>
+<en>Perl-Tk Widget Demonstration</en>
+</name>
+<location>|Development|Perl</location>
+<command>widget</command>
+</program>
+<program portage-id="app-dicts/bookview" command="bookview">
+<name>
+<en>Bookview</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>bookview</command>
+</program>
+<program portage-id="app-dicts/ebview" command="ebview">
+<name>
+<en>EBView</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>ebview</command>
+</program>
+<program portage-id="app-dicts/gjiten" command="gjiten">
+<name>
+<en>Gjiten</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>gjiten</command>
+</program>
+<program portage-id="app-dicts/kannadic" command="kannadic">
+<name>
+<en>KannaDic</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>kannadic</command>
+</program>
+<program portage-id="app-dicts/opendict" command="opendict">
+<name>
+<en>OpenDict</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>opendict</command>
+</program>
+<program portage-id="app-dicts/stardict" command="stardict">
+<name>
+<en>StarDict</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>stardict</command>
+</program>
+<program portage-id="app-dicts/sumika" command="sumika">
+<name>
+<en>Sumika</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>sumika</command>
+</program>
+<program portage-id="app-dicts/verbiste" command="verbiste">
+<name>
+<en>Verbiste</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>verbiste</command>
+</program>
+<program portage-id="app-dicts/wordnet" command="wnb:wishwn">
+<name>
+<en>Wordnet Browser</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>wnb</command>
+</program>
+<program portage-id="app-dicts/wordnet" command="wnb:wishwn">
+<name>
+<en>Wishwn</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>wishwn</command>
+</program>
+<program portage-id="app-dicts/pydict" command="pydict">
+<name>
+<en>pyDict</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>pydict</command>
+</program>
+<program portage-id="app-accessibility/emacspeak" command="emacspeak">
+<name>
+<en>EmacSpeak</en>
+</name>
+<location>|Accessibility</location>
+<command>emacspeak</command>
+</program>
+<program portage-id="app-admin/xsu2" command="xsu">
+<name>
+<en>xsu2</en>
+</name>
+<location>|System|Admin</location>
+<command>xsu</command>
+</program>
+<program portage-id="app-admin/qtsvc" command="qtsvc">
+<name>
+<en>QTSVC</en>
+</name>
+<location>|System|Admin</location>
+<command>qtsvc</command>
+</program>
+<program portage-id="app-admin/procman" command="procman">
+<name>
+<en>Procman</en>
+</name>
+<location>|System|Admin</location>
+<command>procman</command>
+</program>
+<program portage-id="app-admin/gwcc" command="gwcc">
+<name>
+<en>Gnome Workstation Command Center</en>
+</name>
+<location>|System|Admin</location>
+<command>gwcc</command>
+</program>
+<program portage-id="app-arch/kdar" command="kdar">
+<name>
+<en>KDar</en>
+</name>
+<location>|Archive</location>
+<command>kdar</command>
+</program>
+<program portage-id="app-cdr/eroaster" command="eroaster">
+<name>
+<en>eRoaster</en>
+</name>
+<location>|System|Burn</location>
+<command>eroaster</command>
+</program>
+<program portage-id="app-cdr/simplecdrx" command="simplecdrx">
+<name>
+<en>SimpleCDR-X</en>
+</name>
+<location>|System|Burn</location>
+<command>simplecdrx</command>
+</program>
+<program portage-id="app-crypt/seahorse" command="seahorse">
+<name>
+<en>Seahorse</en>
+</name>
+<location>|Encryption</location>
+<command>seahorse</command>
+</program>
+<program portage-id="app-crypt/wxchecksums" command="wxcksums">
+<name>
+<en>wxChecksums</en>
+</name>
+<location>|Encryption</location>
+<command>wxcksums</command>
+</program>
+<program portage-id="app-doc/dox" command="dox">
+<name>
+<en>Dox</en>
+</name>
+<location>|System|Documentation</location>
+<command>dox</command>
+</program>
+<program portage-id="app-editors/beaver" command="beaver">
+<name>
+<en>Beaver</en>
+</name>
+<location>|Editors</location>
+<command>beaver</command>
+</program>
+<program portage-id="app-editors/conglomerate" command="conglomerate">
+<name>
+<en>Conglomerate</en>
+</name>
+<location>|Editors</location>
+<command>conglomerate</command>
+</program>
+<program portage-id="app-editors/cooledit" command="cooledit">
+<name>
+<en>Cool Edit</en>
+</name>
+<location>|Editors</location>
+<command>cooledit</command>
+</program>
+<program portage-id="app-editors/cute" command="cute">
+<name>
+<en>CUTE</en>
+</name>
+<location>|Editors</location>
+<command>cute</command>
+</program>
+<program portage-id="app-editors/elvis" command="elvis">
+<name>
+<en>Elvis</en>
+</name>
+<location>|Editors</location>
+<command>elvis</command>
+</program>
+<program portage-id="app-editors/emacs" command="emacs">
+<name>
+<en>Emacs</en>
+</name>
+<location>|Editors</location>
+<command>emacs</command>
+</program>
+<program portage-id="app-editors/emacs-cvs" command="emacs">
+<name>
+<en>Emacs</en>
+</name>
+<location>|Editors</location>
+<command>emacs</command>
+</program>
+<program portage-id="app-editors/fte" command="fte">
+<name>
+<en>FTE</en>
+</name>
+<location>|Editors</location>
+<command>fte</command>
+</program>
+<program portage-id="app-editors/gedit" command="gedit">
+<name>
+<en>gedit</en>
+</name>
+<location>|Editors</location>
+<command>gedit</command>
+<icon><file>gedit-icon.png</file></icon>
+</program>
+<program portage-id="app-editors/ghex" command="ghex2">
+<name>
+<en>GHex</en>
+</name>
+<location>|Editors</location>
+<command>ghex2</command>
+</program>
+<program portage-id="app-editors/gmanedit" command="gmanedit">
+<name>
+<en>Gnome Manpage Editor</en>
+</name>
+<location>|Editors</location>
+<command>gmanedit</command>
+</program>
+<program portage-id="app-editors/gnotepad+" command="gnp">
+<name>
+<en>gnotepad</en>
+</name>
+<location>|Editors</location>
+<command>gnp</command>
+</program>
+<program portage-id="app-editors/gphpedit" command="gphpedit">
+<name>
+<en>gPHPEdit</en>
+</name>
+<location>|Editors</location>
+<command>gphpedit</command>
+</program>
+<program portage-id="app-editors/gvim" command="gvim">
+<name>
+<en>GVIM</en>
+</name>
+<location>|Editors</location>
+<command>gvim</command>
+</program>
+<program portage-id="app-editors/jasspa-microemacs" command="me32">
+<name>
+<en>MicroEmacs</en>
+</name>
+<location>|Editors</location>
+<command>me32</command>
+</program>
+<program portage-id="app-editors/jedit" command="jedit">
+<name>
+<en>jEdit</en>
+</name>
+<location>|Editors</location>
+<command>jedit</command>
+</program>
+<program portage-id="app-editors/katoob" command="katoob">
+<name>
+<en>Katoob</en>
+</name>
+<location>|Editors</location>
+<command>katoob</command>
+</program>
+<program portage-id="app-editors/kile" command="kile">
+<name>
+<en>Kile</en>
+</name>
+<location>|Editors</location>
+<command>kile</command>
+</program>
+<program portage-id="media-graphics/truevision" command="truevision">
+<name>
+<en>Truevision</en>
+</name>
+<location>|Media|3D Graphics</location>
+<command>truevision</command>
+</program>
+<program portage-id="app-editors/jext" command="jext">
+<name>
+<en>Jext</en>
+</name>
+<location>|Editors</location>
+<command>jext</command>
+</program>
+<program portage-id="app-editors/kxmleditor" command="kxmleditor">
+<name>
+<en>KXML Editor</en>
+</name>
+<location>|Editors</location>
+<command>kxmleditor</command>
+</program>
+<program portage-id="app-editors/lfhex" command="lfhex">
+<name>
+<en>lfhex</en>
+</name>
+<location>|Editors</location>
+<command>lfhex</command>
+</program>
+<program portage-id="app-editors/mlview" command="mlv">
+<name>
+<en>mlview</en>
+</name>
+<location>|Editors</location>
+<command>mlv</command>
+</program>
+<program portage-id="app-editors/mp" command="gmp">
+<name>
+<en>mp</en>
+</name>
+<location>|Editors</location>
+<command>gmp</command>
+</program>
+<program portage-id="app-editors/peacock" command="peacock-2">
+<name>
+<en>Peacock</en>
+</name>
+<location>|Editors</location>
+<command>peacock-2</command>
+</program>
+<program portage-id="app-editors/qemacs" command="qemacs">
+<name>
+<en>qemacs</en>
+</name>
+<location>|Editors</location>
+<command>qemacs</command>
+</program>
+<program portage-id="app-editors/scite" command="scite">
+<name>
+<en>SciTE</en>
+</name>
+<location>|Editors</location>
+<command>scite</command>
+</program>
+<program portage-id="app-editors/ted" command="Ted">
+<name>
+<en>Ted</en>
+</name>
+<location>|Editors</location>
+<command>Ted</command>
+</program>
+<program portage-id="app-editors/wily" command="wily">
+<name>
+<en>Wily</en>
+</name>
+<location>|Editors</location>
+<command>wily</command>
+</program>
+<program portage-id="app-editors/xemacs" command="xemacs">
+<name>
+<en>XEmacs</en>
+</name>
+<location>|Editors</location>
+<command>xemacs</command>
+</program>
+<program portage-id="x11-misc/xchm" command="xchm">
+<name>
+<en>xCHM</en>
+</name>
+<location>|Utilities|Text</location>
+<command>xchm</command>
+</program>
+<program portage-id="app-editors/xxe" command="xxe">
+<name>
+<en>XMLmind XML Editor</en>
+</name>
+<location>|Editors</location>
+<command>xxe</command>
+</program>
+<program portage-id="app-editors/xemacs-gtk" command="xemacs">
+<name>
+<en>XEmacs</en>
+</name>
+<location>|Editors</location>
+<command>xemacs</command>
+</program>
+<program portage-id="app-editors/gnome-chord" command="gnome-chord">
+<name>
+<en>Gnome-Chord</en>
+</name>
+<location>|Editors</location>
+<command>gnome-chord</command>
+</program>
+<program portage-id="app-editors/xvile" command="xvile">
+<name>
+<en>xvile</en>
+</name>
+<location>|Editors</location>
+<command>xvile</command>
+</program>
+<program portage-id="app-emacs/proofgeneral" command="proofgeneral">
+<name>
+<en>Proof General</en>
+</name>
+<location>|Emacs</location>
+<command>proofgeneral</command>
+</program>
+<program portage-id="app-emulation/aranym" command="aranym">
+<name>
+<en>ARAnyM</en>
+</name>
+<location>|Emulation</location>
+<command>aranym</command>
+</program>
+<program portage-id="app-emulation/frodo" command="Frodo:FrodoPC:FrodoSC">
+<name>
+<en>Frodo</en>
+</name>
+<location>|Emulation</location>
+<command>Frodo</command>
+</program>
+<program portage-id="app-emulation/frodo" command="Frodo:FrodoPC:FrodoSC">
+<name>
+<en>FrodoPC</en>
+</name>
+<location>|Emulation</location>
+<command>FrodoPC</command>
+</program>
+<program portage-id="app-emulation/frodo" command="Frodo:FrodoPC:FrodoSC">
+<name>
+<en>FrodoSC</en>
+</name>
+<location>|Emulation</location>
+<command>FrodoSC</command>
+</program>
+<program portage-id="app-emulation/fuse" command="fuse">
+<name>
+<en>FUSE</en>
+</name>
+<location>|Emulation</location>
+<command>fuse</command>
+</program>
+<program portage-id="app-emulation/winesetuptk" command="winesetuptk">
+<name>
+<en>WineSetupTK</en>
+</name>
+<location>|Emulation</location>
+<command>winesetuptk</command>
+</program>
+<program portage-id="app-emulation/xcopilot" command="xcopilot">
+<name>
+<en>xcopilot</en>
+</name>
+<location>|Emulation</location>
+<command>xcopilot</command>
+</program>
+<program portage-id="app-emulation/xtrs" command="xtrs">
+<name>
+<en>xtrs</en>
+</name>
+<location>|Emulation</location>
+<command>xtrs</command>
+</program>
+<program portage-id="games-mud/gMOO" command="gMOO">
+<name>
+<en>gMOO</en>
+</name>
+<location>|Games|MUD</location>
+<command>gMOO</command>
+</program>
+<program portage-id="games-mud/gnome-mud" command="gnome-mud">
+<name>
+<en>GNOME Mud</en>
+</name>
+<location>|Games|MUD</location>
+<command>gnome-mud</command>
+</program>
+<program portage-id="games-mud/kmc" command="kmc">
+<name>
+<en>KMC</en>
+</name>
+<location>|Games|MUD</location>
+<command>kmc</command>
+</program>
+<program portage-id="games-mud/kmuddy" command="kmuddy">
+<name>
+<en>KMuddy</en>
+</name>
+<location>|Games|MUD</location>
+<command>kmuddy</command>
+</program>
+<program portage-id="games-mud/mmucl" command="mmucl2">
+<name>
+<en>Mmucl</en>
+</name>
+<location>|Games|MUD</location>
+<command>mmucl2</command>
+</program>
+<program portage-id="games-mud/panache" command="panache">
+<name>
+<en>Panache</en>
+</name>
+<location>|Games|MUD</location>
+<command>panache</command>
+</program>
+<program portage-id="media-video/lives" command="lives">
+<name>
+<en>Lives</en>
+</name>
+<location>|Media|Video</location>
+<command>lives</command>
+</program>
+<program portage-id="games-mud/tkmoo" command="tkmoo">
+<name>
+<en>tkMOO-lite</en>
+</name>
+<location>|Games|MUD</location>
+<command>tkmoo</command>
+</program>
+<program portage-id="app-forensics/air" command="air">
+<name>
+<en>AIR</en>
+</name>
+<location>|Forensics</location>
+<command>air</command>
+</program>
+<program portage-id="app-laptop/i8kutils" command="i8kmon">
+<name>
+<en>i8kmon</en>
+</name>
+<location>|Laptop</location>
+<command>i8kmon</command>
+</program>
+<program portage-id="media-sound/grip" command="grip">
+<name>
+<en>Grip</en>
+</name>
+<location>|Media|Audio|Rip</location>
+<command>grip</command>
+<icon><file>gripicon.png</file></icon>
+</program>
+<program portage-id="net-ftp/nvemftp" command="nvemftp">
+<name>
+<en>nvemFTP</en>
+</name>
+<location>|Net|FTP</location>
+<command>nvemftp</command>
+</program>
+<program portage-id="gnome-base/control-center" command="gnome-control-center">
+<name>
+<en>Control Center</en>
+</name>
+<location>|Gnome</location>
+<command>gnome-control-center</command>
+</program>
+<program portage-id="gnome-base/gnome-applets" command="gnome-keyboard-layout">
+<name>
+<en>Gnome Keyboard Layout</en>
+</name>
+<location>|Gnome</location>
+<command>gnome-keyboard-layout</command>
+</program>
+<program portage-id="gnome-base/gnome-desktop" command="gnome-about">
+<name>
+<en>About</en>
+</name>
+<location>|Gnome</location>
+<command>gnome-about</command>
+</program>
+<program portage-id="gnome-base/nautilus" command="nautilus">
+<name>
+<en>Nautilus</en>
+</name>
+<location>|System|File Managers</location>
+<command>nautilus</command>
+</program>
+<program portage-id="gnome-extra/bug-buddy" command="bug-buddy">
+<name>
+<en>Report Bug</en>
+</name>
+<location>|Gnome</location>
+<command>bug-buddy</command>
+</program>
+<program portage-id="gnome-extra/gcalctool" command="gcalctool">
+<name>
+<en>gCalc</en>
+</name>
+<location>|Utilities|Calculator</location>
+<command>gcalctool</command>
+</program>
+<program portage-id="gnome-extra/gconf-editor" command="gconf-editor">
+<name>
+<en>gConf Editor</en>
+</name>
+<location>|Gnome</location>
+<command>gconf-editor</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gNect</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gnect</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gnoMine</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gnomine</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>Same Gnome</en>
+</name>
+<location>|Games|Arcade</location>
+<command>same-gnome</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>Mahjongg</en>
+</name>
+<location>|Games|Arcade</location>
+<command>mahjongg</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gTali</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gtali</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>Gnome Stones</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gnome-stones</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gAtaxx</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gataxx</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gnoTravex</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gnotravex</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gnoTski</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gnotski</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gLines</en>
+</name>
+<location>|Games|Arcade</location>
+<command>glines</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>Iagno</en>
+</name>
+<location>|Games|Arcade</location>
+<command>iagno</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gnoBots2</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gnobots2</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gNibbles</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gnibbles</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>gnometris</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gnometris</command>
+</program>
+<program portage-id="gnome-extra/gnome-games" command="gnect:gnomine:same-gnome:mahjongg:gtali:gnome-stones:gataxx:gnotravex:gnotski:glines:iagno:gnobots2:gnibbles:gnometris:blackjack">
+<name>
+<en>blackjack</en>
+</name>
+<location>|Games|Arcade</location>
+<command>blackjack</command>
+</program>
+<program portage-id="gnome-extra/gnome-media" command="gnome-cd:gnome-volume-control:gnome-sound-recorder">
+<name>
+<en>Gnome CD Player</en>
+</name>
+<location>|Media|Audio</location>
+<command>gnome-cd</command>
+</program>
+<program portage-id="gnome-extra/gnome-media" command="gnome-cd:gnome-volume-control:gnome-sound-recorder">
+<name>
+<en>Gnome Volume Control</en>
+</name>
+<location>|Media|Audio</location>
+<command>gnome-volume-control</command>
+</program>
+<program portage-id="gnome-extra/gnome-media" command="gnome-cd:gnome-volume-control:gnome-sound-recorder">
+<name>
+<en>Gnome Sound Recorder</en>
+</name>
+<location>|Media|Audio</location>
+<command>gnome-sound-recorder</command>
+</program>
+<program portage-id="gnome-extra/gnome-system-monitor" command="gnome-system-monitor">
+<name>
+<en>Gnome System Monitor</en>
+</name>
+<location>|System|Monitors</location>
+<command>gnome-system-monitor</command>
+</program>
+<program portage-id="gnome-extra/gnome-utils" command="Gnome System Log Viewer:Gnome Find Files:Gnome Dictionary:Gnome Floppy Format">
+<name>
+<en>Gnome System Log Viewer</en>
+</name>
+<location>|System</location>
+<command>Gnome System Log Viewer</command>
+</program>
+<program portage-id="gnome-extra/gnome-utils" command="Gnome System Log Viewer:Gnome Find Files:Gnome Dictionary:Gnome Floppy Format">
+<name>
+<en>Gnome Find Files</en>
+</name>
+<location>|System</location>
+<command>Gnome Find Files</command>
+</program>
+<program portage-id="gnome-extra/gnome-utils" command="Gnome System Log Viewer:Gnome Find Files:Gnome Dictionary:Gnome Floppy Format">
+<name>
+<en>Gnome Dictionary</en>
+</name>
+<location>|Utilities|Dictionary</location>
+<command>Gnome Dictionary</command>
+</program>
+<program portage-id="gnome-extra/gnome-utils" command="Gnome System Log Viewer:Gnome Find Files:Gnome Dictionary:Gnome Floppy Format">
+<name>
+<en>Gnome Floppy Format</en>
+</name>
+<location>|System|Misc</location>
+<command>Gnome Floppy Format</command>
+</program>
+<program portage-id="gnome-extra/gucharmap" command="gucharmap">
+<name>
+<en>Gnome Character Map</en>
+</name>
+<location>|Utilities|Misc</location>
+<command>gucharmap</command>
+</program>
+<program portage-id="gnome-extra/yelp" command="yelp">
+<name>
+<en>Gnome Help</en>
+</name>
+<location>|Gnome</location>
+<command>yelp</command>
+</program>
+<program portage-id="games-mud/gmudix" command="gmudix">
+<name>
+<en>gMUDix</en>
+</name>
+<location>|Games|MUD</location>
+<command>gmudix</command>
+</program>
+<program portage-id="app-i8n/fcitx" command="fcitx">
+<name>
+<en>fcitx</en>
+</name>
+<location>|System|International</location>
+<command>fcitx</command>
+</program>
+<program portage-id="app-i18n/jmode" command="jmode">
+<name>
+<en>Jmode</en>
+</name>
+<location>|System|International</location>
+<command>jmode</command>
+</program>
+<program portage-id="app-i18n/kanjipad" command="kanjipad">
+<name>
+<en>KanjiPad</en>
+</name>
+<location>|System|International</location>
+<command>kanjipad</command>
+</program>
+<program portage-id="app-i18n/kurso-de-esperanto" command="kurso">
+<name>
+<en>Kurso De Esperanto</en>
+</name>
+<location>|System|International</location>
+<command>kurso</command>
+</program>
+<program portage-id="app-i18n/nabi" command="nabi">
+<name>
+<en>Nabi</en>
+</name>
+<location>|System|International</location>
+<command>nabi</command>
+</program>
+<program portage-id="app-i18n/poedit" command="poedit">
+<name>
+<en>poEdit</en>
+</name>
+<location>|System|International</location>
+<command>poedit</command>
+</program>
+<program portage-id="app-office/kmymoney2" command="kmymoney">
+<name>
+<en>KMyMoney</en>
+</name>
+<location>|Office</location>
+<command>kmymoney</command>
+</program>
+<program portage-id="app-office/oooqs" command="ooqs">
+<name>
+<en>OpenOffice Quickstarter</en>
+</name>
+<location>|Office</location>
+<command>ooqs</command>
+</program>
+<program portage-id="app-office/plan" command="plan">
+<name>
+<en>Plan</en>
+</name>
+<location>|Office</location>
+<command>plan</command>
+</program>
+<program portage-id="app-office/planner" command="planner">
+<name>
+<en>Imendio Planner</en>
+</name>
+<location>|Office</location>
+<command>planner</command>
+</program>
+<program portage-id="app-office/scribus" command="scribus">
+<name>
+<en>Scribus</en>
+</name>
+<location>|Office</location>
+<command>scribus</command>
+</program>
+<program portage-id="app-office/texmacs" command="texmacs">
+<name>
+<en>Texmacs</en>
+</name>
+<location>|Office</location>
+<command>texmacs</command>
+</program>
+<program portage-id="app-portage/abeni" command="abeni">
+<name>
+<en>Abeni</en>
+</name>
+<location>|System|Portage</location>
+<command>abeni</command>
+</program>
+<program portage-id="app-portage/portagemaster" command="portagemaster">
+<name>
+<en>Portage Master</en>
+</name>
+<location>|System|Portage</location>
+<command>portagemaster</command>
+</program>
+<program portage-id="www-client/ci" command="Ci">
+<name>
+<en>C.i.</en>
+</name>
+<location>|Net|Client</location>
+<command>Ci</command>
+</program>
+<program portage-id="mail-client/evolution" command="evolution">
+<name>
+<en>Ximian Evolution</en>
+</name>
+<location>|Net|Mail</location>
+<command>evolution</command>
+</program>
+<program portage-id="mail-client/exmh" command="exmh">
+<name>
+<en>exMH</en>
+</name>
+<location>|Net|Mail</location>
+<command>exmh</command>
+</program>
+<program portage-id="mail-client/sylpheed" command="sylpheed">
+<name>
+<en>Sylpheed</en>
+</name>
+<location>|Net|Mail</location>
+<command>sylpheed</command>
+</program>
+<program portage-id="mail-client/sylpheed-claws" command="sylpheed">
+<name>
+<en>Sylpheed</en>
+</name>
+<location>|Net|Mail</location>
+<command>sylpheed</command>
+</program>
+<program portage-id="mail-client/ximian-connector" command="ximian-connector-setup">
+<name>
+<en>Ximian Connector</en>
+</name>
+<location>|Net|Mail</location>
+<command>ximian-connector-setup</command>
+</program>
+<program portage-id="mail-client/mail-notification" command="mail-notification">
+<name>
+<en>Mail Notification</en>
+</name>
+<location>|Net|Mail</location>
+<command>mail-notification</command>
+</program>
+<program portage-id="www-client/gorua" command="goRua">
+<name>
+<en>goRua</en>
+</name>
+<location>|Net|Client</location>
+<command>goRua</command>
+</program>
+<program portage-id="www-client/kita" command="kita">
+<name>
+<en>kita</en>
+</name>
+<location>|Net|Client</location>
+<command>kita</command>
+</program>
+<program portage-id="www-client/ochusha" command="ochusha">
+<name>
+<en>Ochusha</en>
+</name>
+<location>|Net|Client</location>
+<command>ochusha</command>
+</program>
+<program portage-id="app-dicts/babytrans" command="babytrans">
+<name>
+<en>Babytrans</en>
+</name>
+<location>|System|Dictionaries</location>
+<command>babytrans</command>
+</program>
+<program portage-id="app-laptop/configure-thinkpad" command="configure-thinkpad">
+<name>
+<en>Configure Thinkpad</en>
+</name>
+<location>|Laptop</location>
+<command>configure-thinkpad</command>
+</program>
+<program portage-id="app-vim/cream" command="cream">
+<name>
+<en>Cream</en>
+</name>
+<location>|Utilities|VIM</location>
+<command>cream</command>
+</program>
+<program portage-id="games-kids/cubetest" command="cubetest">
+<name>
+<en>Cube Test</en>
+</name>
+<location>|Games|Kids</location>
+<command>cubetest</command>
+</program>
+<program portage-id="games-engines/kwest" command="kwest">
+<name>
+<en>Kwest</en>
+</name>
+<location>|Games|Engines</location>
+<command>kwest</command>
+</program>
+<program portage-id="games-engines/sarien" command="sarien">
+<name>
+<en>Sarien</en>
+</name>
+<location>|Games|Engines</location>
+<command>sarien</command>
+</program>
+<program portage-id="games-engines/scummvm" command="scummvm">
+<name>
+<en>ScummVM</en>
+</name>
+<location>|Games|Engines</location>
+<command>scummvm</command>
+</program>
+<program portage-id="games-engines/zoom" command="zoom">
+<name>
+<en>Zoom</en>
+</name>
+<location>|Games|Engines</location>
+<command>zoom</command>
+</program>
+<program portage-id="games-engines/exult" command="exult">
+<name>
+<en>Exult</en>
+</name>
+<location>|Games|Engines</location>
+<command>exult</command>
+</program>
+<program portage-id="app-pda/jpilot" command="jpilot">
+<name>
+<en>J-Pilot</en>
+</name>
+<location>|System|PDA</location>
+<command>jpilot</command>
+</program>
+<program portage-id="app-pda/qtopia-desktop-bin" command="qtopiadesktop">
+<name>
+<en>Qtopia Desktop</en>
+</name>
+<location>|System|PDA</location>
+<command>qtopiadesktop</command>
+</program>
+<program portage-id="app-pda/synce-trayicon" command="synce-trayicon">
+<name>
+<en>Synce Trayicon</en>
+</name>
+<location>|System|PDA</location>
+<command>synce-trayicon</command>
+</program>
+<program portage-id="media-sound/noteedit" command="noteedit">
+<name>
+<en>NoteEdit</en>
+</name>
+<location>|Media|Audio|Notation</location>
+<command>noteedit</command>
+</program>
+<program portage-id="app-emulation/win4lin" command="win">
+<name>
+<en>Win4Lin</en>
+</name>
+<location>|Emulation</location>
+<command>win</command>
+</program>
+<program portage-id="media-sound/denemo" command="denemo">
+<name>
+<en>Denemo</en>
+</name>
+<location>|Media|Audio|Notation</location>
+<command>denemo</command>
+</program>
+<program portage-id="media-sound/rosegarden" command="rosegarden">
+<name>
+<en>Rosegarden</en>
+</name>
+<location>|Media|Audio</location>
+<command>rosegarden</command>
+</program>
+<program portage-id="games-strategy/heroes3" command="heroes3">
+<name>
+<en>Heroes of Might and Magic III</en>
+</name>
+<location>|Games|Strategy</location>
+<command>heroes3</command>
+</program>
+<program portage-id="games-action/xblast" command="xblast">
+<name>
+<en>xBlast TNT</en>
+</name>
+<location>|Games|Action</location>
+<command>xblast</command>
+</program>
+<program portage-id="x11-misc/obconf" command="obconf">
+<name>
+<en>obconf</en>
+</name>
+<location>|Openbox</location>
+<command>obconf</command>
+</program>
+<program portage-id="app-emulation/glukalka" command="glukalka">
+<name>
+<en>Glukalka</en>
+</name>
+<location>|Emulation</location>
+<command>glukalka</command>
+</program>
+<program portage-id="app-portage/guitoo" command="guitoo">
+<name>
+<en>Guitoo</en>
+</name>
+<location>|Emulation</location>
+<command>guitoo</command>
+</program>
+<program portage-id="games-action/rrootage" command="rrootage">
+<name>
+<en>rRootage</en>
+</name>
+<location>|Games|Action</location>
+<command>rrootage</command>
+</program>
+<program portage-id="games-mud/xpertmud" command="xpertmud">
+<name>
+<en>Xpertmud</en>
+</name>
+<location>|Games|MUD</location>
+<command>xpertmud</command>
+</program>
+<program portage-id="app-emulation/basiliskII" command="BasiliskII">
+<name>
+<en>Basilisk II</en>
+</name>
+<location>|Emulation</location>
+<command>BasiliskII</command>
+</program>
+<program portage-id="x11-terms/mrxvt" command="mrxvt">
+<name>
+<en>mrxvt</en>
+</name>
+<location>|Terms</location>
+<command>mrxvt</command>
+</program>
+<program portage-id="app-editors/nvu" command="nvu">
+<name>
+<en>Nvu</en>
+</name>
+<location>|Develpment|WWW</location>
+<command>nvu</command>
+</program>
+<program portage-id="games-fps/enemy-territory" command="et">
+<name>
+<en>Enemy Territory</en>
+</name>
+<location>|Games|FPS</location>
+<command>et</command>
+</program>
+<program portage-id="media-sound/amarok" command="amarokapp">
+<name>
+<en>Amarok</en>
+</name>
+<location>|Media|Audio</location>
+<command>amarokapp</command>
+</program>
+<program portage-id="app-text/acroread" command="acroread">
+<name>
+<en>Acroread</en>
+</name>
+<location>|Office</location>
+<command>acroread</command>
+</program>
+<program portage-id="x11-misc/xscreensaver" command="xscreensaver">
+<name>
+<en>Xscreensaver</en>
+</name>
+<location>|Utilities|X</location>
+<command>xscreensaver</command>
+</program>
+<program portage-id="app-office/lyx" command="lyx">
+<name>
+<en>LyX</en>
+</name>
+<location>|Office</location>
+<command>lyx</command>
+</program>
+<program portage-id="www-client/galeon" command="galeon">
+<name>
+<en>Galeon</en>
+</name>
+<location>|Net</location>
+<command>galeon</command>
+</program>
+<program portage-id="kde-base/kdegames" command="ktuberling">
+<name>
+<en>KTuberling</en>
+</name>
+<location>|Games|Kids</location>
+<command>ktuberling</command>
+</program>
+<program portage-id="media-sound/ardour" command="ardour">
+<name>
+<en>ardour</en>
+</name>
+<location>|Audio</location>
+<command>ardour</command>
+</program>
+<program portage-id="app-misc/emelfm" command="emelfm">
+<name>
+<en>emelfm</en>
+</name>
+<location>|Utilities</location>
+<command>emelfm</command>
+</program>
+<program portage-id="net-im/sim" command="sim">
+<name>
+<en>SIM-ICQ IM client</en>
+</name>
+<location>|Net|IM</location>
+<command>sim</command>
+</program>
+<program portage-id="rox-base/rox" command="rox">
+<name>
+<en>rox</en>
+</name>
+<location>|Utilities</location>
+<command>rox</command>
+</program>
+<program portage-id="www-client/opera" command="opera">
+<name>
+<en>Opera</en>
+</name>
+<location>|Net</location>
+<command>opera</command>
+</program>
+<program portage-id="net-news/liferea" command="liferea">
+<name>
+<en>Liferea</en>
+</name>
+<location>|Net|News</location>
+<command>liferea</command>
+</program>
+<program portage-id="kde-misc/krusader" command="krusader">
+<name>
+<en>krusader</en>
+</name>
+<location>|System</location>
+<command>krusader</command>
+</program>
+<program portage-id="sci-calculators/calcoo" command="calcoo">
+<name>
+<en>calcoo</en>
+</name>
+<location>|Utilities</location>
+<command>calcoo</command>
+</program>
+<program portage-id="net-im/skype" command="skype">
+<name>
+<en>Skype</en>
+</name>
+<location>|Net</location>
+<command>skype</command>
+</program>
+<program portage-id="games-fps/quake3" command="quake3">
+<name>
+<en>Quake3</en>
+</name>
+<location>|Games|FPS</location>
+<command>quake3</command>
+</program>
+<program portage-id="net-misc/bidwatcher" command="bidwatcher">
+<name>
+<en>eBay Bidwatcher</en>
+</name>
+<location>|Net</location>
+<command>bidwatcher</command>
+</program>
+<program portage-id="games-emulation/zsnes" command="zsnes">
+<name>
+<en>Zsnes</en>
+</name>
+<location>|Games|Emulation</location>
+<command>zsnes</command>
+</program>
+<program portage-id="media-sound/aumix" command="aumix">
+<name>
+<en>aumix</en>
+</name>
+<location>|Media|Sound</location>
+<command>aumix</command>
+</program>
+<program portage-id="media-sound/gstreamripper" command="gstreamripperx">
+<name>
+<en>GStreamripper</en>
+</name>
+<location>|Multimedia</location>
+<command>gstreamripperx</command>
+</program>
+<program portage-id="app-text/xpdf" command="xpdf">
+<name>
+<en>xPDF</en>
+</name>
+<location>|Office</location>
+<command>xpdf</command>
+</program>
+<program portage-id="kde-base/kedit" command="kedit">
+<name>
+<en>KEdit</en>
+</name>
+<location>|Office</location>
+<command>kedit</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Canfield</en>
+</name>
+<location>|Games|Board</location>
+<command>canfield</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Freecell</en>
+</name>
+<location>|Games|Board</location>
+<command>freecell</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Golf</en>
+</name>
+<location>|Games|Board</location>
+<command>golf</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Mastermind</en>
+</name>
+<location>|Games|Board</location>
+<command>mastermind</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Merlin</en>
+</name>
+<location>|Games|Board</location>
+<command>merlin</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Minesweeper</en>
+</name>
+<location>|Games|Board</location>
+<command>minesweeper</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Pegged</en>
+</name>
+<location>|Games|Board</location>
+<command>pegged</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Solitaire</en>
+</name>
+<location>|Games|Board</location>
+<command>solitaire</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Taipedit</en>
+</name>
+<location>|Games|Board</location>
+<command>taipedit</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Taipei</en>
+</name>
+<location>|Games|Board</location>
+<command>taipei</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Thornq</en>
+</name>
+<location>|Games|Board</location>
+<command>thornq</command>
+</program>
+<program portage-id="games-board/ace" command="canfield:freecell:golf:mastermind:merlin:minesweeper:pegged:solitaire:taipedit:taipei:thornq:penguins">
+<name>
+<en>Penguins</en>
+</name>
+<location>|Games|Board</location>
+<command>penguins</command>
+</program>
+<program portage-id="www-client/epiphany" command="epiphany">
+<name>
+<en>Epiphany</en>
+</name>
+<location>|Net</location>
+<command>epiphany</command>
+</program>
+<program portage-id="games-fps/doom3" command="doom3">
+<name>
+<en>doom3</en>
+</name>
+<location>|Games|FPS</location>
+<command>doom3</command>
+</program>
+<program portage-id="net-p2p/azureus-bin" command="azureus">
+<name>
+<en>Azureus</en>
+</name>
+<location>|Net|P2P</location>
+<command>azureus</command>
+</program>
+<program portage-id="net-misc/grdesktop" command="grdesktop">
+<name>
+<en>gRdesktop</en>
+</name>
+<location>|Utilities</location>
+<command>grdesktop</command>
+</program>
+<program portage-id="media-sound/sound-juicer" command="sound-juicer">
+<name>
+<en>Sound Juicer</en>
+</name>
+<location>|Media|Audio</location>
+<command>sound-juicer</command>
+</program>
+<program portage-id="media-sound/easytag" command="easytag">
+<name>
+<en>EasyTag</en>
+</name>
+<location>|Media|Audio</location>
+<command>easytag</command>
+</program>
+<program portage-id="games-fps/ut2004-demo" command="ut2004-demo">
+<name>
+<en>UT2004</en>
+</name>
+<location>|Games|FPS</location>
+<command>ut2004-demo</command>
+</program>
+<program portage-id="games-arcade/gish-demo" command="gish">
+<name>
+<en>gish</en>
+</name>
+<location>|Games|Arcade</location>
+<command>gish</command>
+</program>
+<program portage-id="app-antivirus/klamav" command="klamav">
+<name>
+<en>Klamav</en>
+</name>
+<location>|Utilities|Antivirus</location>
+<command>klamav</command>
+</program>
+<program portage-id="dev-util/eclipse-sdk" command="eclipse-3.1">
+<name>
+<en>Eclipse 3.1</en>
+</name>
+<location>|Development</location>
+<command>eclipse-3.1</command>
+</program>
+<program portage-id="kde-base/konqueror" command="konqueror">
+<name>
+<en>Konqueror</en>
+</name>
+<location>|Net</location>
+<command>konqueror</command>
+</program>
+<program portage-id="games-fps/enemy-territory-fortress" command="etf">
+<name>
+<en>Enemy Territory Fortress</en>
+</name>
+<location>|Games|FPS</location>
+<command>etf</command>
+</program>
+<program portage-id="kde-base/kdict" command="kdict">
+<name>
+<en>Kdict</en>
+</name>
+<location>|Utilities|Dictionary</location>
+<command>kdict</command>
+</program>
+<program portage-id="media-video/realplayer" command="realplay">
+<name>
+<en>RealPlayer 10</en>
+</name>
+<location>|Media</location>
+<command>realplay</command>
+</program>
+<program portage-id="media-sound/gnomeradio" command="gnome-radio">
+<name>
+<en>Radio Tuner</en>
+</name>
+<location>|Utilities</location>
+<command>gnome-radio</command>
+</program>
+<program portage-id="xfce-base/xfce4-base" command="xfrun4">
+<name>
+<en>Run Program...</en>
+</name>
+<location>|Xfce4</location>
+<command>xfrun4</command>
+</program>
+<program portage-id="x11-misc/adesklets" command="adesklets">
+<name>
+<en>aDesklets</en>
+</name>
+<location>|Plugins</location>
+<command>adesklets</command>
+</program>
+<program portage-id="games-fps/quake2-icculus" command="quake2">
+<name>
+<en>Quake 2 Icculus</en>
+</name>
+<location>|Games|FPS</location>
+<command>quake2</command>
+</program>
+<program portage-id="games-fps/unreal-tournament" command="ut">
+<name>
+<en>Unreal Tournament</en>
+</name>
+<location>|Games|FPS</location>
+<command>ut</command>
+</program>
+<program portage-id="media-video/jahshaka" command="jahshaka">
+<name>
+<en>Jahshaka</en>
+</name>
+<location>|Media|Video</location>
+<command>jahshaka</command>
+</program>
+<program portage-id="net-misc/blogtk" command="BloGTK">
+<name>
+<en>BloGTK</en>
+</name>
+<location>|Net</location>
+<command>BloGTK</command>
+</program>
+<program portage-id="kde-base/kmail" command="kmail">
+<name>
+<en>KMail</en>
+</name>
+<location>|Net</location>
+<command>kmail</command>
+</program>
+<program portage-id="app-portage/profuse" command="profuse">
+<name>
+<en>ProFuse</en>
+</name>
+<location>|System|Portage</location>
+<command>profuse</command>
+</program>
+<program portage-id="app-editors/leo" command="leo">
+<name>
+<en>Leo</en>
+</name>
+<location>|Editors</location>
+<command>leo</command>
+</program>
+<program portage-id="games-arcade/ppracer" command="ppracer">
+<name>
+<en>PPRacer</en>
+</name>
+<location>|Game|Arcade</location>
+<command>ppracer</command>
+</program>
+<program portage-id="app-forensics/regviewer" command="regviewer">
+<name>
+<en>Regviewer</en>
+</name>
+<location>|Forensics</location>
+<command>regviewer</command>
+</program>
+<program portage-id="dev-ada/gps-bin" command="gps">
+<name>
+<en>GPS</en>
+</name>
+<location>|Development|Ada</location>
+<command>gps</command>
+</program>
+<program portage-id="games-action/deathchase3d" command="deathchase3d">
+<name>
+<en>DeathChase 3D</en>
+</name>
+<location>|Games|Action</location>
+<command>deathchase3d</command>
+</program>
+<program portage-id="games-action/noiz2sa" command="noiz2sa">
+<name>
+<en>NOIZ2SA</en>
+</name>
+<location>|Games|Action</location>
+<command>noiz2sa</command>
+</program>
+<program portage-id="games-sports/trigger" command="trigger">
+<name>
+<en>Trigger</en>
+</name>
+<location>|Games|Sports</location>
+<command>trigger</command>
+</program>
+<program portage-id="games-strategy/freecol" command="freecol">
+<name>
+<en>FreeCol</en>
+</name>
+<location>|Games|Strategy</location>
+<command>freecol</command>
+</program>
+<program portage-id="media-sound/gmpc" command="gmpc">
+<name>
+<en>Gnome mpd Client</en>
+</name>
+<location>|Media|Audio</location>
+<command>gmpc</command>
+</program>
+<program portage-id="app-emulation/point2play" command="Point2Play">
+<name>
+<en>Point2Play</en>
+</name>
+<location>|Emulation</location>
+<command>Point2Play</command>
+</program>
+<program portage-id="media-sound/glurp" command="glurp">
+<name>
+<en>Glurp</en>
+</name>
+<location>|Media|Audio</location>
+<command>glurp</command>
+</program>
+<program portage-id="dev-util/eric" command="eric3">
+<name>
+<en>Eric</en>
+</name>
+<location>|Development</location>
+<command>eric3</command>
+</program>
+<program portage-id="media-sound/audacity" command="audacity">
+<name>
+<en>Audacity</en>
+</name>
+<location>|Media|Sound</location>
+<command>audacity</command>
+</program>
+<program portage-id="games-mud/gmudix" command="gmudix">
+<name>
+<en>gMUDix</en>
+</name>
+<location>|Games|Muds</location>
+<command>gmudix</command>
+</program>
+<program portage-id="app-office/gnucash" command="gnucash">
+<name>
+<en>gnucash</en>
+</name>
+<location>|Office</location>
+<command>gnucash</command>
+</program>
+<program portage-id="media-video/cinelerra-cvs" command="cinelerra">
+<name>
+<en>Cinelerra</en>
+</name>
+<location>|Media|Video</location>
+<command>cinelerra</command>
+</program>
+<program portage-id="x11-misc/gpasman" command="gpasman">
+<name>
+<en>gpasman</en>
+</name>
+<location>|Utilities</location>
+<command>gpasman</command>
+</program>
+<program portage-id="net-analyzer/ethereal" command="ethereal">
+<name>
+<en>Ethereal</en>
+</name>
+<location>|Net</location>
+<command>ethereal</command>
+</program>
+<program portage-id="media-sound/gnome-alsamixer" command="gnome-alsamixer">
+<name>
+<en>Gnome AlsaMixer</en>
+</name>
+<location>|Media|Sound</location>
+<command>gnome-alsamixer</command>
+</program>
+<program portage-id="media-video/nvidia-settings" command="nvidia-settings">
+<name>
+<en>Nvidia Settings</en>
+</name>
+<location>|Utilities</location>
+<command>nvidia-settings</command>
+</program>
+<program portage-id="xfce-extra/mousepad" command="mousepad">
+<name>
+<en>Mousepad</en>
+</name>
+<location>|Editors</location>
+<command>mousepad</command>
+</program>
+<program portage-id="x11-misc/xtrlock" command="xtrlock">
+<name>
+<en>XtrLock</en>
+</name>
+<location>|Utilities</location>
+<command>xtrlock</command>
+</program>
+<program portage-id="x11-misc/gcolor2" command="gcolor2">
+<name>
+<en>gcolor2</en>
+</name>
+<location>|Media|Graphics</location>
+<command>gcolor2</command>
+</program>
+<program portage-id="app-editors/leafpad" command="leafpad">
+<name>
+<en>leafpad</en>
+</name>
+<location>|Editors</location>
+<command>leafpad</command>
+</program>
+<program portage-id="kde-base/knode" command="knode">
+<name>
+<en>Knode</en>
+</name>
+<location>|Net</location>
+<command>knode</command>
+</program>
+<program portage-id="kde-base/kpdf" command="kpdf">
+<name>
+<en>kPDF</en>
+</name>
+<location>|Utilities</location>
+<command>kpdf</command>
+</program>
+<program portage-id="media-gfx/xsane" command="xsane">
+<name>
+<en>XSane</en>
+</name>
+<location>|Utilities</location>
+<command>xsane</command>
+</program>
+<program portage-id="app-text/gsview" command="gsview">
+<name>
+<en>GSview</en>
+</name>
+<location>|Utilities|PDF</location>
+<command>gsview</command>
+</program>
+<program portage-id="games-emulation/tuxnes" command="tuxnes">
+<name>
+<en>Nintendo NES</en>
+</name>
+<location>|Games|Emulation</location>
+<command>tuxnes</command>
+</program>
+<program portage-id="games-emulation/gtuxnes" command="gtuxnes">
+<name>
+<en>Nintendo Emulator</en>
+</name>
+<location>|Games|Emulation</location>
+<command>gtuxnes</command>
+</program>
+<program portage-id="games-emulation/fceultra" command="fceu-svga">
+<name>
+<en>Nintendo NES Emulator</en>
+</name>
+<location>|Games|Emulation</location>
+<command>fceu-svga</command>
+</program>
+<program portage-id="media-gfx/opcion" command="opcion">
+<name>
+<en>Opcion</en>
+</name>
+<location>|Utilities|Text</location>
+<command>opcion</command>
+</program>
+<program portage-id="games-puzzle/ltris" command="ltris">
+<name>
+<en>LTris</en>
+</name>
+<location>|Games|Arcade</location>
+<command>ltris</command>
+</program>
+<program portage-id="media-audio/hydrogen" command="Hydrogen">
+<name>
+<en>hydrogen</en>
+</name>
+<location>|Media|Audio</location>
+<command>Hydrogen</command>
+</program>
+<program portage-id="media-sound/qjackctl" command="qjackctl">
+<name>
+<en>qjackcontrol</en>
+</name>
+<location>|Media|Audio</location>
+<command>qjackctl</command>
+</program>
+<program portage-id="net-nntp/pan" command="pan">
+<name>
+<en>Pan</en>
+</name>
+<location>|Net</location>
+<command>pan</command>
+</program>
+<program portage-id="net-analyzer/ettercap" command="ettercap -G">
+<name>
+<en>Ettercap</en>
+</name>
+<location>|Net</location>
+<command>ettercap -G</command>
+</program>
+<program portage-id="kde-base/kget" command="kget">
+<name>
+<en>Kget</en>
+</name>
+<location>|Net</location>
+<command>kget</command>
+</program>
+<program portage-id="dev-util/monodevelop" command="monodevelop">
+<name>
+<en>Monodevelop</en>
+</name>
+<location>|Development</location>
+<command>monodevelop</command>
+</program>
+<program portage-id="games-puzzle/codebreaker" command="codebreaker">
+<name>
+<en>Codebreaker</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>codebreaker</command>
+</program>
+<program portage-id="media-tv/xawtv" command="motv">
+<name>
+<en>motv</en>
+</name>
+<location>|Media|TV</location>
+<command>motv</command>
+</program>
+<program portage-id="kftpgrabber" command="kftpgrabber">
+<name>
+<en>net-ftp/kftpgrabber</en>
+</name>
+<location>|Net</location>
+<command>kftpgrabber</command>
+</program>
+<program portage-id="www-client/opera" command="opera">
+<name>
+<en>Opera</en>
+</name>
+<location>|Net|Browsers</location>
+<command>opera</command>
+</program>
+<program portage-id="dev-util/kdevelop" command="kdevelop">
+<name>
+<en>KDevelop</en>
+</name>
+<location>|Development</location>
+<command>kdevelop</command>
+</program>
+<program portage-id="app-cdr/graveman" command="graveman">
+<name>
+<en>Graveman</en>
+</name>
+<location>|Utilities|CD-R</location>
+<command>graveman</command>
+</program>
+<program portage-id="net-im/kadu" command="kadu">
+<name>
+<en>Kadu</en>
+</name>
+<location>|Net</location>
+<command>kadu</command>
+</program>
+<program portage-id="net-wireless/gnome-bluetooth" command="gnome-obex-server">
+<name>
+<en>Gnome Obexserver</en>
+</name>
+<location>|Net</location>
+<command>gnome-obex-server</command>
+</program>
+<program portage-id="xfce-extra/terminal" command="terminal">
+<name>
+<en>Terminal</en>
+</name>
+<location>|Terms</location>
+<command>terminal</command>
+</program>
+<program portage-id="media-sound/teamspeak2-client-bin" command="TeamSpeak">
+<name>
+<en>Teamspeak2 Client</en>
+</name>
+<location>|Game|Utils</location>
+<command>TeamSpeak</command>
+</program>
+<program portage-id="x11-terms/konsole" command="konsole">
+<name>
+<en>Konsole</en>
+</name>
+<location>|Terms</location>
+<command>konsole</command>
+</program>
+<program portage-id="media-video/ati-drivers-extra" command="fireglcontrol">
+<name>
+<en>FireGL Control</en>
+</name>
+<location>|Utilities</location>
+<command>fireglcontrol</command>
+</program>
+<program portage-id="x11-misc/pypanel" command="pypanel">
+<name>
+<en>PyPanel</en>
+</name>
+<location>|Utilities</location>
+<command>pypanel</command>
+</program>
+<program portage-id="x11-misc/bbpager" command="bbpager">
+<name>
+<en>BlackBox Pager</en>
+</name>
+<location>|Utilities</location>
+<command>bbpager</command>
+</program>
+<program portage-id="x11-misc/obpager" command="obpager">
+<name>
+<en>OpenBox Pager</en>
+</name>
+<location>|Utilities</location>
+<command>obpager</command>
+</program>
+<program portage-id="games-fps/duke3d" command="duke3d">
+<name>
+<en>Duke Nukem 3D</en>
+</name>
+<location>|Games|FPS</location>
+<command>duke3d</command>
+</program>
+<program portage-id="games-strategy/majesty-demo" command="majx">
+<name>
+<en>Majesty</en>
+</name>
+<location>|Games|Strategy</location>
+<command>majx</command>
+</program>
+<program portage-id="x11-misc/gdeskcal" command="gdeskcal">
+<name>
+<en>Calendar</en>
+</name>
+<location>|Utilities|GDesklets</location>
+<command>gdeskcal</command>
+</program>
+<program portage-id="x11-misc/darimasen" command="darimasen">
+<name>
+<en>Darimasen</en>
+</name>
+<location>|Utilities</location>
+<command>darimasen</command>
+</program>
+<program portage-id="gnome-extra/gdesklets-core" command="gdesklets">
+<name>
+<en>Gdesklets</en>
+</name>
+<location>|Utilities|GDesklets</location>
+<command>gdesklets</command>
+</program>
+<program portage-id="x11-misc/efax-gtk" command="efax-gtk">
+<name>
+<en>eFax</en>
+</name>
+<location>|Office</location>
+<command>efax-gtk</command>
+</program>
+<program portage-id="net-misc/gfax" command="gfax">
+<name>
+<en>Gfax</en>
+</name>
+<location>|Office</location>
+<command>gfax</command>
+</program>
+<program portage-id="kde-base/kontact" command="kontact">
+<name>
+<en>Kontact</en>
+</name>
+<location>|Office</location>
+<command>kontact</command>
+</program>
+<program portage-id="games-fps/rtcw" command="wolfsp">
+<name>
+<en>Return to Castle Wolfenstein sp</en>
+</name>
+<location>|Games|FPS</location>
+<command>wolfsp</command>
+</program>
+<program portage-id="www-client/links" command="links -g">
+<name>
+<en>Links</en>
+</name>
+<location>|Net|Browsers</location>
+<command>links -g</command>
+</program>
+<program portage-id="media-sound/jack-rack" command="jack-rack">
+<name>
+<en>Jack Rack</en>
+</name>
+<location>|Media|Audio</location>
+<command>jack-rack</command>
+</program>
+<program portage-id="media-sound/meterbridge" command="meterbridge">
+<name>
+<en>Meterbridge</en>
+</name>
+<location>|Media|Audio</location>
+<command>meterbridge</command>
+</program>
+<program portage-id="xfce-base/xffm" command="xffm">
+<name>
+<en>Xffm</en>
+</name>
+<location>|Utilities</location>
+<command>xffm</command>
+</program>
+<program portage-id="app-misc/tomboy" command="tomboy">
+<name>
+<en>Tomboy</en>
+</name>
+<location>|Utilities</location>
+<command>tomboy</command>
+</program>
+<program portage-id="x11-misc/superkaramba" command="superkaramba">
+<name>
+<en>Super Karamba</en>
+</name>
+<location>|Utilities|Monitors</location>
+<command>superkaramba</command>
+</program>
+<program portage-id="x11-misc/xfontselector" command="xfontselector">
+<name>
+<en>Xfontselector</en>
+</name>
+<location>|Utilities</location>
+<command>xfontselector</command>
+</program>
+<program portage-id="net-p2p/azureus" command="azureus">
+<name>
+<en>Azureus</en>
+</name>
+<location>|Net|P2P</location>
+<command>azureus</command>
+</program>
+<program portage-id="kde-base/kmix" command="kmix">
+<name>
+<en>kmix</en>
+</name>
+<location>|Media</location>
+<command>kmix</command>
+</program>
+<program portage-id="dev-util/ddd" command="ddd">
+<name>
+<en>ddd</en>
+</name>
+<location>|Development</location>
+<command>ddd</command>
+</program>
+<program portage-id="games-fps/enemy-territory-etpro" command="et-etpro">
+<name>
+<en>Enemy-Territory Pro</en>
+</name>
+<location>|Games|FPS</location>
+<command>et-etpro</command>
+</program>
+<program portage-id="games-fps/enemy-territory-truecombat" command="et-tcetest">
+<name>
+<en>Enemy Territory Truecombat</en>
+</name>
+<location>|Games|FPS</location>
+<command>et-tcetest</command>
+</program>
+<program portage-id="games-fps/quake3-wop" command="quake3-wop">
+<name>
+<en>Quake III - World of Padman</en>
+</name>
+<location>|Games|FPS</location>
+<command>quake3-wop</command>
+</program>
+<program portage-id="games-arcade/komi" command="komi">
+<name>
+<en>Komi</en>
+</name>
+<location>|Games|Arcade</location>
+<command>komi</command>
+</program>
+<program portage-id="games-arcade/briquolo" command="briquolo">
+<name>
+<en>Briquolo</en>
+</name>
+<location>|Games|Arcade</location>
+<command>briquolo</command>
+</program>
+<program portage-id="games-arcade/criticalmass" command="critter">
+<name>
+<en>Critical-Mass</en>
+</name>
+<location>|Games|Arcade</location>
+<command>critter</command>
+</program>
+<program portage-id="games-misc/OilWar" command="oilwar">
+<name>
+<en>Oil War</en>
+</name>
+<location>|Games|Arcade</location>
+<command>oilwar</command>
+</program>
+<program portage-id="media-sound/ripperx" command="ripperX">
+<name>
+<en>RipperX</en>
+</name>
+<location>|Media|Audio</location>
+<command>ripperX</command>
+</program>
+<program portage-id="app-misc/emelfm2" command="emelfm2">
+<name>
+<en>Emelfm2</en>
+</name>
+<location>|System</location>
+<command>emelfm2</command>
+</program>
+<program portage-id="app-misc/worker" command="worker">
+<name>
+<en>Worker</en>
+</name>
+<location>|System</location>
+<command>worker</command>
+</program>
+<program portage-id="games-fps/ut2004-airbuccaneers" command="airbuccaneers">
+<name>
+<en>ut2004-airbuccaneers</en>
+</name>
+<location>|Games|FPS</location>
+<command>airbuccaneers</command>
+</program>
+<program portage-id="games-fps/ut2004-alienswarm" command="alienswarm">
+<name>
+<en>Alienswarm</en>
+</name>
+<location>|Games|FPS</location>
+<command>alienswarm</command>
+</program>
+<program portage-id="games-fps/ut2004-deathball" command="deathb">
+<name>
+<en>Deathball</en>
+</name>
+<location>|Games|FPS</location>
+<command>deathb</command>
+</program>
+<program portage-id="app-office/texmaker" command="texmaker">
+<name>
+<en>Texmaker</en>
+</name>
+<location>|Office</location>
+<command>texmaker</command>
+</program>
+<program portage-id="games-fps/ut2004-domain2049" command="domain2049">
+<name>
+<en>Domain 2049</en>
+</name>
+<location>|Games|FPS</location>
+<command>domain2049</command>
+</program>
+<program portage-id="games-fps/ut2004-fragops" command="fragops">
+<name>
+<en>Fragops</en>
+</name>
+<location>|Games|FPS</location>
+<command>fragops</command>
+</program>
+<program portage-id="games-fps/ut2004-redorchestra" command="redorchestra">
+<name>
+<en>Red Orchestra</en>
+</name>
+<location>|Games|FPS</location>
+<command>redorchestra</command>
+</program>
+<program portage-id="dev-util/gazpacho" command="gazpacho">
+<name>
+<en>Gazpacho</en>
+</name>
+<location>|Development</location>
+<command>gazpacho</command>
+</program>
+<program portage-id="kde-base/kcontrol" command="kcontrol">
+<name>
+<en>KDE Control</en>
+</name>
+<location>|Utilities|KDE</location>
+<command>kcontrol</command>
+</program>
+<program portage-id="games-puzzle/pingus" command="pingus">
+<name>
+<en>Pingus</en>
+</name>
+<location>|Games|Arcade</location>
+<command>pingus</command>
+</program>
+<program portage-id="x11-misc/bbrb" command="bbrb">
+<name>
+<en>bbrb</en>
+</name>
+<location>|System</location>
+<command>bbrb</command>
+</program>
+<program portage-id="dev-util/poseidonCE" command="poseidonCE">
+<name>
+<en>PoseidonCE</en>
+</name>
+<location>|Development</location>
+<command>poseidonCE</command>
+</program>
+<program portage-id="kde-misc/tellico" command="tellico">
+<name>
+<en>Tellico</en>
+</name>
+<location>|Office</location>
+<command>tellico</command>
+</program>
+<program portage-id="non-portage/mcalc" command="mcalc">
+<name>
+<en>mCalc</en>
+</name>
+<location>|Office</location>
+<command>mcalc</command>
+</program>
+<program portage-id="net-ftp/easyftp" command="easyFTP">
+<name>
+<en>easyFTP</en>
+</name>
+<location>|Net</location>
+<command>easyFTP</command>
+</program>
+<program portage-id="app-cdr/kiso" command="kiso">
+<name>
+<en>Kiso</en>
+</name>
+<location>|Utilities</location>
+<command>kiso</command>
+</program>
+<program portage-id="games-strategy/glest" command="glest">
+<name>
+<en>Glest</en>
+</name>
+<location>|Games|Strategy</location>
+<command>glest</command>
+</program>
+<program portage-id="games-strategy/wormux" command="wormux">
+<name>
+<en>Wormux</en>
+</name>
+<location>|Games|Strategy</location>
+<command>wormux</command>
+</program>
+<program portage-id="games-fps/postal2mpdemo" command="postal2mpdemo">
+<name>
+<en>Postal 2 MP Demo</en>
+</name>
+<location>|Games|FPS</location>
+<command>postal2mpdemo</command>
+</program>
+<program portage-id="games-puzzle/pathological" command="pathological">
+<name>
+<en>Pathological</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>pathological</command>
+</program>
+<program portage-id="games-puzzle/monsterz" command="monsterz">
+<name>
+<en>Monsterz</en>
+</name>
+<location>|Games|Puzzle</location>
+<command>monsterz</command>
+</program>
+<program portage-id="app-internet/attym" command="attym">
+<name>
+<en>ATTYM</en>
+</name>
+<location>|Net</location>
+<command>attym</command>
+</program>
+<program portage-id="net-print/gnome-cups-manager" command="gnome-cups-manager">
+<name>
+<en>Printers</en>
+</name>
+<location>|System</location>
+<command>gnome-cups-manager</command>
+</program>
+<program portage-id="dev-db/pgadmin3" command="pgadmin3">
+<name>
+<en>PGAdmin3</en>
+</name>
+<location>|Development|Database</location>
+<command>pgadmin3</command>
+</program>
+<program portage-id="net-p2p/linuxdcpp-cvs" command="dcpp">
+<name>
+<en>DC</en>
+</name>
+<location>|Net|P2P</location>
+<command>dcpp</command>
+</program>
+<program portage-id="kde-base/kstars" command="kstars">
+<name>
+<en>KStars</en>
+</name>
+<location>|KDE</location>
+<command>kstars</command>
+</program>
+<program portage-id="net-dialup/wammu" command="wammu">
+<name>
+<en>Wammu</en>
+</name>
+<location>|Utilities</location>
+<command>wammu</command>
+</program>
+<program portage-id="net-misc/unison" command="unison">
+<name>
+<en>Unison</en>
+</name>
+<location>|Utilities</location>
+<command>unison</command>
+</program>
+<program portage-id="net-dialup/gnome-ppp" command="gnome-ppp">
+<name>
+<en>Gnome PPP</en>
+</name>
+<location>|System</location>
+<command>gnome-ppp</command>
+</program>
+<program portage-id="net-analyzer/xtraceroute" command="xtraceroute">
+<name>
+<en>XTraceroute</en>
+</name>
+<location>|Utilities</location>
+<command>xtraceroute</command>
+</program>
+<program portage-id="dev-java/bsh" command="bsh.Console">
+<name>
+<en>BeanShell</en>
+</name>
+<location>|Development</location>
+<command>bsh.Console</command>
+</program>
+<program portage-id="dev-python/drpython" command="drpython">
+<name>
+<en>DrPython</en>
+</name>
+<location>|Development</location>
+<command>drpython</command>
+</program>
+<program portage-id="net-misc/cisco-aironet-client-utils" command="acu">
+<name>
+<en>Aironet ACU</en>
+</name>
+<location>|System</location>
+<command>acu</command>
+</program>
+<program portage-id="kde-base/kcron" command="kcron">
+<name>
+<en>Scheduler</en>
+</name>
+<location>|KDE</location>
+<command>kcron</command>
+</program>
+<program portage-id="media-libs/libjsw" command="jscalibrator">
+<name>
+<en>JoyStick</en>
+</name>
+<location>|System</location>
+<command>jscalibrator</command>
+</program>
+<program portage-id="dev-db/mysqlcc" command="mysqlcc">
+<name>
+<en>MySQLcc</en>
+</name>
+<location>|Development</location>
+<command>mysqlcc</command>
+</program>
+<program portage-id="dev-db/unixODBC" command="gODBCConfig">
+<name>
+<en>gODBCConfig</en>
+</name>
+<location>|Development</location>
+<command>gODBCConfig</command>
+</program>
+<program portage-id="media-sound/hydrogen" command="hydrogen">
+<name>
+<en>Hydrogen</en>
+</name>
+<location>|Media|Audio</location>
+<command>hydrogen</command>
+</program>
+<program portage-id="media-sound/qsynth" command="qsynth">
+<name>
+<en>QSynth</en>
+</name>
+<location>|Media|Audio</location>
+<command>qsynth</command>
+</program>
+<program portage-id="media-sound/soundtracker" command="soundtracker">
+<name>
+<en>SoundTracker</en>
+</name>
+<location>|Media|Audio</location>
+<command>soundtracker</command>
+</program>
+<program portage-id="media-sound/solfege" command="solfege">
+<name>
+<en>Solfege</en>
+</name>
+<location>|Media|Audio</location>
+<command>solfege</command>
+</program>
+<program portage-id="gnome-base/libbonoboui" command="bonobo-browser">
+<name>
+<en>Bonobo Browser</en>
+</name>
+<location>|System</location>
+<command>bonobo-browser</command>
+</program>
+<program portage-id="media-video/xmovie" command="xmovie">
+<name>
+<en>xmovie</en>
+</name>
+<location>|Media|Video</location>
+<command>xmovie</command>
+</program>
 </data>

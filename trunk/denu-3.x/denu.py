@@ -32,6 +32,10 @@ pixbuf_index = {}
 menustore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
 
 ## denu.py Functions.
+def populate_installed():
+	installedstore.clear()
+	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config['pixbuf_size'], "installed")
+
 def pixbuf_manager(filename, size):
 	global pixbuf_index
     	okay = 'yes'
@@ -121,25 +125,6 @@ def domToTreestore(menu_dom, treestore, parent, location=None, size=config['pixb
 			treestore = domToTreestore(menu_dom, treestore, child, iter, size, type)
 	return treestore
 
-def domToListstore(liststore, parent, size=config['pixbuf_size'], xml_dom_type="installed"):
-	for child in parent.childNodes:
-		if child.nodeName == "folder" or child.nodeName == "program" or child.nodeName == "special":
-			name = string.strip(child.getElementsByTagName("name")[0].getElementsByTagName(config['locale'])[0].firstChild.nodeValue)
-			if len(child.getElementsByTagName("icon")) == 1 and child.getElementsByTagName("icon")[0].parentNode == child:
-				icon = {}
-				if len(child.getElementsByTagName("icon")[0].getElementsByTagName("url")) == 1:
-					icon['url'] = string.strip(child.getElementsByTagName("icon")[0].getElementsByTagName("url")[0].firstChild.nodeValue)
-				if len(child.getElementsByTagName("icon")[0].getElementsByTagName("file")) == 1:
-					icon['file'] = string.strip(child.getElementsByTagName("icon")[0].getElementsByTagName("file")[0].firstChild.nodeValue)
-			else:
-				icon = None
-			id = libDenu.idIndex[xml_dom_type][child]
-			if not icon == None and not pixbuf_manager(icon, size) == "Error: no file.":
-				liststore.append([pixbuf_manager(icon, size), name, id])
-			else:
-				liststore.append([None, name, id])
-	return liststore
-
 ###############################
 ## libDenu.py api functions. ##
 ###############################
@@ -160,6 +145,13 @@ def d_save(widget):
 		filename = filename + ".xml"
 	libDenu.d_save(str(filename))
 	window.hide()
+	
+def update(widget):
+	libDenu.update()
+	libDenu.sysupdate()
+	installedstore.clear()
+	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config['pixbuf_size'], "installed")
+	return "Successful."
 	
 def show_save_denu(widget):
 	window = xml.get_widget("save_denu")
@@ -362,17 +354,21 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 				new_iter = model.append(iter, [None, name, id])
 		if data[0] == "menu":
 			if menustore.iter_has_child(src_iter):
-				copy_rows(new_iter, src_iter)
+				copy_rows(new_iter, src_iter, menustore, model)
+		elif data[0] == "installed":
+			if installedstore.iter_has_child(src_iter):
+				copy_rows(new_iter, src_iter, installedstore, model)
+		if data[0] == "menu":
 			menustore.remove(src_iter)
 			
-def copy_rows(parent_iter, src_iter):
-	iter = menustore.iter_children(src_iter)
+def copy_rows(parent_iter, src_iter, srcmodel, destmodel):
+	iter = srcmodel.iter_children(src_iter)
 	while iter != None:
-		icon, name, id = menustore.get(iter, 0, 1, 2)
-		parent = menustore.append(parent_iter, [icon, name, id])
-		if menustore.iter_has_child(iter):
-			copy_rows(parent, iter)
-		iter = menustore.iter_next(iter)
+		icon, name, id = srcmodel.get(iter, 0, 1, 2)
+		parent = destmodel.append(parent_iter, [icon, name, id])
+		if srcmodel.iter_has_child(iter):
+			copy_rows(parent, iter, srcmodel, destmodel)
+		iter = srcmodel.iter_next(iter)
 xml.signal_autoconnect({
 	'd_open' : d_open,
 	'destroy' : destroy,
@@ -381,7 +377,8 @@ xml.signal_autoconnect({
 	'show_save_denu' : show_save_denu,
 	'print_menu' : print_menu,
 	'show_add_new' : show_add_new,
-	'delete' : deleteEntry
+	'delete' : deleteEntry,
+	'update' : update
 })
 
 libDenu.update_wmConfig()
@@ -419,20 +416,9 @@ menuview.enable_model_drag_source( gtk.gdk.BUTTON1_MASK, [('text/plain', 0, 0)],
 menuview.connect("drag-data-received", drag_data_received_data)
 menuview.connect("drag_data_get", drag_data_get_data)
 
-# Installed.
-# Iconic view.
-installed_icon_store = gtk.ListStore(gtk.gdk.Pixbuf, str, int)
-installed_icon_store = domToListstore(installed_icon_store, libDenu.installed.firstChild, 48)
-iconview = xml.get_widget("icon_installed")
-iconview.set_model(installed_icon_store)
-iconview.set_pixbuf_column(0)
-iconview.set_text_column(1)
-#iconview.connect("drag_data_get", drag_data_get_data)
-#iconview.enable_model_drag_source( gtk.gdk.BUTTON1_MASK, [('text/plain', 0, 0)], gtk.gdk.ACTION_DEFAULT | gtk.gdk.ACTION_MOVE)
-
 #TreeView
 installedstore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
-installedstore = domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config['pixbuf_size'], "installed")
+domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config['pixbuf_size'], "installed")
 installedview = xml.get_widget("installed")
 tvcolumn2 = gtk.TreeViewColumn('Installed')
 cell2 = gtk.CellRendererPixbuf()

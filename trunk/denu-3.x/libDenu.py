@@ -171,6 +171,9 @@ def update ():
 		tmp.writelines(file.readlines())
 		tmp.close()
 		file.close()
+		installed = open (config['testdir'] + 'installedDB', 'w')
+		installed.write(newestDB)
+		installed.close()
 	return "Successful."
 
 #Class for handling the raw xml database to installed xml records.
@@ -191,9 +194,12 @@ class installedHandler (saxlib.HandlerBase):
 					self.bins.append(entry)
 					
 	def startDocument(self):
-		self.domImp = xml.getDOMImplementation()
-		self.dom = self.domImp.createDocument(None, None, None)
-		self.parent = self.dom.createElement("data")
+		self.dom = xml.parse("/home/scott/denu/svn/trunk/denu-3.x/installed_shell.xml")
+		self.parent = self.dom.firstChild
+		self.location_parent = {"|" : self.parent}
+		cleanXML(self.parent)
+		for child in self.dom.getElementsByTagName("key"):
+			self.location_parent[child.firstChild.nodeValue] = child.parentNode
 		self.parent.setAttribute("type", "installed")
 		self.dom.appendChild(self.parent)
 		
@@ -217,7 +223,12 @@ class installedHandler (saxlib.HandlerBase):
 		if not name == "data":
 			self.location.pop()
 		if name == "program" and self.keep == 1:
-			denu_shared.buildDOM(self.entry, self.parent, self.dom)
+			print self.entry['program']['location']
+			if self.location_parent.has_key(self.entry['program']['location']):
+				prgm_parent = self.location_parent[self.entry['program']['location']]
+			else:
+				prgm_parent = self.location_parent['|Lost']
+			denu_shared.buildDOM(self.entry, prgm_parent, self.dom)
 		
 	def endDocument(self):
 		file = open("/home/scott/denu/svn/trunk/denu-3.x/installed.xml", 'w')

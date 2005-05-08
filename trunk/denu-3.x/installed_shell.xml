@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<data>
+	<folder>
+		<name>
+			<en>
+				Office
+			</en>
+		</name>
+		<key>
+			|Office
+		</key>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Media
+			</en>
+		</name>
+		<key>
+			|Media
+		</key>
+		<folder>
+			<name>
+				<en>
+					Graphics
+				</en>
+			</name>
+			<key>
+				|Media|Graphics
+			</key>
+		</folder>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Lost
+			</en>
+		</name>
+		<key>
+			|Lost
+		</key>
+	</folder>
+</data>
