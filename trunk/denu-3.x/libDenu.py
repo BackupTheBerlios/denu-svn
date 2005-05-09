@@ -223,7 +223,6 @@ class installedHandler (saxlib.HandlerBase):
 		if not name == "data":
 			self.location.pop()
 		if name == "program" and self.keep == 1:
-			print self.entry['program']['location']
 			if self.location_parent.has_key(self.entry['program']['location']):
 				prgm_parent = self.location_parent[self.entry['program']['location']]
 			else:
@@ -255,6 +254,8 @@ def sysupdate():
 	prgmDB = open("/home/scott/denu/svn/trunk/denu-3.x/prgmDB.xml", 'r')
 	parser.parseFile(prgmDB)
 	prgmDB.close()
+	d_open("/home/scott/denu/svn/trunk/denu-3.x/installed.xml", "installed")
+	buildIdChildRelations(['installed'])
 	return "Successful."
 	
 #Returns a denu xml structure with all installed programs in them.
@@ -389,11 +390,13 @@ def printMenu(root, locale="en", level=0):
 				print tab*level + string.strip(local_name[0].firstChild.nodeValue)
 			printMenu(node, locale, level + 1)
 
-def buildIdChildRelations ():
+def buildIdChildRelations (trees = ['installed', 'menu']):
 	global menu,idIndex
 	global installed
-	trees = ['installed', 'menu']
-	idIndex = {'menu' : {}, 'installed' : {}, 'custom' : {}}
+	if len(trees) == 1:
+		idIndex[trees[0]] = {}
+	else:
+		idIndex = {'menu' : {}, 'installed' : {}, 'custom' : {}}
 	def internal(node, tree, idIndex, x=0):
 		for child in node.childNodes:
 			if child.nodeName == "data" or child.nodeName == "folder" or child.nodeName == "program" or child.nodeName == "special":

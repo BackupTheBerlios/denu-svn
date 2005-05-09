@@ -178,6 +178,9 @@ def reorder (treemodel, path, iter):
 def print_menu(widget):
 	print libDenu.printMenu(libDenu.menu.firstChild)
 	
+def print_installed(widget):
+	print libDenu.printMenu(libDenu.installed.firstChild)
+	
 def show_add_new (widget):
 	xml.get_widget("add_window").show()
 
@@ -378,7 +381,8 @@ xml.signal_autoconnect({
 	'print_menu' : print_menu,
 	'show_add_new' : show_add_new,
 	'delete' : deleteEntry,
-	'update' : update
+	'update' : update,
+	'print_installed' : print_installed
 })
 
 libDenu.update_wmConfig()

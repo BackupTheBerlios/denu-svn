@@ -13,6 +13,26 @@
 	<folder>
 		<name>
 			<en>
+				Net
+			</en>
+		</name>
+		<key>
+			|Net
+		</key>
+		<folder>
+			<name>
+				<en>
+					Browsers
+				</en>
+			</name>
+			<key>
+				|Net|Browsers
+			</key>
+		</folder>
+	</folder>
+	<folder>
+		<name>
+			<en>
 				Media
 			</en>
 		</name>
@@ -29,6 +49,46 @@
 				|Media|Graphics
 			</key>
 		</folder>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Games
+			</en>
+		</name>
+		<key>
+			|Games
+		</key>
+		<folder>
+			<name>
+				<en>
+					Arcade
+				</en>
+			</name>
+			<key>
+				|Games|Arcade
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					Strategy
+				</en>
+			</name>
+			<key>
+				|Games|Strategy
+			</key>
+		</folder>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Utilities
+			</en>
+		</name>
+		<key>
+			|Utilities
+		</key>
 	</folder>
 	<folder>
 		<name>
