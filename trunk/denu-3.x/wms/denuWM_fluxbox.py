@@ -28,7 +28,14 @@ import os,string,re
 import xml.dom.minidom as xml
 import sys
 home = os.environ['HOME']
-sys.path.extend(["/usr/share/denu/wms", home + "/.denu/wms", home + "/denu/svn/trunk/denu-3.x/wms", home + "/denu/svn/trunk/denu-3.x"])
+
+#
+#Change default to root denu test directory.
+#
+default = home + "/denu/svn/trunk/denu-3.x"
+
+
+sys.path.extend(["/usr/share/denu/wms", home + "/.denu/wms", default + "/wms", default])
 import libDenuShared as denu_shared
 config = ['fluxbox', 'Fluxbox']
 locale = "en"

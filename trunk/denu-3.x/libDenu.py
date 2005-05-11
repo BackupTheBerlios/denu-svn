@@ -34,7 +34,11 @@ sys.path.extend(["/usr/share/denu/wms", home + "/.denu/wms", home + "/denu/svn/t
 config = {}
 config['static'] = '/usr/share/denu/'
 config['dynamic'] = '/var/cache/denu/'
-config['testdir'] = '/home/scott/denu/svn/trunk/denu-3.x/'
+
+#
+#Change config['default'] to root denu test directory.
+#
+config['default'] = '/home/scott/denu/svn/trunk/denu-3.x/'
 
 #######################
 # WM module wrappers. #
@@ -132,8 +136,8 @@ def getInstalledWMs ():
 #Updates wm configs in wmConfig variable.
 def update_wmConfig():
 	global wmConfig
-	if os.path.exists("/home/scott/denu/svn/trunk/denu-3.x/wms"):
-		default_files = os.listdir("/home/scott/denu/svn/trunk/denu-3.x/wms")
+	if os.path.exists(config['default'] + "wms"):
+		default_files = os.listdir(config['default'] + "wms")
 	else:
 		default_files = []
 	if os.path.exists(home + "/.denu/wms"):
@@ -161,17 +165,17 @@ def update ():
 	except:
 		return 'Could not find denu server.'
 	newestDB = string.strip(newestDB)
-	installedDB = open (config['testdir'] + 'installedDB')
+	installedDB = open (config['default'] + 'installedDB')
 	installDB = installedDB.readline()
 	installedDB.close()
 	#Compare newest and installed so that the same version isn't downloaded again.
 	if installDB != newestDB:
 		file = urllib2.urlopen('http://denu.sourceforge.net/files/prgmDB.xml')
-		tmp = open(config['testdir'] + 'prgmDB.xml', 'w')
+		tmp = open(config['default'] + 'prgmDB.xml', 'w')
 		tmp.writelines(file.readlines())
 		tmp.close()
 		file.close()
-		installed = open (config['testdir'] + 'installedDB', 'w')
+		installed = open (config['default'] + 'installedDB', 'w')
 		installed.write(newestDB)
 		installed.close()
 	return "Successful."
@@ -194,7 +198,7 @@ class installedHandler (saxlib.HandlerBase):
 					self.bins.append(entry)
 					
 	def startDocument(self):
-		self.dom = xml.parse("/home/scott/denu/svn/trunk/denu-3.x/installed_shell.xml")
+		self.dom = xml.parse(config['default'] + "installed_shell.xml")
 		self.parent = self.dom.firstChild
 		self.location_parent = {"|" : self.parent}
 		cleanXML(self.parent)
@@ -230,7 +234,7 @@ class installedHandler (saxlib.HandlerBase):
 			denu_shared.buildDOM(self.entry, prgm_parent, self.dom)
 		
 	def endDocument(self):
-		file = open("/home/scott/denu/svn/trunk/denu-3.x/installed.xml", 'w')
+		file = open(config['default'] + "installed.xml", 'w')
 		strng = self.dom.toprettyxml()
 		file.write(strng)
 		file.close()
@@ -251,16 +255,16 @@ def sysupdate():
 	handler = installedHandler()
 	parser = saxexts.make_parser()
 	parser.setDocumentHandler(handler)
-	prgmDB = open("/home/scott/denu/svn/trunk/denu-3.x/prgmDB.xml", 'r')
+	prgmDB = open(config['default'] + "prgmDB.xml", 'r')
 	parser.parseFile(prgmDB)
 	prgmDB.close()
-	d_open("/home/scott/denu/svn/trunk/denu-3.x/installed.xml", "installed")
+	d_open(config['default'] + "installed.xml", "installed")
 	buildIdChildRelations(['installed'])
 	return "Successful."
 	
 #Returns a denu xml structure with all installed programs in them.
 def autoGen ():
-	installed = xml.parse("/home/scott/denu/svn/trunk/denu-3.x/installed.xml")
+	installed = xml.parse(config['default'] + "installed.xml")
 	for child in installed.firstChild.childNodes:
 		location = child.getElementsByTagName("location")[0].nodeValue
 		split_location = location.split("|")
@@ -282,7 +286,7 @@ def editEntry(entry, entryId):
 	element = idIndex['menu'][entryId]
 	for tag in element.childNodes:
 		element.removeChild(tag)
-	denu_shared.buildDOM(entry['program'], element, menu)
+	denu_shared.buildDOM(entry[0], element, menu)
 	return "Successful."
 				
 #Returns information on entries in the xml.  May be a list or object.
@@ -325,9 +329,9 @@ def saveEntry(entryId, overwrite=0):
 	type = idIndex['menu'][entryId].nodeName
 	filename = idIndex['menu'][entryId].getElementsByTagName("command")
 	filename = filename + ".xml"
-	if os.path.exists(config['testdir'] + type + "/" + filename) and overwrite == 0:
+	if os.path.exists(config['default'] + type + "/" + filename) and overwrite == 0:
 		filename = filename.replace(".xml", random.random(0,500,1) + ".xml")
-	file = open(config['testdir'] + type + "/" + filename, 'w')
+	file = open(config['default'] + type + "/" + filename, 'w')
 	strng = idIndex['menu'][entryId].toprettyxml()
 	file.write(strng)
 	file.close()
