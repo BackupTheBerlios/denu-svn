@@ -30,9 +30,6 @@ import gtk.glade
 import xml.dom.minidom as xml_dom
 import string,urllib2,os
 home = os.environ['HOME']
-if config['debug'] == 'yes':
-	print "Importing glade file."
-xml = gtk.glade.XML('denu/denu.glade')
 config['locale'] = 'en'
 config['pixbuf_size'] = 32
 
@@ -41,6 +38,9 @@ config['pixbuf_size'] = 32
 #
 config['default'] = "/home/scott/denu/svn/trunk/denu-3.x/"
 
+if config['debug'] == 'yes':
+	print "Importing glade file."
+xml = gtk.glade.XML(config['default'] + 'denu/denu.glade')
 pixbuf_index = {}
 menustore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
 
@@ -180,6 +180,16 @@ def update(widget):
 	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config['pixbuf_size'], "installed")
 	return "Successful."
 	
+def update_installed(widget):
+	libDenu.sysupdate()
+	installedstore.clear()
+	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config['pixbuf_size'], "installed")
+	return "Successful."
+	
+def update_db(widget):
+	libDenu.update()
+	return "Successful."
+	
 def show_save_denu(widget):
 	window = xml.get_widget("save_denu")
 	window.show()
@@ -303,12 +313,17 @@ def cancel_add(widget):
 def change_add_state(widget):
 	new_type = widget.get_active()
 	if new_type == 0:
-		print xml.get_widget("add_command").flags()
-		xml.get_widget("add_command").hide()
-		print xml.get_widget("add_command").flags()
+		if xml.get_widget("add_command_cont").get_property('visible'):
+			xml.get_widget("add_command_cont").hide()
+	elif new_type == 1:
+		if not xml.get_widget("add_command_cont").get_property('visible'):
+			xml.get_widget("add_command_cont").show()
+	elif new_type == 2:
+		if not xml.get_widget("add_command_cont").get_property('visible'):
+			xml.get_widget("add_command_cont").show()
 	
 def view_entry(widget):
-	viewxml = gtk.glade.XML('denu/denu.glade', 'view_window')
+	viewxml = gtk.glade.XML(config['default'] + 'denu/denu.glade', 'view_window')
 	menu_iterList = []
 	def createMenuList(model, path, iter):
 		menu_iterList.append(iter)
@@ -551,6 +566,8 @@ xml.signal_autoconnect({
 	'show_add_new' : show_add_new,
 	'delete' : deleteEntry,
 	'update' : update,
+	'update_db' : update_db,
+	'update_installed' : update_installed,
 	'print_installed' : print_installed,
 	'add_entry' : addEntry,
 	'cancel_add' : cancel_add,

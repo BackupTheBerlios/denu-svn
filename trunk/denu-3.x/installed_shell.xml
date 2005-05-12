@@ -13,6 +13,26 @@
 	<folder>
 		<name>
 			<en>
+				Archive
+			</en>
+		</name>
+		<key>
+			|Archive
+		</key>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Editors
+			</en>
+		</name>
+		<key>
+			|Editors
+		</key>
+	</folder>
+	<folder>
+		<name>
+			<en>
 				Net
 			</en>
 		</name>
@@ -29,6 +49,47 @@
 				|Net|Browsers
 			</key>
 		</folder>
+		<folder>
+			<name>
+				<en>
+					FTP
+				</en>
+			</name>
+			<key>
+				|Net|FTP
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					IM
+				</en>
+			</name>
+			<key>
+				|Net|IM
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					IRC
+				</en>
+			</name>
+			<key>
+				|Net|IRC
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					Mail
+				</en>
+			</name>
+			<key>
+				|Net|Mail
+			</key>
+		</folder>
+		
 	</folder>
 	<folder>
 		<name>
@@ -42,11 +103,41 @@
 		<folder>
 			<name>
 				<en>
+					Audio
+				</en>
+			</name>
+			<key>
+				|Media|Audio
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
 					Graphics
 				</en>
 			</name>
 			<key>
 				|Media|Graphics
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					3D Graphics
+				</en>
+			</name>
+			<key>
+				|Media|3D Graphics
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					Video
+				</en>
+			</name>
+			<key>
+				|Media|Video
 			</key>
 		</folder>
 	</folder>
@@ -72,6 +163,26 @@
 		<folder>
 			<name>
 				<en>
+					Puzzle
+				</en>
+			</name>
+			<key>
+				|Games|Puzzle
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					Sports
+				</en>
+			</name>
+			<key>
+				|Games|Sports
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
 					Strategy
 				</en>
 			</name>
@@ -79,6 +190,116 @@
 				|Games|Strategy
 			</key>
 		</folder>
+		<folder>
+			<name>
+				<en>
+					Simulation
+				</en>
+			</name>
+			<key>
+				|Games|Simulation
+			</key>
+		</folder>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Development
+			</en>
+		</name>
+		<key>
+			|Development
+		</key>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Gnome
+			</en>
+		</name>
+		<key>
+			|Gnome
+		</key>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Fluxbox
+			</en>
+		</name>
+		<key>
+			|Fluxbox
+		</key>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Science
+			</en>
+		</name>
+		<key>
+			|Science
+		</key>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				System
+			</en>
+		</name>
+		<key>
+			|System
+		</key>
+		<folder>
+			<name>
+				<en>
+					Admin
+				</en>
+			</name>
+			<key>
+				|System|Admin
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					Burn
+				</en>
+			</name>
+			<key>
+				|System|Burn
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					Dictionaries
+				</en>
+			</name>
+			<key>
+				|System|Dictionaries
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					Portage
+				</en>
+			</name>
+			<key>
+				|System|Portage
+			</key>
+		</folder>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Terms
+			</en>
+		</name>
+		<key>
+			|Terms
+		</key>
 	</folder>
 	<folder>
 		<name>
@@ -89,6 +310,36 @@
 		<key>
 			|Utilities
 		</key>
+		<folder>
+			<name>
+				<en>
+					Calculator
+				</en>
+			</name>
+			<key>
+				|Utilities|Calculator
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					X11
+				</en>
+			</name>
+			<key>
+				|Utilities|X11
+			</key>
+		</folder>
+		<folder>
+			<name>
+				<en>
+					PDF
+				</en>
+			</name>
+			<key>
+				|Utilities|PDF
+			</key>
+		</folder>
 	</folder>
 	<folder>
 		<name>
