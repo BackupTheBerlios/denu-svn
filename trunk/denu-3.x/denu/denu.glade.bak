@@ -66,7 +66,7 @@
 		      <signal name="activate" handler="on_import_activate" last_modification_time="Mon, 02 May 2005 03:11:40 GMT"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image11">
+			<widget class="GtkImage" id="image15">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-dnd</property>
 			  <property name="icon_size">1</property>
@@ -100,7 +100,7 @@
 		      <signal name="activate" handler="on_export1_activate" last_modification_time="Sat, 30 Apr 2005 22:08:24 GMT"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image12">
+			<widget class="GtkImage" id="image16">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-convert</property>
 			  <property name="icon_size">1</property>
@@ -189,7 +189,7 @@
 		      <signal name="activate" handler="on_view1_activate" last_modification_time="Thu, 12 May 2005 03:09:23 GMT"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image13">
+			<widget class="GtkImage" id="image17">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-italic</property>
 			  <property name="icon_size">1</property>
@@ -261,10 +261,24 @@
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">Update</property>
 		      <property name="use_underline">True</property>
-		      <signal name="activate" handler="update" last_modification_time="Thu, 12 May 2005 03:10:43 GMT"/>
 
 		      <child>
 			<widget class="GtkMenu" id="update1_menu">
+
+			  <child>
+			    <widget class="GtkMenuItem" id="both1">
+			      <property name="visible">True</property>
+			      <property name="label" translatable="yes">Both</property>
+			      <property name="use_underline">True</property>
+			      <signal name="activate" handler="update" last_modification_time="Thu, 12 May 2005 03:13:29 GMT"/>
+			    </widget>
+			  </child>
+
+			  <child>
+			    <widget class="GtkSeparatorMenuItem" id="separator1">
+			      <property name="visible">True</property>
+			    </widget>
+			  </child>
 
 			  <child>
 			    <widget class="GtkMenuItem" id="db1">
