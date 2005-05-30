@@ -9,6 +9,11 @@
 		<key>
 			|Office
 		</key>
+		<icon>
+			<file>
+				/usr/share/icons/Nuvola/scalable/apps/gnome-applications.svg
+			</file>
+		</icon>
 		<program>
 			<portage-id>
 				app-office/openoffice-bin
@@ -478,6 +483,22 @@
 		</key>
 		<program>
 			<portage-id>
+				app-editors/conglomerate
+			</portage-id>
+			<command>
+				conglomerate
+			</command>
+			<name>
+				<en>
+					Conglomerate
+				</en>
+			</name>
+			<location>
+				|Editors
+			</location>
+		</program>
+		<program>
+			<portage-id>
 				app-editors/gedit
 			</portage-id>
 			<icon>
@@ -523,6 +544,11 @@
 		<key>
 			|Net
 		</key>
+		<icon>
+			<file>
+				/usr/share/icons/Nuvola/scalable/apps/gnome-globe.svg
+			</file>
+		</icon>
 		<folder>
 			<name>
 				<en>
@@ -673,6 +699,11 @@
 			<key>
 				|Net|IM
 			</key>
+			<icon>
+				<file>
+					/usr/share/icons/Nuvola/scalable/apps/gaim.svg
+				</file>
+			</icon>
 			<program>
 				<portage-id>
 					net-im/gaim
@@ -735,6 +766,11 @@
 			<key>
 				|Net|Mail
 			</key>
+			<icon>
+				<file>
+					/usr/share/icons/Nuvola/scalable/apps/gnome-mail.svg
+				</file>
+			</icon>
 			<program>
 				<portage-id>
 					mail-client/mozilla-thunderbird
@@ -820,6 +856,11 @@
 		<key>
 			|Media
 		</key>
+		<icon>
+			<file>
+				/usr/share/icons/Nuvola/scalable/apps/gnome-multimedia.svg
+			</file>
+		</icon>
 		<folder>
 			<name>
 				<en>
@@ -829,6 +870,11 @@
 			<key>
 				|Media|Audio
 			</key>
+			<icon>
+				<file>
+					/usr/share/icons/Nuvola/scalable/apps/gnome-audio.svg
+				</file>
+			</icon>
 			<program>
 				<portage-id>
 					media-sound/xmms
@@ -925,6 +971,22 @@
 					|Media|Audio
 				</location>
 			</program>
+			<program>
+				<portage-id>
+					media-sound/alsa-utils
+				</portage-id>
+				<command>
+					envy24control
+				</command>
+				<name>
+					<en>
+						Envy 24 Control
+					</en>
+				</name>
+				<location>
+					|Media|Audio
+				</location>
+			</program>
 		</folder>
 		<folder>
 			<name>
@@ -935,6 +997,11 @@
 			<key>
 				|Media|Graphics
 			</key>
+			<icon>
+				<file>
+					/usr/share/icons/Nuvola/scalable/apps/gnome-graphics.svg
+				</file>
+			</icon>
 			<program>
 				<portage-id>
 					media-gfx/gimp
@@ -1045,6 +1112,22 @@
 				<name>
 					<en>
 						Inkscape
+					</en>
+				</name>
+				<location>
+					|Media|Graphics
+				</location>
+			</program>
+			<program>
+				<portage-id>
+					media-gfx/skencil
+				</portage-id>
+				<command>
+					skencil
+				</command>
+				<name>
+					<en>
+						Skencil
 					</en>
 				</name>
 				<location>
@@ -1183,6 +1266,11 @@
 		<key>
 			|Games
 		</key>
+		<icon>
+			<file>
+				/usr/share/icons/Nuvola/scalable/apps/gnome-joystick.svg
+			</file>
+		</icon>
 		<folder>
 			<name>
 				<en>
@@ -1645,6 +1733,22 @@
 			</key>
 			<program>
 				<portage-id>
+					games-simulation/lincity
+				</portage-id>
+				<command>
+					xlincity
+				</command>
+				<name>
+					<en>
+						Lincity
+					</en>
+				</name>
+				<location>
+					|Games|Strategy
+				</location>
+			</program>
+			<program>
+				<portage-id>
 					games-strategy/freeciv
 				</portage-id>
 				<command>
@@ -1693,6 +1797,54 @@
 			</program>
 			<program>
 				<portage-id>
+					games-strategy/boson
+				</portage-id>
+				<command>
+					boson
+				</command>
+				<name>
+					<en>
+						Boson
+					</en>
+				</name>
+				<location>
+					|Games|Strategy
+				</location>
+			</program>
+			<program>
+				<portage-id>
+					games-strategy/scorched3d
+				</portage-id>
+				<command>
+					scorched3d
+				</command>
+				<name>
+					<en>
+						Scorched 3D
+					</en>
+				</name>
+				<location>
+					|Games|Strategy
+				</location>
+			</program>
+			<program>
+				<portage-id>
+					games-strategy/dopewars
+				</portage-id>
+				<command>
+					dopewars
+				</command>
+				<name>
+					<en>
+						DopeWars
+					</en>
+				</name>
+				<location>
+					|Games|Strategy
+				</location>
+			</program>
+			<program>
+				<portage-id>
 					games-strategy/glest
 				</portage-id>
 				<command>
@@ -1719,6 +1871,38 @@
 			</key>
 			<program>
 				<portage-id>
+					games-simulation/senken
+				</portage-id>
+				<command>
+					senken
+				</command>
+				<name>
+					<en>
+						Senken
+					</en>
+				</name>
+				<location>
+					|Games|Simulation
+				</location>
+			</program>
+			<program>
+				<portage-id>
+					games-simulation/searchandrescue
+				</portage-id>
+				<command>
+					SearchAndRescue
+				</command>
+				<name>
+					<en>
+						Search and Rescue
+					</en>
+				</name>
+				<location>
+					|Games|Simulation
+				</location>
+			</program>
+			<program>
+				<portage-id>
 					games-simulation/simutrans
 				</portage-id>
 				<command>
@@ -1727,6 +1911,22 @@
 				<name>
 					<en>
 						SimuTrans
+					</en>
+				</name>
+				<location>
+					|Games|Simulation
+				</location>
+			</program>
+			<program>
+				<portage-id>
+					games-simulation/bcsdemo
+				</portage-id>
+				<command>
+					bcsdemo
+				</command>
+				<name>
+					<en>
+						Bridge Construction Demo
 					</en>
 				</name>
 				<location>
@@ -1744,6 +1944,11 @@
 		<key>
 			|Development
 		</key>
+		<icon>
+			<file>
+				/usr/share/icons/Nuvola/scalable/apps/gnome-devel.svg
+			</file>
+		</icon>
 		<program>
 			<portage-id>
 				dev-util/glade
@@ -1791,6 +1996,11 @@
 		<key>
 			|Gnome
 		</key>
+		<icon>
+			<file>
+				/usr/share/icons/Nuvola/scalable/apps/gnome-logo.svg
+			</file>
+		</icon>
 		<program>
 			<portage-id>
 				gnome-base/control-center
@@ -1917,6 +2127,11 @@
 		<key>
 			|System
 		</key>
+		<icon>
+			<file>
+				/usr/share/icons/Nuvola/scalable/apps/gnome-system.svg
+			</file>
+		</icon>
 		<folder>
 			<name>
 				<en>
@@ -1926,6 +2141,11 @@
 			<key>
 				|System|Admin
 			</key>
+			<icon>
+				<file>
+					/usr/share/icons/Nuvola/scalable/apps/gnome-system-config.svg
+				</file>
+			</icon>
 			<program>
 				<portage-id>
 					app-admin/gnome-system-tools
@@ -2190,6 +2410,11 @@
 		<key>
 			|Terms
 		</key>
+		<icon>
+			<file>
+				/usr/share/icons/Nuvola/scalable/apps/gnome-terminal.svg
+			</file>
+		</icon>
 		<program>
 			<portage-id>
 				x11-terms/aterm
@@ -2455,6 +2680,134 @@
 		</key>
 		<program>
 			<portage-id>
+				games-fps/legends
+			</portage-id>
+			<command>
+				legends
+			</command>
+			<name>
+				<en>
+					Legends
+				</en>
+			</name>
+			<location>
+				|Games|FPS
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-action/xbomber
+			</portage-id>
+			<command>
+				bomber
+			</command>
+			<name>
+				<en>
+					xBomber
+				</en>
+			</name>
+			<location>
+				|Games|Action
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-action/tuxkart
+			</portage-id>
+			<command>
+				tuxkart
+			</command>
+			<name>
+				<en>
+					Tuxkart
+				</en>
+			</name>
+			<location>
+				|Games|Action
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-action/koth
+			</portage-id>
+			<command>
+				koth
+			</command>
+			<name>
+				<en>
+					Koth
+				</en>
+			</name>
+			<location>
+				|Games|Action
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-action/shootingstar
+			</portage-id>
+			<command>
+				shootingstar
+			</command>
+			<name>
+				<en>
+					Shooting Star
+				</en>
+			</name>
+			<location>
+				|Games|Action
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-board/xfreecell
+			</portage-id>
+			<command>
+				xfreecell
+			</command>
+			<name>
+				<en>
+					xfreecell
+				</en>
+			</name>
+			<location>
+				|Games|Board
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-board/xscrabble
+			</portage-id>
+			<command>
+				xscrabble
+			</command>
+			<name>
+				<en>
+					XScrabble
+				</en>
+			</name>
+			<location>
+				|Games|Board
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-board/teg
+			</portage-id>
+			<command>
+				tegclient
+			</command>
+			<name>
+				<en>
+					Tenes Empanadas Graciela
+				</en>
+			</name>
+			<location>
+				|Games|Board
+			</location>
+		</program>
+		<program>
+			<portage-id>
 				dev-db/edb
 			</portage-id>
 			<command>
@@ -2568,6 +2921,70 @@
 			</name>
 			<location>
 				|Media|Audio|Notation
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-action/xblast
+			</portage-id>
+			<command>
+				xblast
+			</command>
+			<name>
+				<en>
+					xBlast TNT
+				</en>
+			</name>
+			<location>
+				|Games|Action
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				x11-misc/obconf
+			</portage-id>
+			<command>
+				obconf
+			</command>
+			<name>
+				<en>
+					obconf
+				</en>
+			</name>
+			<location>
+				|Openbox
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-fps/enemy-territory
+			</portage-id>
+			<command>
+				et
+			</command>
+			<name>
+				<en>
+					Enemy Territory
+				</en>
+			</name>
+			<location>
+				|Games|FPS
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				net-news/liferea
+			</portage-id>
+			<command>
+				liferea
+			</command>
+			<name>
+				<en>
+					Liferea
+				</en>
+			</name>
+			<location>
+				|Net|News
 			</location>
 		</program>
 		<program>

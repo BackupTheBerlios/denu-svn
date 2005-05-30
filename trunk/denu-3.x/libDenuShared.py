@@ -19,33 +19,33 @@
 # It is released under the GPLv2
 
 def DOMtoDict (dict, entry, location):
-	for child in entry.childNodes:
-		if not child.nodeName == "#text":
-			location.append(child.nodeName)
-			DOMtoDict (dict, child, location)
-			location.pop()
-		elif not child.nodeValue.strip() == "":
-			variable = "dict"
-			for place in location:
-				exec "result = " + variable + ".has_key(place)"
-				if not result:
-					exec variable + "[place] = {}"
-				variable += "['" + place + "']"
-			exec variable + " = child.nodeValue"
-			
+        for child in entry.childNodes:
+                if not child.nodeName == "#text":
+                        location.append(child.nodeName)
+                        DOMtoDict (dict, child, location)
+                        location.pop()
+                elif not child.nodeValue.strip() == "":
+                        variable = "dict"
+                        for place in location:
+                                exec "result = " + variable + ".has_key(place)"
+                                if not result:
+                                        exec variable + "[place] = {}"
+                                variable += "['" + place + "']"
+                        exec variable + " = child.nodeValue"
+                        
 def buildDOM(dict, element, root):
-	type = ""
-	for key in dict.keys():
-		tmp = root.createElement(key)
-		element.appendChild(tmp)
-		try:
-			dict[key].keys()
-		except:
-			type = "string"
-		if type=="string":
-			strng = root.createTextNode(dict[key])
-			tmp.appendChild(strng)
-		else:
-			buildDOM(dict[key], tmp, root)
-		type = ''
-	return tmp
+        type = ""
+        for key in dict.keys():
+                tmp = root.createElement(key)
+                element.appendChild(tmp)
+                try:
+                        dict[key].keys()
+                except:
+                        type = "string"
+                if type=="string":
+                        strng = root.createTextNode(dict[key])
+                        tmp.appendChild(strng)
+                else:
+                        buildDOM(dict[key], tmp, root)
+                type = ''
+        return tmp
