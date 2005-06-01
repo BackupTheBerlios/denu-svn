@@ -576,6 +576,7 @@ xml.get_widget("export_button").set_menu(xml.get_widget("export_menu"))
 xml.get_widget("import_button").set_menu(xml.get_widget("import_menu"))
 wms = libDenu.getInstalledWMs()
 for wm in wms:
+	if config['debug']: print wm + " is installed."
 	import_button = gtk.MenuItem(libDenu.wmConfig[wm][1])
 	xml.get_widget("import_menu").append(import_button)
 	import_button.connect("activate", wm_import, wm)
