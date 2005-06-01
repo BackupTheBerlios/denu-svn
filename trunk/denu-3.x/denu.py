@@ -589,7 +589,7 @@ if config['debug']: print "Opening installed."
 libDenu.d_open(config['default'] + "installed.xml", "installed")
 if config['debug']: print "Opening running menu."
 if len(running) == 1:
-        if conf['debug']: print "Opening " + running[0] + " menu."
+        if config['debug']: print "Opening " + running[0] + " menu."
 	libDenu.wm_import(running[0])
 	libDenu.buildIdChildRelations()
 	menustore = domToTreestore(libDenu.menu, menustore, libDenu.menu.firstChild)

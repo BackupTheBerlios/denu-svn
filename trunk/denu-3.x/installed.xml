@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<data type="installed">
+	<program>
+		<location>
+			|Terms
+		</location>
+		<name>
+			<en>
+				Aterm
+			</en>
+		</name>
+		<blurb>
+			A terminal.
+		</blurb>
+		<icon>
+			<file>
+				/usr/share/icons/hicolor/32x32/apps/gnome-terminal.png
+			</file>
+		</icon>
+	</program>
+	<program>
+		<location>
+			|Utilities
+		</location>
+		<name>
+			<en>
+				Denu
+			</en>
+		</name>
+		<blurb>
+			A menu swiss army knife.
+		</blurb>
+		<icon>
+			<file>
+				/home/scott/denu_icon.png
+			</file>
+		</icon>
+	</program>
+</data>
