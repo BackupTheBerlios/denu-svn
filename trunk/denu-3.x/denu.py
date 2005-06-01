@@ -45,6 +45,11 @@ class DenuConfig:
 		self.parser.write(fp)
 	def read(self, *filenames):
 		self.parser.read(*filenames)
+	def readfp(self, fp, filename = False):
+		if filename: # *FIXME* Too hackish *FIXME*
+			self.parser.readfp(fp, filename)
+		else:
+			self.parser.readfp(fp)
 
 config = DenuConfig()
 
