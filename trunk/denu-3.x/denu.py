@@ -19,26 +19,27 @@
 # It is released under the GPLv2
 
 from ConfigParser import SafeConfigParser
+import sys
 
 class DenuConfig:
 	def __init__(self):
 		self.parser = SafeConfigParser()
 
-	def get(self, option):
-		return self.parser.get('DEFAULT', option)
-	def __getitem__(self, option):
-		return self.parser.get('DEFAULT', option)
-	def getint(self, option):
-		return self.parser.getint('DEFAULT', option)
-	def getfloat(self, option):
-		return self.parser.getfloat('DEFAULT', option)
-	def getboolean(self, option):
-		return self.parser.getboolean('DEFAULT', option)
+	def get(self, option, section = 'DEFAULT'):
+		return self.parser.get(section, option)
+	def __getitem__(self, option, section = 'DEFAULT'):
+		return self.parser.get(section, option)
+	def getint(self, option, section = 'DEFAULT'):
+		return self.parser.getint(section, option)
+	def getfloat(self, option, section = 'DEFAULT'):
+		return self.parser.getfloat(section, option)
+	def getboolean(self, option, section = 'DEFAULT'):
+		return self.parser.getboolean(section, option)
 
-	def set(self, option, value):
-		return self.parser.set('DEFAULT', option, value)
-	def __setitem__(self, option, value):
-		return self.parser.set('DEFAULT', option, value)
+	def set(self, option, value, section = 'DEFAULT'):
+		return self.parser.set(section, option, value)
+	def __setitem__(self, option, value, section = 'DEFAULT'):
+		return self.parser.set(section, option, value)
 
 	def write(self, fp):
 		self.parser.write(fp)
@@ -662,3 +663,6 @@ installedview.show()
 xml.get_widget("root").show()
 if config.getboolean('debug'): print "Done."
 gtk.main()
+if config.getboolean('debug'):
+	print "Config is:"
+	config.write(sys.stdout)
