@@ -25,9 +25,11 @@ config = SafeConfigParser()
 
 #config = {}
 config.set('DEFAULT', 'debug', 'yes')
+def debugPrint(*args):
+	if config.getboolean('DEFAULT', 'debug'): sys.stderr.write("DEBUG: " + ' '.join(args) + "\n")
 #if config.getboolean('debug'): print "Starting."
-if config.getboolean('DEFAULT', 'debug'): print "Starting."
-if config.getboolean('DEFAULT', 'debug'): print "Loading libraries."
+debugPrint("Starting.")
+debugPrint("Loading libraries.")
 import pygtk
 pygtk.require('2.0')
 import gtk,libDenu
@@ -43,7 +45,7 @@ config.set('DEFAULT', 'pixbuf_size', '32')
 #
 config.set('DEFAULT', 'default', home + "/denu/svn/trunk/denu-3.x/")
 
-if config.getboolean('DEFAULT', 'debug'): print "Importing glade file."
+debugPrint("Importing glade file.")
 xml = gtk.glade.XML(config.get('DEFAULT', 'default') + 'denu/denu.glade')
 pixbuf_index = {}
 menustore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
@@ -558,7 +560,7 @@ def copy_rows(parent_iter, src_iter, srcmodel, destmodel):
 			copy_rows(parent, iter, srcmodel, destmodel)
 		iter = srcmodel.iter_next(iter)
 		
-if config.getboolean('DEFAULT', 'debug'): print "Connecting to gui."
+debugPrint("Connecting to gui.")
 xml.signal_autoconnect({
 	'd_open' : d_open,
 	'destroy' : destroy,
@@ -577,13 +579,13 @@ xml.signal_autoconnect({
 	'change_add_state' : change_add_state,
 	'view_entry' : view_entry
 })
-if config.getboolean('DEFAULT', 'debug'): print "Detecting WM(s)."
+debugPrint("Detecting WM(s).")
 libDenu.update_wmConfig()
 xml.get_widget("export_button").set_menu(xml.get_widget("export_menu"))
 xml.get_widget("import_button").set_menu(xml.get_widget("import_menu"))
 wms = libDenu.getInstalledWMs()
+debugPrint("Detected WMs: " + ', '.join(wms))
 for wm in wms:
-	if config.getboolean('DEFAULT', 'debug'): print wm + " is installed."
 	import_button = gtk.MenuItem(libDenu.wmConfig[wm][1])
 	xml.get_widget("import_menu").append(import_button)
 	import_button.connect("activate", wm_import, wm)
@@ -593,11 +595,11 @@ for wm in wms:
 	export_button.connect("activate", wm_export, wm)
 	export_button.show()
 running = libDenu.getCurrentWM ()
-if config.getboolean('DEFAULT', 'debug'): print "Opening installed."
+debugPrint("Opening installed.")
 libDenu.d_open(config.get('DEFAULT', 'default') + "installed.xml", "installed")
-if config.getboolean('DEFAULT', 'debug'): print "Opening running menu."
+debugPrint("Opening running menu.")
 if len(running) == 1:
-        if config.getboolean('DEFAULT', 'debug'): print "Opening " + running[0] + " menu."
+        debugPrint("Opening " + running[0] + " menu.")
 	libDenu.wm_import(running[0])
 	libDenu.buildIdChildRelations()
 	menustore = domToTreestore(libDenu.menu, menustore, libDenu.menu.firstChild)
@@ -618,7 +620,7 @@ menuview.connect("drag-data-received", drag_data_received_data)
 menuview.connect("drag_data_get", drag_data_get_data)
 
 #TreeView
-if config.getboolean('DEFAULT', 'debug'): print "Generating installed tree."
+debugPrint("Generating installed tree.")
 installedstore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
 domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config.getint('DEFAULT', 'pixbuf_size'), "installed")
 installedview = xml.get_widget("installed")
@@ -636,8 +638,10 @@ installedview.enable_model_drag_source( gtk.gdk.BUTTON1_MASK, [('text/plain', 0,
 installedview.show()
 
 xml.get_widget("root").show()
-if config.getboolean('DEFAULT', 'debug'): print "Done."
+debugPrint("Done.")
 gtk.main()
 if config.getboolean('DEFAULT', 'debug'):
-	print "Config is:"
-	config.write(sys.stdout)
+	debugPrint("Config is:")
+	debugPrint("---BEGIN---")
+	config.write(sys.stderr)
+	debugPrint("--- END ---")
