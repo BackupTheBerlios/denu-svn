@@ -21,43 +21,13 @@
 from ConfigParser import SafeConfigParser
 import sys
 
-class DenuConfig:
-	def __init__(self):
-		self.parser = SafeConfigParser()
-
-	def get(self, option, section = 'DEFAULT'):
-		return self.parser.get(section, option)
-	def __getitem__(self, option, section = 'DEFAULT'):
-		return self.parser.get(section, option)
-	def getint(self, option, section = 'DEFAULT'):
-		return self.parser.getint(section, option)
-	def getfloat(self, option, section = 'DEFAULT'):
-		return self.parser.getfloat(section, option)
-	def getboolean(self, option, section = 'DEFAULT'):
-		return self.parser.getboolean(section, option)
-
-	def set(self, option, value, section = 'DEFAULT'):
-		return self.parser.set(section, option, value)
-	def __setitem__(self, option, value, section = 'DEFAULT'):
-		return self.parser.set(section, option, value)
-
-	def write(self, fp):
-		self.parser.write(fp)
-	def read(self, *filenames):
-		self.parser.read(*filenames)
-	def readfp(self, fp, filename = False):
-		if filename: # *FIXME* Too hackish *FIXME*
-			self.parser.readfp(fp, filename)
-		else:
-			self.parser.readfp(fp)
-
-config = DenuConfig()
+config = SafeConfigParser()
 
 #config = {}
-config['debug'] = 'yes'
+config.set('DEFAULT', 'debug', 'yes')
 #if config.getboolean('debug'): print "Starting."
-if config.getboolean('debug'): print "Starting."
-if config.getboolean('debug'): print "Loading libraries."
+if config.getboolean('DEFAULT', 'debug'): print "Starting."
+if config.getboolean('DEFAULT', 'debug'): print "Loading libraries."
 import pygtk
 pygtk.require('2.0')
 import gtk,libDenu
@@ -65,25 +35,25 @@ import gtk.glade
 import xml.dom.minidom as xml_dom
 import string,urllib2,os
 home = os.environ['HOME']
-config['locale'] = 'en'
-config.set('pixbuf_size', '32')
+config.set('DEFAULT', 'locale', 'en')
+config.set('DEFAULT', 'pixbuf_size', '32')
 
 #
 #Change config['default'] to root denu test directory.
 #
-config['default'] = home + "/denu/svn/trunk/denu-3.x/"
+config.set('DEFAULT', 'default', home + "/denu/svn/trunk/denu-3.x/")
 
-if config.getboolean('debug'): print "Importing glade file."
-xml = gtk.glade.XML(config.get('default') + 'denu/denu.glade')
+if config.getboolean('DEFAULT', 'debug'): print "Importing glade file."
+xml = gtk.glade.XML(config.get('DEFAULT', 'default') + 'denu/denu.glade')
 pixbuf_index = {}
 menustore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
 
 ## denu.py Functions.
 def populate_installed():
 	installedstore.clear()
-	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config.getint('pixbuf_size'), "installed")
+	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config.getint('DEFAULT', 'pixbuf_size'), "installed")
 
-def pixbuf_manager(filename, size=config.getint('pixbuf_size')):
+def pixbuf_manager(filename, size=config.getint('DEFAULT', 'pixbuf_size')):
 	global pixbuf_index
     	okay = True
     	if filename.has_key("file"):
@@ -151,10 +121,10 @@ def pixbuf_manager(filename, size=config.getint('pixbuf_size')):
        	else:
        		return pixbuf_index[filename]
        	
-def domToTreestore(menu_dom, treestore, parent, location=None, size=config.getint('pixbuf_size'), type="menu"):
+def domToTreestore(menu_dom, treestore, parent, location=None, size=config.getint('DEFAULT', 'pixbuf_size'), type="menu"):
 	for child in parent.childNodes:
 		if child.nodeName == "folder" or child.nodeName == "program" or child.nodeName == "special":
-			name = string.strip(child.getElementsByTagName("name")[0].getElementsByTagName(config['locale'])[0].firstChild.nodeValue)
+			name = string.strip(child.getElementsByTagName("name")[0].getElementsByTagName(config.get('DEFAULT', 'locale'))[0].firstChild.nodeValue)
 			if len(child.getElementsByTagName("icon")) >= 1 and child.getElementsByTagName("icon")[0].parentNode == child:
 				icon = {}
 				if len(child.getElementsByTagName("icon")[0].getElementsByTagName("url")) == 1:
@@ -211,13 +181,13 @@ def update(widget):
 	libDenu.update()
 	libDenu.sysupdate()
 	installedstore.clear()
-	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config.getint('pixbuf_size'), "installed")
+	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config.getint('DEFAULT', 'pixbuf_size'), "installed")
 	return "Successful."
 	
 def update_installed(widget):
 	libDenu.sysupdate()
 	installedstore.clear()
-	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config.getint('pixbuf_size'), "installed")
+	domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config.getint('DEFAULT', 'pixbuf_size'), "installed")
 	return "Successful."
 	
 def update_db(widget):
@@ -279,8 +249,8 @@ def addEntry (widget):
 	
 	#Name
 	name = xml.get_widget("add_name").get_text()
-	if config['locale']:
-		entry[type_array[type]]['name'][config['locale']] = name
+	if config.get('DEFAULT', 'locale'):
+		entry[type_array[type]]['name'][config.get('DEFAULT', 'locale')] = name
 	else: # Default to english
 		entry[type_array[type]]['name']['en'] = name
 		
@@ -323,8 +293,8 @@ def addEntry (widget):
 			parent = menustore.get_value(menustore.iter_parent(iterList[0]), 2)
 		id = libDenu.addEntry(entry, parent, menustore.get_value(iterList[0], 2))[0]
 		if entry[entry.keys()[0]].has_key('icon'):
-			if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')) == "Error: no file.":
-				menustore.insert_before(menustore.iter_parent(iterList[0]), iterList[0], [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')), name, id])
+			if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
+				menustore.insert_before(menustore.iter_parent(iterList[0]), iterList[0], [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
 			else:
 				menustore.insert_before(menustore.iter_parent(iterList[0]), iterList[0], [None, name, id])
 		else:
@@ -333,8 +303,8 @@ def addEntry (widget):
 		parent = 0
 		id = libDenu.addEntry(entry, parent)[0]
 		if entry[entry.keys()[0]].has_key('icon'):
-			if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')) == "Error: no file.":
-				menustore.append(None, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')), name, id])
+			if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
+				menustore.append(None, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
 			else:
 				menustore.append(None, [None, name, id])
 		else:
@@ -357,7 +327,7 @@ def change_add_state(widget):
 			xml.get_widget("add_command_cont").show()
 	
 def view_entry(widget):
-	viewxml = gtk.glade.XML(config['default'] + 'denu/denu.glade', 'view_window')
+	viewxml = gtk.glade.XML(config.get('DEFAULT', 'default') + 'denu/denu.glade', 'view_window')
 	menu_iterList = []
 	def createMenuList(model, path, iter):
 		menu_iterList.append(iter)
@@ -396,8 +366,8 @@ def view_entry(widget):
 	type = entry.keys()[0]
 	viewxml.get_widget("view_type").set_text(type)
 	#Name
-	if entry[type]['name'].has_key(config['locale']):
-		viewxml.get_widget("view_name").set_text(entry[type]['name'][config['locale']])
+	if entry[type]['name'].has_key(config.get('DEFAULT', 'locale')):
+		viewxml.get_widget("view_name").set_text(entry[type]['name'][config.get('DEFAULT', 'locale')])
 	else: # Default to english
 		viewxml.get_widget("view_name").set_text(entry[type]['name']['en'])
 	#Command
@@ -484,15 +454,15 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 				parent = model.get_value(iter, 2)
 				sibling = None
 			id = libDenu.addEntry(entry, parent, sibling)[0]
-			if entry[entry.keys()[0]]['name'].has_key(config['locale']):
-				name = entry[entry.keys()[0]]['name'][config['locale']]
+			if entry[entry.keys()[0]]['name'].has_key(config.get('DEFAULT', 'locale')):
+				name = entry[entry.keys()[0]]['name'][config.get('DEFAULT', 'locale')]
 			else:
 				name = entry[entry.keys()[0]]['name']["en"]
 			if position == gtk.TREE_VIEW_DROP_BEFORE:
 				parent_iter = model.iter_parent(iter)
 				if entry[entry.keys()[0]].has_key('icon'):
-					if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')) == "Error: no file.":
-						model.insert_before(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')), name, id])
+					if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
+						model.insert_before(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
 					else:
 						model.insert_before(parent_iter, iter, [None, name, id])
 				else:
@@ -500,16 +470,16 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 			elif position == gtk.TREE_VIEW_DROP_AFTER:
 				parent_iter = model.iter_parent(iter)
 				if entry[entry.keys()[0]].has_key('icon'):
-					if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')) == "Error: no file.":
-						model.insert_after(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')), name, id])
+					if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
+						model.insert_after(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
 					else:
 						model.insert_after(parent_iter, iter, [None, name, id])
 				else:
 					model.insert_after(parent_iter, iter, [None, name, id])
 			elif position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER or position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
 				if entry[entry.keys()[0]].has_key('icon'):
-					if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')) == "Error: no file.":
-						model.append(iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')), name, id])
+					if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
+						model.append(iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
 					else:
 						model.append(iter, [None, name, id])
 				else:
@@ -540,15 +510,15 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 			dest = "installed"
 		id = libDenu.moveEntry(data[1], parent, sibling, data[0], dest)
 		entry = libDenu.viewEntry(id, dest)
-		if entry[entry.keys()[0]]['name'].has_key(config['locale']):
-			name = entry[entry.keys()[0]]['name'][config['locale']]
+		if entry[entry.keys()[0]]['name'].has_key(config.get('DEFAULT', 'locale')):
+			name = entry[entry.keys()[0]]['name'][config.get('DEFAULT', 'locale')]
 		else:
 			name = entry[entry.keys()[0]]['name']["en"]
 		if position == gtk.TREE_VIEW_DROP_BEFORE:
 			parent_iter = model.iter_parent(iter)
 			if entry[entry.keys()[0]].has_key('icon'):
-				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')) == "Error: no file.":
-					new_iter = model.insert_before(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')), name, id])
+				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
+					new_iter = model.insert_before(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
 				else:
 					new_iter = model.insert_before(parent_iter, iter, [None, name, id])
 			else:
@@ -556,16 +526,16 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 		elif position == gtk.TREE_VIEW_DROP_AFTER:
 			parent_iter = model.iter_parent(iter)
 			if entry[entry.keys()[0]].has_key('icon'):
-				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')) == "Error: no file.":
-					new_iter = model.insert_after(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')), name, id])
+				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
+					new_iter = model.insert_after(parent_iter, iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
 				else:
 					new_iter = model.insert_after(parent_iter, iter, [None, name, id])
 			else:
 				new_iter = model.insert_after(parent_iter, iter, [None, name, id])
 		elif position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER or position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
 			if entry[entry.keys()[0]].has_key('icon'):
-				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')) == "Error: no file.":
-					new_iter = model.append(iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('pixbuf_size')), name, id])
+				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
+					new_iter = model.append(iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
 				else:
 					new_iter = model.append(iter, [None, name, id])
 			else:
@@ -588,7 +558,7 @@ def copy_rows(parent_iter, src_iter, srcmodel, destmodel):
 			copy_rows(parent, iter, srcmodel, destmodel)
 		iter = srcmodel.iter_next(iter)
 		
-if config.getboolean('debug'): print "Connecting to gui."
+if config.getboolean('DEFAULT', 'debug'): print "Connecting to gui."
 xml.signal_autoconnect({
 	'd_open' : d_open,
 	'destroy' : destroy,
@@ -607,13 +577,13 @@ xml.signal_autoconnect({
 	'change_add_state' : change_add_state,
 	'view_entry' : view_entry
 })
-if config.getboolean('debug'): print "Detecting WM(s)."
+if config.getboolean('DEFAULT', 'debug'): print "Detecting WM(s)."
 libDenu.update_wmConfig()
 xml.get_widget("export_button").set_menu(xml.get_widget("export_menu"))
 xml.get_widget("import_button").set_menu(xml.get_widget("import_menu"))
 wms = libDenu.getInstalledWMs()
 for wm in wms:
-	if config.getboolean('debug'): print wm + " is installed."
+	if config.getboolean('DEFAULT', 'debug'): print wm + " is installed."
 	import_button = gtk.MenuItem(libDenu.wmConfig[wm][1])
 	xml.get_widget("import_menu").append(import_button)
 	import_button.connect("activate", wm_import, wm)
@@ -623,11 +593,11 @@ for wm in wms:
 	export_button.connect("activate", wm_export, wm)
 	export_button.show()
 running = libDenu.getCurrentWM ()
-if config.getboolean('debug'): print "Opening installed."
-libDenu.d_open(config['default'] + "installed.xml", "installed")
-if config.getboolean('debug'): print "Opening running menu."
+if config.getboolean('DEFAULT', 'debug'): print "Opening installed."
+libDenu.d_open(config.get('DEFAULT', 'default') + "installed.xml", "installed")
+if config.getboolean('DEFAULT', 'debug'): print "Opening running menu."
 if len(running) == 1:
-        if config.getboolean('debug'): print "Opening " + running[0] + " menu."
+        if config.getboolean('DEFAULT', 'debug'): print "Opening " + running[0] + " menu."
 	libDenu.wm_import(running[0])
 	libDenu.buildIdChildRelations()
 	menustore = domToTreestore(libDenu.menu, menustore, libDenu.menu.firstChild)
@@ -648,9 +618,9 @@ menuview.connect("drag-data-received", drag_data_received_data)
 menuview.connect("drag_data_get", drag_data_get_data)
 
 #TreeView
-if config.getboolean('debug'): print "Generating installed tree."
+if config.getboolean('DEFAULT', 'debug'): print "Generating installed tree."
 installedstore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
-domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config.getint('pixbuf_size'), "installed")
+domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config.getint('DEFAULT', 'pixbuf_size'), "installed")
 installedview = xml.get_widget("installed")
 tvcolumn2 = gtk.TreeViewColumn('Installed')
 cell2 = gtk.CellRendererPixbuf()
@@ -666,8 +636,8 @@ installedview.enable_model_drag_source( gtk.gdk.BUTTON1_MASK, [('text/plain', 0,
 installedview.show()
 
 xml.get_widget("root").show()
-if config.getboolean('debug'): print "Done."
+if config.getboolean('DEFAULT', 'debug'): print "Done."
 gtk.main()
-if config.getboolean('debug'):
+if config.getboolean('DEFAULT', 'debug'):
 	print "Config is:"
 	config.write(sys.stdout)
