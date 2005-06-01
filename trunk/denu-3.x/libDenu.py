@@ -47,27 +47,27 @@ config['default'] = home + '/denu/svn/trunk/denu-3.x/'
 #Works together with the denu wm module to import the wm menu to denu xml format.
 def wm_import(wm, file="default"):
 	global menu
-	exec 'import ' + "denuWM_" + wm + ' as wm'
+	wm = __import__("denuWM_" + wm)
 	menu = wm.wm_import(file)
 	return menu
 	
 #Works together with the denu wm module to export the denu xml format to the proprietary format of the specified wm.
 def wm_export (wm, file="default"):
 	global menu
-	exec 'import ' + "denuWM_" + wm + ' as wm'
+	wm = __import__("denuWM_" + wm)
 	wm.wm_export(menu, file)
 	return "Successful."
 	
 #Duplicates the current file(s) for the specified wm, for restoration from denu using libDenu.restore().  Works in combination with denu wm module.
 def backup (wm):
-	exec 'import ' + "denuWM_" + wm + ' as wm'
+	wm = __import__("denuWM_" + wm)
 	wm.backup()
 	return "Successful."
 	
 #Restores the menu to a specific file.  Restores from files created with libDenu.backup().  Works in combination with denu wm module.
 def restore (wm):
 	global menu
-	exec 'import ' + "denuWM_" + wm + ' as wm'
+	wm = __import__("denuWM_" + wm)
 	wm.restore()
 	return "Successful."
 	
@@ -148,7 +148,7 @@ def update_wmConfig():
 	for fn in default_files:
 		if not fn.find("denuWM_") == -1 and user_files.count(fn)==0 and fn.find(".pyc") == -1 and fn.find(".py~") == -1:
 			name = fn.replace(".py", "")
-			exec "import " + name + " as wm"
+	                wm = __import__(name)
 			name = name.replace("denuWM_", "")
 			wmConfig[name] = wm.config
 	return "Successful."
