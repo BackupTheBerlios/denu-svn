@@ -38,7 +38,7 @@ config['dynamic'] = '/var/cache/denu/'
 #
 #Change config['default'] to root denu test directory.
 #
-config['default'] = '/home/scott/denu/svn/trunk/denu-3.x/'
+config['default'] = home + '/denu/svn/trunk/denu-3.x/'
 
 #######################
 # WM module wrappers. #
