@@ -213,11 +213,11 @@ class installedHandler (saxlib.HandlerBase):
 		if name == "program":
 			commands = attributes.get("command")
 			commands = commands.split(":")
-			exists = "no"
+			exists = False
 			for command in commands:
 				if self.bins.count(command)>0:
-					exists = "yes"
-			if exists == "yes":
+					exists = True
+			if exists:
 				self.entry = {"program" : {"portage-id": attributes.get("portage-id")}}
 				self.keep = 1
 			else:

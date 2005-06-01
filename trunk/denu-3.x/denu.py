@@ -18,11 +18,9 @@
 # This is the fluxbox module for denu 3.x
 # It is released under the GPLv2
 config = {}
-config['debug'] = 'yes'
-if config['debug'] == 'yes':
-	print "Starting."
-if config['debug'] == 'yes':
-	print "Loading libraries."
+config['debug'] = True
+if config['debug']: print "Starting."
+if config['debug']: print "Loading libraries."
 import pygtk
 pygtk.require('2.0')
 import gtk,libDenu
@@ -38,8 +36,7 @@ config['pixbuf_size'] = 32
 #
 config['default'] = home + "/denu/svn/trunk/denu-3.x/"
 
-if config['debug'] == 'yes':
-	print "Importing glade file."
+if config['debug']: print "Importing glade file."
 xml = gtk.glade.XML(config['default'] + 'denu/denu.glade')
 pixbuf_index = {}
 menustore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
@@ -51,7 +48,7 @@ def populate_installed():
 
 def pixbuf_manager(filename, size=config['pixbuf_size']):
 	global pixbuf_index
-    	okay = 'yes'
+    	okay = True
     	if filename.has_key("file"):
     		if os.path.exists(filename["file"]):
     			filename = filename["file"]
@@ -63,49 +60,49 @@ def pixbuf_manager(filename, size=config['pixbuf_size']):
     		filename = filename["url"]
     		
     	if pixbuf_index.has_key(filename):
-    		file_key = "yes"
+    		file_key = True
     		if pixbuf_index[filename].has_key(size):
-    			size_key = "yes"
+    			size_key = True
     		else:
-    			size_key = "no"
+    			size_key = False
     	else:
-    		file_key = "no"
-    		size_key = "no"
+    		file_key = False
+    		size_key = False
     		
-    	if not filename[0:1]=='/' and not filename[:7]=='http://' and not size_key=="yes":
+    	if not filename[0:1]=='/' and not filename[:7]=='http://' and not size_key:
     		full_filename = home + '/.denu/pixmaps/' + filename
         	if not os.path.exists(full_filename):
        			try:
 				image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + filename)
-				okay = 'yes'
+				okay = True
 			except:
 				pixbuf_index[filename] = "Error: no file."
 				return "Error: no file."
-				okay = 'no'
-			if okay=='yes':	
+				okay = False
+			if okay:
 				file = open(full_filename, 'w')
 				file.write(image.read())
 				file.close()
-	elif filename[:7]=='http://' and not os.path.exists(home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key=="yes":
+	elif filename[:7]=='http://' and not os.path.exists(home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key:
 		full_filename = home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]
 		try:
 			image = urllib2.urlopen(filename)
-			okay = 'yes'
+			okay = True
 		except:
 			pixbuf_index[filename] = "Error: no file."
 			return "Error: no file."
-			okay = 'no'
-		if okay=='yes':
+			okay = False
+		if okay:
 			file = open(full_filename, 'w')
 			file.write(image.read())
 			file.close()
-	elif os.path.exists(home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key=="yes":
+	elif os.path.exists(home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key:
 		full_filename = home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]
 	else:
 		full_filename = filename
 		
-	if okay=='yes' and size_key=="no":
-		if file_key == "no":
+	if okay and not size_key:
+		if file_key == False:
 			pixbuf_index[filename] = {}
         	try:
         		pixbuf_index[filename][size] = gtk.gdk.pixbuf_new_from_file_at_size(full_filename, size, size)
@@ -554,8 +551,7 @@ def copy_rows(parent_iter, src_iter, srcmodel, destmodel):
 			copy_rows(parent, iter, srcmodel, destmodel)
 		iter = srcmodel.iter_next(iter)
 		
-if config['debug'] == 'yes':
-	print "Connecting to gui."
+if config['debug']: print "Connecting to gui."
 xml.signal_autoconnect({
 	'd_open' : d_open,
 	'destroy' : destroy,
@@ -574,8 +570,7 @@ xml.signal_autoconnect({
 	'change_add_state' : change_add_state,
 	'view_entry' : view_entry
 })
-if config['debug'] == 'yes':
-	print "Detecting WM(s)."
+if config['debug']: print "Detecting WM(s)."
 libDenu.update_wmConfig()
 xml.get_widget("export_button").set_menu(xml.get_widget("export_menu"))
 xml.get_widget("import_button").set_menu(xml.get_widget("import_menu"))
@@ -590,11 +585,9 @@ for wm in wms:
 	export_button.connect("activate", wm_export, wm)
 	export_button.show()
 running = libDenu.getCurrentWM ()
-if config['debug'] == 'yes':
-	print "Opening installed."
+if config['debug']: print "Opening installed."
 libDenu.d_open(config['default'] + "installed.xml", "installed")
-if config['debug'] == 'yes':
-	print "Opening running menu."
+if config['debug']: print "Opening running menu."
 if len(running) == 1:
 	libDenu.wm_import(running[0])
 	libDenu.buildIdChildRelations()
@@ -616,8 +609,7 @@ menuview.connect("drag-data-received", drag_data_received_data)
 menuview.connect("drag_data_get", drag_data_get_data)
 
 #TreeView
-if config['debug'] == 'yes':
-	print "Generating installed tree."
+if config['debug']: print "Generating installed tree."
 installedstore = gtk.TreeStore(gtk.gdk.Pixbuf, str, int)
 domToTreestore(libDenu.installed, installedstore, libDenu.installed.firstChild, None, config['pixbuf_size'], "installed")
 installedview = xml.get_widget("installed")
@@ -635,6 +627,5 @@ installedview.enable_model_drag_source( gtk.gdk.BUTTON1_MASK, [('text/plain', 0,
 installedview.show()
 
 xml.get_widget("root").show()
-if config['debug'] == 'yes':
-	print "Done."
+if config['debug']: print "Done."
 gtk.main()
