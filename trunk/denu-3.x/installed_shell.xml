@@ -9,11 +9,6 @@
 		<key>
 			|Office
 		</key>
-		<icon>
-			<file>
-				/usr/share/icons/Nuvola/scalable/apps/gnome-applications.svg
-			</file>
-		</icon>
 	</folder>
 	<folder>
 		<name>
@@ -44,11 +39,6 @@
 		<key>
 			|Net
 		</key>
-		<icon>
-			<file>
-				/usr/share/icons/Nuvola/scalable/apps/gnome-globe.svg
-			</file>
-		</icon>
 		<folder>
 			<name>
 				<en>
@@ -78,11 +68,6 @@
 			<key>
 				|Net|IM
 			</key>
-			<icon>
-				<file>
-					/usr/share/icons/Nuvola/scalable/apps/gaim.svg
-				</file>
-			</icon>
 		</folder>
 		<folder>
 			<name>
@@ -103,11 +88,6 @@
 			<key>
 				|Net|Mail
 			</key>
-			<icon>
-				<file>
-					/usr/share/icons/Nuvola/scalable/apps/gnome-mail.svg
-				</file>
-			</icon>
 		</folder>
 		
 	</folder>
@@ -120,11 +100,6 @@
 		<key>
 			|Media
 		</key>
-		<icon>
-			<file>
-				/usr/share/icons/Nuvola/scalable/apps/gnome-multimedia.svg
-			</file>
-		</icon>
 		<folder>
 			<name>
 				<en>
@@ -134,11 +109,6 @@
 			<key>
 				|Media|Audio
 			</key>
-			<icon>
-				<file>
-					/usr/share/icons/Nuvola/scalable/apps/gnome-audio.svg
-				</file>
-			</icon>
 		</folder>
 		<folder>
 			<name>
@@ -149,11 +119,6 @@
 			<key>
 				|Media|Graphics
 			</key>
-			<icon>
-				<file>
-					/usr/share/icons/Nuvola/scalable/apps/gnome-graphics.svg
-				</file>
-			</icon>
 		</folder>
 		<folder>
 			<name>
@@ -185,11 +150,6 @@
 		<key>
 			|Games
 		</key>
-		<icon>
-			<file>
-				/usr/share/icons/Nuvola/scalable/apps/gnome-joystick.svg
-			</file>
-		</icon>
 		<folder>
 			<name>
 				<en>
@@ -250,11 +210,6 @@
 		<key>
 			|Development
 		</key>
-		<icon>
-			<file>
-				/usr/share/icons/Nuvola/scalable/apps/gnome-devel.svg
-			</file>
-		</icon>
 	</folder>
 	<folder>
 		<name>
@@ -265,11 +220,6 @@
 		<key>
 			|Gnome
 		</key>
-		<icon>
-			<file>
-				/usr/share/icons/Nuvola/scalable/apps/gnome-logo.svg
-			</file>
-		</icon>
 	</folder>
 	<folder>
 		<name>
@@ -300,11 +250,6 @@
 		<key>
 			|System
 		</key>
-		<icon>
-			<file>
-				/usr/share/icons/Nuvola/scalable/apps/gnome-system.svg
-			</file>
-		</icon>
 		<folder>
 			<name>
 				<en>
@@ -314,11 +259,6 @@
 			<key>
 				|System|Admin
 			</key>
-			<icon>
-				<file>
-					/usr/share/icons/Nuvola/scalable/apps/gnome-system-config.svg
-				</file>
-			</icon>
 		</folder>
 		<folder>
 			<name>
@@ -360,11 +300,6 @@
 		<key>
 			|Terms
 		</key>
-		<icon>
-			<file>
-				/usr/share/icons/Nuvola/scalable/apps/gnome-terminal.svg
-			</file>
-		</icon>
 	</folder>
 	<folder>
 		<name>
