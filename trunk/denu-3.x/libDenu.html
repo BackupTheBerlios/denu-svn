@@ -1,0 +1,157 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module libDenu</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>libDenu</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/shachaf/src/denu/trunk/denu-3.x/libDenu.py">/home/shachaf/src/denu/trunk/denu-3.x/libDenu.py</a></font></td></tr></table>
+    <p><tt>#Copyright&nbsp;(C)&nbsp;2005&nbsp;&nbsp;Scott&nbsp;Shawcroft<br>
+#<br>
+#This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or<br>
+#modify&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License<br>
+#as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation;&nbsp;either&nbsp;version&nbsp;2<br>
+#of&nbsp;the&nbsp;License,&nbsp;or&nbsp;(at&nbsp;your&nbsp;option)&nbsp;any&nbsp;later&nbsp;version.<br>
+#<br>
+#This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,<br>
+#but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of<br>
+#MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the<br>
+#GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.<br>
+#<br>
+#You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License<br>
+#along&nbsp;with&nbsp;this&nbsp;program;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software<br>
+#Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place&nbsp;-&nbsp;Suite&nbsp;330,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;02111-1307,&nbsp;USA.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="libDenuShared.html">libDenuShared</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="xml.sax.saxexts.html">xml.sax.saxexts</a><br>
+<a href="xml.sax.saxlib.html">xml.sax.saxlib</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="xml.dom.minidom.html">xml.dom.minidom</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="xml.sax.saxlib.html#HandlerBase">xml.sax.saxlib.HandlerBase</a>(<a href="xml.sax.handler.html#EntityResolver">xml.sax.handler.EntityResolver</a>, <a href="xml.sax.handler.html#DTDHandler">xml.sax.handler.DTDHandler</a>, <a href="xml.sax.saxlib.html#DocumentHandler">xml.sax.saxlib.DocumentHandler</a>, <a href="xml.sax.handler.html#ErrorHandler">xml.sax.handler.ErrorHandler</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="libDenu.html#installedHandler">installedHandler</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="installedHandler">class <strong>installedHandler</strong></a>(<a href="xml.sax.saxlib.html#HandlerBase">xml.sax.saxlib.HandlerBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#Class&nbsp;for&nbsp;handling&nbsp;the&nbsp;raw&nbsp;xml&nbsp;database&nbsp;to&nbsp;installed&nbsp;xml&nbsp;records.<br>
+#Modeled&nbsp;after&nbsp;tutorial&nbsp;here:&nbsp;<a href="http://www.rexx.com/~dkuhlman/pyxmlfaq.html#howsaxhandler">http://www.rexx.com/~dkuhlman/pyxmlfaq.html#howsaxhandler</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="libDenu.html#installedHandler">installedHandler</a></dd>
+<dd><a href="xml.sax.saxlib.html#HandlerBase">xml.sax.saxlib.HandlerBase</a></dd>
+<dd><a href="xml.sax.handler.html#EntityResolver">xml.sax.handler.EntityResolver</a></dd>
+<dd><a href="xml.sax.handler.html#DTDHandler">xml.sax.handler.DTDHandler</a></dd>
+<dd><a href="xml.sax.saxlib.html#DocumentHandler">xml.sax.saxlib.DocumentHandler</a></dd>
+<dd><a href="xml.sax.handler.html#ErrorHandler">xml.sax.handler.ErrorHandler</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="installedHandler-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="installedHandler-characters"><strong>characters</strong></a>(self, chars, offset, length)</dt></dl>
+
+<dl><dt><a name="installedHandler-endDocument"><strong>endDocument</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="installedHandler-endElement"><strong>endElement</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="installedHandler-startDocument"><strong>startDocument</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="installedHandler-startElement"><strong>startElement</strong></a>(self, name, attributes)</dt></dl>
+
+<hr>
+Methods inherited from <a href="xml.sax.handler.html#EntityResolver">xml.sax.handler.EntityResolver</a>:<br>
+<dl><dt><a name="installedHandler-resolveEntity"><strong>resolveEntity</strong></a>(self, publicId, systemId)</dt><dd><tt>Resolve&nbsp;the&nbsp;system&nbsp;identifier&nbsp;of&nbsp;an&nbsp;entity&nbsp;and&nbsp;return&nbsp;either<br>
+the&nbsp;system&nbsp;identifier&nbsp;to&nbsp;read&nbsp;from&nbsp;as&nbsp;a&nbsp;string,&nbsp;or&nbsp;an&nbsp;InputSource<br>
+to&nbsp;read&nbsp;from.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="xml.sax.handler.html#DTDHandler">xml.sax.handler.DTDHandler</a>:<br>
+<dl><dt><a name="installedHandler-notationDecl"><strong>notationDecl</strong></a>(self, name, publicId, systemId)</dt><dd><tt>Handle&nbsp;a&nbsp;notation&nbsp;declaration&nbsp;event.</tt></dd></dl>
+
+<dl><dt><a name="installedHandler-unparsedEntityDecl"><strong>unparsedEntityDecl</strong></a>(self, name, publicId, systemId, ndata)</dt><dd><tt>Handle&nbsp;an&nbsp;unparsed&nbsp;entity&nbsp;declaration&nbsp;event.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="xml.sax.saxlib.html#DocumentHandler">xml.sax.saxlib.DocumentHandler</a>:<br>
+<dl><dt><a name="installedHandler-ignorableWhitespace"><strong>ignorableWhitespace</strong></a>(self, ch, start, length)</dt><dd><tt>Handle&nbsp;an&nbsp;event&nbsp;for&nbsp;ignorable&nbsp;whitespace&nbsp;in&nbsp;element&nbsp;content.</tt></dd></dl>
+
+<dl><dt><a name="installedHandler-processingInstruction"><strong>processingInstruction</strong></a>(self, target, data)</dt><dd><tt>Handle&nbsp;a&nbsp;processing&nbsp;instruction&nbsp;event.</tt></dd></dl>
+
+<dl><dt><a name="installedHandler-setDocumentLocator"><strong>setDocumentLocator</strong></a>(self, locator)</dt><dd><tt>Receive&nbsp;an&nbsp;object&nbsp;for&nbsp;locating&nbsp;the&nbsp;origin&nbsp;of&nbsp;SAX&nbsp;document&nbsp;events.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="xml.sax.handler.html#ErrorHandler">xml.sax.handler.ErrorHandler</a>:<br>
+<dl><dt><a name="installedHandler-error"><strong>error</strong></a>(self, exception)</dt><dd><tt>Handle&nbsp;a&nbsp;recoverable&nbsp;error.</tt></dd></dl>
+
+<dl><dt><a name="installedHandler-fatalError"><strong>fatalError</strong></a>(self, exception)</dt><dd><tt>Handle&nbsp;a&nbsp;non-recoverable&nbsp;error.</tt></dd></dl>
+
+<dl><dt><a name="installedHandler-warning"><strong>warning</strong></a>(self, exception)</dt><dd><tt>Handle&nbsp;a&nbsp;warning.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-addEntry"><strong>addEntry</strong></a>(entry, parent, sibling<font color="#909090">=None</font>)</dt><dd><tt>#Inserts&nbsp;an&nbsp;entry&nbsp;into&nbsp;the&nbsp;denu&nbsp;xml&nbsp;structure.</tt></dd></dl>
+ <dl><dt><a name="-autoGen"><strong>autoGen</strong></a>()</dt><dd><tt>#Returns&nbsp;a&nbsp;denu&nbsp;xml&nbsp;structure&nbsp;with&nbsp;all&nbsp;installed&nbsp;programs&nbsp;in&nbsp;them.</tt></dd></dl>
+ <dl><dt><a name="-backup"><strong>backup</strong></a>(wm)</dt><dd><tt>#Duplicates&nbsp;the&nbsp;current&nbsp;file(s)&nbsp;for&nbsp;the&nbsp;specified&nbsp;wm,&nbsp;for&nbsp;restoration&nbsp;from&nbsp;denu&nbsp;using&nbsp;libDenu.<a href="#-restore">restore</a>().&nbsp;&nbsp;Works&nbsp;in&nbsp;combination&nbsp;with&nbsp;denu&nbsp;wm&nbsp;module.</tt></dd></dl>
+ <dl><dt><a name="-buildIdChildRelations"><strong>buildIdChildRelations</strong></a>(trees<font color="#909090">=['installed', 'menu']</font>)</dt></dl>
+ <dl><dt><a name="-cleanXML"><strong>cleanXML</strong></a>(XMLdom)</dt><dd><tt>#################<br>
+#&nbsp;XML&nbsp;Functions&nbsp;#<br>
+#################</tt></dd></dl>
+ <dl><dt><a name="-d_open"><strong>d_open</strong></a>(file, var<font color="#909090">='menu'</font>)</dt><dd><tt>#Opens&nbsp;a&nbsp;denu&nbsp;xml&nbsp;file&nbsp;into&nbsp;the&nbsp;program.</tt></dd></dl>
+ <dl><dt><a name="-d_save"><strong>d_save</strong></a>(file)</dt><dd><tt>#Saves&nbsp;the&nbsp;denu&nbsp;xml&nbsp;format&nbsp;to&nbsp;a&nbsp;.xml&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-deleteEntry"><strong>deleteEntry</strong></a>(entryId)</dt><dd><tt>#Deletes&nbsp;an&nbsp;entry&nbsp;from&nbsp;the&nbsp;denu&nbsp;xml&nbsp;structure.</tt></dd></dl>
+ <dl><dt><a name="-editEntry"><strong>editEntry</strong></a>(entry, entryId)</dt><dd><tt>#Modifies&nbsp;an&nbsp;entry&nbsp;in&nbsp;the&nbsp;xml.</tt></dd></dl>
+ <dl><dt><a name="-getCurrentWM"><strong>getCurrentWM</strong></a>()</dt><dd><tt>#Gets&nbsp;current&nbsp;running&nbsp;wm.</tt></dd></dl>
+ <dl><dt><a name="-getInstalledWMs"><strong>getInstalledWMs</strong></a>()</dt><dd><tt>#Gets&nbsp;installed&nbsp;wms.</tt></dd></dl>
+ <dl><dt><a name="-loadEntry"><strong>loadEntry</strong></a>(file, parent, sibling<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-moveEntry"><strong>moveEntry</strong></a>(entryId, parent, sibling<font color="#909090">=None</font>, source<font color="#909090">='menu'</font>, dest<font color="#909090">='menu'</font>)</dt><dd><tt>#Moves&nbsp;entries&nbsp;within&nbsp;the&nbsp;denu&nbsp;xml&nbsp;structure.</tt></dd></dl>
+ <dl><dt><a name="-printIdIndex"><strong>printIdIndex</strong></a>()</dt></dl>
+ <dl><dt><a name="-printMenu"><strong>printMenu</strong></a>(root, locale<font color="#909090">='en'</font>, level<font color="#909090">=0</font>)</dt></dl>
+ <dl><dt><a name="-restore"><strong>restore</strong></a>(wm)</dt><dd><tt>#Restores&nbsp;the&nbsp;menu&nbsp;to&nbsp;a&nbsp;specific&nbsp;file.&nbsp;&nbsp;Restores&nbsp;from&nbsp;files&nbsp;created&nbsp;with&nbsp;libDenu.<a href="#-backup">backup</a>().&nbsp;&nbsp;Works&nbsp;in&nbsp;combination&nbsp;with&nbsp;denu&nbsp;wm&nbsp;module.</tt></dd></dl>
+ <dl><dt><a name="-saveEntry"><strong>saveEntry</strong></a>(entryId, overwrite<font color="#909090">=0</font>)</dt><dd><tt>#Stores&nbsp;the&nbsp;entry&nbsp;for&nbsp;later&nbsp;use.</tt></dd></dl>
+ <dl><dt><a name="-sysupdate"><strong>sysupdate</strong></a>()</dt><dd><tt>#Updates&nbsp;denu&nbsp;database&nbsp;of&nbsp;installed&nbsp;programs.&nbsp;Variable:installed.</tt></dd></dl>
+ <dl><dt><a name="-update"><strong>update</strong></a>()</dt><dd><tt>#Updates&nbsp;denu&nbsp;database&nbsp;of&nbsp;programs.Variable:data.</tt></dd></dl>
+ <dl><dt><a name="-update_wmConfig"><strong>update_wmConfig</strong></a>()</dt><dd><tt>#Updates&nbsp;wm&nbsp;configs&nbsp;in&nbsp;wmConfig&nbsp;variable.</tt></dd></dl>
+ <dl><dt><a name="-viewEntry"><strong>viewEntry</strong></a>(entryId, dom<font color="#909090">='menu'</font>)</dt><dd><tt>#Returns&nbsp;information&nbsp;on&nbsp;entries&nbsp;in&nbsp;the&nbsp;xml.&nbsp;&nbsp;May&nbsp;be&nbsp;a&nbsp;list&nbsp;or&nbsp;object.</tt></dd></dl>
+ <dl><dt><a name="-wm_export"><strong>wm_export</strong></a>(wm, file<font color="#909090">='default'</font>)</dt><dd><tt>#Works&nbsp;together&nbsp;with&nbsp;the&nbsp;denu&nbsp;wm&nbsp;module&nbsp;to&nbsp;export&nbsp;the&nbsp;denu&nbsp;xml&nbsp;format&nbsp;to&nbsp;the&nbsp;proprietary&nbsp;format&nbsp;of&nbsp;the&nbsp;specified&nbsp;wm.</tt></dd></dl>
+ <dl><dt><a name="-wm_import"><strong>wm_import</strong></a>(wm, file<font color="#909090">='default'</font>)</dt><dd><tt>#Works&nbsp;together&nbsp;with&nbsp;the&nbsp;denu&nbsp;wm&nbsp;module&nbsp;to&nbsp;import&nbsp;the&nbsp;wm&nbsp;menu&nbsp;to&nbsp;denu&nbsp;xml&nbsp;format.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>config</strong> = {'default': '/home/shachaf/denu/svn/trunk/denu-3.x/', 'dynamic': '/var/cache/denu/', 'static': '/usr/share/denu/'}<br>
+<strong>home</strong> = '/home/shachaf'</td></tr></table>
+</body></html>
