@@ -28,7 +28,8 @@ import xml.dom.minidom as xml_dom
 import string,urllib2,os
 
 home = os.environ['HOME']
-configfile = home + '/.denu/denu.conf' # FIXME: Use proper config file location
+denudir = home + '/.denu/'
+configfile = denudir + '/denu.conf' # FIXME: Use proper config file location
 config = SafeConfigParser()
 
 def debugPrint(*args):
@@ -51,6 +52,8 @@ def setConfigDefaults(): # Put default configuration options here.
 
 def writeConfig():
 	try:
+		try: os.makedirs(denudir) # Try to create ~/.denu if it doesn't exist
+		except: pass
 		cfp = open(configfile, "w")
 		config.write(cfp)
 		cfp.close()
@@ -103,7 +106,7 @@ def pixbuf_manager(filename, size=config.getint('DEFAULT', 'pixbuf_size')):
     		size_key = False
     		
     	if not filename[0:1]=='/' and not filename[:7]=='http://' and not size_key:
-    		full_filename = home + '/.denu/pixmaps/' + filename
+    		full_filename = denudir + '/pixmaps/' + filename
         	if not os.path.exists(full_filename):
        			try:
 				image = urllib2.urlopen('http://denu.sourceforge.net/pixmaps/' + filename)
@@ -116,8 +119,8 @@ def pixbuf_manager(filename, size=config.getint('DEFAULT', 'pixbuf_size')):
 				file = open(full_filename, 'w')
 				file.write(image.read())
 				file.close()
-	elif filename[:7]=='http://' and not os.path.exists(home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key:
-		full_filename = home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]
+	elif filename[:7]=='http://' and not os.path.exists(denudir + '/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key:
+		full_filename = denudir + '/pixmaps/www/' + string.split(filename, "/")[-1]
 		try:
 			image = urllib2.urlopen(filename)
 			okay = True
@@ -129,8 +132,8 @@ def pixbuf_manager(filename, size=config.getint('DEFAULT', 'pixbuf_size')):
 			file = open(full_filename, 'w')
 			file.write(image.read())
 			file.close()
-	elif os.path.exists(home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key:
-		full_filename = home + '/.denu/pixmaps/www/' + string.split(filename, "/")[-1]
+	elif os.path.exists(denudir + '/pixmaps/www/' + string.split(filename, "/")[-1]) and not size_key:
+		full_filename = denudir + '/pixmaps/www/' + string.split(filename, "/")[-1]
 	else:
 		full_filename = filename
 		
