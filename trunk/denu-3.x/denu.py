@@ -44,7 +44,8 @@ def readConfig():
 
 def setConfigDefaults(): # Put default configuration options here.
 	if not config.has_option('DEFAULT', 'debug'):       config.set('DEFAULT', 'debug', 'true')
-	if not config.has_option('DEFAULT', 'default'):     config.set('DEFAULT', 'default', home + "/denu/svn/trunk/denu-3.x/")
+	#if not config.has_option('DEFAULT', 'default'):     config.set('DEFAULT', 'default', home + "/denu/svn/trunk/denu-3.x/")
+	if not config.has_option('DEFAULT', 'default'):     config.set('DEFAULT', 'default', os.getcwd())
 	if not config.has_option('DEFAULT', 'locale'):      config.set('DEFAULT', 'locale', 'en')
 	if not config.has_option('DEFAULT', 'pixbuf_size'): config.set('DEFAULT', 'pixbuf_size', '32')
 

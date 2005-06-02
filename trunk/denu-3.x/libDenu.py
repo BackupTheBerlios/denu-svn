@@ -38,7 +38,8 @@ config['dynamic'] = '/var/cache/denu/'
 #
 #Change config['default'] to root denu test directory.
 #
-config['default'] = home + '/denu/svn/trunk/denu-3.x/'
+#config['default'] = home + '/denu/svn/trunk/denu-3.x/'
+config['default'] = os.getcwd() + "/"
 
 #######################
 # WM module wrappers. #
