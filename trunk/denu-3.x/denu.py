@@ -20,25 +20,45 @@
 
 from ConfigParser import SafeConfigParser
 import sys
-
-config = SafeConfigParser()
-
-#config = {}
-config.set('DEFAULT', 'debug', 'yes')
-def debugPrint(*args):
-	if config.getboolean('DEFAULT', 'debug'): sys.stderr.write("DEBUG: " + ' '.join(args) + "\n")
-#if config.getboolean('debug'): print "Starting."
-debugPrint("Starting.")
-debugPrint("Loading libraries.")
 import pygtk
 pygtk.require('2.0')
 import gtk,libDenu
 import gtk.glade
 import xml.dom.minidom as xml_dom
 import string,urllib2,os
+
 home = os.environ['HOME']
-config.set('DEFAULT', 'locale', 'en')
-config.set('DEFAULT', 'pixbuf_size', '32')
+configfile = home + '/.denu.conf' # FIXME: Use proper config file location
+config = SafeConfigParser()
+
+def debugPrint(*args):
+	if config.has_option('DEFAULT', 'debug') and config.getboolean('DEFAULT', 'debug'):
+		sys.stderr.write("DEBUG: " + ' '.join(args) + "\n")
+
+def readConfig():
+	try:
+		config.read(configfile)
+		debugPrint("Read config file successfully")
+	except:
+		debugPrint("Unable to read config file!")
+def setConfigDefaults(): # Put default configuration options here.
+	if not config.has_option('DEFAULT', 'debug'):       config.set('DEFAULT', 'debug', 'true')
+	if not config.has_option('DEFAULT', 'locale'):      config.set('DEFAULT', 'locale', 'en')
+	if not config.has_option('DEFAULT', 'pixbuf_size'): config.set('DEFAULT', 'pixbuf_size', '32')
+def writeConfig():
+	try:
+		cfp = open(configfile, "w")
+		config.write(cfp)
+		cfp.close()
+		debugPrint("Wrote config file successfully.")
+	except:
+		debugPrint("Unable to write config file!")
+
+readConfig()
+setConfigDefaults()
+#if config.getboolean('debug'): print "Starting."
+debugPrint("Starting.")
+debugPrint("Loading libraries.")
 
 #
 #Change config['default'] to root denu test directory.
@@ -640,7 +660,9 @@ installedview.show()
 xml.get_widget("root").show()
 debugPrint("Done.")
 gtk.main()
-if config.getboolean('DEFAULT', 'debug'):
+debugPrint("Dumping config.")
+writeConfig()
+if config.has_option('DEFAULT', 'debug') and config.getboolean('DEFAULT', 'debug'):
 	debugPrint("Config is:")
 	debugPrint("---BEGIN---")
 	config.write(sys.stderr)
