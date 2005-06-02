@@ -36,7 +36,7 @@ import libDenuShared as denu_shared
 #################
 
 home = os.environ['HOME']
-sys.path.extend(["/usr/share/denu/wms", home + "/.denu/wms", home + "/denu/svn/trunk/denu-3.x/wms"])
+sys.path.extend(["/usr/share/denu/wms", home + "/.denu/wms", os.getcwd() + "/wms"])
 config = {}
 config['static'] = '/usr/share/denu/'
 config['dynamic'] = '/var/cache/denu/'
