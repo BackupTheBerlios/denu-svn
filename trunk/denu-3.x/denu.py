@@ -28,7 +28,7 @@ import xml.dom.minidom as xml_dom
 import string,urllib2,os
 
 home = os.environ['HOME']
-configfile = home + '/.denu.conf' # FIXME: Use proper config file location
+configfile = home + '/.denu/denu.conf' # FIXME: Use proper config file location
 config = SafeConfigParser()
 
 def debugPrint(*args):
@@ -41,11 +41,13 @@ def readConfig():
 		debugPrint("Read config file successfully")
 	except:
 		debugPrint("Unable to read config file!")
+
 def setConfigDefaults(): # Put default configuration options here.
 	if not config.has_option('DEFAULT', 'debug'):       config.set('DEFAULT', 'debug', 'true')
 	if not config.has_option('DEFAULT', 'default'):     config.set('DEFAULT', 'default', home + "/denu/svn/trunk/denu-3.x/")
 	if not config.has_option('DEFAULT', 'locale'):      config.set('DEFAULT', 'locale', 'en')
 	if not config.has_option('DEFAULT', 'pixbuf_size'): config.set('DEFAULT', 'pixbuf_size', '32')
+
 def writeConfig():
 	try:
 		cfp = open(configfile, "w")
@@ -54,17 +56,18 @@ def writeConfig():
 		debugPrint("Wrote config file successfully.")
 	except:
 		debugPrint("Unable to write config file!")
+		
+def updateConfig():
+	pass
 
+def showConfig():
+	pass
+	
 readConfig()
 setConfigDefaults()
 #if config.getboolean('debug'): print "Starting."
 debugPrint("Starting.")
 debugPrint("Loading libraries.")
-
-#
-#Change config['default'] to root denu test directory.
-#
-
 debugPrint("Importing glade file.")
 xml = gtk.glade.XML(config.get('DEFAULT', 'default') + 'denu/denu.glade')
 pixbuf_index = {}

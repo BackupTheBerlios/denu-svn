@@ -1,0 +1,6014 @@
+<?xml version="1.0" ?>
+<data title="Denu 2.3.2" type="menu">
+	
+	
+	
+	
+	
+	
+	<program>
+		
+		
+		
+		
+		
+		
+		<command>
+			
+			
+			
+			xfe
+		
+		
+		
+		</command>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				XFE
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<icon>
+			
+			
+			
+			/home/scott/.denu/pixmaps/xfe.png
+		
+		
+		
+		</icon>
+		
+		
+		
+	
+	
+	
+	</program>
+	
+	
+	
+	
+	<folder>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Media
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+		
+		<folder>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Graphics
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/usr/share/icons/hicolor/32x32/apps/gnome-graphics.png
+			
+			
+			
+			</icon>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
+		
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					gthumb
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						gThumb
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					gqview
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						GQView
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<icon>
+					
+					
+					
+					/home/scott/.denu/pixmaps/gqview.png
+				
+				
+				
+				</icon>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					sodipodi
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						sodipodi
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<icon>
+					
+					
+					
+					/home/scott/.denu/pixmaps/sodipodi.png
+				
+				
+				
+				</icon>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					f-spot
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						F-Spot
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					inkscape
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Inkscape
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<icon>
+					
+					
+					
+					/home/scott/.denu/pixmaps/inkscape.png
+				
+				
+				
+				</icon>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					gimp-2.0
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Gimp
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<icon>
+					
+					
+					
+					/home/scott/.denu/pixmaps/gimp.png
+				
+				
+				
+				</icon>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+		
+		</folder>
+		
+		
+		<folder>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Video
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/usr/share/icons/gnome/48x48/emblems/emblem-multimedia.png
+			
+			
+			
+			</icon>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
+		
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					avidemux2
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Avidemux
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					cinelerra
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Cinelerra
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					gmplayer
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						MPlayer
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					xine
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Xine
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<icon>
+					
+					
+					
+					/usr/share/pixmaps/xine_32x32.png
+				
+				
+				
+				</icon>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+		
+		</folder>
+		
+		
+		<folder>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Audio
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/usr/share/icons/hicolor/32x32/stock/media/stock_sound.png
+			
+			
+			
+			</icon>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
+		
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					amarokapp
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Amarok
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					audacity
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Audacity
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					beep-media-player
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						BMP
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<icon>
+					
+					
+					
+					/usr/share/pixmaps/beep_logo.xpm
+				
+				
+				
+				</icon>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					grip
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Grip
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					k3b
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						K3b
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<icon>
+					
+					
+					
+					/home/scott/.denu/pixmaps/k3b.png
+				
+				
+				
+				</icon>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					noteedit
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						NoteEdit
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					xmms
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						XMMS
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<icon>
+					
+					
+					
+					/usr/share/pixmaps/mini/xmms_mini.xpm
+				
+				
+				
+				</icon>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+		
+		</folder>
+		
+	
+	</folder>
+	
+	
+	<program>
+		
+		
+		
+		
+		
+		
+		<command>
+			
+			
+			
+			aterm -sl 2000
+		
+		
+		
+		</command>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				ATerm
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<icon>
+			
+			
+			
+			/usr/share/icons/hicolor/32x32/apps/gnome-terminal.png
+		
+		
+		
+		</icon>
+		
+		
+		
+	
+	
+	
+	</program>
+	
+	
+	
+	
+	
+	
+	
+	
+	<program>
+		
+		
+		
+		
+		
+		
+		<command>
+			
+			
+			
+			darimasen
+		
+		
+		
+		</command>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Darimasen
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+	
+	
+	
+	</program>
+	
+	
+	
+	
+	
+	
+	<folder>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Net
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<icon>
+			
+			
+			
+			/usr/share/icons/hicolor/32x32/apps/gnome-globe.png
+		
+		
+		
+		</icon>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				xchat-2
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					XChat
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/xchat.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				gftp
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					gftp
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/gftp.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				gaim
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Gaim
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/gaim.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				firefox
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Firefox
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/firefox-icon.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				thunderbird
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Thunderbird
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/thunderbird-icon.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+	
+	
+	
+	</folder>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<folder>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Games
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				neverball
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Neverball
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				neverputt
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Neverputt
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<folder>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Arcade
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					codebreaker
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Codebreaker
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					penguin-command -w
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Penguin Command
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					ltris
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						LTris
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					lbreakout
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						LBreakout
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					lbreakout2
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						LBreakout2
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					ppracer
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						PPRacer
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					supertux
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Supertux
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<icon>
+					
+					
+					
+					/home/scott/.denu/pixmaps/supertux.xpm
+				
+				
+				
+				</icon>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+		
+		
+		
+		</folder>
+		
+		
+		
+		
+		
+		
+		<folder>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Racing
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					trigger
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Trigger
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					torcs
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						TORCS
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+		
+		
+		
+		</folder>
+		
+		
+		
+		
+		
+		
+		<folder>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Simulation
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					simutrans
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						SimuTrans
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					fgrun
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Flight Gear Flight Simulator
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+		
+		
+		
+		</folder>
+		
+		
+		
+		
+		
+		
+		<folder>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Strategy
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					glob2
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Globulation 2
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					bzflag
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						BZFlag
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+		
+		
+		
+		</folder>
+		
+		
+		
+	
+	
+	
+	</folder>
+	
+	
+	
+	
+	
+	
+	<folder>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Office
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				sunbird-bin
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Sunbird
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				abiword-2.2
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Abiword 2.2
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/gnome-application-x-abiword.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				oowriter
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					OO Writer
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				oocalc
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					OO Calc
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				ooimpress
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					OO Impress
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				gpdf
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					GPDF
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/gpdf-48.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				oomath
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					OO Math
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				scribus
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Scribus
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				dia
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Dia
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+	
+	
+	
+	</folder>
+	
+	
+	
+	
+	
+	
+	<folder>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Development
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				gazpacho
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Gazpacho
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				glade-2
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Glade
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/glade.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				eric3
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Eric
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				gedit
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					gedit
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/gedit-icon.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				gvim
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					GVIM
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+	
+	
+	
+	</folder>
+	
+	
+	
+	
+	
+	
+	<folder>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Utilities
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				file-roller
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					File Roller
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/file-roller.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				porthole
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Porthole
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/home/scott/.denu/pixmaps/porthole-icon.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				fireglcontrol
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					FireGL Control
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				gtk-chtheme
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Gtk  2.0 Change Theme
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				stardict
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					StarDict
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				xcalc
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					xcalc
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/usr/share/icons/hicolor/32x32/apps/gnome-calculator.png
+			
+			
+			
+			</icon>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+	
+	
+	
+	</folder>
+	
+	
+	
+	
+	
+	
+	<special>
+		
+		
+		
+		
+		
+		
+		<content>
+			
+			
+			
+			
+			
+			
+			<fluxbox>
+				
+				
+				
+				[separator]
+			
+			
+			
+			</fluxbox>
+			
+			
+			
+		
+		
+		
+		</content>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				[separator]...
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+	
+	
+	
+	</special>
+	
+	
+	
+	
+	
+	
+	<program>
+		
+		
+		
+		
+		
+		
+		<command>
+			
+			
+			
+			denu
+		
+		
+		
+		</command>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Denu
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<icon>
+			
+			
+			
+			/home/scott/denu_icon.png
+		
+		
+		
+		</icon>
+		
+		
+		
+	
+	
+	
+	</program>
+	
+	
+	
+	
+	
+	
+	<program>
+		
+		
+		
+		
+		
+		
+		<command>
+			
+			
+			
+			denusvn
+		
+		
+		
+		</command>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Denu SVN
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<icon>
+			
+			
+			
+			/home/scott/denu_icon.png
+		
+		
+		
+		</icon>
+		
+		
+		
+	
+	
+	
+	</program>
+	
+	
+	
+	
+	
+	
+	<folder>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Fluxbox
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<folder>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Wallpaper
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<special>
+				
+				
+				
+				
+				
+				
+				<content>
+					
+					
+					
+					
+					
+					
+					<fluxbox>
+						
+						
+						
+						[wallpapers] (/media/Wallpaper)
+					
+					
+					
+					</fluxbox>
+					
+					
+					
+				
+				
+				
+				</content>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						/media/Wallpaper
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</special>
+			
+			
+			
+		
+		
+		
+		</folder>
+		
+		
+		
+		
+		
+		
+		<special>
+			
+			
+			
+			
+			
+			
+			<content>
+				
+				
+				
+				
+				
+				
+				<fluxbox>
+					
+					
+					
+					[reconfigure] (Reconfigure)
+				
+				
+				
+				</fluxbox>
+				
+				
+				
+			
+			
+			
+			</content>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Reconfigure
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</special>
+		
+		
+		
+		
+		
+		
+		<special>
+			
+			
+			
+			
+			
+			
+			<content>
+				
+				
+				
+				
+				
+				
+				<fluxbox>
+					
+					
+					
+					[include] (/usr/share/fluxbox/menu.d/styles/)
+				
+				
+				
+				</fluxbox>
+				
+				
+				
+			
+			
+			
+			</content>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					/usr/share/fluxbox/menu.d/styles/
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</special>
+		
+		
+		
+		
+		
+		
+		<special>
+			
+			
+			
+			
+			
+			
+			<content>
+				
+				
+				
+				
+				
+				
+				<fluxbox>
+					
+					
+					
+					[config] (Config Options)
+				
+				
+				
+				</fluxbox>
+				
+				
+				
+			
+			
+			
+			</content>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Config Options
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</special>
+		
+		
+		
+		
+		
+		
+		<special>
+			
+			
+			
+			
+			
+			
+			<content>
+				
+				
+				
+				
+				
+				
+				<fluxbox>
+					
+					
+					
+					[restart] (Restart)
+				
+				
+				
+				</fluxbox>
+				
+				
+				
+			
+			
+			
+			</content>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Restart
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</special>
+		
+		
+		
+		
+		
+		
+		<special>
+			
+			
+			
+			
+			
+			
+			<content>
+				
+				
+				
+				
+				
+				
+				<fluxbox>
+					
+					
+					
+					[exit] (Exit)
+				
+				
+				
+				</fluxbox>
+				
+				
+				
+			
+			
+			
+			</content>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Exit
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</special>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				fbrun
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Run
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+	
+	
+	
+	</folder>
+	
+	
+	
+	
+	
+	
+	<folder>
+		
+		
+		
+		
+		
+		
+		<name>
+			
+			
+			
+			
+			
+			
+			<en>
+				
+				
+				
+				Computer
+			
+			
+			
+			</en>
+			
+			
+			
+		
+		
+		
+		</name>
+		
+		
+		
+		
+		
+		
+		<folder>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Net
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+			
+			
+			
+			<icon>
+				
+				
+				
+				/usr/share/icons/gnome/48x48/filesystems/gnome-fs-web.png
+			
+			
+			
+			</icon>
+			
+			
+			
+			
+			
+			
+			<program>
+				
+				
+				
+				
+				
+				
+				<command>
+					
+					
+					
+					LinNeighborhood
+				
+				
+				
+				</command>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						LinNeighborhood
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+			
+			
+			
+			</program>
+			
+			
+			
+			
+			
+			
+			<folder>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Wired
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<program>
+					
+					
+					
+					
+					
+					
+					<command>
+						
+						
+						
+						sudo /etc/init.d/net.eth0 start
+					
+					
+					
+					</command>
+					
+					
+					
+					
+					
+					
+					<name>
+						
+						
+						
+						
+						
+						
+						<en>
+							
+							
+							
+							Start
+						
+						
+						
+						</en>
+						
+						
+						
+					
+					
+					
+					</name>
+					
+					
+					
+				
+				
+				
+				</program>
+				
+				
+				
+				
+				
+				
+				<program>
+					
+					
+					
+					
+					
+					
+					<command>
+						
+						
+						
+						sudo /etc/init.d/net.eth0 stop
+					
+					
+					
+					</command>
+					
+					
+					
+					
+					
+					
+					<name>
+						
+						
+						
+						
+						
+						
+						<en>
+							
+							
+							
+							Stop
+						
+						
+						
+						</en>
+						
+						
+						
+					
+					
+					
+					</name>
+					
+					
+					
+				
+				
+				
+				</program>
+				
+				
+				
+				
+				
+				
+				<program>
+					
+					
+					
+					
+					
+					
+					<command>
+						
+						
+						
+						sudo /etc/init.d/net.eth0 restart
+					
+					
+					
+					</command>
+					
+					
+					
+					
+					
+					
+					<name>
+						
+						
+						
+						
+						
+						
+						<en>
+							
+							
+							
+							Restart
+						
+						
+						
+						</en>
+						
+						
+						
+					
+					
+					
+					</name>
+					
+					
+					
+				
+				
+				
+				</program>
+				
+				
+				
+			
+			
+			
+			</folder>
+			
+			
+			
+			
+			
+			
+			<folder>
+				
+				
+				
+				
+				
+				
+				<name>
+					
+					
+					
+					
+					
+					
+					<en>
+						
+						
+						
+						Wireless
+					
+					
+					
+					</en>
+					
+					
+					
+				
+				
+				
+				</name>
+				
+				
+				
+				
+				
+				
+				<program>
+					
+					
+					
+					
+					
+					
+					<command>
+						
+						
+						
+						sudo /etc/init.d/net.eth1 start
+					
+					
+					
+					</command>
+					
+					
+					
+					
+					
+					
+					<name>
+						
+						
+						
+						
+						
+						
+						<en>
+							
+							
+							
+							Start
+						
+						
+						
+						</en>
+						
+						
+						
+					
+					
+					
+					</name>
+					
+					
+					
+				
+				
+				
+				</program>
+				
+				
+				
+				
+				
+				
+				<program>
+					
+					
+					
+					
+					
+					
+					<command>
+						
+						
+						
+						sudo /etc/init.d/net.eth1 stop
+					
+					
+					
+					</command>
+					
+					
+					
+					
+					
+					
+					<name>
+						
+						
+						
+						
+						
+						
+						<en>
+							
+							
+							
+							Stop
+						
+						
+						
+						</en>
+						
+						
+						
+					
+					
+					
+					</name>
+					
+					
+					
+				
+				
+				
+				</program>
+				
+				
+				
+				
+				
+				
+				<program>
+					
+					
+					
+					
+					
+					
+					<command>
+						
+						
+						
+						sudo /etc/init.d/net.eth1 restart
+					
+					
+					
+					</command>
+					
+					
+					
+					
+					
+					
+					<name>
+						
+						
+						
+						
+						
+						
+						<en>
+							
+							
+							
+							Restart
+						
+						
+						
+						</en>
+						
+						
+						
+					
+					
+					
+					</name>
+					
+					
+					
+				
+				
+				
+				</program>
+				
+				
+				
+			
+			
+			
+			</folder>
+			
+			
+			
+		
+		
+		
+		</folder>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				sudo /usr/sbin/hibernate
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Hibernate
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				sudo /sbin/shutdown -r now
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Reboot
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+		
+		
+		
+		<program>
+			
+			
+			
+			
+			
+			
+			<command>
+				
+				
+				
+				sudo /sbin/shutdown -h now
+			
+			
+			
+			</command>
+			
+			
+			
+			
+			
+			
+			<name>
+				
+				
+				
+				
+				
+				
+				<en>
+					
+					
+					
+					Shutdown
+				
+				
+				
+				</en>
+				
+				
+				
+			
+			
+			
+			</name>
+			
+			
+			
+		
+		
+		
+		</program>
+		
+		
+		
+	
+	
+	
+	</folder>
+	
+	
+	
+
+
+
+</data>
