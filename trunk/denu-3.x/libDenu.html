@@ -23,7 +23,11 @@ GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.<br>
 &nbsp;<br>
 You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License<br>
 along&nbsp;with&nbsp;this&nbsp;program;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software<br>
-Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place&nbsp;-&nbsp;Suite&nbsp;330,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;02111-1307,&nbsp;USA.</tt></p>
+Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place&nbsp;-&nbsp;Suite&nbsp;330,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;02111-1307,&nbsp;USA.<br>
+&nbsp;<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;start&nbsp;of&nbsp;libDenu&nbsp;3.x<br>
+It&nbsp;is&nbsp;released&nbsp;under&nbsp;the&nbsp;GPLv2</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -59,7 +63,10 @@ Foundation,&nbsp;Inc.,&nbsp;59&nbsp;Temple&nbsp;Place&nbsp;-&nbsp;Suite&nbsp;330
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="installedHandler">class <strong>installedHandler</strong></a>(<a href="xml.sax.saxlib.html#HandlerBase">xml.sax.saxlib.HandlerBase</a>)</font></td></tr>
     
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;handling&nbsp;the&nbsp;raw&nbsp;xml&nbsp;database&nbsp;to&nbsp;installed&nbsp;xml&nbsp;records.<br>
+Modeled&nbsp;after&nbsp;tutorial&nbsp;here:&nbsp;<a href="http://www.rexx.com/~dkuhlman/pyxmlfaq.html#howsaxhandler">http://www.rexx.com/~dkuhlman/pyxmlfaq.html#howsaxhandler</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="libDenu.html#installedHandler">installedHandler</a></dd>
 <dd><a href="xml.sax.saxlib.html#HandlerBase">xml.sax.saxlib.HandlerBase</a></dd>
@@ -119,7 +126,8 @@ Methods inherited from <a href="xml.sax.handler.html#ErrorHandler">xml.sax.handl
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-addEntry"><strong>addEntry</strong></a>(entry, parent, sibling<font color="#909090">=None</font>)</dt></dl>
  <dl><dt><a name="-autoGen"><strong>autoGen</strong></a>()</dt></dl>
- <dl><dt><a name="-backup"><strong>backup</strong></a>(wm)</dt></dl>
+ <dl><dt><a name="-backup"><strong>backup</strong></a>(wm)</dt><dd><tt>Duplicates&nbsp;the&nbsp;current&nbsp;file(s)&nbsp;for&nbsp;the&nbsp;specified&nbsp;wm,&nbsp;for&nbsp;restoration&nbsp;from&nbsp;denu&nbsp;using&nbsp;libDenu.<a href="#-restore">restore</a>().&nbsp;<br>
+Works&nbsp;in&nbsp;combination&nbsp;with&nbsp;denu&nbsp;wm&nbsp;module.</tt></dd></dl>
  <dl><dt><a name="-buildIdChildRelations"><strong>buildIdChildRelations</strong></a>(trees<font color="#909090">=['installed', 'menu']</font>)</dt></dl>
  <dl><dt><a name="-cleanXML"><strong>cleanXML</strong></a>(XMLdom)</dt></dl>
  <dl><dt><a name="-d_open"><strong>d_open</strong></a>(file, var<font color="#909090">='menu'</font>)</dt></dl>
@@ -132,14 +140,16 @@ Methods inherited from <a href="xml.sax.handler.html#ErrorHandler">xml.sax.handl
  <dl><dt><a name="-moveEntry"><strong>moveEntry</strong></a>(entryId, parent, sibling<font color="#909090">=None</font>, source<font color="#909090">='menu'</font>, dest<font color="#909090">='menu'</font>)</dt></dl>
  <dl><dt><a name="-printIdIndex"><strong>printIdIndex</strong></a>()</dt></dl>
  <dl><dt><a name="-printMenu"><strong>printMenu</strong></a>(root, locale<font color="#909090">='en'</font>, level<font color="#909090">=0</font>)</dt></dl>
- <dl><dt><a name="-restore"><strong>restore</strong></a>(wm)</dt></dl>
+ <dl><dt><a name="-restore"><strong>restore</strong></a>(wm)</dt><dd><tt>Restores&nbsp;the&nbsp;menu&nbsp;to&nbsp;a&nbsp;specific&nbsp;file.<br>
+Restores&nbsp;from&nbsp;files&nbsp;created&nbsp;with&nbsp;libDenu.<a href="#-backup">backup</a>().<br>
+Works&nbsp;in&nbsp;combination&nbsp;with&nbsp;denu&nbsp;wm&nbsp;module.</tt></dd></dl>
  <dl><dt><a name="-saveEntry"><strong>saveEntry</strong></a>(entryId, overwrite<font color="#909090">=0</font>)</dt></dl>
  <dl><dt><a name="-sysupdate"><strong>sysupdate</strong></a>()</dt></dl>
- <dl><dt><a name="-update"><strong>update</strong></a>()</dt></dl>
+ <dl><dt><a name="-update"><strong>update</strong></a>()</dt><dd><tt>Updates&nbsp;denu&nbsp;database&nbsp;of&nbsp;programs.Variable:data.</tt></dd></dl>
  <dl><dt><a name="-update_wmConfig"><strong>update_wmConfig</strong></a>()</dt></dl>
  <dl><dt><a name="-viewEntry"><strong>viewEntry</strong></a>(entryId, dom<font color="#909090">='menu'</font>)</dt></dl>
- <dl><dt><a name="-wm_export"><strong>wm_export</strong></a>(wm, file<font color="#909090">='default'</font>)</dt></dl>
- <dl><dt><a name="-wm_import"><strong>wm_import</strong></a>(wm, file<font color="#909090">='default'</font>)</dt></dl>
+ <dl><dt><a name="-wm_export"><strong>wm_export</strong></a>(wm, file<font color="#909090">='default'</font>)</dt><dd><tt>Works&nbsp;together&nbsp;with&nbsp;the&nbsp;denu&nbsp;wm&nbsp;module&nbsp;to&nbsp;export&nbsp;the&nbsp;denu&nbsp;xml&nbsp;format&nbsp;to&nbsp;the&nbsp;proprietary&nbsp;format&nbsp;of&nbsp;the&nbsp;specified&nbsp;wm.</tt></dd></dl>
+ <dl><dt><a name="-wm_import"><strong>wm_import</strong></a>(wm, file<font color="#909090">='default'</font>)</dt><dd><tt>Works&nbsp;together&nbsp;with&nbsp;the&nbsp;denu&nbsp;wm&nbsp;module&nbsp;to&nbsp;import&nbsp;the&nbsp;wm&nbsp;menu&nbsp;to&nbsp;denu&nbsp;xml&nbsp;format.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

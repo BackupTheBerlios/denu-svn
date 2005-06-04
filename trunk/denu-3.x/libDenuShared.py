@@ -20,11 +20,10 @@ This is the start of libDenu 3.x
 It is released under the GPLv2
 
 This file contains functions used in libDenu.py, denu.py, and possibly in the window manager modules.
-
 '''
 
-'''Converts XML DOM to dictionary structure.'''
 def DOMtoDict (dict, entry, location):
+	'''Converts XML DOM to dictionary structure.'''
 	for child in entry.childNodes:
 		if not child.nodeName == "#text":
 			location.append(child.nodeName)
@@ -39,8 +38,8 @@ def DOMtoDict (dict, entry, location):
 				variable += "['" + place + "']"
 			exec variable + " = child.nodeValue"
 
-'''Converts dictionary structure to XML DOM.'''
 def buildDOM(dict, element, root):
+	'''Converts dictionary structure to XML DOM.'''
 	type = ""
 	for key in dict.keys():
 		tmp = root.createElement(key)

@@ -15,9 +15,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-'''
 
-'''
+
 This is the start of libDenu 3.x
 It is released under the GPLv2
 '''
@@ -51,28 +50,35 @@ config['default'] = os.getcwd() + "/"
 # WM module wrappers. #
 #######################
 
-'''Works together with the denu wm module to import the wm menu to denu xml format.'''
 def wm_import(wm, file="default"):
+	'''Works together with the denu wm module to import the wm menu to denu xml format.'''
 	global menu
 	wm = __import__("denuWM_" + wm)
 	menu = wm.wm_import(file)
 	return menu
 	
-'''Works together with the denu wm module to export the denu xml format to the proprietary format of the specified wm.'''
 def wm_export (wm, file="default"):
+	'''Works together with the denu wm module to export the denu xml format to the proprietary format of the specified wm.'''
 	global menu
 	wm = __import__("denuWM_" + wm)
 	wm.wm_export(menu, file)
 	return "Successful."
 	
-'''Duplicates the current file(s) for the specified wm, for restoration from denu using libDenu.restore().  Works in combination with denu wm module.'''
 def backup (wm):
+	'''
+	Duplicates the current file(s) for the specified wm, for restoration from denu using libDenu.restore(). 
+	Works in combination with denu wm module.
+	'''
 	wm = __import__("denuWM_" + wm)
 	wm.backup()
 	return "Successful."
 	
-'''Restores the menu to a specific file.  Restores from files created with libDenu.backup().  Works in combination with denu wm module.'''
 def restore (wm):
+	'''
+	Restores the menu to a specific file.
+	Restores from files created with libDenu.backup().
+	Works in combination with denu wm module.
+	'''
 	global menu
 	wm = __import__("denuWM_" + wm)
 	wm.restore()
@@ -82,16 +88,16 @@ def restore (wm):
 # File Oriented Functions #
 ###########################
 
-'''Saves the denu xml format to a .xml file.'''
 def d_save (file):
+	'''Saves the denu xml format to a .xml file.'''
 	global menu
 	file = open(file, 'w')
 	strng = menu.toprettyxml()
 	file.write(strng)
 	return "Successful."
 
-'''Opens a denu xml file into the program.'''
 def d_open (file, var='menu'):
+	'''Opens a denu xml file into the program.'''
 	if os.path.exists(file):
 		if var == 'menu':
 			global menu
@@ -110,8 +116,8 @@ def d_open (file, var='menu'):
 # Window Manager Functions #
 ############################
 
-'''Gets current running wm.'''
 def getCurrentWM ():
+	'''Gets current running wm.'''
 	keys = wmConfig.keys()
 	running = []
 	for key in keys:
@@ -119,8 +125,8 @@ def getCurrentWM ():
 			running.append(key)
 	return running
 	
-'''Gets installed wms.'''
 def getInstalledWMs ():
+	'''Gets installed wms.'''
 	path = os.environ['PATH']
 	path = string.split(path,':')
 	bins = []
@@ -140,8 +146,8 @@ def getInstalledWMs ():
 			bins = []
 	return wm
 	
-'''Updates wm configs in wmConfig variable.'''
 def update_wmConfig():
+	'''Updates wm configs in wmConfig variable.'''
 	global wmConfig
 	if os.path.exists(config['default'] + "wms"):
 		default_files = os.listdir(config['default'] + "wms")
@@ -164,8 +170,8 @@ def update_wmConfig():
 # Initialization Functions #
 ############################
 
-'''Updates denu database of programs.Variable:data.'''
 def update ():
+	'''Updates denu database of programs.Variable:data.'''
 	import urllib2
 	try:
 		newestDB = urllib2.urlopen('http://denu.sourceforge.net/files/newestDB').readline()
@@ -186,11 +192,11 @@ def update ():
 		installed.write(newestDB)
 		installed.close()
 	return "Successful."
-'''
-Class for handling the raw xml database to installed xml records.
-Modeled after tutorial here: http://www.rexx.com/~dkuhlman/pyxmlfaq.html#howsaxhandler
-'''
 class installedHandler (saxlib.HandlerBase):
+	'''
+	Class for handling the raw xml database to installed xml records.
+	Modeled after tutorial here: http://www.rexx.com/~dkuhlman/pyxmlfaq.html#howsaxhandler
+	'''
 	def __init__ (self):
 		self.level = 0
 		self.entry = {}
@@ -258,8 +264,8 @@ class installedHandler (saxlib.HandlerBase):
 					variable += "['" + place + "']"
 				exec variable + " = chars"
 		
-'''Updates denu database of installed programs. Variable:installed.'''
 def sysupdate():
+	'''Updates denu database of installed programs. Variable:installed.'''
 	handler = installedHandler()
 	parser = saxexts.make_parser()
 	parser.setDocumentHandler(handler)
@@ -270,8 +276,8 @@ def sysupdate():
 	buildIdChildRelations(['installed'])
 	return "Successful."
 
-'''Returns a denu xml structure with all installed programs in them.'''
 def autoGen ():
+	'''Returns a denu xml structure with all installed programs in them.'''
 	installed = xml.parse(config['default'] + "installed.xml")
 	for child in installed.firstChild.childNodes:
 		location = child.getElementsByTagName("location")[0].nodeValue
@@ -288,8 +294,8 @@ def autoGen ():
 # Entry Functions #
 ###################
 
-'''Modifies an entry in the xml.'''
 def editEntry(entry, entryId):
+	'''Modifies an entry in the xml.'''
 	global menu
 	element = idIndex['menu'][entryId]
 	for tag in element.childNodes:
@@ -297,8 +303,8 @@ def editEntry(entry, entryId):
 	denu_shared.buildDOM(entry[0], element, menu)
 	return "Successful."
 				
-'''Returns information on entries in the xml.  May be a list or object.'''
 def viewEntry(entryId, dom="menu"):
+	'''Returns information on entries in the xml.  May be a list or object.'''
 	global idIndex
 	entry = idIndex[dom][entryId]
 	dict = {}
@@ -307,8 +313,8 @@ def viewEntry(entryId, dom="menu"):
 	denu_shared.DOMtoDict (dict[entry.nodeName], entry, location)
 	return dict
 			
-'''Inserts an entry into the denu xml structure.'''
 def addEntry(entry, parent, sibling=None):
+	'''Inserts an entry into the denu xml structure.'''
 	global idIndex
 	global menu
 	newId = []
@@ -325,13 +331,13 @@ def addEntry(entry, parent, sibling=None):
 		idIndex['menu'][tmp] = tmpId
 	return newId
 	
-'''Deletes an entry from the denu xml structure.'''
 def deleteEntry(entryId):
+	'''Deletes an entry from the denu xml structure.'''
 	idIndex['menu'][entryId].parentNode.removeChild(idIndex['menu'][entryId])
 	return "Successful."
 	
-'''Stores the entry for later use.'''
 def saveEntry(entryId, overwrite=0):
+	'''Stores the entry for later use.'''
 	global idIndex
 	import random
 	type = idIndex['menu'][entryId].nodeName
@@ -359,8 +365,8 @@ def loadEntry(file, parent, sibling=None):
 	idIndex['menu'][tmp] = tmpId
 	return newId
 	
-'''Moves entries within the denu xml structure.'''
 def moveEntry(entryId, parent, sibling=None, source="menu", dest="menu"):
+	'''Moves entries within the denu xml structure.'''
 	entryId = int(entryId)
 	child = idIndex[source][entryId].parentNode.removeChild(idIndex[source][entryId])
 	if sibling == None:
