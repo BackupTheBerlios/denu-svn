@@ -1,3 +1,37 @@
+Todo.
+
+[H] High priority
+[M] Medium priority
+[L] Low priority
+[?] Uncertain.
+
+Features.
+	[H] Connect config code to gui.
+	[H] Database restructure to better enable internationalization.
+	[M] Connect the about button.
+	[H] Custom view.
+	[H] Share button for custom view, including submit to database.
+	[H] GUI change based on user level.
+	[H] Smooth first startup.
+	[H] Right-click menu for installed, menu and custom.
+	
+Window manager support.
+	[H] Openbox
+	[H] Gnome
+	[H] KDE
+	[M] Blackbox
+	[L]FVWM
+	[L] PekWM
+	[H] Enlightenment
+	-[M] Engage
+	[H] Xfce4
+	[M] icewm
+	[L] matchbox
+	
+Bugs.
+	[H] Drag to end error.
+	[H] Drag around self error.	
+
 -button to create a copy of an entry to drag somewhere else. For instance, I 
 like having an entry for my main xterm, browser, irc client, etc. in both the 
 root menu and under the corresponding submenu alongside similar programs...
@@ -15,11 +49,5 @@ users log in they already can benefit from the tool you provide without needed
 to know anything about it even existing.  I am sure that gnome,kde,etc keep a 
 default menu somewhere, if root could over write it with a new, better, 
 customized menu that would be great. (and speed my time as an admin substantially).
-
-Berlios feature request.
-
-It would be nice for denu to also generate WindowMaker compatible menus as this 
-would add yet another supported window manager to your list of popular windowing
-systems
 
 Berlios feature request.
