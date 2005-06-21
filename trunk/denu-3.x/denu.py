@@ -28,10 +28,16 @@ import xml.dom.minidom as xml_dom
 import string,urllib2,os
 
 home = os.environ['HOME']
-denudir = home + '/.denu/'
+denudir = home + '/.denu'
 configfile = denudir + '/denu.conf' # FIXME: Use proper config file location
 config = SafeConfigParser()
 
+if not os.path.exists(denudir):
+	os.makedirs(denudir)
+	
+if not os.path.exists(denudir + "/pixmaps"):
+	os.makedirs(denudir + "/pixmaps")
+	
 def debugPrint(*args):
 	if config.has_option('DEFAULT', 'debug') and config.getboolean('DEFAULT', 'debug'):
 		sys.stderr.write("DEBUG: " + ' '.join(args) + "\n")
@@ -52,8 +58,6 @@ def setConfigDefaults(): # Put default configuration options here.
 
 def writeConfig():
 	try:
-		try: os.makedirs(denudir) # Try to create ~/.denu if it doesn't exist
-		except: pass
 		cfp = open(configfile, "w")
 		config.write(cfp)
 		cfp.close()
