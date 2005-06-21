@@ -29,8 +29,7 @@ Window manager support.
 	[L] matchbox
 	
 Bugs.
-	[H] Drag to end error.
-	[H] Drag around self error.	
+	none
 
 -button to create a copy of an entry to drag somewhere else. For instance, I 
 like having an entry for my main xterm, browser, irc client, etc. in both the 

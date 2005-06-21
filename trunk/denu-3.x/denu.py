@@ -434,6 +434,14 @@ def drag_data_get_data(treeview, context, selection, target_id, etime):
 	global src_iter
 	src_iter = iterList[0][0]
 	return
+	
+def last_visible (parent, model, treeview):
+	last_iter = model.iter_nth_child(parent, model.iter_n_children(parent)-1)
+	path = model.get_path(last_iter)
+	if model.iter_has_child(last_iter):
+		if treeview.row_expanded(path):
+			path = last_visible(last_iter, model, treeview)
+	return path
    
 def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 	model = treeview.get_model()
@@ -514,11 +522,17 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 				else:
 					model.append(iter, [None, name, id])
 	elif data[:9] == "internal>":
-		path, position = treeview.get_dest_row_at_pos(x, y)
+		if not treeview.get_dest_row_at_pos(x, y)==None:
+			path, position = treeview.get_dest_row_at_pos(x, y)
+		else:
+			path = last_visible(None, model, treeview)
+			position = gtk.TREE_VIEW_DROP_AFTER				
 		data = string.replace(data, "internal>", "")
 		data = string.split(data, "|")
 		iter = model.get_iter(path)
-		if position == gtk.TREE_VIEW_DROP_BEFORE:
+		if src_iter==iter:
+			pass
+		elif position == gtk.TREE_VIEW_DROP_BEFORE:
 			if not model.iter_parent(iter) == None:
 				parent = model.get_value(model.iter_parent(iter), 2)
 			else:
@@ -529,7 +543,10 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 				parent = model.get_value(model.iter_parent(iter), 2)
 			else:
 				parent = 0
-			sibling = model.get_value(model.iter_next(iter), 2)
+			if not model.iter_next(iter) == None:
+				sibling = model.get_value(model.iter_next(iter), 2)
+			else:
+				sibling = None
 		elif position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER or position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
 			parent = model.get_value(iter, 2)
 			sibling = None
@@ -537,13 +554,14 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 			dest = "menu"
 		elif model==installedstore:
 			dest = "installed"
-		id = libDenu.moveEntry(data[1], parent, sibling, data[0], dest)
-		entry = libDenu.viewEntry(id, dest)
-		if entry[entry.keys()[0]]['name'].has_key(config.get('DEFAULT', 'locale')):
-			name = entry[entry.keys()[0]]['name'][config.get('DEFAULT', 'locale')]
-		else:
-			name = entry[entry.keys()[0]]['name']["en"]
-		if position == gtk.TREE_VIEW_DROP_BEFORE:
+		if not int(data[1]) == sibling and int(data[1]) != parent:
+			id = libDenu.moveEntry(data[1], parent, sibling, data[0], dest)
+			entry = libDenu.viewEntry(id, dest)
+			if entry[entry.keys()[0]]['name'].has_key(config.get('DEFAULT', 'locale')):
+				name = entry[entry.keys()[0]]['name'][config.get('DEFAULT', 'locale')]
+			else:
+				name = entry[entry.keys()[0]]['name']["en"]
+		if position == gtk.TREE_VIEW_DROP_BEFORE and int(data[1]) != parent and int(data[1]) != sibling:
 			parent_iter = model.iter_parent(iter)
 			if entry[entry.keys()[0]].has_key('icon'):
 				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
@@ -552,7 +570,7 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 					new_iter = model.insert_before(parent_iter, iter, [None, name, id])
 			else:
 				new_iter = model.insert_before(parent_iter, iter, [None, name, id])
-		elif position == gtk.TREE_VIEW_DROP_AFTER:
+		elif position == gtk.TREE_VIEW_DROP_AFTER and int(data[1]) != parent and int(data[1]) != sibling:
 			parent_iter = model.iter_parent(iter)
 			if entry[entry.keys()[0]].has_key('icon'):
 				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
@@ -561,7 +579,7 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 					new_iter = model.insert_after(parent_iter, iter, [None, name, id])
 			else:
 				new_iter = model.insert_after(parent_iter, iter, [None, name, id])
-		elif position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER or position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE:
+		elif (position == gtk.TREE_VIEW_DROP_INTO_OR_AFTER or position == gtk.TREE_VIEW_DROP_INTO_OR_BEFORE) and int(data[1]) != parent and int(data[1]) != sibling:
 			if entry[entry.keys()[0]].has_key('icon'):
 				if not pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
 					new_iter = model.append(iter, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
@@ -569,14 +587,15 @@ def drag_data_received_data(treeview, context, x, y, selection, info, etime):
 					new_iter = model.append(iter, [None, name, id])
 			else:
 				new_iter = model.append(iter, [None, name, id])
-		if data[0] == "menu":
-			if menustore.iter_has_child(src_iter):
-				copy_rows(new_iter, src_iter, menustore, model)
-		elif data[0] == "installed":
-			if installedstore.iter_has_child(src_iter):
-				copy_rows(new_iter, src_iter, installedstore, model)
-		if data[0] == "menu":
-			menustore.remove(src_iter)
+		if int(data[1]) != sibling and int(data[1]) != parent:
+			if data[0] == "menu":
+				if menustore.iter_has_child(src_iter):
+					copy_rows(new_iter, src_iter, menustore, model)
+			elif data[0] == "installed":
+				if installedstore.iter_has_child(src_iter):
+					copy_rows(new_iter, src_iter, installedstore, model)
+			if data[0] == "menu":
+				menustore.remove(src_iter)
 			
 def copy_rows(parent_iter, src_iter, srcmodel, destmodel):
 	iter = srcmodel.iter_children(src_iter)
