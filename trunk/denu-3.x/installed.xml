@@ -812,6 +812,22 @@
 		</folder>
 		<program>
 			<portage-id>
+				net-im/skype
+			</portage-id>
+			<command>
+				skype
+			</command>
+			<name>
+				<en>
+					Skype
+				</en>
+			</name>
+			<location>
+				|Net
+			</location>
+		</program>
+		<program>
+			<portage-id>
 				kde-base/konqueror
 			</portage-id>
 			<command>
@@ -1024,6 +1040,22 @@
 				<name>
 					<en>
 						GQView
+					</en>
+				</name>
+				<location>
+					|Media|Graphics
+				</location>
+			</program>
+			<program>
+				<portage-id>
+					media-gfx/entice
+				</portage-id>
+				<command>
+					entice
+				</command>
+				<name>
+					<en>
+						Entice
 					</en>
 				</name>
 				<location>
@@ -1927,6 +1959,22 @@
 		</program>
 		<program>
 			<portage-id>
+				dev-util/eric
+			</portage-id>
+			<command>
+				eric3
+			</command>
+			<name>
+				<en>
+					Eric
+				</en>
+			</name>
+			<location>
+				|Development
+			</location>
+		</program>
+		<program>
+			<portage-id>
 				dev-java/bsh
 			</portage-id>
 			<command>
@@ -2615,6 +2663,38 @@
 		</key>
 		<program>
 			<portage-id>
+				games-fps/cube
+			</portage-id>
+			<command>
+				cube_client
+			</command>
+			<name>
+				<en>
+					Cube Client
+				</en>
+			</name>
+			<location>
+				|Games|FPS
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-fps/cube
+			</portage-id>
+			<command>
+				cube_server
+			</command>
+			<name>
+				<en>
+					Cube Server
+				</en>
+			</name>
+			<location>
+				|Games|FPS
+			</location>
+		</program>
+		<program>
+			<portage-id>
 				games-fps/legends
 			</portage-id>
 			<command>
@@ -2627,6 +2707,22 @@
 			</name>
 			<location>
 				|Games|FPS
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-roguelike/nethack
+			</portage-id>
+			<command>
+				nethack
+			</command>
+			<name>
+				<en>
+					NetHack
+				</en>
+			</name>
+			<location>
+				|Games|Rogue-Like|NetHack
 			</location>
 		</program>
 		<program>
@@ -2695,6 +2791,38 @@
 		</program>
 		<program>
 			<portage-id>
+				net-news/erss
+			</portage-id>
+			<command>
+				erss
+			</command>
+			<name>
+				<en>
+					eRSS
+				</en>
+			</name>
+			<location>
+				|Net|News
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-action/bzflag
+			</portage-id>
+			<command>
+				bzflag
+			</command>
+			<name>
+				<en>
+					BZFlag
+				</en>
+			</name>
+			<location>
+				|Games|Action
+			</location>
+		</program>
+		<program>
+			<portage-id>
 				games-board/xfreecell
 			</portage-id>
 			<command>
@@ -2739,6 +2867,22 @@
 			</name>
 			<location>
 				|Games|Board
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				net-p2p/bittornado
+			</portage-id>
+			<command>
+				btdownloadgui.py
+			</command>
+			<name>
+				<en>
+					Bittornado
+				</en>
+			</name>
+			<location>
+				|Net|P2P
 			</location>
 		</program>
 		<program>
@@ -2888,6 +3032,22 @@
 			</name>
 			<location>
 				|Openbox
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				app-editors/nvu
+			</portage-id>
+			<command>
+				nvu
+			</command>
+			<name>
+				<en>
+					Nvu
+				</en>
+			</name>
+			<location>
+				|Develpment|WWW
 			</location>
 		</program>
 		<program>

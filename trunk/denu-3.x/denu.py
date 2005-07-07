@@ -418,6 +418,11 @@ def view_entry(widget):
 		viewxml.get_widget("view_icon").set_text('None.')
 	viewxml.get_widget("view_window").show()
 	
+def edit_entry_start (widget):
+	window = xml.get_widget("save_denu")
+
+def edit_entry_end (widget):
+	pass
 	
 ##################
 ## DND Functions #
@@ -686,7 +691,6 @@ installedview.set_model(installedstore)
 installedview.connect("drag_data_get", drag_data_get_data)
 installedview.enable_model_drag_source( gtk.gdk.BUTTON1_MASK, [('text/plain', 0, 0)], gtk.gdk.ACTION_DEFAULT | gtk.gdk.ACTION_MOVE)
 installedview.show()
-
 xml.get_widget("root").show()
 debugPrint("Done.")
 gtk.main()
