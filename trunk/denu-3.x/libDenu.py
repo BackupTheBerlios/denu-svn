@@ -43,7 +43,7 @@ config['dynamic'] = '/var/cache/denu/'
 #
 # Change config['default'] to root denu test directory.
 #
-# config['default'] = home + '/denu/svn/trunk/denu-3.x/'
+#config['default'] = home + '/denu/svn/trunk/denu-3.x/'
 config['default'] = os.getcwd() + "/"
 
 #######################
@@ -192,6 +192,7 @@ def update ():
 		installed.write(newestDB)
 		installed.close()
 	return "Successful."
+	
 class installedHandler (saxlib.HandlerBase):
 	'''
 	Class for handling the raw xml database to installed xml records.
@@ -299,7 +300,8 @@ def editEntry(entry, entryId):
 	global menu
 	element = idIndex['menu'][entryId]
 	for tag in element.childNodes:
-		element.removeChild(tag)
+		if tag.nodeName=="folder" or not tag.nodeName=="program" or not tag.nodeName=="special":
+			element.removeChild(tag)
 	denu_shared.buildDOM(entry[0], element, menu)
 	return "Successful."
 				
@@ -368,7 +370,10 @@ def loadEntry(file, parent, sibling=None):
 def moveEntry(entryId, parent, sibling=None, source="menu", dest="menu"):
 	'''Moves entries within the denu xml structure.'''
 	entryId = int(entryId)
-	child = idIndex[source][entryId].parentNode.removeChild(idIndex[source][entryId])
+	if source == "menu" and not dest == "custom":
+		child = idIndex[source][entryId].parentNode.removeChild(idIndex[source][entryId])
+	else:
+		child = idIndex[source][entryId].cloneNode(True)
 	if sibling == None:
 		idIndex[dest][parent].appendChild(child)
 	else:

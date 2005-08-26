@@ -11,118 +11,6 @@
 		</key>
 		<program>
 			<portage-id>
-				app-office/openoffice-bin
-			</portage-id>
-			<command>
-				oocalc
-			</command>
-			<name>
-				<en>
-					OO Calc
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-bin
-			</portage-id>
-			<command>
-				oodraw
-			</command>
-			<name>
-				<en>
-					OO Draw
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-bin
-			</portage-id>
-			<command>
-				ooimpress
-			</command>
-			<name>
-				<en>
-					OO Impress
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-bin
-			</portage-id>
-			<command>
-				oomath
-			</command>
-			<name>
-				<en>
-					OO Math
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-bin
-			</portage-id>
-			<command>
-				oowriter
-			</command>
-			<name>
-				<en>
-					OO Writer
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-bin
-			</portage-id>
-			<command>
-				ooweb
-			</command>
-			<name>
-				<en>
-					OO Web
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-bin
-			</portage-id>
-			<command>
-				ooffice
-			</command>
-			<name>
-				<en>
-					OpenOffice
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
 				app-office/dia
 			</portage-id>
 			<command>
@@ -131,230 +19,6 @@
 			<name>
 				<en>
 					Dia
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice
-			</portage-id>
-			<command>
-				oocalc
-			</command>
-			<name>
-				<en>
-					OO Calc
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice
-			</portage-id>
-			<command>
-				oodraw
-			</command>
-			<name>
-				<en>
-					OO Draw
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice
-			</portage-id>
-			<command>
-				ooimpress
-			</command>
-			<name>
-				<en>
-					OO Impress
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice
-			</portage-id>
-			<command>
-				oomath
-			</command>
-			<name>
-				<en>
-					OO Math
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice
-			</portage-id>
-			<command>
-				oowriter
-			</command>
-			<name>
-				<en>
-					OO Writer
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice
-			</portage-id>
-			<command>
-				ooweb
-			</command>
-			<name>
-				<en>
-					OO Web
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice
-			</portage-id>
-			<command>
-				ooffice
-			</command>
-			<name>
-				<en>
-					OpenOffice
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-ximian
-			</portage-id>
-			<command>
-				oocalc
-			</command>
-			<name>
-				<en>
-					OO Calc
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-ximian
-			</portage-id>
-			<command>
-				oodraw
-			</command>
-			<name>
-				<en>
-					OO Draw
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-ximian
-			</portage-id>
-			<command>
-				ooimpress
-			</command>
-			<name>
-				<en>
-					OO Impress
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-ximian
-			</portage-id>
-			<command>
-				oomath
-			</command>
-			<name>
-				<en>
-					OO Math
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-ximian
-			</portage-id>
-			<command>
-				oowriter
-			</command>
-			<name>
-				<en>
-					OO Writer
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-ximian
-			</portage-id>
-			<command>
-				ooweb
-			</command>
-			<name>
-				<en>
-					OO Web
-				</en>
-			</name>
-			<location>
-				|Office
-			</location>
-		</program>
-		<program>
-			<portage-id>
-				app-office/openoffice-ximian
-			</portage-id>
-			<command>
-				ooffice
-			</command>
-			<name>
-				<en>
-					OpenOffice
 				</en>
 			</name>
 			<location>
@@ -429,6 +93,22 @@
 			<name>
 				<en>
 					Scribus
+				</en>
+			</name>
+			<location>
+				|Office
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				app-text/acroread
+			</portage-id>
+			<command>
+				acroread
+			</command>
+			<name>
+				<en>
+					Acroread
 				</en>
 			</name>
 			<location>
@@ -2883,6 +2563,22 @@
 			</name>
 			<location>
 				|Net|P2P
+			</location>
+		</program>
+		<program>
+			<portage-id>
+				games-fps/americas-army
+			</portage-id>
+			<command>
+				armyops
+			</command>
+			<name>
+				<en>
+					Americas Army
+				</en>
+			</name>
+			<location>
+				|Games|FPS
 			</location>
 		</program>
 		<program>
