@@ -299,10 +299,29 @@ def editEntry(entry, entryId):
 	'''Modifies an entry in the xml.'''
 	global menu
 	element = idIndex['menu'][entryId]
-	for tag in element.childNodes:
-		if tag.nodeName=="folder" or not tag.nodeName=="program" or not tag.nodeName=="special":
-			element.removeChild(tag)
-	denu_shared.buildDOM(entry[0], element, menu)
+	locale = entry[entry.keys()[0]]['name'].keys()[0]
+	name = element.getElementsByTagName('name')[0].getElementsByTagName(locale)[0].firstChild.nodeValue
+	new_name = entry[entry.keys()[0]]['name'][locale]
+	if not name == new_name:
+		element.getElementsByTagName('name')[0].getElementsByTagName(locale)[0].firstChild.nodeValue = new_name
+	command = element.getElementsByTagName('command')[0].firstChild.nodeValue
+	new_command = entry[entry.keys()[0]]['command']
+	if not command == new_command:
+		element.getElementsByTagName('command')[0].firstChild.nodeValue = new_command
+		
+	try:
+		new_icon = entry[entry.keys()[0]]['icon']['file']
+		if len(element.getElementsByTagName('icon')) > 0:
+			try:
+				icon = element.getElementsByTagName('icon')[0].getElementsByTagName('file')[0].firstChild.nodeValue
+				if not icon == new_icon:
+					element.getElementsByTagName('icon')[0].getElementsByTagName('file')[0].firstChild.nodeValue = new_icon
+			except:
+				denu_shared.buildDOM(entry[entry.keys()[0]]['icon'], element.getElementsByTagName('icon')[0], menu)
+		else:
+			denu_shared.buildDOM({'icon': {'file': new_icon}}, element, menu)
+	except:
+		pass
 	return "Successful."
 				
 def viewEntry(entryId, dom="menu"):

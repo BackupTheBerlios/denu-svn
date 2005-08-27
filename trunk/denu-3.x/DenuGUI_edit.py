@@ -38,7 +38,7 @@ def init(widget):
 		installed_iterList.append(iter)
 	treeselection2 = installedview.get_selection()
 	treeselection2.selected_foreach(createInstalledList)
-	global id
+	global id,iter
 	if len(menu_iterList) > 0:
 		model = menustore
 		iter = menu_iterList[0]
@@ -66,27 +66,54 @@ def init(widget):
 		xml.get_widget("command").set_text(entry[type]['command'])
 	#Icon
 	#debugPrint(xml.get_widget("image").get_title())
+	global icon,icon_fn
+	icon_fn = ""
+	icon = gtk.Image()
+	icon.show()
+	xml.get_widget("image").add(icon)
 	if entry[type].has_key('icon'):
-		#if entry[type]['icon'].has_key('file'):
-		#	xml.get_widget("image").set_label(entry[type]['icon']['file'])
-		#elif entry[type]['icon'].has_key('url'):
-		#	xml.get_widget("image").set_label(entry[type]['icon']['url'])
 		if pixbuf_manager(entry[type]['icon']) != "Error: no file.":
-			icon = gtk.Image()
 			icon.set_from_pixbuf(pixbuf_manager(entry[type]['icon']))
-			icon.show()
-			xml.get_widget("image").add(icon)
-	else:
-		xml.get_widget("image").set_label('None.')
-	xml.signal_autoconnect({'destroy' : destroy, 'edit' : edit})
+	xml.signal_autoconnect({'destroy' : destroy, 'edit' : edit, 'select_fn' : sfn_init})
 	xml.get_widget("edit_window").show()
 	
 def edit (widget):
 	global id
 	global xml
+	global icon_fn
 	name = xml.get_widget("name").get_text()
 	type = xml.get_widget("type").get_text()
 	command = xml.get_widget("command").get_text()
-	entry = {type : {'name' : {config.get('DEFAULT', 'locale') : name}, 'command' : command}}
-	debugPrint("Edit " + type)
+	if not icon_fn =="":
+		entry = {type : {'name' : {config.get('DEFAULT', 'locale') : name}, 'command' : command, 'icon' : {'file': icon_fn}}}
+	else:
+		entry = {type : {'name' : {config.get('DEFAULT', 'locale') : name}, 'command' : command}}
 	libDenu.editEntry(entry,id)
+	if not menustore.get(iter, 1) == name:
+		menustore.set(iter, 1, name)
+	if not icon_fn == "":
+		if not menustore.get(iter, 0) == pixbuf_manager({"file" : icon_fn}):
+			menustore.set(iter, 0, pixbuf_manager({"file" : icon_fn}))
+	#if not menustore.get(iter,0) == pixbuf_manager(entry[type]['icon']))
+	destroy(widget)
+
+def sfn_init(widget):
+	global xml2
+	debugPrint("Show file chooser dialog.")
+	xml2 = gtk.glade.XML(config.get('DEFAULT', 'default') + 'glade/edit.glade')
+	window = xml2.get_widget("icon_fn")
+	xml2.signal_autoconnect({
+	#'destroy' : destroy,
+	'selected_fn' : select_icon
+	})
+	window.show()
+	
+def select_icon(widget):
+	global xml2,icon_fn,icon
+	debugPrint("File selected.")
+	window = xml2.get_widget("icon_fn")
+	filename = window.get_filename()
+	icon_fn = str(filename)
+	debugPrint("Icon fn now: " + icon_fn)
+	icon.set_from_pixbuf(pixbuf_manager({"file" : icon_fn}))
+	window.destroy()

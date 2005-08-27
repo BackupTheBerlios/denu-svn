@@ -39,6 +39,11 @@
 				Darimasen
 			</en>
 		</name>
+		<icon>
+			<file>
+				/usr/share/pixmaps/apple-green.png
+			</file>
+		</icon>
 	</program>
 	<folder>
 		<name>
@@ -1169,6 +1174,125 @@
 				</file>
 			</icon>
 		</program>
+	</folder>
+	<folder>
+		<name>
+			<en>
+				Tasks
+			</en>
+		</name>
+		<folder>
+			<name>
+				<en>
+					Work
+				</en>
+			</name>
+			<program>
+				<command>
+					firefox
+				</command>
+				<name>
+					<en>
+						Firefox
+					</en>
+				</name>
+				<icon>
+					<file>
+						firefox-icon.png
+					</file>
+				</icon>
+			</program>
+			<program>
+				<command>
+					thunderbird
+				</command>
+				<name>
+					<en>
+						Thunderbird
+					</en>
+				</name>
+				<icon>
+					<file>
+						thunderbird-icon.png
+					</file>
+				</icon>
+			</program>
+			<program>
+				<command>
+					gedit
+				</command>
+				<name>
+					<en>
+						gedit
+					</en>
+				</name>
+				<icon>
+					<file>
+						gedit-icon.png
+					</file>
+				</icon>
+			</program>
+			<program>
+				<command>
+					gftp
+				</command>
+				<name>
+					<en>
+						gftp
+					</en>
+				</name>
+				<icon>
+					<file>
+						gftp.png
+					</file>
+				</icon>
+			</program>
+			<program>
+				<command>
+					gqview
+				</command>
+				<name>
+					<en>
+						GQView
+					</en>
+				</name>
+				<icon>
+					<file>
+						gqview.png
+					</file>
+				</icon>
+			</program>
+			<program>
+				<command>
+					gimp-2.2
+				</command>
+				<name>
+					<en>
+						Gimp-2.2
+					</en>
+				</name>
+				<icon>
+					<file>
+						gimp.png
+					</file>
+				</icon>
+			</program>
+			<program>
+				<command>
+					gaim
+				</command>
+				<name>
+					<en>
+						Gaim
+					</en>
+				</name>
+				<icon>
+					<file>
+						gaim.png
+					</file>
+				</icon>
+			</program>
+		</folder>
 	</folder>
 	<special>
 		<content>

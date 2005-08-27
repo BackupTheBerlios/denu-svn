@@ -49,7 +49,7 @@ def add_entry (widget):
 	if not command == "" and not type == 0:
 		entry[type_array[type]]['command'] = command
 	elif not type == 0:
-		pass #Stop, required.
+		pass
 	
 	#Portage ID
 	pid = xml.get_widget("add_pid").get_text()
@@ -94,7 +94,7 @@ def add_entry (widget):
 		id = libDenu.addEntry(entry, parent)[0]
 		if entry[entry.keys()[0]].has_key('icon'):
 			if not DenuGUI_common.pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')) == "Error: no file.":
-				menustore.append(None, [DenuGUI_common.pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
+				menustore.append(None, [pixbuf_manager(entry[entry.keys()[0]]['icon'], config.getint('DEFAULT', 'pixbuf_size')), name, id])
 			else:
 				menustore.append(None, [None, name, id])
 		else:
